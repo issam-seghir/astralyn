@@ -1,0 +1,61 @@
+@use "sass:meta";
+
+// * abstracts < base < ...
+// ! "!important" is in reverse order (just avoid to use it )
+@layer abstracts,base ,components ,utilities,utilities-override;
+
+// * Third party mixins
+@import "gerillass";
+@import "@syncfusion/ej2-base/styles/material.css";
+@import "@syncfusion/ej2-react-grids/styles/grid/material.css";
+
+@layer abstracts {
+	@include meta.load-css("abstracts");
+}
+
+@layer base {
+	@include meta.load-css("base");
+}
+
+@layer components {
+	@include meta.load-css("components");
+}
+
+@layer utilities {
+	@include meta.load-css("utilities");
+}
+
+@layer utilities-override {
+	@include meta.load-css("utilities-override");
+}
+
+
+
+// * old method: this does not solve specifications css problem
+// *    for example if the "abstract" has a style is higher specifications then the same style in the "base" is not overridden
+// *    use new shiny css feature "@layer" to fix specifications issues ..
+// *    to wrap @use in layer use "meta.load-css" mixins from 'sass:meta'
+
+// 1. Configuration and helpers
+// @use "abstracts";
+
+// 2. Base stuff
+// @use "base";
+
+// 3. Components
+// @use "components";
+
+// 4. Layout-related sections
+// @use "layout";
+
+// 5. Page-specific styles
+// @use "pages";
+
+// 6. Themes styles
+// @use "themes";
+
+// 7. Frameworks / library's
+// @use "utilities";
+
+// 8. Overrides Frameworks / library's
+// @use "utilities-override";

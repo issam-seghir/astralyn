@@ -1,0 +1,944 @@
+@use "sass:math";
+@use "sass:string";
+@use "sass:list";
+@use "variables" as *;
+@use "functions" as *;
+
+
+@mixin on-event($self: false) {
+	@if $self {
+		&,
+		&:hover,
+		&:active,
+		&:focus,
+		&:focus-within {
+			@content;
+		}
+	} @else {
+		&:hover,
+		&:active,
+		&:focus,
+		&:focus-within {
+			@content;
+		}
+	}
+}
+
+/// Make a context based selector a little more friendly
+/// @author Kitty Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+	#{$context} & {
+		@content;
+	}
+}
+
+@mixin flex-center() {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin grid-center() {
+	display: grid;
+	place-items: center;
+}
+
+//* -------------- Custom Mixins ---------------------
+
+///?  Mixin: rdg-text
+@mixin rdg-text( $direction: center,$colors...) {
+  background: radial-gradient(at #{$direction}, $colors);
+background-clip: text;
+-webkit-background-clip: text;
+color: transparent;
+-webkit-text-fill-color: transparent;
+}
+.element {
+  @include rdg-text(top-left, red, orange);
+}
+
+
+
+///?  Mixin: pseudo
+///? Create a CSS pseudo-element with custom properties.
+///
+/// This mixin simplifies the creation of CSS pseudo-elements like `::before` or
+/// `::after` with customizable properties such as content, position, and placement.
+///
+/// @param {string} [$content: ''] - The content property value for the pseudo-element.
+/// @param {length} [$top: 0] - The top property value for positioning.
+/// @param {length} [$bottom: 0] - The bottom property value for positioning.
+/// @param {length} [$left: 0] - The left property value for positioning.
+/// @param {length} [$right: 0] - The right property value for positioning.
+/// @param {string} [$loc: 'before'] - The pseudo-element location (e.g., 'before' or 'after').
+/// @param {string} [$pos: 'absolute'] - The position property value for the pseudo-element.
+///
+/// @example
+///  /* Create a custom 'before' pseudo-element with content and custom positioning. */
+///   .custom-element {
+///     @include pseudo('Hello, World!', 10px, 'auto', 'auto', 20px, 'before', 'absolute') {
+///       background-color: #f00;
+///     }
+///   }
+///
+/// @access public
+@mixin pseudo(
+  $content: '',
+  $top: 0,
+  $bottom: 0,
+  $left: 0,
+  $right: 0,
+  $loc: 'before',
+  $pos: 'absolute'
+) {
+  position: relative;
+
+  &::#{$loc} {
+    content: $content;
+    position: #{$pos};
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+
+    @content; // Additional CSS properties can be added here.
+  }
+}
+
+
+
+/// ------------------------------------------------------------------
+///?  Mixin: mq
+///? Apply styles based on responsive breakpoints.
+///
+/// This mixin simplifies the creation of responsive designs by allowing you to
+/// apply styles specific to different breakpoints.
+///
+/// @param {string} $breakpoint - The target breakpoint (e.g., 'sm', 'md', 'lg', 'xl', '2xl').
+///
+/// @example
+///   /* Apply different widths to an element based on breakpoints. */
+///   .element {
+///     width: 100%;
+///
+///     @include mq(sm) {
+///       width: 50%;
+///     }
+///
+///     @include mq(md) {
+///       width: 70%;
+///     }
+///
+///     @include mq(lg) {
+///       width: 80%;
+///     }
+///
+///     @include mq(xl) {
+///       width: 90%;
+///     }
+///
+///     @include mq('2xl') {
+///       width: 100%;
+///     }
+///   }
+///
+/// @access public
+
+@mixin mq($breakpoint) {
+  // Check if the specified breakpoint exists in the $breakpoints map.
+  @if map-has-key($breakpoints, $breakpoint) {
+    $min-width: map-get($breakpoints, $breakpoint);
+
+    // Apply the styles within a media query based on the breakpoint.
+    @media (min-width: $min-width) {
+      @content;
+    }
+  } @else {
+    @warn "Invalid breakpoint: #{$breakpoint}.";
+  }
+}
+
+
+
+
+//* -------------- bourbon Mixins ---------------------
+
+///? Helper Function
+/// Append pseudo-classes to a selector(s).
+///
+/// @argument {list | string} $inputs
+///   A selector, or list of selectors, to apply the pseudo-class to.
+///
+/// @argument {pseudo-class} $pseudo [null]
+///   The pseudo-class to be appended.
+///
+/// @return {list}
+///
+/// @access private
+
+@function _assign-inputs(
+  $inputs,
+  $pseudo: null
+) {
+  $list: ();
+
+  @each $input in $inputs {
+    $input: unquote($input);
+    $input: if($pseudo, $input + ":" + $pseudo, $input);
+    $list: append($list, $input, comma);
+  }
+
+  @return $list;
+}
+
+///?  Mixin:  style all buttons types
+///? A list of all HTML button elements. Please note that you must interpolate
+///? the variable (`#{}`) to use it as a selector.
+///
+/// @example scss
+///   #{$all-buttons} {
+///     background-color: #f00;
+///   }
+///
+///   /* CSS Output */
+///   button,
+///   [type='button'],
+///   [type='reset'],
+///   [type='submit'] {
+///     background-color: #f00;
+///   }
+
+///* A list of all HTML button elements with the `:active` pseudo-class applied.
+/// Please note that you must interpolate the variable (`#{}`) to use it as a
+/// selector.
+///
+/// @example scss
+///   #{$all-buttons-active} {
+///     background-color: #00f;
+///   }
+///
+///   /*  CSS Output */
+///   button:active,
+///   [type='button']:active,
+///   [type='reset']:active,
+///   [type='submit']:active {
+///     background-color: #00f;
+///   }
+
+
+///* A list of all HTML button elements with the `:focus` pseudo-class applied.
+/// Please note that you must interpolate the variable (`#{}`) to use it as a
+/// selector.
+///
+/// @example scss
+///   #{$all-buttons-focus} {
+///     background-color: #0f0;
+///   }
+///
+///  /* CSS Output */
+///   button:focus,
+///   [type='button']:focus,
+///   [type='reset']:focus,
+///   [type='submit']:focus {
+///     background-color: #0f0;
+///   }
+
+///* A list of all HTML button elements with the `:hover` pseudo-class applied.
+/// Please note that you must interpolate the variable (`#{}`) to use it as a
+/// selector.
+///
+/// @example scss
+///   #{$all-buttons-hover} {
+///     background-color: #0f0;
+///   }
+///
+///   /* CSS Output */
+///   button:hover,
+///   [type='button']:hover,
+///   [type='reset']:hover,
+///   [type='submit']:hover {
+///     background-color: #0f0;
+///   }
+
+$_buttons-list: (
+  "button",
+  "[type='button']",
+  "[type='reset']",
+  "[type='submit']",
+);
+
+$all-buttons: _assign-inputs($_buttons-list);
+$all-buttons-active: _assign-inputs($_buttons-list, active);
+$all-buttons-focus: _assign-inputs($_buttons-list, focus);
+$all-buttons-hover: _assign-inputs($_buttons-list, hover);
+
+
+
+/// ------------------------------------------------------------------
+///?  Mixin:  style all input types
+///? A list of all _text-based_ HTML inputs. Please note that you must
+///? interpolate the variable (`#{}`) to use it as a selector.
+///
+/// @example scss
+///   #{$all-text-inputs} {
+///     border: 1px solid #ccc;
+///   }
+///
+///   /* CSS Output */
+///   [type='color'],
+///   [type='date'],
+///   [type='datetime'],
+///   [type='datetime-local'],
+///   [type='email'],
+///   [type='month'],
+///   [type='number'],
+///   [type='password'],
+///   [type='search'],
+///   [type='tel'],
+///   [type='text'],
+///   [type='time'],
+///   [type='url'],
+///   [type='week'],
+///   input:not([type]),
+///   textarea {
+///     border: 1px solid #ccc;
+///   }
+
+///* A list of all _text-based_ HTML inputs with the `:active` pseudo-class
+/// applied. Please note that you must interpolate the variable (`#{}`) to use
+/// it as a selector.
+///
+/// @example scss
+///   #{$all-text-inputs-active} {
+///     border: 1px solid #aaa;
+///   }
+///
+///   /* CSS Output */
+///   [type='color']:active,
+///   [type='date']:active,
+///   [type='datetime']:active,
+///   [type='datetime-local']:active,
+///   [type='email']:active,
+///   [type='month']:active,
+///   [type='number']:active,
+///   [type='password']:active,
+///   [type='search']:active,
+///   [type='tel']:active,
+///   [type='text']:active,
+///   [type='time']:active,
+///   [type='url']:active,
+///   [type='week']:active,
+///   input:not([type]):active,
+///   textarea:active {
+///     border: 1px solid #aaa;
+///   }
+
+
+///* A list of all _text-based_ HTML inputs with the `:focus` pseudo-class
+/// applied. Please note that you must interpolate the variable (`#{}`) to use
+/// it as a selector.
+///
+/// @example scss
+///   #{$all-text-inputs-focus} {
+///     border: 1px solid #1565c0;
+///   }
+///
+///   /* CSS Output */
+///   [type='color']:focus,
+///   [type='date']:focus,
+///   [type='datetime']:focus,
+///   [type='datetime-local']:focus,
+///   [type='email']:focus,
+///   [type='month']:focus,
+///   [type='number']:focus,
+///   [type='password']:focus,
+///   [type='search']:focus,
+///   [type='tel']:focus,
+///   [type='text']:focus,
+///   [type='time']:focus,
+///   [type='url']:focus,
+///   [type='week']:focus,
+///   input:not([type]):focus,
+///   textarea:focus {
+///     border: 1px solid #1565c0;
+///   }
+
+
+///* A list of all _text-based_ HTML inputs with the `:hover` pseudo-class
+/// applied. Please note that you must interpolate the variable (`#{}`) to use
+/// it as a selector.
+///
+/// @example scss
+///   #{$all-text-inputs-hover} {
+///     border: 1px solid #aaa;
+///   }
+///
+///   /* CSS Output */
+///   [type='color']:hover,
+///   [type='date']:hover,
+///   [type='datetime']:hover,
+///   [type='datetime-local']:hover,
+///   [type='email']:hover,
+///   [type='month']:hover,
+///   [type='number']:hover,
+///   [type='password']:hover,
+///   [type='search']:hover,
+///   [type='tel']:hover,
+///   [type='text']:hover,
+///   [type='time']:hover,
+///   [type='url']:hover,
+///   [type='week']:hover,
+///   input:not([type]):hover,
+///   textarea:hover {
+///     border: 1px solid #aaa;
+///   }
+
+
+///* A list of all _text-based_ HTML inputs with the `:invalid` pseudo-class
+/// applied. Please note that you must interpolate the variable (`#{}`) to use
+/// it as a selector.
+///
+/// @example scss
+///   #{$all-text-inputs-invalid} {
+///     border: 1px solid #00f;
+///   }
+///
+///   /* CSS Output */
+///   [type='color']:invalid,
+///   [type='date']:invalid,
+///   [type='datetime']:invalid,
+///   [type='datetime-local']:invalid,
+///   [type='email']:invalid,
+///   [type='month']:invalid,
+///   [type='number']:invalid,
+///   [type='password']:invalid,
+///   [type='search']:invalid,
+///   [type='tel']:invalid,
+///   [type='text']:invalid,
+///   [type='time']:invalid,
+///   [type='url']:invalid,
+///   [type='week']:invalid,
+///   input:not([type]):invalid,
+///   textarea:invalid {
+///     border: 1px solid #00f;
+///   }
+
+$_text-inputs-list: (
+  "[type='color']",
+  "[type='date']",
+  "[type='datetime']",
+  "[type='datetime-local']",
+  "[type='email']",
+  "[type='month']",
+  "[type='number']",
+  "[type='password']",
+  "[type='search']",
+  "[type='tel']",
+  "[type='text']",
+  "[type='time']",
+  "[type='url']",
+  "[type='week']",
+  "input:not([type])",
+  "textarea",
+);
+
+$all-text-inputs: _assign-inputs($_text-inputs-list);
+$all-text-inputs-active: _assign-inputs($_text-inputs-list, active);
+$all-text-inputs-focus: _assign-inputs($_text-inputs-list, focus);
+$all-text-inputs-hover: _assign-inputs($_text-inputs-list, hover);
+$all-text-inputs-invalid: _assign-inputs($_text-inputs-list, invalid);
+
+
+
+
+/// ------------------------------------------------------------------
+///? Mixin: ellipsis
+///? Truncates text and adds an ellipsis to represent overflow.
+///
+/// @argument {number} $width [100%]
+///   The `max-width` for the string to respect before being truncated.
+///
+/// @argument {string} $display [inline-block]
+///   Sets the display-value of the element.
+///
+/// @example scss
+///   .element {
+///     @include ellipsis;
+///   }
+///
+///   /* CSS Output */
+///   .element {
+///     display: inline-block;
+///     max-width: 100%;
+///     overflow: hidden;
+///     text-overflow: ellipsis;
+///     white-space: nowrap;
+///     word-wrap: normal;
+///   }
+
+/* @mixin ellipsis(
+  $width: 100%,
+  $display: inline-block
+) {
+  display: $display;
+  max-width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+} */
+
+
+
+/// ------------------------------------------------------------------
+///? Mixin: triangle
+///? Generates a triangle pointing in a specified direction.
+///
+/// @argument {string} $direction
+///   The direction the triangle should point. Accepts `up`, `up-right`,
+///   `right`, `down-right`, `down`, `down-left`, `left` or `up-left`.
+///
+/// @argument {number (with unit)} $width
+///   Width of the triangle.
+///
+/// @argument {number (with unit)} $height
+///   Height of the triangle.
+///
+/// @argument {color} $color
+///   Color of the triangle.
+///
+/// @example scss
+///   .element {
+///     &::before {
+///       @include triangle("up", 2rem, 1rem, #b25c9c);
+///       content: "";
+///     }
+///   }
+///
+///   /* CSS Output */
+///   .element::before {
+///     border-style: solid;
+///     height: 0;
+///     width: 0;
+///     border-color: transparent transparent #b25c9c;
+///     border-width: 0 1rem 1rem;
+///     content: "";
+///   }
+
+/* @mixin triangle(
+  $direction,
+  $width,
+  $height,
+  $color
+) {
+  @if not index(
+    "up" "up-right" "right" "down-right" "down" "down-left" "left" "up-left",
+    $direction
+  ) {
+    @error "Direction must be `up`, `up-right`, `right`, `down-right`, " +
+      "`down`, `down-left`, `left` or `up-left`.";
+  } @else if not _is-color($color) {
+    @error "`$color` is not a valid color for the `$color` argument in " +
+      "the `triangle` mixin.";
+  } @else {
+    border-style: solid;
+    height: 0;
+    width: 0;
+
+    @if $direction == "up" {
+      border-color: transparent transparent $color;
+      border-width: 0 ($width / 2) $height;
+    } @else if $direction == "up-right" {
+      border-color: transparent $color transparent transparent;
+      border-width: 0 $width $width 0;
+    } @else if $direction == "right" {
+      border-color: transparent transparent transparent $color;
+      border-width: ($height / 2) 0 ($height / 2) $width;
+    } @else if $direction == "down-right" {
+      border-color: transparent transparent $color;
+      border-width: 0 0 $width $width;
+    } @else if $direction == "down" {
+      border-color: $color transparent transparent;
+      border-width: $height ($width / 2) 0;
+    } @else if $direction == "down-left" {
+      border-color: transparent transparent transparent $color;
+      border-width: $width 0 0 $width;
+    } @else if $direction == "left" {
+      border-color: transparent $color transparent transparent;
+      border-width: ($height / 2) $width ($height / 2) 0;
+    } @else if $direction == "up-left" {
+      border-color: $color transparent transparent;
+      border-width: $width $width 0 0;
+    }
+  }
+}
+ */
+
+
+//* -------------- scut mixins ---------------------
+
+
+///? Mixin: scut-strip-unit
+///? Remove the unit from a numeric value : scut-strip-unit(10px) => 10
+///
+/// This function takes a numeric value as input and returns the value without any
+/// unit. It's useful for stripping units like "px," "em," or "%" from numeric values.
+///
+/// @param {number} $num - The numeric value from which to remove the unit.
+///
+/// @return {number} - The numeric value without a unit.
+///
+/// @example
+///   /* Remove the unit from a pixel value. */
+///   $result: scut-strip-unit(20px); // Returns: 20
+///
+/// @example
+///   /*  Remove the unit from an em value. */
+///   $result: scut-strip-unit(2.5em); // Returns: 2.5
+///
+/// @access public
+///
+
+@function scut-strip-unit($num) {
+	@return math.div($num, $num * 0 + 1);
+}
+
+
+/// ------------------------------------------------------------------
+///? Mixin: scut-size
+///? Set both the width and height of an element.
+///
+/// This mixin provides a convenient way to set both the width and height of an element
+/// using a single value or a pair of values. It accepts either a single value to set
+/// both width and height, or two values to specify them individually.
+///
+/// @param {number|list} $size - The size for both width and height, or a list of two values.
+/// @example
+///   /* Set width and height to 2em. */
+///   .my-element {
+///     @include scut-size(2em);
+///   }
+///
+/// @example
+///   /* Set width to 30px and height to 40px. */
+///   .another-element {
+///     @include scut-size(30px 40px);
+///   }
+///
+/// @access public
+@mixin scut-size($size) {
+  @if length($size) == 1 {
+    width:  $size;
+    height: $size;
+  }
+  @else if length($size) == 2 {
+    width:  list.nth($size, 1);
+    height: list.nth($size, 2);
+  }
+}
+
+
+
+/// ------------------------------------------------------------------
+///? Mixin: scut-circle
+///? Create a circular element with customizable size and color.
+///
+/// This mixin generates CSS for creating circular elements. You can specify the
+/// size of the circle and its background color.
+///
+/// @param {number} $size - The size of the circular element.
+/// @param {string} [$color: inherit] - The background color of the circular element.
+///
+/// @example
+///   /* Create a circular element with a default color. */
+///   .circular-element {
+///     @include scut-circle(50px);
+///   }
+///
+/// @example
+///   /*  Create a circular element with a custom color. */
+///   .blue-circle {
+///     @include scut-circle(30px, #3498db);
+///   }
+///
+/// @example
+///   /* Create a circular element inheriting text color. */
+///   .inherited-circle {
+///     @include scut-circle(40px, inherit);
+///   }
+///
+/// @access public
+///
+@mixin scut-circle($size, $color: inherit) {
+	border-radius: 50%;
+	display: inline-block;
+
+	@if $color == inherit {
+		// If user wants to inherit the color,
+		// take advantage of the fact that border
+		// color defaults to the text color of the element.
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: $size * 0.5;
+	} @else {
+		// Otherwise, just use background-color.
+		width: $size;
+		height: $size;
+		background-color: $color;
+	}
+}
+
+
+/// ------------------------------------------------------------------
+///? Custom Mixin: swap-color
+///? Swap text color on hover or focus.
+///
+/// This mixin allows you to easily change the text color of an element on hover or
+/// focus. It sets the initial color and, if a transition duration is provided, adds
+/// a smooth transition effect.
+///
+/// @param {color} $from - The initial text color.
+/// @param {color} $to - The target text color on hover or focus.
+/// @param {number} $duration - The transition duration in seconds (0 for no transition).
+///
+/// @example
+///   /*  Change text color on hover with a 0.5s transition. */
+///   .my-element {
+///     @include swap-color(black, red, 0.5s);
+///   }
+///
+/// @access public
+@mixin swap-color($from, $to, $duration) {
+	color: $from;
+	// Only set-up transition if $duration != 0.
+	@if $duration != 0 {
+		transition: color $duration;
+	}
+
+	&:hover,
+	&:focus {
+		color: $to;
+	}
+}
+
+
+
+/// ------------------------------------------------------------------
+///? Custom Mixin: swap-bg-color
+///? Swap background color on hover or focus.
+///
+/// This mixin allows you to easily change the background color of an element on hover
+/// or focus. It sets the initial background color and, if a transition duration is
+/// provided, adds a smooth transition effect.
+///
+/// @param {color} $from - The initial background color.
+/// @param {color} $to - The target background color on hover or focus.
+/// @param {number} $duration - The transition duration in seconds (0 for no transition).
+///
+/// @example
+///   /*  Change background color on hover with a 0.5s transition. */
+///   .my-element {
+///     @include swap-bg-color(white, blue, 0.5s);
+///   }
+///
+/// @access public
+@mixin swap-bg-color($from, $to, $duration) {
+	background-color: $from;
+	// Only set-up transition if $duration != 0.
+	@if $duration != 0 {
+		transition: background-color $duration;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: $to;
+	}
+}
+
+
+
+/// ------------------------------------------------------------------
+//? Sass burger (https://github.com/jorenvanhee/sass-burger)
+///? burger menu in mobile with animation.
+
+// Burger parts
+//
+// (---) top    -> &::before
+// [---] middle -> &
+// (---) bottom -> &::after
+
+/// Burger
+/// @param {number} $width  [30px] - 宽度
+/// @param {number} $height  [5px] - 高度
+/// @param {Number} $gutter  [3px] - 间距
+/// @param {string} $color  [#000] - 线条颜色
+/// @param {number} $border-radius  [0] - 圆角
+/// @param {number} $transition-duration  [0] - 动效持续时间
+/// @example
+/// //SCSS
+/// .burger {
+///  @include burger;
+/// }
+/// //Output CSS
+/// .burger {
+///  position: relative;
+///  margin-top: 8px;
+///  margin-bottom: 8px;
+///  user-select: none;
+/// }
+/// .burger, .burger::before, .burger::after {
+///   display: block;
+///   width: 30px;
+///   height: 5px;
+///   background-color: #000;
+///   outline: 1px solid transparent;
+///   transition-property: background-color, transform;
+///   transition-duration: 0.3s;
+/// }
+/// .burger::before, .burger::after {
+///   position: absolute;
+///   content: "";
+/// }
+/// .burger::before {
+///   top: -8px;
+/// }
+/// .burger::after {
+///   top: 8px;
+/// }
+/// @author Joren Van Hee
+@mixin burger($width: 30px, $height: 5px, $gutter: 3px, $color: #000, $border-radius: 0, $transition-duration: .3s) {
+    $burger-height: $height !global;
+    $burger-gutter: $gutter !global;
+
+    position: relative;
+    margin-top: $height + $gutter;
+    margin-bottom: $height + $gutter;
+
+    user-select: none;
+
+    // 1. Fixes jagged edges in Firefox, see issue #10.
+    &,
+    &::before,
+    &::after {
+        display: block;
+        width: $width;
+        height: $height;
+        background-color: $color;
+        outline: 1px solid transparent; // 1
+        @if $border-radius != 0 {
+            border-radius: $border-radius;
+        }
+
+        transition-property: background-color, transform;
+        transition-duration: $transition-duration;
+    }
+
+    &::before, &::after {
+        position: absolute;
+        content: "";
+    }
+
+    &::before {
+        top: -($height + $gutter);
+    }
+
+    &::after {
+        top: $height + $gutter;
+    }
+}
+
+
+/// Select parts of the burger
+/// @example
+/// //SCSS
+/// .burger {
+///  @include burger-top {
+///    background-color: red;
+///  }
+/// }
+/// //Output CSS
+/// .burger,
+/// .burger::before,
+/// .burger::after {
+///  background-color: red;
+/// }
+@mixin burger-parts {
+    &,
+    &::before,
+    &::after {
+        @content;
+    }
+}
+
+/// @example
+/// //SCSS
+/// .burger {
+///  @include burger-top {
+///    background-color: red;
+///  }
+/// }
+/// //Output CSS
+/// .burger::before {
+///  background-color: red;
+/// }
+@mixin burger-top {
+    &::before {
+        @content;
+    }
+}
+/// @example
+/// //SCSS
+/// .burger {
+///  @include burger-middle {
+///    background-color: red;
+///  }
+/// }
+/// //Output CSS
+/// .burger {
+///  background-color: red;
+/// }
+@mixin burger-middle {
+    & {
+        @content;
+    }
+}
+/// @example
+/// //SCSS
+/// .burger {
+///  @include burger-bottom {
+///    background-color: red;
+///  }
+/// }
+/// //Output CSS
+/// .burger::after {
+///  background-color: red;
+/// }
+@mixin burger-bottom {
+    &::after {
+        @content;
+    }
+}
+
+
+/// Burger animations
+/// @param {String} $color - auto
+@mixin burger-to-cross($color: auto) {
+    & {
+        background-color: transparent;
+    }
+    @if ($color != auto) {
+        &::before, &::after {
+            background-color: $color;
+        }
+    }
+    &::before {
+        transform: translateY($burger-gutter + $burger-height) rotate(45deg);
+    }
+    &::after {
+        transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
+    }
+}
+
+
