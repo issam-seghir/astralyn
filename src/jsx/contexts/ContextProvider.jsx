@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 
-const StateContext = createContext();
+const ThemeContext = createContext();
 
 const initialState = {
 	chat: false,
@@ -31,8 +31,8 @@ export const ContextProvider = ({ children }) => {
 
 	return (
 		// eslint-disable-next-line react/jsx-no-constructed-context-values
-		<StateContext.Provider value={{ currentColor, currentMode, activeMenu, screenSize, setScreenSize, handleClick, isClicked, initialState, setIsClicked, setActiveMenu, setCurrentColor, setCurrentMode, setMode, setColor, themeSettings, setThemeSettings }}>{children}</StateContext.Provider>
+		<ThemeContext.Provider value={{ currentColor, currentMode, activeMenu, screenSize, setScreenSize, handleClick, isClicked, initialState, setIsClicked, setActiveMenu, setCurrentColor, setCurrentMode, setMode, setColor, themeSettings, setThemeSettings }}>{children}</ThemeContext.Provider>
 	);
 };
 
-export const useStateContext = () => useContext(StateContext);
+export const useThemeContext = () => useContext(ThemeContext);

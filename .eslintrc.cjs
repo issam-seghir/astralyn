@@ -51,6 +51,7 @@ module.exports = {
 					["@scss", "./src/scss"],
 					["@components", "./src/jsx/components"],
 					["@contexts", "./src/jsx/contexts"],
+					["@pages", "./src/jsx/pages"],
 					["@images", "./src/assets/images"],
 					["@svg", "./src/assets/svg"],
 				],

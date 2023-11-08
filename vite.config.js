@@ -23,7 +23,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => ({
 
 	server: {
 		// open the server with google chrome browser
-		open: (process.env.BROWSER = "E:\\Apps\\scoop\\apps\\googlechrome-dev\\current\\chrome.exe"),
+		// open: (process.env.BROWSER = "E:\\Apps\\scoop\\apps\\googlechrome-dev\\current\\chrome.exe"),
 	},
 	resolve: {
 		extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],

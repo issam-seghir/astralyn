@@ -1,13 +1,10 @@
-import ListItemNested from "@components/ListItemNested";
-import ModeToggle from "@components/ModeToggle";
+import ListItemButtonsNested from "@components/ListItemButtonsNested";
+import ListItemHeaderNested from "@components/ListItemHeaderNested";
 import AssignmentRoundedIcon from "@mui/icons-material/AssignmentRounded";
-import BrightnessAutoRoundedIcon from "@mui/icons-material/BrightnessAutoRounded";
 import CloseIcon from "@mui/icons-material/Close";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import HomeIcon from "@mui/icons-material/Home";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import QuestionAnswerRoundedIcon from "@mui/icons-material/QuestionAnswer";
-import SearchIcon from "@mui/icons-material/Search";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
@@ -19,20 +16,23 @@ import CardActions from "@mui/joy/CardActions";
 import Chip from "@mui/joy/Chip";
 import Divider from "@mui/joy/Divider";
 import IconButton from "@mui/joy/IconButton";
-import Input from "@mui/joy/Input";
 import LinearProgress from "@mui/joy/LinearProgress";
+import Link from "@mui/joy/Link";
 import List from "@mui/joy/List";
 import ListItem from "@mui/joy/ListItem";
 import ListItemButton from "@mui/joy/ListItemButton";
 import ListItemContent from "@mui/joy/ListItemContent";
 import ListItemDecorator from "@mui/joy/ListItemDecorator";
+import ListSubheader from "@mui/joy/ListSubheader";
 import Sheet from "@mui/joy/Sheet";
 import Typography from "@mui/joy/Typography";
+import { SiShopware } from "react-icons/si";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function SideBare({ show, toggleSideBar }) {
-
 	return (
 		<>
+			{/* Overlay background */}
 			<Box
 				sx={{
 					display: show ? "block" : "none",
@@ -52,8 +52,7 @@ export default function SideBare({ show, toggleSideBar }) {
 				}}
 				onClick={() => toggleSideBar()}
 			/>
-			<Sheet
-				variant="soft"
+			<Box
 				sx={{
 					display: "flex",
 					alignSelf: "stretch",
@@ -69,7 +68,6 @@ export default function SideBare({ show, toggleSideBar }) {
 					},
 					zIndex: 999,
 					inset: 0,
-					height: "100dvh",
 					transform: {
 						xs: show ? "translateX(0)" : "translateX(calc(100% * (var(--SideNavigation-slideIn, 0) - 1)))",
 						md: "none",
@@ -79,173 +77,153 @@ export default function SideBare({ show, toggleSideBar }) {
 					borderColor: "divider",
 				}}
 			>
-				<Box>
-					<Box sx={{ display: "flex", gap: 2, alignItems: "center", justifyContent: "center", mb: 3 }}>
-						<IconButton variant="soft" color="primary" size="sm">
-							<BrightnessAutoRoundedIcon />
-						</IconButton>
-						<Typography flex={1} level="title-lg">
-							Acme Co.
-						</Typography>
-						<ModeToggle />
-					</Box>
-					<Input sx={{ mb: 1.5 }} placeholder="Search" startDecorator={<SearchIcon />}></Input>
-					<List
-						size="md"
-						variant="plain"
-						sx={{
-							"--List-gap": "4px",
-							"--ListItem-radius": "7px",
-							"--ListItem-minHeight": "40px",
-							"--ListItem-paddingY": "5px",
-							"--ListItemDecorator-size": "43px",
-							"--List-nestedInsetStart": "calc(var(--ListItemDecorator-size))",
-						}}
-					>
+				<Box sx={{ display: "flex", gap: 3, p: 1.5 }}>
+					<Link component={RouterLink} to="/">
+						<SiShopware />
+					</Link>
+					<Typography flex={1} level="title-lg">
+						Shoppy
+					</Typography>
+				</Box>
+				<List
+					size="md"
+					sx={{
+						justifyContent: "space-between",
+						"--List-gap": "9px",
+						"--ListItem-radius": "7px",
+						"--ListItem-minHeight": "40px",
+						"--ListItem-paddingY": "5px",
+						"--ListItemDecorator-size": "43px",
+						"--List-nestedInsetStart": ".5rem",
+						".MuiListItem-nested": {
+							width: "80%", // Specify the desired width here
+						},
+					}}
+				>
+					<ListItemHeaderNested title={"DASHBOARD"}>
 						<ListItem>
-							<ListItemButton>
+							<ListItemButton color="primary" component={RouterLink} to="/" underline="none" selected>
 								<ListItemDecorator>
-									<HomeIcon />
+									<SiShopware />
 								</ListItemDecorator>
 								<ListItemContent>
-									<Typography level="title-sm">Home</Typography>
+									<Typography level="title-sm">Ecommerce</Typography>
 								</ListItemContent>
 							</ListItemButton>
 						</ListItem>
+					</ListItemHeaderNested>
+					<ListItemHeaderNested title={"PAGES"}>
 						<ListItem>
-							<ListItemButton>
+							<ListItemButton component={RouterLink} to="/orders" underline="none">
 								<ListItemDecorator>
 									<DashboardIcon />
 								</ListItemDecorator>
-								<Typography level="title-sm">Dashboard</Typography>
+								<Typography level="title-sm">Orders</Typography>
 							</ListItemButton>
 						</ListItem>
 						<ListItem>
-							<ListItemButton>
+							<ListItemButton component={RouterLink} to="/employees" underline="none">
 								<ListItemDecorator>
 									<ShoppingCartIcon />
 								</ListItemDecorator>
 								<ListItemContent>
-									<Typography level="title-sm">Order</Typography>
+									<Typography level="title-sm">Employees</Typography>
 								</ListItemContent>
 							</ListItemButton>
 						</ListItem>
-						<ListItemNested title="Tasks" level={"title-sm"} decorator={<AssignmentRoundedIcon />}>
-							<ListItem>
-								<ListItemButton>
-									<Typography level="title-sm">All Tasks</Typography>
-								</ListItemButton>
-							</ListItem>
-							<ListItem>
-								<ListItemButton>
-									<Typography level="title-sm">Backlog</Typography>
-								</ListItemButton>
-							</ListItem>
-							<ListItem>
-								<ListItemButton>
-									<Typography level="title-sm">In progress</Typography>
-								</ListItemButton>
-							</ListItem>
-							<ListItem>
-								<ListItemButton>
-									<Typography level="title-sm">Done</Typography>
-								</ListItemButton>
-							</ListItem>
-						</ListItemNested>
 						<ListItem>
-							<ListItemButton role="menuitem" component="a" href="#">
+							<ListItemButton component={RouterLink} to="/customers" underline="none">
 								<ListItemDecorator>
-									<QuestionAnswerRoundedIcon />
+									<ShoppingCartIcon />
 								</ListItemDecorator>
 								<ListItemContent>
-									<Typography level="title-sm">Messages</Typography>
+									<Typography level="title-sm">Customers</Typography>
 								</ListItemContent>
-								<Chip size="sm" color="primary" variant="solid">
-									4
-								</Chip>
 							</ListItemButton>
 						</ListItem>
-						<ListItemNested title="Users" level={"title-sm"} decorator={<AssignmentRoundedIcon />}>
-							<ListItem>
-								<ListItemButton>
-									<Typography level="title-sm">My profile</Typography>
-								</ListItemButton>
-							</ListItem>
-							<ListItem>
-								<ListItemButton>
-									<Typography level="title-sm">Create a new users</Typography>
-								</ListItemButton>
-							</ListItem>
-							<ListItem>
-								<ListItemButton>
-									<Typography level="title-sm">Roles & permissions</Typography>
-								</ListItemButton>
-							</ListItem>
-						</ListItemNested>
-					</List>
-				</Box>
-				<Box sx={{ mb: 2, display: "flex", flexDirection: "column", gap: 1.5 }}>
-					<List
-						size="md"
-						variant="plain"
-						sx={{
-							"--List-gap": "4px",
-							"--ListItem-radius": "7px",
-							"--ListItem-minHeight": "40px",
-							"--ListItem-paddingY": "5px",
-							"--ListItemDecorator-size": "43px",
-							"--ListDivider-gap": "6px",
-						}}
-					>
+					</ListItemHeaderNested>
+					<ListItemHeaderNested title={"APPS"}>
 						<ListItem>
-							<ListItemButton>
+							<ListItemButton component={RouterLink} to="/calendar" underline="none">
 								<ListItemDecorator>
-									<SupportAgentIcon />
+									<DashboardIcon />
+								</ListItemDecorator>
+								<Typography level="title-sm">Calendar</Typography>
+							</ListItemButton>
+						</ListItem>
+						<ListItem>
+							<ListItemButton component={RouterLink} to="/kanban" underline="none">
+								<ListItemDecorator>
+									<ShoppingCartIcon />
 								</ListItemDecorator>
 								<ListItemContent>
-									<Typography level="title-sm">Support</Typography>
+									<Typography level="title-sm">Kanban</Typography>
 								</ListItemContent>
 							</ListItemButton>
 						</ListItem>
 						<ListItem>
-							<ListItemButton>
+							<ListItemButton component={RouterLink} to="/editor" underline="none">
 								<ListItemDecorator>
-									<SettingsIcon />
+									<ShoppingCartIcon />
 								</ListItemDecorator>
-								<Typography level="title-sm">Settings</Typography>
+								<ListItemContent>
+									<Typography level="title-sm">Editor</Typography>
+								</ListItemContent>
 							</ListItemButton>
 						</ListItem>
-					</List>
-					<Card invertedColors variant="soft" color="warning" size="sm" sx={{ boxShadow: "none" }}>
-						<Box display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
-							<Typography level="title-sm">Used space</Typography>
-							<IconButton size="sm">
-								<CloseIcon />
-							</IconButton>
-						</Box>
-						<Typography pr={1.5} level="body-xs">
-							Your team has used 80% of your available space. Need more?
-						</Typography>
-						<LinearProgress color="warning" determinate size="md" value={80} variant="outlined" />
-						<CardActions>
-							<Button size="sm" color="warning" variant="solid">
-								Upgrade Plane
-							</Button>
-						</CardActions>
-					</Card>
-					<Divider />
-					<Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
-						<Avatar variant="outlined" size="sm" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=286" />
-						<Box sx={{ minWidth: 0, flex: 1 }}>
-							<Typography level="title-sm">Siriwat K.</Typography>
-							<Typography level="body-xs">siriwatk@test.com</Typography>
-						</Box>
-						<IconButton size="sm" variant="plain" color="neutral">
-							<LogoutRoundedIcon />
-						</IconButton>
-					</Box>
-				</Box>
-			</Sheet>
+						<ListItem>
+							<ListItemButton component={RouterLink} to="/color-picker" underline="none">
+								<ListItemDecorator>
+									<ShoppingCartIcon />
+								</ListItemDecorator>
+								<ListItemContent>
+									<Typography level="title-sm">Color Picker</Typography>
+								</ListItemContent>
+							</ListItemButton>
+						</ListItem>
+					</ListItemHeaderNested>
+					<ListItemHeaderNested title={"CHARTS"}>
+						<ListItem>
+							<ListItemButton component={RouterLink} to="/line" underline="none">
+								<ListItemDecorator>
+									<DashboardIcon />
+								</ListItemDecorator>
+								<Typography level="title-sm">Line</Typography>
+							</ListItemButton>
+						</ListItem>
+						<ListItem>
+							<ListItemButton component={RouterLink} to="/area" underline="none">
+								<ListItemDecorator>
+									<ShoppingCartIcon />
+								</ListItemDecorator>
+								<ListItemContent>
+									<Typography level="title-sm">Area</Typography>
+								</ListItemContent>
+							</ListItemButton>
+						</ListItem>
+						<ListItem>
+							<ListItemButton component={RouterLink} to="/bar" underline="none">
+								<ListItemDecorator>
+									<ShoppingCartIcon />
+								</ListItemDecorator>
+								<ListItemContent>
+									<Typography level="title-sm">Bar</Typography>
+								</ListItemContent>
+							</ListItemButton>
+						</ListItem>
+						<ListItem>
+							<ListItemButton component={RouterLink} to="/pie" underline="none">
+								<ListItemDecorator>
+									<ShoppingCartIcon />
+								</ListItemDecorator>
+								<ListItemContent>
+									<Typography level="title-sm">Pie</Typography>
+								</ListItemContent>
+							</ListItemButton>
+						</ListItem>
+					</ListItemHeaderNested>
+				</List>
+			</Box>
 		</>
 	);
 }

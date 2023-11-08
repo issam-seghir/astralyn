@@ -2,28 +2,95 @@
 import "@fontsource/inter";
 import "@scss/main.scss";
 
-// import "@syncfusion/ej2/base/material.scss";
-// import "@syncfusion/ej2/calendar/material.scss";
-// import "@syncfusion/ej2/drop-down-base/material.scss";
-// import "@syncfusion/ej2/drop-down-button/material.scss";
-// import "@syncfusion/ej2/drop-down-list/material.scss";
-// import "@syncfusion/ej2/drop-down-tree/material.scss";
-// import "@syncfusion/ej2/grid/material.scss";
-// import "@syncfusion/ej2/input/material.scss";
-// import "@syncfusion/ej2/kanban/material.scss";
-// import "@syncfusion/ej2/popup/material.scss";
-// import "@syncfusion/ej2/rich-text-editor/material.scss";
-// import "@syncfusion/ej2/schedule/material.scss";
+import { ContextProvider } from "@contexts/ContextProvider";
+import App from "@pages/App";
+import Area from "@pages/Area";
+import Bar from "@pages/Bar";
+import Calendar from "@pages/Calendar";
+import ColorPicker from "@pages/ColorPicker";
+import Customers from "@pages/Customers";
+import Ecommerce from "@pages/Ecommerce";
+import Editor from "@pages/Editor";
+import Employees from "@pages/Employees";
+import Error from "@pages/Error";
+import Kanban from "@pages/Kanban";
+import Line from "@pages/Line";
+import Loading from "@pages/Loading";
+import Orders from "@pages/Orders";
+import Pie from "@pages/Pie";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import App from "./App";
-import { ContextProvider } from "./contexts/ContextProvider";
+const router = createBrowserRouter(
+	[
+		{
+			path: "/",
+			element: <App />,
+			errorElement: <Error />,
+			children: [
+				{
+					index: true,
+					element: <Ecommerce />,
+				},
+				{
+					path: "ecommerce",
+					element: <Ecommerce />,
+				},
+				{
+					path: "orders",
+					element: <Orders />,
+				},
+				{
+					path: "employees",
+					element: <Employees />,
+				},
+				{
+					path: "customers",
+					element: <Customers />,
+				},
+				{
+					path: "calendar",
+					element: <Calendar />,
+				},
+				{
+					path: "kanban",
+					element: <Kanban />,
+				},
+				{
+					path: "editor",
+					element: <Editor />,
+				},
+				{
+					path: "color-picker",
+					element: <ColorPicker />,
+				},
+				{
+					path: "line",
+					element: <Line />,
+				},
+				{
+					path: "area",
+					element: <Area />,
+				},
+				{
+					path: "bar",
+					element: <Bar />,
+				},
+				{
+					path: "pie",
+					element: <Pie />,
+				},
+			],
+		},
+	],
+	{ basename: "/React-Project/" }
+);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
 		<ContextProvider>
-			<App />
+			<RouterProvider router={router} fallbackElement={<Loading />} />
 		</ContextProvider>
 	</React.StrictMode>
 );

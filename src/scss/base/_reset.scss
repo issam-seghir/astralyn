@@ -22,6 +22,7 @@ body {
 	line-height: 1.5;
 }
 
+
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role="list"],
 ol[role="list"] {
@@ -29,7 +30,7 @@ ol[role="list"] {
 }
 
 /* add curser pointure for buttons roles */
-*[role="button"]{
+*[role="button"] {
 	cursor: pointer;
 	padding: 1rem;
 }
@@ -216,9 +217,10 @@ strong {
 	font-weight: bolder;
 }
 
-
 /* fix hidden attribute  */
-[hidden] { display: none; }
+[hidden] {
+	display: none;
+}
 
 [type="button"],
 [type="reset"],
