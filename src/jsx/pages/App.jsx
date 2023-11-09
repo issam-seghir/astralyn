@@ -3,6 +3,7 @@ import Sidebar from "@components/SideBare";
 import { useThemeContext } from "@contexts/ContextProvider";
 import Box from "@mui/joy/Box";
 import IconButton from "@mui/joy/IconButton";
+import { listItemButtonClasses } from "@mui/joy/ListItemButton";
 import Sheet from "@mui/joy/Sheet";
 import { CssVarsProvider, extendTheme } from "@mui/joy/styles";
 import Tooltip from "@mui/joy/Tooltip";
@@ -11,30 +12,60 @@ import { FiSettings } from "react-icons/fi";
 import { Outlet } from "react-router-dom";
 
 const MyTheme = extendTheme({
-	colorSchemes: {
-		typography: {
-			fontFamily: {
-				display: "Noto Sans", // applies to `h1`–`h4`
-				body: "Noto Sans", // applies to `title-*` and `body-*`
-			},
-			h1: {
-				// `--joy` is the default CSS variable prefix.
-				// If you have a custom prefix, you have to use it instead.
-				// For more details about the custom prefix, go to https://mui.com/joy-ui/customization/using-css-variables/#custom-prefix
-				background: "linear-gradient(-30deg, var(--joy-palette-primary-700), var(--joy-palette-primary-400))",
-				// `Webkit*` properties must come later.
-				WebkitBackgroundClip: "text",
-				WebkitTextFillColor: "transparent",
-			},
-			kbd: {
-				background: "linear-gradient(to top, var(--joy-palette-background-level2), var(--joy-palette-background-surface))",
-				border: "1px solid var(--joy-palette-neutral-outlinedBorder)",
-				borderRadius: "var(--joy-radius-xs)",
-				boxShadow: "var(--joy-shadow-sm)",
-				padding: "0.125em 0.375em",
-			},
+	// Every Joy UI CSS variable is prefixed with joy by default.
+	// cssVarPrefix: 'company',
+	// or remove it :
+	// cssVarPrefix: ''
+	shadow: {
+		// xs ... xl: "{CSS box-shadow}" defualt,
+		// xxl: "",
+	},
+	typography: {
+		fontFamily: {
+			display: "Noto Sans,var(--joy-fontFamily-fallback)", // applies to `h1`–`h4`
+			body: "Noto Sans,var(--joy-fontFamily-fallback)", // applies to `title-*` and `body-*`
 		},
+		h1: {
+			background: "linear-gradient(-30deg, var(--joy-palette-primary-700), var(--joy-palette-primary-400))",
+			WebkitBackgroundClip: "text",
+			WebkitTextFillColor: "transparent",
+		},
+		h2: {
+			background: "linear-gradient(-30deg, var(--joy-palette-primary-700), var(--joy-palette-primary-400))",
+			WebkitBackgroundClip: "text",
+			WebkitTextFillColor: "transparent",
+		},
+		h3: {
+			background: "rgba(var(--joy-palette-primary-mainChannel) / 0.72)",
+		},
+		kbd: {
+			background: "var(--joy-palette-gradient-primary)",
+			border: "1px solid var(--joy-palette-neutral-outlinedBorder)",
+			borderRadius: "var(--joy-radius-xs)",
+			boxShadow: "var(--joy-shadow-sm)",
+			padding: "0.125em 0.375em",
+		},
+		heroTitle: {
+			fontSize: "42px",
+			lineHeight: "52px",
+		},
+		greetingTitle: {
+			fontSize: "32px",
+			lineHeight: "40px",
+		},
+		pageTitle: {
+			fontSize: "28px",
+			lineHeight: "36px",
+		},
+	},
+	colorSchemes: {
 		light: {
+			// This creates a 1px box-shadow.
+			// Customizing the theme's shadow ring will affect all Joy UI components that consume the theme's shadows.
+			// for only spicific component use :  boxShadow: theme.shadow.md,
+			shadowRing: "0 0 0 1px rgba(0 0 0 / 0.1)",
+			// box shadow color (must be on rgb !!)
+			shadowChannel: "12 12 12",
 			palette: {
 				gradient: {
 					primary: "linear-gradient(to top, var(--joy-palette-primary-main), #000)",
@@ -96,16 +127,36 @@ const MyTheme = extendTheme({
 				useFlexGap: true /* uses flexbox gap by default */,
 			},
 		},
+		JoyTypography: {
+			defaultProps: {
+				level: "bodyText",
+				// root component for every level
+				levelMapping: {
+					heroTitle: "h1", // <h1 level={"heroTitle"}>  text </h1>
+					greetingTitle: "h1",
+					pageTitle: "h2",
+					kdb: "kdb",
+					bodyText: "p",
+					"body-lg": "span",
+				},
+			},
+		},
 		JoyListItemButton: {
+			defaultProps: {
+				variant: "outlined",
+				color: "primary",
+			},
 			styleOverrides: {
+				// `ownerState` contains the component props and internal state
 				root: ({ theme, ownerState }) => ({
-					color: "red",
 					transition: "color .15s ease-in-out,transform .15s ease-in-out, background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out",
 					boxShadow: theme.shadow.lg,
 					"--joy-shadowChannel": theme.vars.palette.primary.mainChannel,
 					"--joy-shadowRing": "inset 0 -3px 0 rgba(0 0 0 / 0.24)",
 					"&:hover": {
 						boxShadow: theme.shadow.lg,
+						// change opacity of primary color
+						backgroundColor: `rgba(${theme.vars.palette.primary.mainChannel} / 0.1	)`,
 						transform: "translateY(-3px)",
 					},
 					"&:active": {
@@ -113,6 +164,47 @@ const MyTheme = extendTheme({
 						transform: "translateY(0px)",
 						"--joy-shadowRing": "0 0 #000",
 					},
+					...(ownerState.variant === "outlined" &&
+						ownerState.color === "primary" && {
+							borderStyle: "dashed",
+						}),
+					// Change styles based on state :
+					// The available states are: active, checked, completed, disabled, error, expanded, focused, focusVisible, readOnly, required, selected
+					[`&.${listItemButtonClasses.selected}`]: {
+						color: "rgba(255 255 255 / 0.7)",
+					},
+					// add new color for the component
+					...(ownerState.color === "special" && {
+						color: theme.vars.palette.text.secondary,
+						backgroundColor: theme.vars.palette.background.level1,
+					}),
+					// add new sizes for the component
+					...(ownerState.size === "xs" && {
+						"--Icon-fontSize": "1rem",
+						"--Button-gap": "0.25rem",
+						minHeight: "var(--Button-minHeight, 1.75rem)",
+						fontSize: theme.vars.fontSize.xs,
+						paddingBlock: "2px",
+						paddingInline: "0.5rem",
+					}),
+					// add style based on the mode :  the result is `[data-joy-color-scheme="dark"] &`
+					[theme.getColorSchemeSelector("light")]: {
+						boxShadow: "none",
+					},
+				}),
+			},
+		},
+		JoySheet: {
+			styleOverrides: {
+				root: ({ ownerState, theme }) => ({
+					// add new variant to the component
+					...(ownerState.variant === "glass" && {
+						color: theme.vars.palette.text.primary,
+						background: "rgba(255, 255, 255, 0.14)",
+						backdropFilter: "blur(5px)",
+						border: "1px solid rgba(255, 255, 255, 0.3)",
+						boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+					}),
 				}),
 			},
 		},
@@ -129,10 +221,10 @@ function App() {
 		}
 	}, []);
 	return (
-		<CssVarsProvider theme={MyTheme}>
+		<CssVarsProvider theme={MyTheme} defaultMode="system">
 			<Sheet variant="plain">
 				<Box position={"relative"} sx={{ display: "flex", height: " calc(100dvh - var(--variant-borderWidth) *2 )", alignItems: "stretch" }}>
-					<Tooltip title="setting" size="md" variant="solid" placement="top" arrow>
+					<Tooltip title="setting" size="md" varia	nt="solid" placement="top" arrow>
 						<IconButton color="success" size="lg" sx={{ zIndex: 2, borderRadius: "50%", p: ".5em", position: "absolute", right: 4, bottom: 4 }} onClick={() => setThemeSettings(!themeSettings)}>
 							<FiSettings />
 						</IconButton>

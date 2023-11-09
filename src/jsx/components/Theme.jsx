@@ -1,118 +1,71 @@
 import { extendTheme } from "@mui/joy/styles";
 
-const chakraTheme = extendTheme({
+
+const greenEmeraldTheme = extendTheme({
 	colorSchemes: {
 		light: {
 			palette: {
 				primary: {
-					solidBg: "#319795",
-					solidHoverBg: "#2C7A7B",
-					solidActiveBg: "#285E61",
-					outlinedColor: "#2C7A7B",
-					outlinedBorder: "#2C7A7B",
-					outlinedHoverBorder: undefined,
-					outlinedHoverBg: "#E6FFFA",
-					outlinedActiveBg: "#B2F5EA",
-				},
-				focusVisible: "rgba(66, 153, 225, 0.6)",
-			},
-		},
-	},
-	focus: {
-		default: {
-			outlineWidth: "3px",
-		},
-	},
-	fontFamily: {
-		body: "Inter, var(--chakra-fontFamily-fallback)",
-	},
-	components: {
-		JoyButton: {
-			styleOverrides: {
-				root: ({ theme, ownerState }) => ({
-					"&:focus": theme.focus.default,
-					fontWeight: 600,
-					...(ownerState.size === "md" && {
-						borderRadius: "0.375rem",
-						paddingInline: "1rem",
-					}),
-				}),
-			},
-		},
-		JoyStack: {
-			defaultProps: {
-				useFlexGap: true /* uses flexbox gap by default */,
-			},
-		},
-		JoyListItemButton:{
-			
-		}
-	},
-});
-
-export default chakraTheme;
-
-
-const githubTheme = extendTheme({
-	colorSchemes: {
-		light: {
-			palette: {
-				success: {
-					solidBg: "#2DA44E",
-					solidHoverBg: "#2C974B",
-					solidActiveBg: "#298E46",
+					50: "#ecfdf5",
+					100: "#d1fae5",
+					200: "#a7f3d0",
+					300: "#6ee7b7",
+					400: "#34d399",
+					500: "#10b981",
+					600: "#059669",
+					700: "#047857",
+					800: "#065f46",
+					900: "#064e3b",
 				},
 				neutral: {
-					outlinedBg: "#F6F8FA",
-					outlinedHoverBg: "#F3F4F6",
-					outlinedActiveBg: "rgba(238, 239, 242, 1)",
-					outlinedBorder: "rgba(27, 31, 36, 0.15)",
+					50: "#f8fafc",
+					100: "#f1f5f9",
+					200: "#e2e8f0",
+					300: "#cbd5e1",
+					400: "#94a3b8",
+					500: "#64748b",
+					600: "#475569",
+					700: "#334155",
+					800: "#1e293b",
+					900: "#0f172a",
 				},
-				focusVisible: "rgba(3, 102, 214, 0.3)",
 			},
 		},
-	},
-	focus: {
-		default: {
-			outlineWidth: "3px",
-		},
-	},
-	fontFamily: {
-		body: "SF Pro Text, var(--gh-fontFamily-fallback)",
-	},
-	components: {
-		JoyButton: {
-			styleOverrides: {
-				root: ({ ownerState }) => ({
-					borderRadius: "6px",
-					boxShadow: "0 1px 0 0 rgba(27, 31, 35, 0.04)",
-					transition: "80ms cubic-bezier(0.33, 1, 0.68, 1)",
-					transitionProperty: "color,background-color,box-shadow,border-color",
-					...(ownerState.size === "md" && {
-						fontWeight: 600,
-						minHeight: "32px",
-						fontSize: "14px",
-						"--Button-paddingInline": "1rem",
-					}),
-					...(ownerState.color === "success" &&
-						ownerState.variant === "solid" && {
-							"--gh-palette-focusVisible": "rgba(46, 164, 79, 0.4)",
-							border: "1px solid rgba(27, 31, 36, 0.15)",
-							"&:active": {
-								boxShadow: "inset 0px 1px 0px rgba(20, 70, 32, 0.2)",
-							},
-						}),
-					...(ownerState.color === "neutral" &&
-						ownerState.variant === "outlined" && {
-							"&:active": {
-								boxShadow: "none",
-							},
-						}),
-				}),
+		dark: {
+			palette: {
+				neutral: {
+					50: "#f9fafb",
+					100: "#f3f4f6",
+					200: "#e5e7eb",
+					300: "#d1d5db",
+					400: "#9ca3af",
+					500: "#6b7280",
+					600: "#4b5563",
+					700: "#374151",
+					800: "#1f2937",
+					900: "#111827",
+				},
+				primary: {
+					50: "#ecfdf5",
+					100: "#d1fae5",
+					200: "#a7f3d0",
+					300: "#6ee7b7",
+					400: "#34d399",
+					500: "#10b981",
+					600: "#059669",
+					700: "#047857",
+					800: "#065f46",
+					900: "#064e3b",
+					solidColor: "var(--joy-palette-primary-50)",
+				},
 			},
 		},
 	},
 });
+
+export default greenEmeraldTheme;
+
+
 
 
 const fluentTheme = extendTheme({
@@ -181,75 +134,4 @@ const fluentTheme = extendTheme({
 	},
 });
 
-const mantineTheme = extendTheme({
-	colorSchemes: {
-		light: {
-			palette: {
-				primary: {
-					solidBg: "#228be6",
-					solidHoverBg: "#1c7ed6",
-					solidActiveBg: undefined,
-					softColor: "#228be6",
-					softBg: "rgba(231, 245, 255, 1)",
-					softHoverBg: "rgba(208, 235, 255, 0.65)",
-					softActiveBg: undefined,
-					outlinedColor: "#228be6",
-					outlinedBorder: "#228be6",
-					outlinedHoverBg: "rgba(231, 245, 255, 0.35)",
-					outlinedHoverBorder: undefined,
-					outlinedActiveBg: undefined,
-				},
-			},
-		},
-	},
-	fontFamily: {
-		body: "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji",
-	},
-	focus: {
-		default: {
-			outlineWidth: "2px",
-			outlineOffset: "2px",
-			outlineColor: "#339af0",
-		},
-	},
-	components: {
-		JoyButton: {
-			styleOverrides: {
-				root: ({ ownerState }) => ({
-					transition: "initial",
-					borderRadius: "4px",
-					fontWeight: 600,
-					...(ownerState.size === "md" && {
-						minHeight: "36px",
-						fontSize: "14px",
-						paddingInline: "18px",
-					}),
-					"&:active": {
-						transform: "translateY(1px)",
-					},
-				}),
-			},
-		},
-	},
-});
 
-const theme = extendTheme({
-	colorSchemes: {
-		light: {
-			palette: {
-				// affects all Joy components that has `color="primary"` prop.
-				primary: {
-					50: "#fffbeb",
-					100: "#fef3c7",
-					200: "#fde68a",
-					// 300, 400, ..., 800,
-					900: "#78350f",
-				},
-			},
-		},
-	},
-	fontFamily: {
-		display: "Inter, var(--joy-fontFamily-fallback)",
-		body: "Inter, var(--joy-fontFamily-fallback)",
-	},
-});

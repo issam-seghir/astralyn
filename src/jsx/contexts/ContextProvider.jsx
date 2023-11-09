@@ -11,19 +11,18 @@ const initialState = {
 
 export const ContextProvider = ({ children }) => {
 	const [screenSize, setScreenSize] = useState();
-	const [currentColor, setCurrentColor] = useState("#03C9D7");
-	const [currentMode, setCurrentMode] = useState("Light");
+	const [selectedTheme, setSelectedTheme] = useState(null);
 	const [themeSettings, setThemeSettings] = useState(false);
 	const [activeMenu, setActiveMenu] = useState(true);
 	const [isClicked, setIsClicked] = useState(initialState);
 
 	const setMode = (e) => {
-		setCurrentMode(e.target.value);
+		// setCurrentMode(e.target.value);
 		localStorage.setItem("themeMode", e.target.value);
 	};
 
 	const setColor = (color) => {
-		setCurrentColor(color);
+		// setCurrentColor(color);
 		localStorage.setItem("colorMode", color);
 	};
 
@@ -31,7 +30,26 @@ export const ContextProvider = ({ children }) => {
 
 	return (
 		// eslint-disable-next-line react/jsx-no-constructed-context-values
-		<ThemeContext.Provider value={{ currentColor, currentMode, activeMenu, screenSize, setScreenSize, handleClick, isClicked, initialState, setIsClicked, setActiveMenu, setCurrentColor, setCurrentMode, setMode, setColor, themeSettings, setThemeSettings }}>{children}</ThemeContext.Provider>
+		<ThemeContext.Provider
+			value={{
+				selectedTheme,
+				setSelectedTheme,
+				activeMenu,
+				screenSize,
+				setScreenSize,
+				handleClick,
+				isClicked,
+				initialState,
+				setIsClicked,
+				setActiveMenu,
+				setMode,
+				setColor,
+				themeSettings,
+				setThemeSettings,
+			}}
+		>
+			{children}
+		</ThemeContext.Provider>
 	);
 };
 

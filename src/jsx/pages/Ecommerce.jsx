@@ -7,6 +7,7 @@ import { IoIosMore } from "react-icons/io";
 import { useThemeContext } from "@contexts/ContextProvider";
 import { SparklineAreaData, dropdownData, earningData, ecomPieChartData, medicalproBranding, recentTransactions, weeklyStats } from "../data/dummy";
 import product9 from "../data/product9.jpg";
+import  Typography  from '@mui/joy/Typography';
 
 const DropDown = ({ currentMode }) => (
 	<div className="w-28 border-1 border-color px-2 py-1 rounded-md">
@@ -23,16 +24,14 @@ const Ecommerce = () => {
 				<div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
 					<div className="flex justify-between items-center">
 						<div>
-							<p className="font-bold text-gray-400">Earnings</p>
+							<Typography level="h3" className="font-bold text-gray-400">Earnings</Typography>
 							<p className="text-2xl">$63,448.78</p>
 						</div>
 						<button type="button" style={{ backgroundColor: currentColor }} className="text-2xl opacity-0.9 text-white hover:drop-shadow-xl rounded-full  p-4">
 							<BsCurrencyDollar />
 						</button>
 					</div>
-					<div className="mt-6">
-						{/* <Button color="white" bgColor={currentColor} text="Download" borderRadius="10px" /> */}
-					</div>
+					<div className="mt-6">{/* <Button color="white" bgColor={currentColor} text="Download" borderRadius="10px" /> */}</div>
 				</div>
 				<div className="flex m-3 flex-wrap justify-center gap-1 items-center">
 					{earningData.map((item) => (
@@ -84,16 +83,10 @@ const Ecommerce = () => {
 								<p className="text-gray-500 mt-1">Expense</p>
 							</div>
 
-							<div className="mt-5">
-								{/* <SparkLine currentColor={currentColor} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={currentColor} /> */}
-							</div>
-							<div className="mt-10">
-								{/* <Button color="white" bgColor={currentColor} text="Download Report" borderRadius="10px" /> */}
-							</div>
+							<div className="mt-5">{/* <SparkLine currentColor={currentColor} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={currentColor} /> */}</div>
+							<div className="mt-10">{/* <Button color="white" bgColor={currentColor} text="Download Report" borderRadius="10px" /> */}</div>
 						</div>
-						<div>
-							{/* <Stacked currentMode={currentMode} width="320px" height="360px" /> */}
-						</div>
+						<div>{/* <Stacked currentMode={currentMode} width="320px" height="360px" /> */}</div>
 					</div>
 				</div>
 				<div>
@@ -107,9 +100,7 @@ const Ecommerce = () => {
 							</div>
 						</div>
 
-						<div className="mt-4">
-							{/* <SparkLine currentColor={currentColor} id="column-sparkLine" height="100px" type="Column" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" /> */}
-						</div>
+						<div className="mt-4">{/* <SparkLine currentColor={currentColor} id="column-sparkLine" height="100px" type="Column" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" /> */}</div>
 					</div>
 
 					<div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
@@ -118,9 +109,7 @@ const Ecommerce = () => {
 							<p className="text-gray-400">Yearly sales</p>
 						</div>
 
-						<div className="w-40">
-							{/* <Pie id="pie-chart" data={ecomPieChartData} legendVisiblity={false} height="160px" /> */}
-						</div>
+						<div className="w-40">{/* <Pie id="pie-chart" data={ecomPieChartData} legendVisiblity={false} height="160px" /> */}</div>
 					</div>
 				</div>
 			</div>
@@ -155,9 +144,7 @@ const Ecommerce = () => {
 						))}
 					</div>
 					<div className="flex justify-between items-center mt-5 border-t-1 border-color">
-						<div className="mt-3">
-							{/* <Button color="white" bgColor={currentColor} text="Add" borderRadius="10px" /> */}
-						</div>
+						<div className="mt-3">{/* <Button color="white" bgColor={currentColor} text="Add" borderRadius="10px" /> */}</div>
 
 						<p className="text-gray-400 text-sm">36 Recent Transactions</p>
 					</div>
@@ -167,9 +154,7 @@ const Ecommerce = () => {
 						<p className="text-xl font-semibold">Sales Overview</p>
 						<DropDown currentMode={currentMode} />
 					</div>
-					<div className="md:w-full overflow-auto">
-						{/* <LineChart /> */}
-					</div>
+					<div className="md:w-full overflow-auto">{/* <LineChart /> */}</div>
 				</div>
 			</div>
 
@@ -198,9 +183,7 @@ const Ecommerce = () => {
 								<p className={`text-${item.pcColor}`}>{item.amount}</p>
 							</div>
 						))}
-						<div className="mt-4">
-							{/* <SparkLine currentColor={currentColor} id="area-sparkLine" height="160px" type="Area" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" /> */}
-						</div>
+						<div className="mt-4">{/* <SparkLine currentColor={currentColor} id="area-sparkLine" height="160px" type="Area" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" /> */}</div>
 					</div>
 				</div>
 				<div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
@@ -240,9 +223,7 @@ const Ecommerce = () => {
 						</div>
 					</div>
 					<div className="flex justify-between items-center mt-5 border-t-1 border-color">
-						<div className="mt-3">
-							{/* <Button color="white" bgColor={currentColor} text="Add" borderRadius="10px" /> */}
-						</div>
+						<div className="mt-3">{/* <Button color="white" bgColor={currentColor} text="Add" borderRadius="10px" /> */}</div>
 
 						<p className="text-gray-400 text-sm">36 Recent Transactions</p>
 					</div>
@@ -260,9 +241,7 @@ const Ecommerce = () => {
 							<p className="font-semibold text-lg">React 18 coming soon!</p>
 							<p className="text-gray-400 ">By Johnathan Doe</p>
 							<p className="mt-8 text-sm text-gray-400">This will be the small description for the news you have shown here. There could be some great info.</p>
-							<div className="mt-3">
-								{/* <Button color="white" bgColor={currentColor} text="Read More" borderRadius="10px" /> */}
-							</div>
+							<div className="mt-3">{/* <Button color="white" bgColor={currentColor} text="Read More" borderRadius="10px" /> */}</div>
 						</div>
 					</div>
 				</div>
