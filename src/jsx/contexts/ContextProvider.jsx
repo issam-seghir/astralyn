@@ -1,4 +1,6 @@
-import { createContext, useContext, useState } from "react";
+/* eslint-disable unicorn/consistent-function-scoping */
+import { defaultTheme, greenEmeraldTheme, pinkFuchsiaTheme } from "@components/Theme";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext();
 
@@ -10,42 +12,42 @@ const initialState = {
 };
 
 export const ContextProvider = ({ children }) => {
-	const [screenSize, setScreenSize] = useState();
-	const [selectedTheme, setSelectedTheme] = useState(null);
-	const [themeSettings, setThemeSettings] = useState(false);
-	const [activeMenu, setActiveMenu] = useState(true);
-	const [isClicked, setIsClicked] = useState(initialState);
+	const [selectedTheme, setSelectedTheme] = useState(localStorage.getItem("selectedTheme") || "default");
+	const [theme, setTheme] = useState(defaultTheme);
+	const [showSettings, setShowSettings] = useState(false);
 
-	const setMode = (e) => {
-		// setCurrentMode(e.target.value);
-		localStorage.setItem("themeMode", e.target.value);
-	};
+	useEffect(() => {
+		// Store the selected theme to local storage
+		localStorage.setItem("selectedTheme", selectedTheme);
 
-	const setColor = (color) => {
-		// setCurrentColor(color);
-		localStorage.setItem("colorMode", color);
-	};
+		// Set the theme
+		switch (selectedTheme) {
+			case "greenEmerald": {
+				setTheme(greenEmeraldTheme);
+				break;
+			}
+			case "pinkFuchsia": {
+				setTheme(pinkFuchsiaTheme);
+				break;
+			}
+			default: {
+				setTheme(defaultTheme);
+			}
+		}
+	}, [selectedTheme]);
 
-	const handleClick = (clicked) => setIsClicked({ ...initialState, [clicked]: true });
+	// const handleClick = (clicked) => setIsClicked({ ...initialState, [clicked]: true });
 
 	return (
 		// eslint-disable-next-line react/jsx-no-constructed-context-values
 		<ThemeContext.Provider
 			value={{
+				theme,
 				selectedTheme,
 				setSelectedTheme,
-				activeMenu,
-				screenSize,
-				setScreenSize,
-				handleClick,
-				isClicked,
 				initialState,
-				setIsClicked,
-				setActiveMenu,
-				setMode,
-				setColor,
-				themeSettings,
-				setThemeSettings,
+				showSettings,
+				setShowSettings,
 			}}
 		>
 			{children}

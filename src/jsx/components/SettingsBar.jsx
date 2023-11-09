@@ -1,20 +1,25 @@
 // SettingsSidebar.js
 import ModeToggle from "@components/ModeToggle";
 import { useThemeContext } from "@contexts/ContextProvider";
-import Box from "@mui/joy/Box";
+import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import Avatar from "@mui/joy/Avatar";
+import Box from "@mui/joy/Box";
 import FormLabel from "@mui/joy/FormLabel";
 import Radio, { radioClasses } from "@mui/joy/Radio";
 import RadioGroup from "@mui/joy/RadioGroup";
 import Sheet from "@mui/joy/Sheet";
-import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 
-
+function splitCamelCase(input) {
+	return input.replaceAll(/([a-z])([A-Z])/g, "$1 $2");
+}
 function SettingsSidebar() {
-	const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useThemeContext();
+	const { showSettings, selectedTheme, setSelectedTheme } = useThemeContext();
 
+	function handleChange(e) {
+		setSelectedTheme(e.target.value);
+	}
 	return (
-		<Box variant="solid" sx={{ transition: "transform .5s ease", width: "40%", height: "100%", position: "fixed", right: 0, p: 1, zIndex: 1, transform: `translateX(${themeSettings ? 0 : "100%"})` }}>
+		<Box variant="solid" sx={{ transition: "transform .5s ease", width: "40%", height: "100%", position: "fixed", right: 0, p: 1, zIndex: 1, transform: `translateX(${showSettings ? 0 : "100%"})` }}>
 			<h2>Settings</h2>
 			<div>
 				<p>Choose a theme:</p>
@@ -23,8 +28,9 @@ function SettingsSidebar() {
 			<div>
 				<RadioGroup
 					aria-label="platform"
-					defaultValue="Website"
+					value={selectedTheme}
 					overlay
+					onChange={handleChange}
 					name="platform"
 					sx={{
 						flexDirection: "row",
@@ -49,7 +55,7 @@ function SettingsSidebar() {
 						},
 					}}
 				>
-					{["Website", "Documents", "Social Account"].map((value) => (
+					{["greenEmerald", "default", "pinkFuchsia"].map((value) => (
 						<Sheet
 							key={value}
 							variant="outlined"
@@ -66,7 +72,9 @@ function SettingsSidebar() {
 						>
 							<Radio id={value} value={value} checkedIcon={<CheckCircleRoundedIcon />} />
 							<Avatar variant="soft" size="sm" />
-							<FormLabel htmlFor={value}>{value}</FormLabel>
+							<FormLabel sx={{ textTransform: "capitalize" }} htmlFor={value}>
+								{splitCamelCase(value)}
+							</FormLabel>
 						</Sheet>
 					))}
 				</RadioGroup>
