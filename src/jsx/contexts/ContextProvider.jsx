@@ -16,6 +16,14 @@ export const ContextProvider = ({ children }) => {
 	const [theme, setTheme] = useState(defaultTheme);
 	const [showSettings, setShowSettings] = useState(false);
 
+	const [progress, setProgress] = useState(0);
+	const [loading, setLoading] = useState(true);
+	useEffect(() => {
+		window.addEventListener("load", () => {
+			setLoading(false); // Hide the loading screen when the page is fully loaded
+		});
+	});
+
 	useEffect(() => {
 		// Store the selected theme to local storage
 		localStorage.setItem("selectedTheme", selectedTheme);
@@ -48,6 +56,10 @@ export const ContextProvider = ({ children }) => {
 				initialState,
 				showSettings,
 				setShowSettings,
+				progress,
+				setProgress,
+				loading,
+				setLoading,
 			}}
 		>
 			{children}

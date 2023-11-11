@@ -1,18 +1,17 @@
 import LinearProgress from "@mui/joy/LinearProgress";
+import Sheet from "@mui/joy/Sheet";
 import Typography from "@mui/joy/Typography";
-import { useState } from "react";
 
-const [progress, setProgress] = useState(0);
-const Loading = () => {
+function Loading() {
 	return (
-		<div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-			<LinearProgress determinate value={progress} thickness={32} size="md" variant="soft" color="primary" value={37}>
-				<Typography level="body-xs" fontWeight="xl" textColor="common.white" sx={{ mixBlendMode: "difference" }}>
-					LOADING… {`${Math.round(progress)}%`}
+		<Sheet sx={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "100dvh" }}>
+			<LinearProgress sx={{ maxWidth: "65rem", m: "0 auto" }} value={37} thickness={24} size="md" variant="soft" color="primary">
+				<Typography level="body-xs" fontWeight="x" textColor="common.white" sx={{ mixBlendMode: "difference" }}>
+					LOADING…
 				</Typography>
 			</LinearProgress>
-		</div>
+		</Sheet>
 	);
-};
+}
 
 export default Loading;

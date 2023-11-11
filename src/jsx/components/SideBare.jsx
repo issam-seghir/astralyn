@@ -43,6 +43,7 @@ export default function SideBare({ show, toggleSideBar }) {
 					width: "100vw",
 					height: "100vh",
 					opacity: "0.5",
+					overflow:"auto" ,
 					backgroundColor: "var(--joy-palette-background-backdrop)",
 					transition: "opacity 0.4s",
 					transform: {

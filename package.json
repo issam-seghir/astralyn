@@ -74,6 +74,7 @@
 		"@syncfusion/ej2-react-popups": "^23.1.43",
 		"@syncfusion/ej2-react-richtexteditor": "^23.1.43",
 		"@syncfusion/ej2-react-schedule": "^23.1.40",
+		"framer-motion": "^10.16.4",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-icons": "^4.3.1",

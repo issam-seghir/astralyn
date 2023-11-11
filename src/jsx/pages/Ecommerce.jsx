@@ -7,7 +7,8 @@ import { IoIosMore } from "react-icons/io";
 import { useThemeContext } from "@contexts/ContextProvider";
 import { SparklineAreaData, dropdownData, earningData, ecomPieChartData, medicalproBranding, recentTransactions, weeklyStats } from "../data/dummy";
 import product9 from "../data/product9.jpg";
-import  Typography  from '@mui/joy/Typography';
+import Typography from "@mui/joy/Typography";
+import { Box, Sheet, IconButton, Button, Card, CardCover, CardContent, List, ListItem, ListItemContent, Divider } from "@mui/joy";
 
 const DropDown = ({ currentMode }) => (
 	<div className="w-28 border-1 border-color px-2 py-1 rounded-md">
@@ -19,21 +20,128 @@ const Ecommerce = () => {
 	const { currentColor, currentMode } = useThemeContext();
 
 	return (
-		<div className="mt-24">
-			<div className="flex flex-wrap lg:flex-nowrap justify-center ">
-				<div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
-					<div className="flex justify-between items-center">
-						<div>
-							<Typography level="h3" className="font-bold text-gray-400">Earnings</Typography>
-							<p className="text-2xl">$63,448.78</p>
-						</div>
-						<button type="button" style={{ backgroundColor: currentColor }} className="text-2xl opacity-0.9 text-white hover:drop-shadow-xl rounded-full  p-4">
+		<Box sx={{ my: 12, display: "flex", flexDirection: "column", gap: 4 }}>
+			<Card color="neutral" orientation="vertical" size="md" variant="soft" sx={{ alignItems: "flex-start" }}>
+				<CardCover>
+					<img src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800" srcSet="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800&dpr=2 2x" loading="lazy" alt="" />
+				</CardCover>
+				<CardContent sx={{ mb: 4 }}>
+					<Typography level="title-md">Earnings</Typography>
+					<Typography level="h3">$63,448.78</Typography>
+				</CardContent>
+				<Button size="lg" color="primary" variant="soft">
+					Download
+				</Button>
+			</Card>
+			<Box variant="soft" component="ul" sx={{ display: "flex", flexWrap: "wrap", gap: 2, "--Icon-fontSize": "4.5rem" }}>
+				<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: 1, alignItems: "flex-start" }}>
+					<CardCover>
+						<img src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800" srcSet="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800&dpr=2 2x" loading="lazy" alt="" />
+					</CardCover>
+					<CardContent>
+						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 2, mb: 2 }} variant="soft" color="primary">
 							<BsCurrencyDollar />
-						</button>
-					</div>
+						</Sheet>
+						<CardContent>
+							<Typography level="h3">$63,448.78</Typography>
+							<Typography level="title-md">Earnings</Typography>
+						</CardContent>
+					</CardContent>
+				</Card>
+				<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: 1, alignItems: "flex-start" }}>
+					<CardCover>
+						<img src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800" srcSet="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800&dpr=2 2x" loading="lazy" alt="" />
+					</CardCover>
+					<CardContent>
+						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 2, mb: 2 }} variant="soft" color="primary">
+							<BsCurrencyDollar />
+						</Sheet>
+						<CardContent>
+							<Typography level="h3">$63,448.78</Typography>
+							<Typography level="title-md">Earnings</Typography>
+						</CardContent>
+					</CardContent>
+				</Card>
+				<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: 1, alignItems: "flex-start" }}>
+					<CardCover>
+						<img src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800" srcSet="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800&dpr=2 2x" loading="lazy" alt="" />
+					</CardCover>
+					<CardContent>
+						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 2, mb: 2 }} variant="soft" color="primary">
+							<BsCurrencyDollar />
+						</Sheet>
+						<CardContent>
+							<Typography level="h3">$63,448.78</Typography>
+							<Typography level="title-md">Earnings</Typography>
+						</CardContent>
+					</CardContent>
+				</Card>
+				<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: 1, alignItems: "flex-start" }}>
+					<CardCover>
+						<img src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800" srcSet="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800&dpr=2 2x" loading="lazy" alt="" />
+					</CardCover>
+					<CardContent>
+						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 2, mb: 2 }} variant="soft" color="primary">
+							<BsCurrencyDollar />
+						</Sheet>
+						<CardContent>
+							<Typography level="h3">$63,448.78</Typography>
+							<Typography level="title-md">Earnings</Typography>
+						</CardContent>
+					</CardContent>
+				</Card>
+			</Box>
+			<Sheet variant="outlined" color="primary" component="ul" sx={{ p: 1  }}>
+				<Box display={"flex"}>
+					<Typography level="h4" flex={1}>
+						$63,448.78
+					</Typography>
+					<List orientation="horizontal" sx={{ flex: 0 }} size="sm">
+						<ListItem>
+							<ListItemContent>Home</ListItemContent>
+							<ListItemContent>Home</ListItemContent>
+						</ListItem>
+					</List>
+				</Box>
+				<Box display={"flex"} gap={2}>
+					<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: 1, alignItems: "flex-start" }}>
+						<CardContent>
+							<CardContent>
+								<Typography level="h3">$63,448.78</Typography>
+								<Typography level="title-md">Earnings</Typography>
+							</CardContent>
+							<CardContent>
+								<Typography level="h3">$63,448.78</Typography>
+								<Typography level="title-md">Earnings</Typography>
+							</CardContent>
+						</CardContent>
+					</Card>
+					<Divider orientation="vertical" />
+					<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: 1, alignItems: "flex-start" }}>
+						<CardCover>
+							<img src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800" srcSet="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800&dpr=2 2x" loading="lazy" alt="" />
+						</CardCover>
+						<CardContent>
+							<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 2, mb: 2 }} variant="soft" color="primary">
+								<BsCurrencyDollar />
+							</Sheet>
+							<CardContent>
+								<Typography level="h3">$63,448.78</Typography>
+								<Typography level="title-md">Earnings</Typography>
+							</CardContent>
+						</CardContent>
+					</Card>
+				</Box>
+			</Sheet>
+
+			<Box sx={{ display: "flex", flexWrap: { sm: "wrap", md: "nowrap" }, justifyContent: "center" }}>
+				<Box sx={{ height: 44, borderRadius: "sm", width: { sm: 1, lg: 80 }, p: 8, m: 3, backgroundImage: "url('https://i.ibb.co/MkvLDfb/Rectangle-4389.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
+					<Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+						<div></div>
+					</Box>
 					<div className="mt-6">{/* <Button color="white" bgColor={currentColor} text="Download" borderRadius="10px" /> */}</div>
-				</div>
-				<div className="flex m-3 flex-wrap justify-center gap-1 items-center">
+				</Box>
+				{/* <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
 					{earningData.map((item) => (
 						<div key={item.title} className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl ">
 							<button type="button" style={{ color: item.iconColor, backgroundColor: item.iconBg }} className="text-2xl opacity-0.9 rounded-full  p-4 hover:drop-shadow-xl">
@@ -46,207 +154,9 @@ const Ecommerce = () => {
 							<p className="text-sm text-gray-400  mt-1">{item.title}</p>
 						</div>
 					))}
-				</div>
-			</div>
-
-			<div className="flex gap-10 flex-wrap justify-center">
-				<div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780  ">
-					<div className="flex justify-between">
-						<p className="font-semibold text-xl">Revenue Updates</p>
-						<div className="flex items-center gap-4">
-							<p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
-								<span>
-									<GoDot />
-								</span>
-								<span>Expense</span>
-							</p>
-							<p className="flex items-center gap-2 text-green-400 hover:drop-shadow-xl">
-								<span>
-									<GoDot />
-								</span>
-								<span>Budget</span>
-							</p>
-						</div>
-					</div>
-					<div className="mt-10 flex gap-10 flex-wrap justify-center">
-						<div className=" border-r-1 border-color m-4 pr-10">
-							<div>
-								<p>
-									<span className="text-3xl font-semibold">$93,438</span>
-									<span className="p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full text-white bg-green-400 ml-3 text-xs">23%</span>
-								</p>
-								<p className="text-gray-500 mt-1">Budget</p>
-							</div>
-							<div className="mt-8">
-								<p className="text-3xl font-semibold">$48,487</p>
-
-								<p className="text-gray-500 mt-1">Expense</p>
-							</div>
-
-							<div className="mt-5">{/* <SparkLine currentColor={currentColor} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={currentColor} /> */}</div>
-							<div className="mt-10">{/* <Button color="white" bgColor={currentColor} text="Download Report" borderRadius="10px" /> */}</div>
-						</div>
-						<div>{/* <Stacked currentMode={currentMode} width="320px" height="360px" /> */}</div>
-					</div>
-				</div>
-				<div>
-					<div className=" rounded-2xl md:w-400 p-4 m-3" style={{ backgroundColor: currentColor }}>
-						<div className="flex justify-between items-center ">
-							<p className="font-semibold text-white text-2xl">Earnings</p>
-
-							<div>
-								<p className="text-2xl text-white font-semibold mt-8">$63,448.78</p>
-								<p className="text-gray-200">Monthly revenue</p>
-							</div>
-						</div>
-
-						<div className="mt-4">{/* <SparkLine currentColor={currentColor} id="column-sparkLine" height="100px" type="Column" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" /> */}</div>
-					</div>
-
-					<div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
-						<div>
-							<p className="text-2xl font-semibold ">$43,246</p>
-							<p className="text-gray-400">Yearly sales</p>
-						</div>
-
-						<div className="w-40">{/* <Pie id="pie-chart" data={ecomPieChartData} legendVisiblity={false} height="160px" /> */}</div>
-					</div>
-				</div>
-			</div>
-
-			<div className="flex gap-10 m-4 flex-wrap justify-center">
-				<div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
-					<div className="flex justify-between items-center gap-2">
-						<p className="text-xl font-semibold">Recent Transactions</p>
-						<DropDown currentMode={currentMode} />
-					</div>
-					<div className="mt-10 w-72 md:w-400">
-						{recentTransactions.map((item) => (
-							<div key={item.title} className="flex justify-between mt-4">
-								<div className="flex gap-4">
-									<button
-										type="button"
-										style={{
-											color: item.iconColor,
-											backgroundColor: item.iconBg,
-										}}
-										className="text-2xl rounded-lg p-4 hover:drop-shadow-xl"
-									>
-										{item.icon}
-									</button>
-									<div>
-										<p className="text-md font-semibold">{item.title}</p>
-										<p className="text-sm text-gray-400">{item.desc}</p>
-									</div>
-								</div>
-								<p className={`text-${item.pcColor}`}>{item.amount}</p>
-							</div>
-						))}
-					</div>
-					<div className="flex justify-between items-center mt-5 border-t-1 border-color">
-						<div className="mt-3">{/* <Button color="white" bgColor={currentColor} text="Add" borderRadius="10px" /> */}</div>
-
-						<p className="text-gray-400 text-sm">36 Recent Transactions</p>
-					</div>
-				</div>
-				<div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-760">
-					<div className="flex justify-between items-center gap-2 mb-10">
-						<p className="text-xl font-semibold">Sales Overview</p>
-						<DropDown currentMode={currentMode} />
-					</div>
-					<div className="md:w-full overflow-auto">{/* <LineChart /> */}</div>
-				</div>
-			</div>
-
-			<div className="flex flex-wrap justify-center">
-				<div className="md:w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
-					<div className="flex justify-between">
-						<p className="text-xl font-semibold">Weekly Stats</p>
-						<button type="button" className="text-xl font-semibold text-gray-500">
-							<IoIosMore />
-						</button>
-					</div>
-
-					<div className="mt-10 ">
-						{weeklyStats.map((item) => (
-							<div key={item.title} className="flex justify-between mt-4 w-full">
-								<div className="flex gap-4">
-									<button type="button" style={{ background: item.iconBg }} className="text-2xl hover:drop-shadow-xl text-white rounded-full p-3">
-										{item.icon}
-									</button>
-									<div>
-										<p className="text-md font-semibold">{item.title}</p>
-										<p className="text-sm text-gray-400">{item.desc}</p>
-									</div>
-								</div>
-
-								<p className={`text-${item.pcColor}`}>{item.amount}</p>
-							</div>
-						))}
-						<div className="mt-4">{/* <SparkLine currentColor={currentColor} id="area-sparkLine" height="160px" type="Area" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" /> */}</div>
-					</div>
-				</div>
-				<div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
-					<div className="flex justify-between">
-						<p className="text-xl font-semibold">MedicalPro Branding</p>
-						<button type="button" className="text-xl font-semibold text-gray-400">
-							<IoIosMore />
-						</button>
-					</div>
-					<p className="text-xs cursor-pointer hover:drop-shadow-xl font-semibold rounded-lg w-24 bg-orange-400 py-0.5 px-2 text-gray-200 mt-10">16 APR, 2021</p>
-
-					<div className="flex gap-4 border-b-1 border-color mt-6">
-						{medicalproBranding.data.map((item) => (
-							<div key={item.title} className="border-r-1 border-color pr-4 pb-2">
-								<p className="text-xs text-gray-400">{item.title}</p>
-								<p className="text-sm">{item.desc}</p>
-							</div>
-						))}
-					</div>
-					<div className="border-b-1 border-color pb-4 mt-2">
-						<p className="text-md font-semibold mb-2">Teams</p>
-
-						<div className="flex gap-4">
-							{medicalproBranding.teams.map((item) => (
-								<p key={item.name} style={{ background: item.color }} className="cursor-pointer hover:drop-shadow-xl text-white py-0.5 px-3 rounded-lg text-xs">
-									{item.name}
-								</p>
-							))}
-						</div>
-					</div>
-					<div className="mt-2">
-						<p className="text-md font-semibold mb-2">Leaders</p>
-						<div className="flex gap-4">
-							{medicalproBranding.leaders.map((item, index) => (
-								<img key={index} className="rounded-full w-8 h-8" src={item.image} alt="" />
-							))}
-						</div>
-					</div>
-					<div className="flex justify-between items-center mt-5 border-t-1 border-color">
-						<div className="mt-3">{/* <Button color="white" bgColor={currentColor} text="Add" borderRadius="10px" /> */}</div>
-
-						<p className="text-gray-400 text-sm">36 Recent Transactions</p>
-					</div>
-				</div>
-				<div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
-					<div className="flex justify-between">
-						<p className="text-xl font-semibold">Daily Activities</p>
-						<button type="button" className="text-xl font-semibold text-gray-500">
-							<IoIosMore />
-						</button>
-					</div>
-					<div className="mt-10">
-						<img className="md:w-96 h-50 " src={product9} alt="" />
-						<div className="mt-8">
-							<p className="font-semibold text-lg">React 18 coming soon!</p>
-							<p className="text-gray-400 ">By Johnathan Doe</p>
-							<p className="mt-8 text-sm text-gray-400">This will be the small description for the news you have shown here. There could be some great info.</p>
-							<div className="mt-3">{/* <Button color="white" bgColor={currentColor} text="Read More" borderRadius="10px" /> */}</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+				</div> */}
+			</Box>
+		</Box>
 	);
 };
 

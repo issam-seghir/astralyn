@@ -1,9 +1,9 @@
 @use "../abstracts" as *;
 
 :root {
-	// scroll-behavior: smooth;
+	scroll-behavior: smooth;
 	scrollbar-width: thin;
-	scrollbar-color: #0F172A #8484B3;
+	// scrollbar-color:var() #8484B3;
 	scrollbar-gutter: auto;
 	overflow-y: scroll;
 }
