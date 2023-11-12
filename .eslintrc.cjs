@@ -44,6 +44,7 @@ module.exports = {
 				extensions: [".js", ".jsx", ".json", ".ts", ".tsx", ".d.ts"],
 				map: [
 					["@", "./src"],
+					["@data", "./src/jsx/data"],
 					["@assets", "./src/assets"],
 					["@images", "./src/assets/images"],
 					["@svg", "./src/assets/svg"],
@@ -80,8 +81,9 @@ module.exports = {
 		// 'import/no-unresolved': ['error', { ignore: ['\\.svg\\?react$'] }],
 		"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
 		// Organize imports using simple-import-sort
-		"simple-import-sort/imports": "error",
+		"simple-import-sort/imports": "off",
 		"simple-import-sort/exports": "error",
+		 "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
 
 		// Ensure imports are at the beginning of the file
 		"import/first": "error",

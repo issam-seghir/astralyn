@@ -21,7 +21,7 @@ function App() {
 			{/* style for icons library's */}
 			<GlobalStyles
 				styles={{
-					svg: {
+					"svg.icon": {
 						color: "var(--Icon-color)",
 						margin: "var(--Icon-margin)",
 						fontSize: "var(--Icon-fontSize, 20px)",
@@ -39,7 +39,7 @@ function App() {
 						<Tooltip title="setting" size="md" variant="solid" color="primary" placement="top" arrow>
 							<IconButton component={motion.button} whileHover={{ scale: 1.1 }} whileTap={{ scale: 1 }} variant="soft" color="primary" size="lg" sx={{ zIndex: 2, borderRadius: "50%", p: ".5em", position: "absolute", right: 4, bottom: 4 }} onClick={() => setShowSettings(!showSettings)}>
 								<motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 3, ease: "linear" }}>
-									<FiSettings />
+									<FiSettings className="icon"/>
 								</motion.div>
 							</IconButton>
 						</Tooltip>

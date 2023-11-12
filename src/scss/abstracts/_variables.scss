@@ -1,5 +1,22 @@
 @import "gerillass";
 
+:root {
+	// ? Font Sizes
+	--text-xs: 0.75rem;
+	--text-sm: 0.875rem;
+	--text-base: 1rem;
+	--text-lg: rfs(1.125rem);
+	--text-xl: rfs(1.25rem);
+	--text-xl2: rfs(1.5rem);
+	--text-xl3: rfs(1.875rem);
+	--text-xl4: rfs(2.25rem);
+	--text-xl5: rfs(3rem);
+	--text-xl6: rfs(3.75rem);
+	--text-xl7: rfs(4.5rem);
+	--text-xl8: rfs(6rem);
+	--text-xl9: rfs(8rem);
+}
+
 // ? Font Weights
 // 100: Thin
 // 200: Extra Light (Ultra Light)
@@ -25,35 +42,35 @@ $font-bold: 700;
 $font-black: 900;
 
 @include font-face("Aileron", "/fonts/Aileron-Black", $font-black) {
- font-display: swap;
+	font-display: swap;
 }
 
 @include font-face("Aileron", "/fonts/Aileron-Heavy", $font-black) {
- font-display: swap;
+	font-display: swap;
 }
 
 @include font-face("Aileron", "/fonts/Aileron-Bold", $font-bold) {
- font-display: swap;
+	font-display: swap;
 }
 
 @include font-face("Aileron", "/fonts/Aileron-SemiBold", $font-semi-bold) {
- font-display: swap;
+	font-display: swap;
 }
 
 @include font-face("Aileron", "/fonts/Aileron-Regular", $font-normal) {
- font-display: swap;
+	font-display: swap;
 }
 
 @include font-face("Aileron", "/fonts/Aileron-Light", $font-light) {
- font-display: swap;
+	font-display: swap;
 }
 
 @include font-face("Aileron", "/fonts/Aileron-UltraLight", $font-extra-light) {
- font-display: swap;
+	font-display: swap;
 }
 
 @include font-face("Aileron", "/fonts/Aileron-Thin", $font-thin) {
- font-display: swap;
+	font-display: swap;
 }
 
 // ? Font Families
@@ -125,7 +142,6 @@ $bg-links: rgb(204 0 255);
 $bg-animation: #a652fa;
 $bg-animation-2: #8c20f8;
 $bg-button: #403054;
-
 
 @mixin text-rgd-primary-100() {
 	$rgd-100: #c592fc;

@@ -1,31 +1,18 @@
-import ListItemButtonsNested from "@components/ListItemButtonsNested";
 import ListItemHeaderNested from "@components/ListItemHeaderNested";
-import AssignmentRoundedIcon from "@mui/icons-material/AssignmentRounded";
-import CloseIcon from "@mui/icons-material/Close";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
-import QuestionAnswerRoundedIcon from "@mui/icons-material/QuestionAnswer";
-import SettingsIcon from "@mui/icons-material/Settings";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import SupportAgentIcon from "@mui/icons-material/SupportAgent";
-import Avatar from "@mui/joy/Avatar";
 import Box from "@mui/joy/Box";
-import Button from "@mui/joy/Button";
-import Card from "@mui/joy/Card";
-import CardActions from "@mui/joy/CardActions";
-import Chip from "@mui/joy/Chip";
-import Divider from "@mui/joy/Divider";
-import IconButton from "@mui/joy/IconButton";
-import LinearProgress from "@mui/joy/LinearProgress";
 import Link from "@mui/joy/Link";
 import List from "@mui/joy/List";
 import ListItem from "@mui/joy/ListItem";
 import ListItemButton from "@mui/joy/ListItemButton";
 import ListItemContent from "@mui/joy/ListItemContent";
 import ListItemDecorator from "@mui/joy/ListItemDecorator";
-import ListSubheader from "@mui/joy/ListSubheader";
-import Sheet from "@mui/joy/Sheet";
 import Typography from "@mui/joy/Typography";
+import { BsJournalText, BsKanbanFill } from "react-icons/bs";
+import { FaShoppingCart, FaUserTie } from "react-icons/fa";
+import { FaCalendarDays, FaUserGroup } from "react-icons/fa6";
+import { HiColorSwatch } from "react-icons/hi";
 import { SiShopware } from "react-icons/si";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -43,7 +30,7 @@ export default function SideBare({ show, toggleSideBar }) {
 					width: "100vw",
 					height: "100vh",
 					opacity: "0.5",
-					overflow:"auto" ,
+					overflow: "auto",
 					backgroundColor: "var(--joy-palette-background-backdrop)",
 					transition: "opacity 0.4s",
 					transform: {
@@ -80,7 +67,7 @@ export default function SideBare({ show, toggleSideBar }) {
 			>
 				<Box sx={{ display: "flex", gap: 3, p: 1.5 }}>
 					<Link component={RouterLink} to="/">
-						<SiShopware />
+						<SiShopware className="icon" />
 					</Link>
 					<Typography flex={1} level="title-lg">
 						Shoppy
@@ -105,7 +92,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton color="primary" component={RouterLink} to="/" underline="none" selected>
 								<ListItemDecorator>
-									<SiShopware />
+									<SiShopware className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
 									<Typography level="title-sm">Ecommerce</Typography>
@@ -117,7 +104,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton component={RouterLink} to="/orders" underline="none">
 								<ListItemDecorator>
-									<DashboardIcon />
+									<FaShoppingCart className="icon" />
 								</ListItemDecorator>
 								<Typography level="title-sm">Orders</Typography>
 							</ListItemButton>
@@ -125,7 +112,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton component={RouterLink} to="/employees" underline="none">
 								<ListItemDecorator>
-									<ShoppingCartIcon />
+									<FaUserGroup className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
 									<Typography level="title-sm">Employees</Typography>
@@ -135,7 +122,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton component={RouterLink} to="/customers" underline="none">
 								<ListItemDecorator>
-									<ShoppingCartIcon />
+									<FaUserTie className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
 									<Typography level="title-sm">Customers</Typography>
@@ -147,7 +134,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton component={RouterLink} to="/calendar" underline="none">
 								<ListItemDecorator>
-									<DashboardIcon />
+									<FaCalendarDays className="icon" />
 								</ListItemDecorator>
 								<Typography level="title-sm">Calendar</Typography>
 							</ListItemButton>
@@ -155,7 +142,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton component={RouterLink} to="/kanban" underline="none">
 								<ListItemDecorator>
-									<ShoppingCartIcon />
+									<BsKanbanFill className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
 									<Typography level="title-sm">Kanban</Typography>
@@ -165,7 +152,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton component={RouterLink} to="/editor" underline="none">
 								<ListItemDecorator>
-									<ShoppingCartIcon />
+									<BsJournalText className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
 									<Typography level="title-sm">Editor</Typography>
@@ -175,7 +162,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton component={RouterLink} to="/color-picker" underline="none">
 								<ListItemDecorator>
-									<ShoppingCartIcon />
+									<HiColorSwatch className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
 									<Typography level="title-sm">Color Picker</Typography>
@@ -187,7 +174,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton component={RouterLink} to="/line" underline="none">
 								<ListItemDecorator>
-									<DashboardIcon />
+									<DashboardIcon className="icon" />
 								</ListItemDecorator>
 								<Typography level="title-sm">Line</Typography>
 							</ListItemButton>
@@ -195,7 +182,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton component={RouterLink} to="/area" underline="none">
 								<ListItemDecorator>
-									<ShoppingCartIcon />
+									<ShoppingCartIcon className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
 									<Typography level="title-sm">Area</Typography>
@@ -205,7 +192,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton component={RouterLink} to="/bar" underline="none">
 								<ListItemDecorator>
-									<ShoppingCartIcon />
+									<ShoppingCartIcon className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
 									<Typography level="title-sm">Bar</Typography>
@@ -215,7 +202,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton component={RouterLink} to="/pie" underline="none">
 								<ListItemDecorator>
-									<ShoppingCartIcon />
+									<ShoppingCartIcon className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
 									<Typography level="title-sm">Pie</Typography>

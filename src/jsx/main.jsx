@@ -21,6 +21,11 @@ import Pie from "@pages/Pie";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { registerLicense } from "@syncfusion/ej2-base";
+
+// Registering Syncfusion license key
+registerLicense("ORg4AjUWIQA/Gnt2VlhhQlVHfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hSn9Sd0djUX5cdXJcRWBY");
+
 
 const router = createBrowserRouter(
 	[

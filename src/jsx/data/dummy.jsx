@@ -5871,3 +5871,61 @@ export const PyramidData = [
   { x: 'Fruits', y: 520, text: '520 cal' },
   { x: 'Bread, Rice, Pasta', y: 930, text: '930 cal' },
 ];
+
+
+
+export let data1 = [
+	{ x: new Date(2012, 6, 11), y: 13.5 },
+	{ x: new Date(2013, 6, 11), y: 12.4 },
+	{ x: new Date(2014, 6, 11), y: 12.7 },
+	{ x: new Date(2015, 6, 11), y: 12.5 },
+	{ x: new Date(2016, 6, 11), y: 12.7 },
+	{ x: new Date(2017, 6, 11), y: 13.7 },
+	{ x: new Date(2018, 6, 11), y: 13.4 },
+	{ x: new Date(2019, 6, 11), y: 12.9 },
+	{ x: new Date(2020, 6, 11), y: 11.0 },
+];
+export let data2 = [
+	{ x: new Date(2012, 6, 11), y: 5.3 },
+	{ x: new Date(2013, 6, 11), y: 5.6 },
+	{ x: new Date(2014, 6, 11), y: 5.9 },
+	{ x: new Date(2015, 6, 11), y: 5.7 },
+	{ x: new Date(2016, 6, 11), y: 7.8 },
+	{ x: new Date(2017, 6, 11), y: 10.3 },
+	{ x: new Date(2018, 6, 11), y: 15.5 },
+	{ x: new Date(2019, 6, 11), y: 17.5 },
+	{ x: new Date(2020, 6, 11), y: 19.5 },
+];
+export let data3 = [
+	{ x: new Date(2012, 6, 11), y: 5.6 },
+	{ x: new Date(2013, 6, 11), y: 4.7 },
+	{ x: new Date(2014, 6, 11), y: 4.3 },
+	{ x: new Date(2015, 6, 11), y: 3.8 },
+	{ x: new Date(2016, 6, 11), y: 2.8 },
+	{ x: new Date(2017, 6, 11), y: 2.8 },
+	{ x: new Date(2018, 6, 11), y: 4.1 },
+	{ x: new Date(2019, 6, 11), y: 6.8 },
+	{ x: new Date(2020, 6, 11), y: 7.1 },
+];
+export let data4 = [
+	{ x: new Date(2012, 6, 11), y: 6.6 },
+	{ x: new Date(2013, 6, 11), y: 6.8 },
+	{ x: new Date(2014, 6, 11), y: 6.5 },
+	{ x: new Date(2015, 6, 11), y: 5.5 },
+	{ x: new Date(2016, 6, 11), y: 5.0 },
+	{ x: new Date(2017, 6, 11), y: 6.8 },
+	{ x: new Date(2018, 6, 11), y: 7.8 },
+	{ x: new Date(2019, 6, 11), y: 7.3 },
+	{ x: new Date(2020, 6, 11), y: 8.2 },
+];
+export let data5 = [
+	{ x: new Date(2012, 6, 11), y: 2.3 },
+	{ x: new Date(2013, 6, 11), y: 2.6 },
+	{ x: new Date(2014, 6, 11), y: 4.4 },
+	{ x: new Date(2015, 6, 11), y: 4.9 },
+	{ x: new Date(2016, 6, 11), y: 4.8 },
+	{ x: new Date(2017, 6, 11), y: 5.3 },
+	{ x: new Date(2018, 6, 11), y: 6.2 },
+	{ x: new Date(2019, 6, 11), y: 7.8 },
+	{ x: new Date(2020, 6, 11), y: 9.3 },
+];

@@ -6,9 +6,10 @@
 // node_modules/@syncfusion/ej2-react-popups/styles/popup/material.css
 // * Third party mixins
 @import "gerillass";
-@import "@syncfusion/ej2-base/styles/material3-dark.css";
-@import "@syncfusion/ej2-react-grids/styles/material3-dark.css";
-@import "@syncfusion/ej2-react-popups/styles/material3-dark.css";
+// @import "@syncfusion/ej2-base/styles/material3-dark.css";
+// @import "@syncfusion/ej2-react-grids/styles/material3-dark.css";
+// @import "@syncfusion/ej2-react-popups/styles/material3-dark.css";
+@import "@syncfusion/ej2/material3-dark.css";
 @layer abstracts {
 	@include meta.load-css("abstracts");
 }

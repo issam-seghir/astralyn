@@ -1,7 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import { listItemButtonClasses } from "@mui/joy/ListItemButton";
 import { extendTheme } from "@mui/joy/styles";
-
 const defaultTheme = extendTheme({
 	colorSchemes: {
 		dark: {
@@ -11,6 +10,16 @@ const defaultTheme = extendTheme({
 				},
 			},
 		},
+	},
+	fontSize: {
+		xs: "var(--text-xs)",
+		sm: "var(--text-sm)",
+		md: "var(--text-base)",
+		lg: "var(--text-lg)",
+		xl: "var(--text-xl)",
+		xl2: "var(--text-xl2)",
+		xl3: "var(--text-xl3)",
+		xl4: "var(--text-xl4)",
 	},
 	components: {
 		JoyStack: {
@@ -116,6 +125,16 @@ const greenEmeraldTheme = extendTheme({
 				},
 			},
 		},
+	},
+	fontSize: {
+		xs: "var(--text-xs)",
+		sm: "var(--text-sm)",
+		md: "var(--text-base)",
+		lg: "var(--text-lg)",
+		xl: "var(--text-xl)",
+		xl2: "var(--text-xl2)",
+		xl3: "var(--text-xl3)",
+		xl4: "var(--text-xl4)",
 	},
 	components: {
 		JoyStack: {
@@ -223,6 +242,16 @@ const pinkFuchsiaTheme = extendTheme({
 			},
 		},
 	},
+	fontSize: {
+		xs: "var(--text-xs)",
+		sm: "var(--text-sm)",
+		md: "var(--text-base)",
+		lg: "var(--text-lg)",
+		xl: "var(--text-xl)",
+		xl2: "var(--text-xl2)",
+		xl3: "var(--text-xl3)",
+		xl4: "var(--text-xl4)",
+	},
 	components: {
 		JoyStack: {
 			defaultProps: {
@@ -269,4 +298,3 @@ const pinkFuchsiaTheme = extendTheme({
 });
 
 export { defaultTheme, greenEmeraldTheme, pinkFuchsiaTheme };
-

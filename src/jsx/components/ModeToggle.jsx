@@ -1,9 +1,7 @@
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import LightModeIcon from "@mui/icons-material/LightMode";
 import IconButton from "@mui/joy/IconButton";
 import { useColorScheme } from "@mui/joy/styles";
 import { useEffect, useState } from "react";
-
+import { BiSolidMoon as DarkModeIcon, BiSun as LightModeIcon } from "react-icons/bi";
 export default function ModeToggle() {
 	const { mode, setMode } = useColorScheme();
 	const [mounted, setMounted] = useState(false);
@@ -27,7 +25,7 @@ export default function ModeToggle() {
 				setMode(mode === "light" ? "dark" : "light");
 			}}
 		>
-			{mode === "light" ? <LightModeIcon /> : <DarkModeIcon />}
+			{mode === "light" ? <LightModeIcon className="icon" /> : <DarkModeIcon className="icon" />}
 		</IconButton>
 	);
 }
