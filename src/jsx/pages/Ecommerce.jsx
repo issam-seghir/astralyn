@@ -1,6 +1,6 @@
 // import { Button, LineChart, Pie, SparkLine, Stacked } from "../components";
 import { useThemeContext } from "@contexts/ContextProvider";
-import { Box, Button, Card, CardContent, CardCover, Divider, IconButton, List, ListItem, Chip, Sheet } from "@mui/joy";
+import { Box, Button, Card, CardContent, CardActions,CardCover, Divider, IconButton, List, ListItem, Chip, Sheet } from "@mui/joy";
 import Typography from "@mui/joy/Typography";
 import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
 import { BsCurrencyDollar } from "react-icons/bs";
@@ -9,14 +9,14 @@ import { IoIosMore } from "react-icons/io";
 
 import { dropdownData, earningData, ecomPieChartData, medicalproBranding, recentTransactions, SparklineAreaData, weeklyStats, data1, data2, data3, data4, data5 } from "../data/dummy";
 import product9 from "../data/product9.jpg";
-
+import FinancialHeloChart  from "@components/FinancialHeloChart";
+import DashedLineChart from "@components/DashedLineChart";
 
 const Ecommerce = () => {
 	const { currentColor, currentMode } = useThemeContext();
 
 	return (
 		<Box sx={{ my: 12, display: "flex", flexDirection: "column", gap: 4 }}>
-
 			<Box variant="soft" component="ul" sx={{ display: "flex", flexWrap: { xs: "wrap", xl: "nowrap" }, gap: 2, "--Icon-fontSize": "4.5rem" }}>
 				<Card variant="soft" color="neutral" orientation="vertical" size="lg" sx={{ flexBasis: { xs: "100%", lg: "20rem" }, alignItems: "flex-start" }}>
 					<CardCover>
@@ -144,7 +144,7 @@ const Ecommerce = () => {
 					</List>
 				</Box>
 				<Box display={"flex"} gap={2}>
-					<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: 1, alignItems: "flex-start" }}>
+					<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: 1, alignItems: "center" }}>
 						<CardContent>
 							<CardContent>
 								<Typography
@@ -174,7 +174,14 @@ const Ecommerce = () => {
 								</Typography>
 								<Typography level="title-md">Expense</Typography>
 							</CardContent>
+
 						</CardContent>
+						<DashedLineChart />
+						<CardActions>
+									<Button>
+										Download Report
+									</Button>
+						</CardActions>
 					</Card>
 					<Divider orientation="vertical" />
 					<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: 1, alignItems: "flex-start" }}>
@@ -192,6 +199,9 @@ const Ecommerce = () => {
 						</CardContent>
 					</Card>
 				</Box>
+			</Sheet>
+			<Sheet variant="soft" color="primary" sx={{ p: 1 }}>
+				<FinancialHeloChart />
 			</Sheet>
 		</Box>
 	);

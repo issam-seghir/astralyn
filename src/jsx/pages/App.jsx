@@ -46,7 +46,7 @@ function App() {
 						<SettingsBar />
 						<Sidebar />
 						{/* main content */}
-						<Box sx={{ flex: 1, mx: 2 }}>
+						<Box sx={{ flex: 1, mx: 2,overflow:"auto" }}>
 							<Outlet />
 						</Box>
 					</Box>

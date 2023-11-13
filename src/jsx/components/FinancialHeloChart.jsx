@@ -4,8 +4,9 @@
 import * as React from "react";
 import { useEffect } from "react";
 import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, HiloOpenCloseSeries, Category, Tooltip, DateTime, Zoom, Logarithmic, Crosshair } from "@syncfusion/ej2-react-charts";
-import { chartValues } from "./financial-data";
+import { chartValues } from "@data/financial-data";
 import { Browser } from "@syncfusion/ej2-base";
+
 export let zoomFactor;
 export let zoomPosition;
 const SAMPLE_CSS = `
@@ -21,12 +22,12 @@ const HiloOpenClose = () => {
 		args.chart.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, "Contrast");
 	};
 	return (
-		<div className="control-pane">
+		<div className="control-pane-fc">
 			<style>{SAMPLE_CSS}</style>
-			<div className="control-section">
-				<div className="row">
+			<div className="control-pane-fc__control-section">
+				<div className="control-pane-fc__control-section__row">
 					<ChartComponent
-						id="charts"
+						id="control-pane-fc__control-section__chart"
 						load={load.bind(this)}
 						style={{ textAlign: "center" }}
 						primaryXAxis={{ valueType: "DateTime", crosshairTooltip: { enable: true }, majorGridLines: { width: 0 } }}
