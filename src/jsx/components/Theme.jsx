@@ -202,7 +202,7 @@ const pinkFuchsiaTheme = extendTheme({
 					softBg: "var(--joy-palette-primary-200)",
 				},
 				background: {
-					surface: "var(--joy-palette-primary-100)",
+					surface: "var(--joy-palette-primary-50)",
 					popup: "var(--joy-palette-primary-50)",
 				},
 			},

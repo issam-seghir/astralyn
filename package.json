@@ -10,7 +10,7 @@
 		"maintained node versions"
 	],
 	"scripts": {
-		"dev": "vite  --open 'chrome'",
+		"dev": "vite  --open",
 		"build": "vite build",
 		"preview": "vite preview --open",
 		"clean": "rm -rf dist test",
