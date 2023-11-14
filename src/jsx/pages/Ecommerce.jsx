@@ -1,21 +1,21 @@
 // import { Button, LineChart, Pie, SparkLine, Stacked } from "../components";
 import { useThemeContext } from "@contexts/ContextProvider";
-import { Box, Button, Card, CardContent, CardActions,CardCover, Divider, IconButton, List, ListItem, Chip, Sheet } from "@mui/joy";
+import { Box, Button, Card, CardActions, CardContent, CardCover, Chip, Divider, Sheet } from "@mui/joy";
 import Typography from "@mui/joy/Typography";
-import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { GoDotFill } from "react-icons/go";
-import { IoIosMore } from "react-icons/io";
 
-import { dropdownData, earningData, ecomPieChartData, medicalproBranding, recentTransactions, SparklineAreaData, weeklyStats, data1, data2, data3, data4, data5 } from "../data/dummy";
-import product9 from "../data/product9.jpg";
-import FinancialHeloChart  from "@components/FinancialHeloChart";
-import DashedLineChart from "@components/DashedLineChart";
 import BarColumnChart from "@components/BarColumnChart";
+import DashedLineChart from "@components/DashedLineChart";
+import FinancialHeloChart from "@components/FinancialHeloChart";
+import { useRef } from "react";
 
 const Ecommerce = () => {
 	const { currentColor, currentMode } = useThemeContext();
-
+	const chartInstance = useRef();
+function clickHandler() {
+	console.log(chartInstance.current);
+}
 	return (
 		<Box sx={{ my: 12, display: "flex", flexDirection: "column", gap: 4 }}>
 			<Box variant="soft" component="ul" sx={{ display: "flex", flexWrap: { xs: "wrap", xl: "nowrap" }, gap: 2, "--Icon-fontSize": "4.5rem" }}>
@@ -163,9 +163,9 @@ const Ecommerce = () => {
 								<Typography level="title-md">Expense</Typography>
 							</CardContent>
 						</CardContent>
-						<DashedLineChart />
-						<CardActions sx={{ alignSelf:{xs:"stretch" ,lg:"center"} }}>
-							<Button>Download Report</Button>
+						<DashedLineChart ref={chartInstance} />
+						<CardActions sx={{ alignSelf: { xs: "stretch", lg: "center" } }}>
+							<Button onClick={clickHandler.bind(this)}>Download Report</Button>
 						</CardActions>
 					</Card>
 					<Divider orientation="vertical" />

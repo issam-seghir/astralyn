@@ -13,7 +13,6 @@ export let data1 = [
 	{ x: "GER", y: 17, toolTipMappingName: "Germany" },
 	{ x: "UA", y: 2, toolTipMappingName: "Ukraine" },
 	{ x: "ES", y: 7, toolTipMappingName: "Spain" },
-	{ x: "UZB", y: 4, toolTipMappingName: "Uzbekistan" },
 	{ x: "JPN", y: 12, toolTipMappingName: "Japan" },
 	{ x: "NL", y: 8, toolTipMappingName: "NetherLand" },
 	{ x: "USA", y: 46, toolTipMappingName: "United States" },
@@ -26,7 +25,6 @@ export let data2 = [
 	{ x: "GER", y: 10, toolTipMappingName: "Germany" },
 	{ x: "UA", y: 5, toolTipMappingName: "Ukraine" },
 	{ x: "ES", y: 4, toolTipMappingName: "Spain" },
-	{ x: "UZB", y: 2, toolTipMappingName: "Uzbekistan" },
 	{ x: "JPN", y: 8, toolTipMappingName: "Japan" },
 	{ x: "NL", y: 7, toolTipMappingName: "NetherLand" },
 	{ x: "USA", y: 37, toolTipMappingName: "United States" },
@@ -45,18 +43,31 @@ const Column = () => {
 	return (
 		<div className="control-pane-bc">
 			<style>{SAMPLE_CSS}</style>
-			<Sheet variant="plain" color="primary" sx={{ textAlign: "center", borderRadius: 9,height:{xs:"300px",md:"auto"} }} className="control-pane-bc__control-section">
+			<Sheet variant="plain" color="primary" sx={{ textAlign: "center", borderRadius: 9, height: { xs: "300px", md: "auto" } }} className="control-pane-bc__control-section">
 				<ChartComponent
 					id="control-pane-bc__control-section__chart"
 					legendSettings={{
 						enableHighlight: true,
 						textStyle: { border: { cornerRadius: 5, color: "var(--joy-palette-primary-800)", width: 1 }, background: "transparent", size: "1rem", fontWeight: "bold", color: "var(--joy-palette-primary-softColor", fontFamily: "var(--joy-fontFamily-body)", position: "Top" },
 					}}
+					legendRender={(args) => {
+						console.log(args);
+						// Set fill color to 'gold' for the Gold series
+						if (args.text === "Gold") {
+							args.fill = "var(--joy-palette-primary-300)";
+						}
+
+						// Set fill color to 'silver' for the Silver series
+						else if (args.text === "Silver") {
+							args.fill = "var(--joy-palette-primary-500)";
+						}
+					}}
 					primaryXAxis={{
 						labelStyle: { size: "1rem", fontWeight: "bold", color: "var(--joy-palette-primary-softColor)", fontFamily: "var(--joy-fontFamily-body)" },
 						labelIntersectAction: Browser.isDevice ? "None" : "Trim",
 						labelRotation: Browser.isDevice ? -45 : 0,
 						valueType: "Category",
+						rangePadding: "Round",
 						interval: 1,
 						majorGridLines: { width: 0 },
 						majorTickLines: { width: 0 },
@@ -81,8 +92,8 @@ const Column = () => {
 				>
 					<Inject services={[ColumnSeries, Legend, Tooltip, Category, DataLabel, Highlight]} />
 					<SeriesCollectionDirective>
-						<SeriesDirective dataSource={data1} tooltipMappingName="toolTipMappingName" xName="x" columnSpacing={0.1} yName="y" name="Gold" type="Column" />
-						<SeriesDirective dataSource={data2} tooltipMappingName="toolTipMappingName" xName="x" columnSpacing={0.1} yName="y" name="Silver" type="Column" />
+						<SeriesDirective dataSource={data1} tooltipMappingName="toolTipMappingName" xName="x" columnSpacing={0.1} yName="y" name="Gold" type="Column" fill="var(--joy-palette-primary-300)" />
+						<SeriesDirective dataSource={data2} tooltipMappingName="toolTipMappingName" xName="x" columnSpacing={0.1} yName="y" name="Silver" type="Column" fill="var(--joy-palette-primary-500)" />
 					</SeriesCollectionDirective>
 				</ChartComponent>
 			</Sheet>

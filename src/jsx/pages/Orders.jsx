@@ -1,19 +1,34 @@
-import React from "react";
-import { GridComponent, ColumnsDirective, ColumnDirective, Resize, Sort, ContextMenu, Filter, Page, ExcelExport, PdfExport, Edit, Inject } from "@syncfusion/ej2-react-grids";
 import Box from "@mui/joy/Box";
+import Typography from "@mui/joy/Typography";
+import { ColumnDirective, ColumnsDirective, ContextMenu, Edit, ExcelExport, Filter, GridComponent, Inject, Page, PdfExport, Resize, Sort } from "@syncfusion/ej2-react-grids";
 
-import { ordersData, contextMenuItems, ordersGrid } from "../data/dummy";
+import { contextMenuItems, ordersData, ordersGrid } from "../data/dummy";
 
 const Orders = () => {
-	const editing = { allowDeleting: true, allowEditing: true };
 	return (
-		<Box sx={{p:2,borderRadius:"1.5rem"}}>
+		<Box sx={{ p: 2, borderRadius: "5rem" }}>
 			{/* <Header category="Page" title="Orders" /> */}
-			<div className=" mb-10">
-				<p className="text-lg text-gray-400">Page</p>
-				<p className="text-3xl font-extrabold tracking-tight text-slate-900">Orders</p>
-			</div>
-			<GridComponent id="gridcomp" dataSource={ordersData} allowPaging allowSorting allowExcelExport allowPdfExport contextMenuItems={contextMenuItems} editSettings={editing}>
+			<Box sx={{ mb: 10 }}>
+				<Typography level="h1">Page</Typography>
+				<Typography level="h2">Orders</Typography>
+			</Box>
+			<GridComponent
+				id="gridcomp"
+				dataSource={ordersData}
+				allowPaging
+				enableStickyHeader
+				allowSorting
+				allowExcelExport
+				allowPdfExport
+				contextMenuItems={contextMenuItems}
+				editSettings={{ allowDeleting: true, allowEditing: true, allowAdding: true, showDeleteConfirmDialog: true, mode:"Batch"}}
+				allowKeyboard
+				allowFiltering={true}
+				filterSettings={{ type: "Excel" }}
+				showFilterBarStatus
+				loadingIndicator={{ indicatorType: "Shimmer" }}
+				allowMultiSorting
+			>
 				<ColumnsDirective>
 					{/* eslint-disable-next-line react/jsx-props-no-spreading */}
 					{ordersGrid.map((item, index) => (

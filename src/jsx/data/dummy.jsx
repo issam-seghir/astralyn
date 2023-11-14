@@ -26,7 +26,7 @@ import product8 from './product8.jpg';
 export const gridOrderImage = (props) => (
   <div>
     <img
-      className="rounded-xl h-20 md:ml-3"
+      style={{borderRadius:"0.5rem",height:"160px",width: "100%"}}
       src={props.ProductImage}
       alt="order-item"
     />
@@ -34,13 +34,11 @@ export const gridOrderImage = (props) => (
 );
 
 export const gridOrderStatus = (props) => (
-  <button
-    type="button"
-    style={{ background: props.StatusBg }}
-    className="text-white py-1 px-2 capitalize rounded-2xl text-md"
-  >
-    {props.Status}
-  </button>
+   <div>
+	<button type="button" style={{color:'white',minWidth:"4rem", background: props.StatusBg, paddingInline: "0.5em", paddingBlock: 2, borderRadius: "0.5rem" }}>
+		{props.Status}
+	</button>
+  </div>
 );
 
 export const kanbanGrid = [
@@ -62,21 +60,17 @@ export const kanbanGrid = [
     allowToggle: true },
 ];
 const gridEmployeeProfile = (props) => (
-  <div className="flex items-center gap-2">
-    <img
-      className="rounded-full w-10 h-10"
-      src={props.EmployeeImage}
-      alt="employee"
-    />
-    <p>{props.Name}</p>
-  </div>
+	<div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+		<img style={{ width: "2.5rem", height: "2.5rem", borderRadius: "9999px" }}  src={props.EmployeeImage} alt="employee" />
+		<p>{props.Name}</p>
+	</div>
 );
 
 const gridEmployeeCountry = (props) => (
-  <div className="flex items-center justify-center gap-2">
-    <GrLocation />
-    <span>{props.Country}</span>
-  </div>
+	<div style={{ display: "flex", alignItems: "center",justifyContent: "center", gap: "0.5rem" }}>
+		<GrLocation />
+		<span>{props.Country}</span>
+	</div>
 );
 export const EditorData = () => (
   <div>
@@ -121,24 +115,20 @@ export const EditorData = () => (
   </div>
 );
 const customerGridImage = (props) => (
-  <div className="image flex gap-4">
-    <img
-      className="rounded-full w-10 h-10"
-      src={props.CustomerImage}
-      alt="employee"
-    />
-    <div>
-      <p>{props.CustomerName}</p>
-      <p>{props.CustomerEmail}</p>
-    </div>
-  </div>
+	<div className="image" style={{ display: "flex", gap: "1rem" }}>
+		<img style={{ width: "2.5rem", height: "2.5rem", borderRadius: "9999px" }} src={props.CustomerImage} alt="employee" />
+		<div>
+			<p>{props.CustomerName}</p>
+			<p>{props.CustomerEmail}</p>
+		</div>
+	</div>
 );
 
 const customerGridStatus = (props) => (
-  <div className="flex gap-2 justify-center items-center text-gray-700 capitalize">
-    <p style={{ background: props.StatusBg }} className="rounded-full h-3 w-3" />
-    <p>{props.Status}</p>
-  </div>
+	<div style={{ textTransform: "capitalize", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}>
+		<p style={{ background: props.StatusBg,width: "0.75rem", height: "0.75rem", borderRadius: "9999px" }} />
+		<p>{props.Status}</p>
+	</div>
 );
 export const areaPrimaryXAxis = {
   valueType: 'DateTime',
