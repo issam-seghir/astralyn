@@ -3,8 +3,7 @@
  */
 import { Browser } from "@syncfusion/ej2-base";
 import { AnnotationDirective, AnnotationsDirective, Category, ChartAnnotation, ChartComponent, Crosshair, Highlight, Inject, LineSeries, SeriesCollectionDirective, SeriesDirective, Tooltip } from "@syncfusion/ej2-react-charts";
-import { useState } from "react";
-
+import { useTheme } from "@mui/joy/styles";
 import { Sheet } from "@mui/joy";
 
 export let data1 = [
@@ -64,8 +63,10 @@ const SAMPLE_CSS = `
         }
     }`;
 const DashedLine = () => {
+	const theme = useTheme(); // The runtime theme.
+
 	const content = "<div>Actual</div>";
-	const content1="<div>Forecast</div>";
+	const content1 = "<div>Forecast</div>";
 	const onChartLoad = (args) => {
 		let chart = document.querySelector("#control-pane-dl__control-section__chart");
 		chart.setAttribute("title", "");
@@ -74,15 +75,19 @@ const DashedLine = () => {
 	return (
 		<div className="control-pane-dl" style={{ width: "100%" }}>
 			<style>{SAMPLE_CSS}</style>
-			<Sheet variant="soft" color="primary" sx={{ textAlign: "center" }} className="control-pane-dl__control-section">
+			<Sheet variant="plain" color="primary" sx={{ textAlign: "center", borderRadius: 9, height: { xs: "300px", md: "auto" } }} className="control-pane-dl__control-section">
 				<ChartComponent
 					id="control-pane-dl__control-section__chart"
-					// style={{ textAlign: "center" }}
+					legendSettings={{ enableHighlight: true }}
 					primaryXAxis={{
 						valueType: "Category",
 						labelStyle: { size: "1rem", fontWeight: "bold", color: "var(--joy-palette-primary-softColor)", fontFamily: "var(--joy-fontFamily-body)" },
+						// labelPlacement:"OnTicks",
+						// edgeLabelPlacement:"shift",
 						majorGridLines: { width: 0 },
-						interval: 1,
+						minimum: 0,
+						maximum: 11,
+						interval: 2,
 						labelIntersectAction: Browser.isDevice ? "None" : "Trim",
 						labelRotation: Browser.isDevice ? -45 : 0,
 						majorTickLines: { width: 0 },
@@ -91,8 +96,9 @@ const DashedLine = () => {
 					primaryYAxis={{
 						labelFormat: "{value}k",
 						labelStyle: { size: "1rem", fontWeight: "bold", color: "var(--joy-palette-primary-softColor)", fontFamily: "var(--joy-fontFamily-body)" },
+						// labelPlacement:"OnTicks",
+						// edgeLabelPlacement:"shift",
 						rangePadding: "None",
-						edgeLabelPlacement: "None",
 						plotOffset: 0,
 						plotOffsetTop: 0,
 						plotOffsetBottom: 0,
@@ -109,14 +115,11 @@ const DashedLine = () => {
 						minorGridLines: { width: 0 },
 						minorTickLines: { width: 0 },
 					}}
-					tooltip={{ enable: true, shared: true, format: "${point.x} : <b>${point.y}</b>", header: "<b>Production</b>" }}
-					legendSettings={{ enableHighlight: true }}
 					crosshair={{ enable: false, line: { color: "rgba(204,214,235,0.25)", width: Browser.isDevice ? 50 : 20 }, lineType: "Vertical" }}
 					chartArea={{ border: { width: 5, color: "var(--joy-palette-primary-softColor)" }, opacity: 0.5, background: "var(--joy-palette-primary-softBg)" }}
-					width={"100%"}
-					height={"250rem"}
-					// background={"var(--joy-palette-primary-100)"}
-					// border={{ color: "var(--joy-palette-primary-softColor)", width: 5 }}
+					tooltip={{ enable: true, shared: true, format: "${point.x} : <b>${point.y}</b>", header: "<b>Production</b>" }}
+					width={Browser.isDevice ? "100%" : "75%"}
+					height={"100%"}
 					margin={{ left: 12, top: 12, right: 50, bottom: 12 }}
 					title="Production Statistics"
 					titleStyle={{ border: { cornerRadius: 5, color: "var(--joy-palette-primary-800)", width: 1 }, background: "transparent", size: "1rem", fontWeight: "bold", color: "var(--joy-palette-primary-softColor", fontFamily: "var(--joy-fontFamily-body)", position: "Top" }}

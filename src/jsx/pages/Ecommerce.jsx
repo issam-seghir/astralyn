@@ -11,6 +11,7 @@ import { dropdownData, earningData, ecomPieChartData, medicalproBranding, recent
 import product9 from "../data/product9.jpg";
 import FinancialHeloChart  from "@components/FinancialHeloChart";
 import DashedLineChart from "@components/DashedLineChart";
+import BarColumnChart from "@components/BarColumnChart";
 
 const Ecommerce = () => {
 	const { currentColor, currentMode } = useThemeContext();
@@ -128,24 +129,11 @@ const Ecommerce = () => {
 				</Card>
 			</Box>
 			<Sheet variant="outlined" color="primary" component="ul" sx={{ p: 1 }}>
-				<Box display={"flex"}>
-					<Typography level="h4" flex={1}>
-						$63,448.78
-					</Typography>
-					<List orientation="horizontal" sx={{ flex: 0 }} size="sm">
-						<ListItem>
-							<Typography sx={{ alignItems: "center", justifyContent: "center" }} level="body-md" startDecorator={<GoDotFill />}>
-								Expense
-							</Typography>
-							<Typography sx={{ alignItems: "center", justifyContent: "center" }} level="body-md" startDecorator={<GoDotFill />}>
-								Budget
-							</Typography>
-						</ListItem>
-					</List>
-				</Box>
-				<Box display={"flex"} gap={2}>
-					<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: 1, alignItems: "center" }}>
-						<CardContent>
+				<Box display={"flex"} p={2}></Box>
+				<Box display={"flex"} gap={2} flexWrap={{ xs: "wrap" }}>
+					<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: { lg: 1, xs: "100%" }, alignItems: "center" }}>
+						<Typography level="h4">Revenue updates</Typography>
+						<CardContent sx={{ alignSelf: "flex-start", gap: 3 }}>
 							<CardContent>
 								<Typography
 									sx={{ alignItems: "flex-end", justifyContent: "center" }}
@@ -174,29 +162,23 @@ const Ecommerce = () => {
 								</Typography>
 								<Typography level="title-md">Expense</Typography>
 							</CardContent>
-
 						</CardContent>
 						<DashedLineChart />
-						<CardActions>
-									<Button>
-										Download Report
-									</Button>
+						<CardActions sx={{ alignSelf:{xs:"stretch" ,lg:"center"} }}>
+							<Button>Download Report</Button>
 						</CardActions>
 					</Card>
 					<Divider orientation="vertical" />
-					<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: 1, alignItems: "flex-start" }}>
-						<CardCover>
-							<img src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800" srcSet="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800&dpr=2 2x" loading="lazy" alt="" />
-						</CardCover>
-						<CardContent>
-							<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 2, mb: 2 }} variant="soft" color="primary">
-								<BsCurrencyDollar />
-							</Sheet>
-							<CardContent>
-								<Typography level="h3">$63,448.78</Typography>
-								<Typography level="title-md">Earnings</Typography>
-							</CardContent>
+					<Card color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: { lg: 1, xs: "100%" } }}>
+						<CardContent orientation="horizontal">
+							<Typography level="body-md" startDecorator={<GoDotFill />}>
+								Expense
+							</Typography>
+							<Typography level="body-md" startDecorator={<GoDotFill />}>
+								Budget
+							</Typography>
 						</CardContent>
+						<BarColumnChart />
 					</Card>
 				</Box>
 			</Sheet>
