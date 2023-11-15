@@ -39,28 +39,18 @@ const Column = () => {
 		let chart = document.querySelector("#control-pane-bc__control-section__chart");
 		chart.setAttribute("title", "");
 	};
-
+	// fir legend Shape and SeriesDirective only
+	const palette = ["var(--joy-palette-primary-300)", "var(--joy-palette-primary-500)"];
 	return (
 		<div className="control-pane-bc">
 			<style>{SAMPLE_CSS}</style>
 			<Sheet variant="plain" color="primary" sx={{ textAlign: "center", borderRadius: 9, height: { xs: "300px", md: "auto" } }} className="control-pane-bc__control-section">
 				<ChartComponent
 					id="control-pane-bc__control-section__chart"
+					palettes={palette}
 					legendSettings={{
 						enableHighlight: true,
 						textStyle: { border: { cornerRadius: 5, color: "var(--joy-palette-primary-800)", width: 1 }, background: "transparent", size: "1rem", fontWeight: "bold", color: "var(--joy-palette-primary-softColor", fontFamily: "var(--joy-fontFamily-body)", position: "Top" },
-					}}
-					legendRender={(args) => {
-						console.log(args);
-						// Set fill color to 'gold' for the Gold series
-						if (args.text === "Gold") {
-							args.fill = "var(--joy-palette-primary-300)";
-						}
-
-						// Set fill color to 'silver' for the Silver series
-						else if (args.text === "Silver") {
-							args.fill = "var(--joy-palette-primary-500)";
-						}
 					}}
 					primaryXAxis={{
 						labelStyle: { size: "1rem", fontWeight: "bold", color: "var(--joy-palette-primary-softColor)", fontFamily: "var(--joy-fontFamily-body)" },
@@ -84,7 +74,6 @@ const Column = () => {
 					margin={{ left: 10, top: 12, right: 30, bottom: 12 }}
 					chartArea={{ border: { width: 5, color: "var(--joy-palette-primary-softColor)" }, opacity: 0.5, background: "var(--joy-palette-primary-softBg)" }}
 					tooltip={{ enable: true, header: "<b>${point.tooltip}</b>", shared: true }}
-					width={Browser.isDevice ? "100%" : "75%"}
 					height={Browser.isDevice ? "100%" : "75%"}
 					title="Olympic Medal Counts - RIO"
 					titleStyle={{ border: { cornerRadius: 5, color: "var(--joy-palette-primary-800)", width: 1 }, background: "transparent", size: "1rem", fontWeight: "bold", color: "var(--joy-palette-primary-softColor", fontFamily: "var(--joy-fontFamily-body)", position: "Top" }}
@@ -92,8 +81,32 @@ const Column = () => {
 				>
 					<Inject services={[ColumnSeries, Legend, Tooltip, Category, DataLabel, Highlight]} />
 					<SeriesCollectionDirective>
-						<SeriesDirective dataSource={data1} tooltipMappingName="toolTipMappingName" xName="x" columnSpacing={0.1} yName="y" name="Gold" type="Column" fill="var(--joy-palette-primary-300)" />
-						<SeriesDirective dataSource={data2} tooltipMappingName="toolTipMappingName" xName="x" columnSpacing={0.1} yName="y" name="Silver" type="Column" fill="var(--joy-palette-primary-500)" />
+						<SeriesDirective
+							dataSource={data1}
+							tooltipMappingName="toolTipMappingName"
+							xName="x"
+							columnSpacing={0.1}
+							yName="y"
+							name="Gold"
+							type="Column"
+							cornerRadius={{
+								topLeft: 3,
+								topRight: 3,
+							}}
+						/>
+						<SeriesDirective
+							dataSource={data2}
+							tooltipMappingName="toolTipMappingName"
+							xName="x"
+							columnSpacing={0.1}
+							yName="y"
+							name="Silver"
+							type="Column"
+							cornerRadius={{
+								topLeft: 3,
+								topRight: 3,
+							}}
+						/>
 					</SeriesCollectionDirective>
 				</ChartComponent>
 			</Sheet>

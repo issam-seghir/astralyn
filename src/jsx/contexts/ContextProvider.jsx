@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/consistent-function-scoping */
 import { defaultTheme, greenEmeraldTheme, pinkFuchsiaTheme } from "@components/Theme";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, useRef } from "react";
 
 const ThemeContext = createContext();
 
@@ -44,6 +44,10 @@ export const ContextProvider = ({ children }) => {
 		}
 	}, [selectedTheme]);
 
+	const chartInstance = useRef();
+	function printChart() {
+		chartInstance.current.print();
+	}
 	// const handleClick = (clicked) => setIsClicked({ ...initialState, [clicked]: true });
 
 	return (
@@ -60,6 +64,8 @@ export const ContextProvider = ({ children }) => {
 				setProgress,
 				loading,
 				setLoading,
+				chartInstance,
+				printChart,
 			}}
 		>
 			{children}

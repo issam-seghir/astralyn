@@ -41,3 +41,126 @@
   max-width: 600px;
   background-color: #008000;
 }
+
+/* --------------------------- data grid ------------------------------  */
+
+// * grid header */
+.e-grid {
+    border-color:var(--joy-palette-primary-softColor) !important;
+    border-radius: 1rem !important;
+    border-style: solid solid solid !important;
+    border-width: 1px !important;
+  }
+
+  /* header div*/
+  .e-grid .e-table{
+        background-color:  var(--joy-palette-primary-softBg) !important;
+        overflow: hidden !important;
+  }
+  /* header div */
+  .e-grid .e-gridheader {
+    border-color: var(--joy-palette-primary-softColor) !important;
+    border-inline-width:0px !important;
+    border-top-width:0px !important;
+    border-bottom-width: 1px !important;
+    border-top-left-radius: 1rem !important;
+    border-top-right-radius: 1rem !important;
+
+  }
+  /* header div*/
+  .e-grid .e-headercell {
+    color: var(--joy-palette-primary-softColor) !important;
+    background-color: var(--joy-palette-primary-softBg) !important;
+
+}
+
+/* header text content. */
+.e-grid .e-headercelldiv {
+  font-size: var(--joy-fontSize-lg) !important;
+}
+
+
+// * grid footer */
+
+/* Grid pager root element */
+.e-grid .e-gridpager {
+  border-color: var(--joy-palette-primary-softColor) !important;
+    border-inline-width:0px !important;
+    border-top-width:1px !important;
+    border-bottom-width: 1px !important;
+    border-radius: 0 0 1rem 1rem !important;
+
+    background-color: var(--joy-palette-primary-softBg) !important;
+}
+
+
+/* Grid pager container element */
+.e-grid .e-pagercontainer {
+    background-color: var(--joy-palette-primary-softBg) !important;
+
+}
+
+
+/* Grid pager navigation icons elements */
+.e-grid .e-gridpager .e-prevpagedisabled,
+.e-grid .e-gridpager .e-prevpage,
+.e-grid .e-gridpager .e-nextpage,
+.e-grid .e-gridpager .e-nextpagedisabled,
+.e-grid .e-gridpager .e-lastpagedisabled,
+.e-grid .e-gridpager .e-lastpage,
+.e-grid .e-gridpager .e-firstpage,
+.e-grid .e-gridpager .e-firstpagedisabled {
+    background-color: var(--joy-palette-primary-softBg) !important;
+    color: var(--joy-palette-primary-softColor) !important;
+}
+.e-grid .e-gridpager .e-prevpagedisabled,
+.e-grid .e-gridpager .e-nextpagedisabled,
+.e-grid .e-gridpager .e-lastpagedisabled,
+.e-grid .e-gridpager .e-firstpagedisabled {
+    background-color: var(--joy-palette-primary-softBg) !important;
+    color: var(--joy-palette-primary-600) !important;
+}
+
+
+/* Grid pager page numeric link elements */
+.e-grid .e-gridpager .e-numericitem {
+    // border-radius: 50% !important;
+    color: var(--joy-palette-primary-900) !important;
+
+background-color: var(--joy-palette-primary-softColor)  !important;
+}
+.e-pager .e-spacing, .e-pager .e-numericitem:hover, .e-pager .e-currentitem{
+  border-radius: 4px;
+    cursor: pointer;
+    padding: 6px 12px 6px 12px;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    margin: 0.1rem;
+}
+
+/* pager current page numeric element */
+
+.e-grid .e-gridpager .e-currentitem {
+    color: var(--joy-palette-primary-100) !important;
+    background-color: var(--joy-palette-primary-500) !important;
+    border-width: 0px !important;
+}
+
+.e-grid .e-gridpager .e-numericitem:focus
+.e-grid .e-gridpager .e-numericitem:active
+.e-grid .e-gridpager .e-numericitem .e-focus,
+.e-grid .e-gridpager .e-numericitem .e-focused,
+.e-grid .e-gridpager .e-numericitem .e-active,
+.e-grid .e-gridpager .e-numericitem:focus-within,
+.e-grid .e-gridpager .e-numericitem:focus-visible {
+    border-color: var(--joy-palette-primary-500) !important;
+    box-shadow:none !important;
+    outline:none !important;
+}
+
+
+/* pager messagebar (status in right bottom of the grid table) */
+
+.e-grid .e-gridpager .e-parentmsgbar {
+    color: var(--joy-palette-primary-300) !important;
+}

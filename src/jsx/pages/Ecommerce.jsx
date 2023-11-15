@@ -11,11 +11,8 @@ import FinancialHeloChart from "@components/FinancialHeloChart";
 import { useRef } from "react";
 
 const Ecommerce = () => {
-	const { currentColor, currentMode } = useThemeContext();
-	const chartInstance = useRef();
-function clickHandler() {
-	console.log(chartInstance.current);
-}
+	const { printChart } = useThemeContext();
+
 	return (
 		<Box sx={{ my: 12, display: "flex", flexDirection: "column", gap: 4 }}>
 			<Box variant="soft" component="ul" sx={{ display: "flex", flexWrap: { xs: "wrap", xl: "nowrap" }, gap: 2, "--Icon-fontSize": "4.5rem" }}>
@@ -163,22 +160,22 @@ function clickHandler() {
 								<Typography level="title-md">Expense</Typography>
 							</CardContent>
 						</CardContent>
-						<DashedLineChart ref={chartInstance} />
+						<DashedLineChart />
 						<CardActions sx={{ alignSelf: { xs: "stretch", lg: "center" } }}>
-							<Button onClick={clickHandler.bind(this)}>Download Report</Button>
+							<Button onClick={printChart}>Download Report</Button>
 						</CardActions>
 					</Card>
 					<Divider orientation="vertical" />
-					<Card color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: { lg: 1, xs: "100%" } }}>
-						<CardContent orientation="horizontal">
-							<Typography level="body-md" startDecorator={<GoDotFill />}>
-								Expense
+					<Card color="neutral" size="lg" variant="soft" sx={{ flex: { lg: 1, xs: "100%" } }}>
+							<Typography>
+								<Typography level="body-md" startDecorator={<GoDotFill />}>
+									Expense
+								</Typography>
+								<Typography level="body-md" startDecorator={<GoDotFill />}>
+									Budget
+								</Typography>
 							</Typography>
-							<Typography level="body-md" startDecorator={<GoDotFill />}>
-								Budget
-							</Typography>
-						</CardContent>
-						<BarColumnChart />
+						<BarColumnChart/>
 					</Card>
 				</Box>
 			</Sheet>

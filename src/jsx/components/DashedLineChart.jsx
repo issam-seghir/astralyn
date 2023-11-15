@@ -1,10 +1,12 @@
 /**
  * Sample for Line Series with dashed line
  */
+import { Button, Sheet } from "@mui/joy";
+import { useTheme } from "@mui/joy/styles";
 import { Browser } from "@syncfusion/ej2-base";
 import { AnnotationDirective, AnnotationsDirective, Category, ChartAnnotation, ChartComponent, Crosshair, Highlight, Inject, LineSeries, SeriesCollectionDirective, SeriesDirective, Tooltip } from "@syncfusion/ej2-react-charts";
-import { useTheme } from "@mui/joy/styles";
-import { Sheet } from "@mui/joy";
+import { useRef } from "react";
+import { useThemeContext } from "@contexts/ContextProvider";
 
 export let data1 = [
 	{ x: "Jan", y: 50 },
@@ -64,6 +66,7 @@ const SAMPLE_CSS = `
     }`;
 const DashedLine = () => {
 	const theme = useTheme(); // The runtime theme.
+	const { chartInstance } = useThemeContext();
 
 	const content = "<div>Actual</div>";
 	const content1 = "<div>Forecast</div>";
@@ -76,7 +79,9 @@ const DashedLine = () => {
 		<div className="control-pane-dl" style={{ width: "100%" }}>
 			<style>{SAMPLE_CSS}</style>
 			<Sheet variant="plain" color="primary" sx={{ textAlign: "center", borderRadius: 9, height: { xs: "300px", md: "auto" } }} className="control-pane-dl__control-section">
+				{/* <Button onClick={clickHandler}>Download Report</Button> */}
 				<ChartComponent
+					ref={chartInstance}
 					id="control-pane-dl__control-section__chart"
 					legendSettings={{ enableHighlight: true }}
 					primaryXAxis={{
@@ -118,7 +123,6 @@ const DashedLine = () => {
 					crosshair={{ enable: false, line: { color: "rgba(204,214,235,0.25)", width: Browser.isDevice ? 50 : 20 }, lineType: "Vertical" }}
 					chartArea={{ border: { width: 5, color: "var(--joy-palette-primary-softColor)" }, opacity: 0.5, background: "var(--joy-palette-primary-softBg)" }}
 					tooltip={{ enable: true, shared: true, format: "${point.x} : <b>${point.y}</b>", header: "<b>Production</b>" }}
-					width={Browser.isDevice ? "100%" : "75%"}
 					height={"100%"}
 					margin={{ left: 12, top: 12, right: 50, bottom: 12 }}
 					title="Production Statistics"
