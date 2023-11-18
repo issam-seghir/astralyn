@@ -10,96 +10,196 @@
 // .e-control {
 //   font-family: Arial !important;
 // }
+
 /* change font size for all components  */
 
 // .e-control, .e-control [class^='e-'], .e-control [class*=' e-'] {
 //     font-size: 1rem;
 //   }
 
-
-.e-input-group:not(.e-float-icon-left), .e-input-group.e-success:not(.e-float-icon-left), .e-input-group.e-warning:not(.e-float-icon-left), .e-input-group.e-error:not(.e-float-icon-left), .e-input-group.e-control-wrapper:not(.e-float-icon-left), .e-input-group.e-control-wrapper.e-success:not(.e-float-icon-left), .e-input-group.e-control-wrapper.e-warning:not(.e-float-icon-left), .e-input-group.e-control-wrapper.e-error:not(.e-float-icon-left){
-  border: none;
-}
-
-
-.e-dlg-center-center, .e-quick-popup-wrapper.e-device{
-  z-index: 1000000 !important;
-}
-
-
-
-/* color-picker style  */
-
- #preview {
-  background: transparent
-    url('https://ej2.syncfusion.com/react/demos/src/color-picker/images/pen.png')
-    no-repeat;
-  display: inline-block;
-  height: 80px;
-  margin: 10px 0;
-  min-width: 300px;
-  max-width: 600px;
-  background-color: #008000;
+.e-dlg-center-center,
+.e-quick-popup-wrapper.e-device {
+	z-index: 1000000 !important;
 }
 
 /* --------------------------- data grid ------------------------------  */
 
 // * grid header */
 .e-grid {
-    border-color:var(--joy-palette-primary-softColor) !important;
-    border-radius: 1rem !important;
-    border-style: solid solid solid !important;
-    border-width: 1px !important;
-  }
+	border-color: var(--joy-palette-primary-softColor) !important;
+	border-style: solid !important;
+	border-width: 1px !important;
+	border-radius: 1rem !important;
 
-  /* header div*/
-  .e-grid .e-table{
-        background-color:  var(--joy-palette-primary-softBg) !important;
-        overflow: hidden !important;
-  }
-  /* header div */
-  .e-grid .e-gridheader {
-    border-color: var(--joy-palette-primary-softColor) !important;
-    border-inline-width:0px !important;
-    border-top-width:0px !important;
-    border-bottom-width: 1px !important;
-    border-top-left-radius: 1rem !important;
-    border-top-right-radius: 1rem !important;
+	/* header div */
+	.e-table {
+		overflow: hidden !important;
+		background-color: var(--joy-palette-primary-softBg) !important;
+	}
 
-  }
-  /* header div*/
-  .e-grid .e-headercell {
-    color: var(--joy-palette-primary-softColor) !important;
-    background-color: var(--joy-palette-primary-softBg) !important;
+	.e-gridheader {
+		border-color: var(--joy-palette-primary-softColor) !important;
+		border-top-width: 0 !important;
+		border-bottom-width: 1px !important;
+		border-inline-width: 0 !important;
+		border-top-left-radius: 1rem !important;
+		border-top-right-radius: 1rem !important;
+	}
 
+	.e-headercell {
+		color: var(--joy-palette-primary-softColor) !important;
+		background-color: var(--joy-palette-primary-softBg) !important;
+	}
+
+	/* header text content. */
+	.e-headercelldiv {
+		font-size: var(--joy-fontSize-lg) !important;
+	}
+
+	/* header text color. when sorting is active  */
+	th.e-headercell[aria-sort="ascending"] .e-headertext,
+	.e-grid th.e-headercell[aria-sort="descending"] .e-headertext,
+	.e-grid th.e-headercell[aria-sort="ascending"] .e-sortfilterdiv,
+	.e-grid th.e-headercell[aria-sort="descending"] .e-sortfilterdiv {
+		color: var(--joy-palette-primary-400) !important;
+	}
+
+	/* header sorting icon */
+	.e-icon-ascending {
+		color: var(--joy-palette-primary-400) !important;
+	}
+
+	/* header multi sorting number icon */
+	.e-sortnumber {
+		color: var(--joy-palette-primary-50) !important;
+		background-color: var(--joy-palette-primary-600) !important;
+	}
+
+	/* header filterbarcell type input */
+	.e-filterbarcell {
+		color: red !important;
+		background-color: red !important;
+
+		.e-input-group input.e-input {
+			color: red !important;
+			background-color: red !important;
+		}
+
+		.e-input-group.e-input-focus::after,
+		.e-input-group.e-input-focus::before {
+			background-color: red !important;
+		}
+	}
+
+	/* header filter popup dialog header */
+	.e-filter-popup {
+		.e-contextmenu-wrapper ul {
+			background-color: var(--joy-palette-primary-600) !important;
+
+      .e-menu-item{
+			color: var(--joy-palette-primary-50) !important;
+
+      }
+		}
+
+		/* header filter popup dialog content */
+		.e-dlg-content {
+			color: var(--joy-palette-primary-50) !important;
+			background-color: var(--joy-palette-primary-600) !important;
+
+			/* header filter popup dialog content line under input animation */
+			.e-input-group {
+				border-color: var(--joy-palette-primary-50) !important;
+				transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+				transition-duration: 150ms;
+				transition-property: all;
+
+				&.e-control-wrapper.e-input-focus::before {
+					background-color: var(--joy-palette-primary-100) !important;
+				}
+
+				&.e-control-wrapper.e-input-focus::after {
+					background-color: var(--joy-palette-primary-100) !important;
+				}
+
+				&.e-control-wrapper:hover {
+					border-color: var(--joy-palette-primary-500) !important;
+				}
+			}
+
+			/* header filter popup dialog search/cancel icon */
+			.e-searchbox .e-icons {
+				color: var(--joy-palette-primary-100) !important;
+			}
+
+			/* header filter popup dialog checkbox list */
+
+			.e-checkboxlist {
+				.e-icons {
+					color: var(--joy-palette-primary-100) !important;
+					background-color: var(--joy-palette-primary-500) !important;
+					border-color: var(--joy-palette-primary-500) !important;
+				}
+
+				.e-uncheck.e-icons {
+					background-color: transparent !important;
+					border-color: var(--joy-palette-primary-50) !important;
+				}
+
+				.e-checkboxfiltertext {
+					color: var(--joy-palette-primary-50) !important;
+				}
+
+				.e-ftrchk.e-chkfocus {
+					background-color: var(--joy-palette-primary-500) !important;
+				}
+			}
+		}
+
+		/* header filter popup dialog footer */
+		.e-footer-content {
+			background-color: var(--joy-palette-primary-700) !important;
+      .e-btn.e-primary.e-flat:not([DISABLED]):focus-visible,
+      .e-btn.e-primary.e-flat:not([DISABLED]):focus,
+      .e-btn.e-primary.e-flat:not([DISABLED]):focus,
+      .e-btn.e-flat:not([DISABLED]):focus-visible {
+        border-color: var(--joy-palette-primary-100) !important;
+        box-shadow: var(--joy-shadow-sm) !important;
+      }
+		}
+
+		/* header filter popup dialog input & button */
+		.e-btn {
+			color: var(--joy-palette-primary-50) !important;
+		}
+
+
+		.e-input-group input.e-input {
+			color: var(--joy-palette-primary-50) !important;
+		}
+
+		.e-input-group input.e-input::placeholder {
+			color: rgba(var(--joy-palette-primary-mainChannel) / 80%) !important;
+		}
+	}
 }
-
-/* header text content. */
-.e-grid .e-headercelldiv {
-  font-size: var(--joy-fontSize-lg) !important;
-}
-
 
 // * grid footer */
 
 /* Grid pager root element */
 .e-grid .e-gridpager {
-  border-color: var(--joy-palette-primary-softColor) !important;
-    border-inline-width:0px !important;
-    border-top-width:1px !important;
-    border-bottom-width: 1px !important;
-    border-radius: 0 0 1rem 1rem !important;
-
-    background-color: var(--joy-palette-primary-softBg) !important;
+	background-color: var(--joy-palette-primary-softBg) !important;
+	border-color: var(--joy-palette-primary-softColor) !important;
+	border-top-width: 1px !important;
+	border-bottom-width: 1px !important;
+	border-inline-width: 0 !important;
+	border-radius: 0 0 1rem 1rem !important;
 }
-
 
 /* Grid pager container element */
 .e-grid .e-pagercontainer {
-    background-color: var(--joy-palette-primary-softBg) !important;
-
+	background-color: var(--joy-palette-primary-softBg) !important;
 }
-
 
 /* Grid pager navigation icons elements */
 .e-grid .e-gridpager .e-prevpagedisabled,
@@ -110,57 +210,55 @@
 .e-grid .e-gridpager .e-lastpage,
 .e-grid .e-gridpager .e-firstpage,
 .e-grid .e-gridpager .e-firstpagedisabled {
-    background-color: var(--joy-palette-primary-softBg) !important;
-    color: var(--joy-palette-primary-softColor) !important;
+	color: var(--joy-palette-primary-softColor) !important;
+	background-color: var(--joy-palette-primary-softBg) !important;
 }
+
 .e-grid .e-gridpager .e-prevpagedisabled,
 .e-grid .e-gridpager .e-nextpagedisabled,
 .e-grid .e-gridpager .e-lastpagedisabled,
 .e-grid .e-gridpager .e-firstpagedisabled {
-    background-color: var(--joy-palette-primary-softBg) !important;
-    color: var(--joy-palette-primary-600) !important;
+	color: var(--joy-palette-primary-600) !important;
+	background-color: var(--joy-palette-primary-softBg) !important;
 }
-
 
 /* Grid pager page numeric link elements */
 .e-grid .e-gridpager .e-numericitem {
-    // border-radius: 50% !important;
-    color: var(--joy-palette-primary-900) !important;
-
-background-color: var(--joy-palette-primary-softColor)  !important;
+	// border-radius: 50% !important;
+	color: var(--joy-palette-primary-900) !important;
+	background-color: var(--joy-palette-primary-softColor) !important;
 }
-.e-pager .e-spacing, .e-pager .e-numericitem:hover, .e-pager .e-currentitem{
-  border-radius: 4px;
-    cursor: pointer;
-    padding: 6px 12px 6px 12px;
-    -webkit-text-decoration: none;
-    text-decoration: none;
-    margin: 0.1rem;
+
+.e-pager .e-spacing,
+.e-pager .e-numericitem:hover,
+.e-pager .e-currentitem {
+	cursor: pointer;
+	margin: 0.1rem;
+	padding: 6px 12px;
+	text-decoration: none;
+	border-radius: 4px;
 }
 
 /* pager current page numeric element */
 
 .e-grid .e-gridpager .e-currentitem {
-    color: var(--joy-palette-primary-100) !important;
-    background-color: var(--joy-palette-primary-500) !important;
-    border-width: 0px !important;
+	color: var(--joy-palette-primary-100) !important;
+	background-color: var(--joy-palette-primary-500) !important;
+	border-width: 0 !important;
 }
 
-.e-grid .e-gridpager .e-numericitem:focus
-.e-grid .e-gridpager .e-numericitem:active
-.e-grid .e-gridpager .e-numericitem .e-focus,
+.e-grid .e-gridpager .e-numericitem:focus .e-grid .e-gridpager .e-numericitem:active .e-grid .e-gridpager .e-numericitem .e-focus,
 .e-grid .e-gridpager .e-numericitem .e-focused,
 .e-grid .e-gridpager .e-numericitem .e-active,
 .e-grid .e-gridpager .e-numericitem:focus-within,
 .e-grid .e-gridpager .e-numericitem:focus-visible {
-    border-color: var(--joy-palette-primary-500) !important;
-    box-shadow:none !important;
-    outline:none !important;
+	border-color: var(--joy-palette-primary-500) !important;
+	outline: none !important;
+	box-shadow: none !important;
 }
-
 
 /* pager messagebar (status in right bottom of the grid table) */
 
 .e-grid .e-gridpager .e-parentmsgbar {
-    color: var(--joy-palette-primary-300) !important;
+	color: var(--joy-palette-primary-300) !important;
 }
