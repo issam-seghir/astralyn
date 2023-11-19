@@ -1,50 +1,70 @@
-import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
-import { Agenda, Day, DragAndDrop, Inject, Month, Resize, ScheduleComponent, ViewDirective, ViewsDirective, Week, WorkWeek } from "@syncfusion/ej2-react-schedule";
-import { useState } from "react";
+import { Day, DragAndDrop, Inject, Month, Resize, ResourceDirective, ResourcesDirective, ScheduleComponent, TimelineViews, ViewDirective, ViewsDirective, WorkWeek } from "@syncfusion/ej2-react-schedule";
 
-// import { Header } from "../components";
-import { scheduleData } from "../data/dummy";
+import { extend } from "@syncfusion/ej2-base";
 
-// eslint-disable-next-line react/destructuring-assignment
-const PropertyPane = (props) => <div className="mt-5">{props.children}</div>;
-
-const Scheduler = () => {
-	const [scheduleObj, setScheduleObj] = useState();
-
-	const change = (args) => {
-		scheduleObj.selectedDate = args.value;
-		scheduleObj.dataBind();
+import * as dataSource from "@data/schedule-data";
+/**
+ * schedule resources group-editing sample
+ */
+const GroupEditing = () => {
+	const data = extend([], dataSource.resourceConferenceData, null, true);
+	const resourceData = [
+		{ Text: "Margaret", Id: 1, Color: "#1aaa55" },
+		{ Text: "Robert", Id: 2, Color: "#357cd2" },
+		{ Text: "Laura", Id: 3, Color: "#7fa900" },
+	];
+	const getEmployeeName = (value) => {
+		return value.resourceData ? value.resourceData[value.resource.textField] : value.resourceName;
 	};
-
-	const onDragStart = (arg) => {
-		// eslint-disable-next-line no-param-reassign
-		arg.navigation.enable = true;
+	const getEmployeeImage = (value) => {
+		return getEmployeeName(value).replace(" ", "-").toLowerCase();
 	};
-
+	const getEmployeeDesignation = (value) => {
+		let resourceName = getEmployeeName(value);
+		return resourceName === "Margaret" ? "Sales Representative" : resourceName === "Robert" ? "Vice President, Sales" : "Inside Sales Coordinator";
+	};
+	const monthEventTemplate = (props) => {
+		return <div className="subject">{props.Subject}</div>;
+	};
+	const resourceHeaderTemplate = (props) => {
+		return (
+			<div className="template-wrap">
+				<div className={"resource-image " + getEmployeeImage(props)}></div>
+				<div className="resource-details">
+					<div className="resource-name">{getEmployeeName(props)}</div>
+					<div className="resource-designation">{getEmployeeDesignation(props)}</div>
+				</div>
+			</div>
+		);
+	};
 	return (
-		<div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-			{/* <Header category="App" title="Calendar" /> */}
-			<ScheduleComponent height="650px" ref={(schedule) => setScheduleObj(schedule)} selectedDate={new Date(2021, 0, 10)} eventSettings={{ dataSource: scheduleData }} dragStart={onDragStart}>
-				<ViewsDirective>
-					{["Day", "Week", "WorkWeek", "Month", "Agenda"].map((item) => (
-						<ViewDirective key={item} option={item} />
-					))}
-				</ViewsDirective>
-				<Inject services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]} />
-			</ScheduleComponent>
-			<PropertyPane>
-				<table style={{ width: "100%", background: "white" }}>
-					<tbody>
-						<tr style={{ height: "50px" }}>
-							<td style={{ width: "100%" }}>
-								<DatePickerComponent value={new Date(2021, 0, 10)} showClearButton={false} placeholder="Current Date" floatLabelType="Always" change={change} />
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</PropertyPane>
+		<div className="schedule-control-section">
+			<div className="col-lg-12 control-section">
+				<div className="control-wrapper">
+					<ScheduleComponent
+						cssClass="group-editing"
+						width="100%"
+						height="100%"
+						selectedDate={new Date(2021, 5, 5)}
+						currentView="WorkWeek"
+						resourceHeaderTemplate={resourceHeaderTemplate}
+						eventSettings={{ dataSource: data, fields: { subject: { title: "Conference Name", name: "Subject" }, description: { title: "Summary", name: "Description" }, startTime: { title: "From", name: "StartTime" }, endTime: { title: "To", name: "EndTime" } } }}
+						group={{ allowGroupEdit: true, resources: ["Conferences"] }}
+					>
+						<ResourcesDirective>
+							<ResourceDirective field="ConferenceId" title="Attendees" name="Conferences" allowMultiple={true} dataSource={resourceData} textField="Text" idField="Id" colorField="Color" />
+						</ResourcesDirective>
+						<ViewsDirective>
+							<ViewDirective option="Day" />
+							<ViewDirective option="WorkWeek" />
+							<ViewDirective option="Month" eventTemplate={monthEventTemplate} />
+							<ViewDirective option="TimelineWeek" />
+						</ViewsDirective>
+						<Inject services={[Day, WorkWeek, Month, TimelineViews, Resize, DragAndDrop]} />
+					</ScheduleComponent>
+				</div>
+			</div>
 		</div>
 	);
 };
-
-export default Scheduler;
+export default GroupEditing;

@@ -12,8 +12,9 @@ const Orders = () => {
 				<Typography level="h1">Page</Typography>
 				<Typography level="h2">Orders</Typography>
 			</Box>
-			<Box sx={{borderRadius: "5rem" ,bgcolor:"red" }}>
+			<Box sx={{ borderRadius: "5rem", bgcolor: "red" }}>
 				<GridComponent
+					cssClass="no-toolbar"
 					id="gridcomp"
 					dataSource={ordersData}
 					allowPaging

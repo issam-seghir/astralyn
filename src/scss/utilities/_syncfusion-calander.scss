@@ -1,0 +1,58 @@
+.e-calendar,
+.e-schedule {
+	color: var(--joy-palette-primary-softColor) !important;
+	background-color: var(--joy-palette-primary-softBg) !important;
+	border-radius: 1rem;
+}
+
+.e-calendar *,
+.e-schedule * {
+	color: inherit !important;
+}
+
+.e-calendar {
+	border: 2px solid var(--joy-palette-primary-500) !important;
+
+	.e-content td.e-focused-date span.e-day {
+		color: #fff !important;
+		background-color: rgba(var(--joy-palette-primary-mainChannel) / 80%) !important;
+		border: 2px solid var(--joy-palette-primary-500) !important;
+	}
+
+	.e-content td.e-focused-date.e-today span.e-day {
+		color: #fff !important;
+		background-color: var(--joy-palette-primary-softBg) !important;
+		border: 2px solid var(--joy-palette-primary-500) !important;
+	}
+
+	/* Calendar header (days name) */
+	.e-content thead,
+	.e-bigger.e-small .e-content thead {
+		background: rgba(var(--joy-palette-primary-mainChannel) / 80%)  !important;
+
+	}
+
+
+	/*   Calendar date elements on hovering */
+	.e-content td:hover span.e-day,
+	.e-content td:focus span.e-day,
+	.e-bigger.e-small .e-content td:hover span.e-day,
+	.e-bigger.e-small .e-content td:focus span.e-day {
+		color: var(--joy-palette-primary-softBg) !important;
+		background-color: var(--joy-palette-primary-softColor) !important;
+		border: 1px solid !important;
+	}
+
+	/* Calendar Title  */
+	.e-header .e-title,
+	.e-bigger.e-small .e-header .e-title {
+		font-size: 20px !important;
+		color: var(--joy-palette-primary-400) !important;
+	}
+
+	/* Calendar Button  */
+	.e-btn.e-today.e-flat.e-primary,
+	.e-css.e-btn.e-today.e-flat.e-primary {
+		// background-color: var(--joy-palette-primary-softBg) !important;
+	}
+}

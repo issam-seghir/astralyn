@@ -2,7 +2,7 @@
 
 // * grid header */
 .e-grid {
-	overflow: hidden !important;
+	// overflow: hidden !important;
 	border-color: var(--joy-palette-primary-softColor) !important;
 	border-style: solid !important;
 	border-width: 1px !important;
@@ -109,7 +109,18 @@
 		background-color: var(--joy-palette-primary-700) !important;
 	}
 
+
 	// /* toolbar  */
+	.e-toolbar{
+		border-top-left-radius: 1rem !important;
+		border-top-right-radius: 1rem !important;
+		border-width: 0 !important;
+	}
+	&.no-toolbar .e-gridheader {
+		border-top-left-radius: 1rem !important;
+		border-top-right-radius: 1rem !important;
+	}
+
 	.e-toolbar,
 	.e-toolbar-items {
 		background: var(--joy-palette-primary-softBg) !important;
@@ -209,6 +220,7 @@
 
 	/* header filter popup dialog header */
 	.e-filter-popup {
+		overflow: hidden;
 		.e-contextmenu-wrapper ul {
 			color: var(--joy-palette-primary-50) !important;
 			background-color: var(--joy-palette-primary-600) !important;

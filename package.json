@@ -69,6 +69,7 @@
 		"@syncfusion/ej2": "^23.1.43",
 		"@syncfusion/ej2-react-calendars": "^23.1.41",
 		"@syncfusion/ej2-react-charts": "^23.1.44",
+		"@syncfusion/ej2-react-diagrams": "^23.1.44",
 		"@syncfusion/ej2-react-dropdowns": "^23.1.43",
 		"@syncfusion/ej2-react-grids": "^23.1.43",
 		"@syncfusion/ej2-react-inputs": "^23.1.43",

@@ -2,7 +2,7 @@
 
 // * abstracts < base < ...
 // ! "!important" is in reverse order (just avoid to use it )
-@layer abstracts,base ,components ,utilities,utilities-override;
+@layer abstracts,base ,components ,utilities;
 
 // * Third party mixins
 @import "gerillass";
@@ -22,10 +22,6 @@
 
 @layer utilities {
 	@include meta.load-css("utilities");
-}
-
-@layer utilities-override {
-	@include meta.load-css("utilities-override");
 }
 
 
