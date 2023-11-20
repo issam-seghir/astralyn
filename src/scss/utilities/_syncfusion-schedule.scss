@@ -3,6 +3,16 @@
     padding-left: 3px;
 }
 
+.e-schedule .e-month-view .e-appointment .e-appointment-details{
+    overflow: visible !important;
+}
+
+.e-schedule .e-timeline-view .e-appointment, .e-schedule .e-timeline-month-view .e-appointment{
+height: auto !important;
+}
+
+
+
 .group-editing.e-schedule .e-vertical-view .e-resource-cells {
     height: 62px;
 }

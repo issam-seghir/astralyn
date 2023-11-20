@@ -1831,6 +1831,7 @@
             "Subject": "Burning Man",
             "StartTime": "2021-06-01T09:30:00.000Z",
             "EndTime": "2021-06-01T11:30:00.000Z",
+            "isAllDay": true,
             "ConferenceId": [
                 1,
                 2,
