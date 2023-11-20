@@ -6,7 +6,7 @@ import { ContextProvider } from "@contexts/ContextProvider";
 import App from "@pages/App";
 import Area from "@pages/Area";
 import Bar from "@pages/Bar";
-import Calendar from "@pages/Calendar";
+import Scheduler from "@pages/Scheduler";
 import ColorPicker from "@pages/ColorPicker";
 import Customers from "@pages/Customers";
 import Ecommerce from "@pages/Ecommerce";
@@ -56,7 +56,7 @@ const router = createBrowserRouter(
 				},
 				{
 					path: "calendar",
-					element: <Calendar />,
+					element: <Scheduler />,
 				},
 				{
 					path: "kanban",

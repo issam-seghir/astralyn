@@ -8,28 +8,7 @@
 	border-width: 1px !important;
 	border-radius: 1rem !important;
 
-	.e-checkboxlist,
-	.e-checkbox-wrapper {
-		.e-icons {
-			color: var(--joy-palette-primary-100) !important;
-			background-color: var(--joy-palette-primary-500) !important;
-			border-color: var(--joy-palette-primary-500) !important;
-		}
-
-		.e-uncheck.e-icons {
-			background-color: transparent !important;
-			border-color: var(--joy-palette-primary-50) !important;
-		}
-
-		.e-checkboxfiltertext {
-			color: var(--joy-palette-primary-50) !important;
-		}
-
-		.e-ftrchk.e-chkfocus {
-			background-color: var(--joy-palette-primary-500) !important;
-		}
-	}
-
+	
 	/* header filter popup dialog content */
 	.e-dialog {
 		color: var(--joy-palette-primary-50) !important;
@@ -40,25 +19,6 @@
 		color: var(--joy-palette-primary-50) !important;
 		background-color: var(--joy-palette-primary-600) !important;
 
-		/* header filter popup dialog content line under input animation */
-		.e-input-group {
-			border-color: var(--joy-palette-primary-50) !important;
-			transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-			transition-duration: 150ms;
-			transition-property: all;
-
-			&.e-control-wrapper.e-input-focus::before {
-				background-color: var(--joy-palette-primary-100) !important;
-			}
-
-			&.e-control-wrapper.e-input-focus::after {
-				background-color: var(--joy-palette-primary-100) !important;
-			}
-
-			&.e-control-wrapper:hover {
-				border-color: var(--joy-palette-primary-500) !important;
-			}
-		}
 
 		/* header filter popup dialog search/cancel icon */
 		.e-searchbox .e-icons {
@@ -274,13 +234,7 @@
 			color: var(--joy-palette-primary-50) !important;
 		}
 
-		.e-input-group input.e-input {
-			color: var(--joy-palette-primary-50) !important;
-		}
 
-		.e-input-group input.e-input::placeholder {
-			color: rgba(var(--joy-palette-primary-mainChannel) / 80%) !important;
-		}
 	}
 }
 

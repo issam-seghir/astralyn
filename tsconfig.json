@@ -1,0 +1,52 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@assets/*": [
+                "src/assets/*"
+            ],
+            "@jsx/*": [
+                "src/jsx/*"
+            ],
+            "@scss/*": [
+                "src/scss/*"
+            ],
+            "@images/*": [
+                "src/assets/images/*"
+            ],
+            "@svg/*": [
+                "src/assets/svg/*"
+            ],
+            "@videos/*": [
+                "src/assets/videos/*"
+            ],
+            "@components/*": [
+                "src/jsx/components/*"
+            ],
+            "@contexts/*": [
+                "src/jsx/contexts/*"
+            ],
+            "@data/*": [
+                "src/jsx/data/*"
+            ],
+            "@pages/*": [
+                "src/jsx/pages/*"
+            ],
+            "@abstracts/*": [
+                "src/scss/abstracts/*"
+            ],
+            "@base/*": [
+                "src/scss/base/*"
+            ],
+            "@scssComponents/*": [
+                "src/scss/components/*"
+            ],
+            "@utilities/*": [
+                "src/scss/utilities/*"
+            ],
+            "@/*": [
+                "src/*"
+            ]
+        }
+    }
+}

@@ -70,7 +70,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<SiShopware className="icon" />
 					</Link>
 					<Typography flex={1} level="title-lg">
-						Shoppy
+						Infinitrix
 					</Typography>
 				</Box>
 				<List
@@ -136,7 +136,7 @@ export default function SideBare({ show, toggleSideBar }) {
 								<ListItemDecorator>
 									<FaCalendarDays className="icon" />
 								</ListItemDecorator>
-								<Typography level="title-sm">Calendar</Typography>
+								<Typography level="title-sm">Scheduler</Typography>
 							</ListItemButton>
 						</ListItem>
 						<ListItem>

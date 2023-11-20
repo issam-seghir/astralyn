@@ -1,12 +1,10 @@
-.e-calendar,
-.e-schedule {
+.e-calendar {
 	color: var(--joy-palette-primary-softColor) !important;
 	background-color: var(--joy-palette-primary-softBg) !important;
 	border-radius: 1rem;
 }
 
-.e-calendar *,
-.e-schedule * {
+.e-calendar * {
 	color: inherit !important;
 }
 

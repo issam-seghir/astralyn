@@ -9,9 +9,9 @@ import * as dataSource from "@data/schedule-data";
 const GroupEditing = () => {
 	const data = extend([], dataSource.resourceConferenceData, null, true);
 	const resourceData = [
-		{ Text: "Margaret", Id: 1, Color: "#1aaa55" },
-		{ Text: "Robert", Id: 2, Color: "#357cd2" },
-		{ Text: "Laura", Id: 3, Color: "#7fa900" },
+		{ Text: "Margaret", Id: 1, Color: "#edaf94" },
+		{ Text: "Robert", Id: 2, Color: "#6ab284" },
+		{ Text: "Laura", Id: 3, Color: "#fff09d" },
 	];
 	const getEmployeeName = (value) => {
 		return value.resourceData ? value.resourceData[value.resource.textField] : value.resourceName;

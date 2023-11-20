@@ -23,17 +23,17 @@ body {
 }
 
 
-// /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role="list"],
 ol[role="list"] {
 	list-style: none;
 }
 
-// /* add curser pointure for buttons roles */
-*[role="button"] {
-	cursor: pointer;
-	padding: 1rem;
-}
+/* add curser pointure for buttons roles */
+// *[role="button"]{
+// 	cursor: pointer;
+// 	padding: 1rem;
+// }
 
 blockquote,
 q {
@@ -52,7 +52,7 @@ a:not([class]) {
 	text-decoration-skip-ink: auto;
 }
 
-// /* Make images easier to work with */
+/* Make images easier to work with */
 img,
 picture,
 video,
@@ -217,10 +217,9 @@ strong {
 	font-weight: bolder;
 }
 
+
 /* fix hidden attribute  */
-[hidden] {
-	display: none;
-}
+[hidden] { display: none; }
 
 [type="button"],
 [type="reset"],
