@@ -30,6 +30,8 @@ module.exports = {
 	],
 	ignoreFiles: ["**/_reset.scss", "**/index.html", "**/LICENSE"],
 	rules: {
+		"custom-property-pattern": null,
+		"selector-class-pattern": null,
 		// Don't add empty lines between order groups.
 		"order/properties-order": [
 			propertiesOrder,

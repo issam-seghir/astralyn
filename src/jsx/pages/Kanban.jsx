@@ -1,9 +1,20 @@
 import * as dataSource from "@data/kanban-data";
+import Box from "@mui/joy/Box";
 import { addClass, extend } from "@syncfusion/ej2-base";
 import { ColumnDirective, ColumnsDirective, KanbanComponent } from "@syncfusion/ej2-react-kanban";
+import { BsClipboardCheckFill } from "react-icons/bs";
+import { IoIosListBox } from "react-icons/io";
+import { TbEyeSearch, TbProgressBolt } from "react-icons/tb";
 
 const Overview = () => {
 	let data = extend([], dataSource.cardData, null, true);
+	const iconMap = {
+		open: <IoIosListBox className="icon" color="#0251cc" />,
+		inprogress: <TbProgressBolt className="icon" color="#ea9713" />,
+		review: <TbEyeSearch className="icon" color="#8e4399" />,
+		close: <BsClipboardCheckFill className="icon" color="#63ba3c" />,
+		// Add more keyField-value to icon mappings as needed
+	};
 	const fields = [
 		{ text: "ID", key: "Title", type: "TextBox" },
 		{ key: "Status", type: "DropDown" },
@@ -18,7 +29,9 @@ const Overview = () => {
 	const columnTemplate = (props) => {
 		return (
 			<div className="header-template-wrap">
-				<div className={"header-icon e-icons " + props.keyField}></div>
+				<Box width={"1rem"} className={"header-icon e-icons " + props.keyField}>
+					{iconMap[props.keyField.toLowerCase()] || <TbProgressBolt />} {/* Render the icon */}
+				</Box>
 				<div className="header-text">{props.headerText}</div>
 			</div>
 		);

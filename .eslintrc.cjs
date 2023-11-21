@@ -83,7 +83,7 @@ module.exports = {
 		// Organize imports using simple-import-sort
 		"simple-import-sort/imports": "off",
 		"simple-import-sort/exports": "error",
-		 "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+		"no-unused-vars": ["warn", { vars: "all", args: "after-used", ignoreRestSiblings: false }],
 
 		// Ensure imports are at the beginning of the file
 		"import/first": "error",
@@ -99,5 +99,6 @@ module.exports = {
 		"unicorn/no-array-reduce": "off",
 		"unicorn/no-array-for-each": "off",
 		"unicorn/filename-case": ["off"],
+		"unicorn/no-null": "off",
 	},
 };
