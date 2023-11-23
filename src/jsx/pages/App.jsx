@@ -10,9 +10,44 @@ import Tooltip from "@mui/joy/Tooltip";
 import { CssVarsProvider } from "@mui/joy/styles";
 import Loading from "@pages/Loading";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 import { FiSettings } from "react-icons/fi";
 import { Outlet } from "react-router-dom";
+
+import { L10n, enableRtl, loadCldr, setCulture, setCurrencyCode } from "@syncfusion/ej2-base";
+import * as arGregorianCalander from "cldr-data/main/ar/ca-gregorian.json";
+import * as arCharactersData from "cldr-data/main/ar/characters.json";
+import * as arCurrenciesData from "cldr-data/main/ar/currencies.json";
+import * as arDateFieldsData from "cldr-data/main/ar/dateFields.json";
+import * as arDelimitersData from "cldr-data/main/ar/delimiters.json";
+import * as arLanguagesData from "cldr-data/main/ar/languages.json";
+import * as arLayoutData from "cldr-data/main/ar/layout.json";
+import * as arLocaleDisplayNamesData from "cldr-data/main/ar/localeDisplayNames.json";
+import * as arMeasurementSystemNamesData from "cldr-data/main/ar/measurementSystemNames.json";
+import * as arNumberData from "cldr-data/main/ar/numbers.json";
+import * as arPosixData from "cldr-data/main/ar/posix.json";
+import * as arTerritoriesData from "cldr-data/main/ar/territories.json";
+import * as arTimeZoneData from "cldr-data/main/ar/timeZoneNames.json";
+import * as arUnitsData from "cldr-data/main/ar/units.json";
+import * as suppNumberingSystems from "cldr-data/supplemental/numberingSystems.json";
+
+loadCldr(arNumberData, arTimeZoneData, arGregorianCalander, arCurrenciesData, arCharactersData, arDateFieldsData, arDelimitersData, arLanguagesData, arLayoutData, arLocaleDisplayNamesData, arMeasurementSystemNamesData, arPosixData, arTerritoriesData, arUnitsData, suppNumberingSystems);
+
+// Enables Right to left alignment for all components
+enableRtl(true);
+
+L10n.load({
+	ar: {
+		Grid: {
+			EmptyRecord: "لا يوجد تسجيل لعرضه",
+			InvalidFilterMessage: "بيانات تصفية غير صالحة",
+			UnGroup: "انقر هنا لإلغاء الجمع",
+		},
+	},
+});
+
+setCulture("ar");
+setCurrencyCode("SAR");
+
 
 function App() {
 	const { showSettings, setShowSettings, theme, loading } = useThemeContext();

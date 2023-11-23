@@ -32,6 +32,7 @@ const Orders = () => {
 					showConfirmDialog={false}
 					loadingIndicator={{ indicatorType: "Shimmer" }}
 					allowMultiSorting
+					enablePersistence
 				>
 					<ColumnsDirective>
 						{/* eslint-disable-next-line react/jsx-props-no-spreading */}
