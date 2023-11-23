@@ -2,11 +2,17 @@
  * Rich Text Editor markdown preview sample
  */
 import { Browser } from "@syncfusion/ej2-base";
-import { Image, Inject, Link, MarkdownEditor, QuickToolbar, RichTextEditorComponent, Table, Toolbar, HtmlEditor, Count, ToolbarType } from "@syncfusion/ej2-react-richtexteditor";
 import { PaneDirective, PanesDirective, SplitterComponent } from "@syncfusion/ej2-react-layouts";
+import { Count, HtmlEditor, Image, Inject, Link, MarkdownEditor, QuickToolbar, RichTextEditorComponent, Table, Toolbar, ToolbarType } from "@syncfusion/ej2-react-richtexteditor";
+import { useMediaQuery } from "@uidotdev/usehooks";
 import * as Marked from "marked";
 
+
 function Preview() {
+	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
+	const isMediumDevice = useMediaQuery("only screen and (min-width : 769px) and (max-width : 992px)");
+	const isLargeDevice = useMediaQuery("only screen and (min-width : 993px) and (max-width : 1200px)");
+	const isExtraLargeDevice = useMediaQuery("only screen and (min-width : 1201px)");
 	let rteObj;
 	let splitterInstance;
 	// set the value to Rich Text Editor
@@ -18,17 +24,26 @@ function Preview() {
 
   We can add our own custom formation syntax for the Markdown formation, [sample link](https://ej2.syncfusion.com/home/).
 
-  The third-party library <b>Marked</b> is used in this sample to convert markdown into HTML content`;
+  The third-party library <b>Marked</b> is used in this sample to convert markdown into HTML content
+  `;
 	// Rich Text Editor items list
-	const items = ["Bold", "Italic", "StrikeThrough", "|", "Formats", "OrderedList", "UnorderedList", "|", "CreateLink", "Image", "CreateTable", "|", "Undo", "Redo"];
+	const items = ["Bold", "Italic", "StrikeThrough", "|", "Formats", "OrderedList", "UnorderedList", "|", "CreateLink", "Image", "CreateTable", "InsertCode", "|", "Undo", "Redo", "|", "FullScreen", "Print"];
 	let textArea;
 	let srcArea;
 	//Rich Text Editor ToolbarSettings
 	const toolbarSettings = {
 		items: items,
 		type: ToolbarType.Expand,
-		enableFloating: false,
+		enableFloating: true,
 	};
+
+	// Set options
+	Marked.use({
+		gfm: true,
+		breaks: true,
+	});
+
+
 	function onCreate() {
 		textArea = rteObj.contentModule.getEditPanel();
 		srcArea = document.querySelector(".source-code");
@@ -58,9 +73,11 @@ function Preview() {
 						rteObj = richtexteditor;
 					}}
 					editorMode="Markdown"
+					placeholder={"Type Something ..."}
 					toolbarSettings={toolbarSettings}
-					height="447px"
+					height="inherit"
 					saveInterval={1}
+					showCharCount={true}
 					created={onCreate.bind(this)}
 					change={onChange.bind(this)}
 					actionComplete={updateValue.bind(this)}
@@ -82,16 +99,15 @@ function Preview() {
 		);
 	}
 	return (
-		<div className="control-pane">
+		<div className="control-pane" style={{ height: "100%" }}>
 			<div className="control-section onlineEditor" id="rtePreview">
 				<div className="content-wrapper">
-					content1()
-					{/* <SplitterComponent ref={(splitter) => (splitterInstance = splitter)} height="450px" width="100%" resizing={onResizing.bind(this)} created={updateOrientation.bind(this)}>
+					<SplitterComponent orientation={isSmallDevice ? "Vertical" : "Horizontal"} ref={(splitter) => (splitterInstance = splitter)} height="450px" width="100%" resizing={onResizing.bind(this)} created={updateOrientation.bind(this)}>
 						<PanesDirective>
 							<PaneDirective resizable={true} size="50%" min="40%" cssClass="pane1" content={content1.bind(this)}></PaneDirective>
 							<PaneDirective min="40%" cssClass="pane2" content={content2.bind(this)}></PaneDirective>
 						</PanesDirective>
-					</SplitterComponent> */}
+					</SplitterComponent>
 				</div>
 			</div>
 		</div>

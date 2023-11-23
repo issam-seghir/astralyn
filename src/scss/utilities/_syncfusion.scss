@@ -18,7 +18,7 @@
 //   }
 
 /* change focus style  */
-.e-focused {
+.e-focused:not(#defaultRTE) {
 	border: none !important;
 	outline: 1px solid rgba(var(--joy-palette-primary-mainChannel) / 80%) !important;
 	box-shadow: none !important;
@@ -70,6 +70,10 @@
 	}
 }
 
+.e-tooltip-wrap *{
+	color: var(--joy-palette-primary-softColor) !important;
+
+}
 .e-popup {
 	color: var(--joy-palette-primary-softColor) !important;
 	background-color: var(--joy-palette-primary-softBg) !important;
