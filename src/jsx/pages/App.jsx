@@ -34,20 +34,50 @@ loadCldr(arNumberData, arTimeZoneData, arGregorianCalander, arCurrenciesData, ar
 
 // Enables Right to left alignment for all components
 enableRtl(true);
-
 L10n.load({
 	ar: {
-		Grid: {
-			EmptyRecord: "لا يوجد تسجيل لعرضه",
-			InvalidFilterMessage: "بيانات تصفية غير صالحة",
-			UnGroup: "انقر هنا لإلغاء الجمع",
+		grid: {
+			EmptyDataSourceError: "خطأ: مصدر البيانات فارغ",
+			EmptyRecord: "لا توجد سجلات لعرضها",
+			InvalidFilterMessage: "بيانات فلترة غير صالحة",
+			GroupDropArea: "اسحب رأس العمود هنا لتجميع الأعمدة",
+			UnGroup: "انقر هنا لإلغاء التجميع",
+			GroupDisable: "تم تعطيل التجميع لهذا العمود",
+			FilterbarTitle: "عنوان شريط الفلترة",
+			Add: "إضافة",
+			Edit: "تعديل",
+			Cancel: "إلغاء",
+			Update: "تحديث",
+			Delete: "حذف",
+			Print: "طباعة",
+			Pdfexport: "تصدير كملف PDF",
+			Excelexport: "تصدير كملف PDF",
+			Items: "Artikel",
+		},
+		pager: {
+			currentPageInfo: "{0} von {1} Seiten",
+			firstPageTooltip: "Zur ersten Seite",
+			lastPageTooltip: "Zur letzten Seite",
+			nextPageTooltip: "Zur nächsten Seite",
+			nextPagerTooltip: "Gehen Sie zu den nächsten Pager-Elementen",
+			previousPageTooltip: "Zurück zur letzten Seit",
+			previousPagerTooltip: "Gehen Sie zu vorherigen Pager-Elementen",
+			totalItemsInfo: "({0} Beiträge)",
 		},
 	},
 });
+// L10n.load({
+// 	ar: {
+// 		Grid: {
+// 			EmptyRecord: "لا يوجد تسجيل لعرضه",
+// 			InvalidFilterMessage: "بيانات تصفية غير صالحة",
+// 			UnGroup: "انقر هنا لإلغاء الجمع",
+// 		},
+// 	},
+// });
 
 setCulture("ar");
 setCurrencyCode("SAR");
-
 
 function App() {
 	const { showSettings, setShowSettings, theme, loading } = useThemeContext();

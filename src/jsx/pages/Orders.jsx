@@ -6,6 +6,7 @@ import { contextMenuItems, ordersData, ordersGrid } from "../data/dummy";
 
 const Orders = () => {
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
+	const toolbarOptions = ["Add", "Edit", "Delete", "Update", "Cancel", "Search"];
 	return (
 		<Box sx={{ p: 2, borderRadius: "5rem" }}>
 			{/* <Header category="Page" title="Orders" /> */}
@@ -13,7 +14,7 @@ const Orders = () => {
 				<Typography level="h1">Page</Typography>
 				<Typography level="h2">Orders</Typography>
 			</Box>
-			<Box sx={{ borderRadius: "5rem", bgcolor: "red" }}>
+			<Box sx={{ borderRadius: "5rem"}}>
 				<GridComponent
 					cssClass="no-toolbar"
 					id="gridcomp"
@@ -24,7 +25,7 @@ const Orders = () => {
 					allowExcelExport
 					allowPdfExport
 					contextMenuItems={isSmallDevice ? null : contextMenuItems}
-					editSettings={{ allowDeleting: true, allowEditing: true, allowAdding: true, showDeleteConfirmDialog: true,  mode: `${isSmallDevice ? "Dialog" : "Normal"}` }}
+					editSettings={{ allowDeleting: true, allowEditing: true, allowAdding: true, showDeleteConfirmDialog: true, mode: `${isSmallDevice ? "Dialog" : "Normal"}` }}
 					allowKeyboard
 					allowFiltering={true}
 					filterSettings={{ type: "Excel" }}
@@ -36,6 +37,7 @@ const Orders = () => {
 					enablePersistence
 					enableAdaptiveUI={isSmallDevice ? true : false}
 					rowRenderingMode={isSmallDevice ? "Vertical" : "Horizontal"}
+					toolbar={isSmallDevice ? toolbarOptions : null}
 				>
 					<ColumnsDirective>
 						{/* eslint-disable-next-line react/jsx-props-no-spreading */}
