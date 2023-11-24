@@ -38,11 +38,18 @@
 }
 
 .e-radio + label::after {
-	border-color: var(--joy-palette-primary-300) !important;
-
 	background-color: var(--joy-palette-primary-500) !important;
+	border-color: var(--joy-palette-primary-300) !important;
 }
 
+
+#_nav{
+		color: var(--joy-palette-primary-softColor) !important;
+	background-color: var(--joy-palette-primary-softBg) !important;
+	&:hover{
+
+	}
+}
 /* drop down selector dialog popup */
 
 .e-ddl.e-popup.e-popup-open.e-lib.e-control *,
@@ -70,10 +77,10 @@
 	}
 }
 
-.e-tooltip-wrap *{
+.e-tooltip-wrap * {
 	color: var(--joy-palette-primary-softColor) !important;
-
 }
+
 .e-popup {
 	color: var(--joy-palette-primary-softColor) !important;
 	background-color: var(--joy-palette-primary-softBg) !important;
@@ -177,6 +184,12 @@
 	z-index: 1000000 !important;
 }
 
+.e-bigger .e-responsive-dialog.e-rtl .e-btn.e-dlg-closeicon-btn,
+.e-bigger.e-responsive-dialog.e-rtl .e-btn.e-dlg-closeicon-btn {
+	margin-left: 40px !important;
+	padding-left: 0 !important;
+}
+
 /*  dialog modal popup */
 .e-dialog {
 	background-color: var(--joy-palette-primary-softBg) !important;
@@ -190,9 +203,33 @@
 			color: var(--joy-palette-primary-500) !important;
 		}
 
-		.e-dlg-header {
-			color: var(--joy-palette-primary-softColor) !important;
+		.e-dlg-header,
+		.e-res-custom-element {
+			*{
+				color: var(--joy-palette-primary-softColor) !important;
+			}
+
+			.e-btn {
+				color: inherit !important;
+			}
+
+			#gridcompresponsive_filter_dialog_wrapper {
+				color: inherit !important;
+			}
 		}
+	}
+#gridcompresponsivesort_dialog-content button{
+			background: var(--joy-palette-primary-softColor) !important;
+		color: var(--joy-palette-primary-softBg) !important;
+
+		border-color: var(--joy-palette-primary-softBg) !important;
+}
+	#gridcompresponsivefilter_dialog-header,#gridcompcustomfilter_dialog-header,#gridcompresponsivesort_dialog-header,#gridcomp_dialogEdit_wrapper_dialog-header {
+		color: var(--joy-palette-primary-softColor) !important;
+		background: var(--joy-palette-primary-softBg) !important;
+		border-color: var(--joy-palette-primary-softColor) !important;
+		border-radius: 0 !important;
+
 	}
 
 	.e-dlg-content {

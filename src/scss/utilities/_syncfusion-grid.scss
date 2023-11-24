@@ -8,7 +8,7 @@
 	border-width: 1px !important;
 	border-radius: 1rem !important;
 
-	
+
 	/* header filter popup dialog content */
 	.e-dialog {
 		color: var(--joy-palette-primary-50) !important;
@@ -76,9 +76,13 @@
 		border-top-right-radius: 1rem !important;
 		border-width: 0 !important;
 	}
-	&.no-toolbar .e-gridheader {
+	&.no-toolbar .e-gridheader  {
 		border-top-left-radius: 1rem !important;
 		border-top-right-radius: 1rem !important;
+	}
+	&.no-toolbar .e-toolbar.e-res-toolbar ~  .e-gridheader  {
+		border-top-left-radius: 0 !important;
+		border-top-right-radius: 0 !important;
 	}
 
 	.e-toolbar,
