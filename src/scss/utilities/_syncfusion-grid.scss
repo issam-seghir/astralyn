@@ -66,7 +66,7 @@
 
 	.e-row[aria-selected="true"],
 	td.e-active {
-		background-color: var(--joy-palette-primary-700) !important;
+		background-color: var(--joy-palette-background-rowSelected) !important;
 	}
 
 
@@ -125,7 +125,7 @@
 
 	/* header filter icon */
 	.e-filtermenudiv {
-		color: var(--joy-palette-primary-50) !important;
+		color: var(--joy-palette-primary-softColor) !important;
 	}
 
 	.e-filtermenudiv.e-filtered::before {
@@ -140,7 +140,7 @@
 
 	.e-editedrow table,
 	.e-addedrow table {
-		background-color: var(--joy-palette-primary-softColor) !important;
+		background-color: var(--joy-palette-background-rowSelected) !important;
 
 		.e-input-group {
 			color: var(--joy-palette-primary-softBg) !important;
@@ -320,4 +320,3 @@
 .e-grid .e-gridpager .e-parentmsgbar {
 	color: var(--joy-palette-primary-300) !important;
 }
-

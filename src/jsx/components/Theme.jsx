@@ -7,6 +7,14 @@ const defaultTheme = extendTheme({
 			palette: {
 				background: {
 					surface: "linear-gradient(to right top, #0c131f, #0c1623, #0c1927, #0a1b2a, #081e2e)",
+					rowSelected: "var(--joy-palette-primary-700)"
+				},
+			},
+		},
+		light: {
+			palette: {
+				background: {
+					rowSelected: "var(--joy-palette-primary-300)"
 				},
 			},
 		},
@@ -94,6 +102,9 @@ const greenEmeraldTheme = extendTheme({
 					800: "#1e293b",
 					900: "#0f172a",
 				},
+				background: {
+					rowSelected: "var(--joy-palette-primary-700)",
+				},
 			},
 		},
 		dark: {
@@ -122,6 +133,9 @@ const greenEmeraldTheme = extendTheme({
 					800: "#065f46",
 					900: "#064e3b",
 					solidColor: "var(--joy-palette-primary-50)",
+				},
+				background: {
+					rowSelected: "var(--joy-palette-primary-300)",
 				},
 			},
 		},
