@@ -12,7 +12,6 @@ const Orders = () => {
 	const editSettings = { allowDeleting: true, allowEditing: true, allowAdding: true, showDeleteConfirmDialog: true, mode: `${isSmallDevice ? "Dialog" : "Normal"}` };
 	const id = useId();
 	const {language } = useThemeContext();
-	console.log(ordersData[language.language]);
 
 	const gridOrderImage = (props) => {
 		return (

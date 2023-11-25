@@ -36,6 +36,7 @@ export const ContextProvider = ({ children }) => {
 			currency: "DZD",
 		},
 	};
+
 	const [language, setLanguage] = useState(() => {
 		const storedLanguage = localStorage.getItem("language") || "en";
 		const storedConfig = JSON.parse(localStorage.getItem("languageConfig")) || languageConfigs[storedLanguage];
@@ -63,7 +64,7 @@ export const ContextProvider = ({ children }) => {
 	function printChart() {
 		chartInstance.current.print();
 	}
-	
+
 	useEffect(() => {
 		enableRtl(language.languageConfig["rtl"]);
 		setCulture(language.languageConfig["culture"]);
