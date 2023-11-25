@@ -42,14 +42,44 @@
 	border-color: var(--joy-palette-primary-300) !important;
 }
 
-
-#_nav{
-		color: var(--joy-palette-primary-softColor) !important;
+#_nav {
+	color: var(--joy-palette-primary-softColor) !important;
 	background-color: var(--joy-palette-primary-softBg) !important;
-	&:hover{
 
+	&:hover {
 	}
 }
+
+.e-contextmenu,.e-menu-parent {
+	color: var(--joy-palette-primary-softColor) !important;
+	background: var(--joy-palette-primary-softBg) !important;
+	border-color: var(--joy-palette-primary-300) !important;
+
+	.e-menu-item .e-menu-icon {
+		color: var(--joy-palette-primary-softColor) !important;
+	}
+
+	.e-menu-item.e-selected {
+		color: var(--joy-palette-primary-softBg) !important;
+		background: var(--joy-palette-primary-softColor) !important;
+	}
+
+	.e-menu-item.e-selected .e-icons::before {
+		color: var(--joy-palette-primary-softBg) !important;
+	}
+}
+
+.e-label,
+.e-dialog .e-contextmenu-wrapper ul li,
+.e-dialog .e-contextmenu-wrapper ul li .e-icons::before,
+#gridcomp_searchbutton::before {
+	color: var(--joy-palette-primary-softColor) !important;
+}
+
+.e-emptyrow {
+	color: var(--joy-palette-primary-softColor) !important;
+}
+
 /* drop down selector dialog popup */
 
 .e-ddl.e-popup.e-popup-open.e-lib.e-control *,
@@ -205,7 +235,7 @@
 
 		.e-dlg-header,
 		.e-res-custom-element {
-			*{
+			* {
 				color: var(--joy-palette-primary-softColor) !important;
 			}
 
@@ -218,23 +248,30 @@
 			}
 		}
 	}
-#gridcompresponsivesort_dialog-content button{
-			background: var(--joy-palette-primary-softColor) !important;
-		color: var(--joy-palette-primary-softBg) !important;
 
+	#gridcompresponsivesort_dialog-content button {
+		color: var(--joy-palette-primary-softBg) !important;
+		background: var(--joy-palette-primary-softColor) !important;
 		border-color: var(--joy-palette-primary-softBg) !important;
-}
-	#gridcompresponsivefilter_dialog-header,#gridcompcustomfilter_dialog-header,#gridcompresponsivesort_dialog-header,#gridcomp_dialogEdit_wrapper_dialog-header {
+	}
+
+	#gridcompresponsivefilter_dialog-header,
+	#gridcompcustomfilter_dialog-header,
+	#gridcompresponsivesort_dialog-header,
+	#gridcomp_dialogEdit_wrapper_dialog-header {
 		color: var(--joy-palette-primary-softColor) !important;
 		background: var(--joy-palette-primary-softBg) !important;
 		border-color: var(--joy-palette-primary-softColor) !important;
 		border-radius: 0 !important;
-
 	}
 
 	.e-dlg-content {
 		color: var(--joy-palette-primary-softColor) !important;
 		background-color: var(--joy-palette-primary-softBg) !important;
+	}
+
+	.e-dlg-header {
+		color: var(--joy-palette-primary-softColor) !important;
 	}
 
 	.e-xlfl-optrdiv .e-input-group {

@@ -93,8 +93,10 @@ module.exports = {
 		"import/no-duplicates": "error",
 		// Allow empty named blocks in imports (with a warning)
 		"import/no-empty-named-blocks": "warn",
+		"sonarjs/no-duplicate-string": "warn",
 
 		// Disable some unicorn plugin rules
+		"unicorn/numeric-separators-style":"warn",
 		"unicorn/prevent-abbreviations": "off",
 		"unicorn/no-array-reduce": "off",
 		"unicorn/no-array-for-each": "off",

@@ -11,13 +11,14 @@
 .e-calendar {
 	border: 2px solid var(--joy-palette-primary-500) !important;
 
-	.e-content td.e-focused-date span.e-day {
+	.e-content td.e-focused-date span.e-day,
+	{
 		color: #fff !important;
-		background-color: rgba(var(--joy-palette-primary-mainChannel) / 80%) !important;
+		background: rgba(var(--joy-palette-primary-mainChannel) / 80%) !important;
 		border: 2px solid var(--joy-palette-primary-500) !important;
 	}
 
-	.e-content td.e-focused-date.e-today span.e-day {
+	.e-content td.e-focused-date.e-today span.e-day , .e-cell.e-selected .e-day{
 		color: #fff !important;
 		background-color: var(--joy-palette-primary-softBg) !important;
 		border: 2px solid var(--joy-palette-primary-500) !important;
@@ -26,10 +27,8 @@
 	/* Calendar header (days name) */
 	.e-content thead,
 	.e-bigger.e-small .e-content thead {
-		background: rgba(var(--joy-palette-primary-mainChannel) / 80%)  !important;
-
+		background: rgba(var(--joy-palette-primary-mainChannel) / 80%) !important;
 	}
-
 
 	/*   Calendar date elements on hovering */
 	.e-content td:hover span.e-day,

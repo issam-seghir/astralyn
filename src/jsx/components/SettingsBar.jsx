@@ -8,12 +8,13 @@ import FormLabel from "@mui/joy/FormLabel";
 import Radio, { radioClasses } from "@mui/joy/Radio";
 import RadioGroup from "@mui/joy/RadioGroup";
 import Sheet from "@mui/joy/Sheet";
+import { Typography } from "@mui/joy";
 
 function splitCamelCase(input) {
 	return input.replaceAll(/([a-z])([A-Z])/g, "$1 $2");
 }
 function SettingsSidebar() {
-	const { showSettings, selectedTheme, setSelectedTheme } = useThemeContext();
+	const { showSettings, selectedTheme, setSelectedTheme, language, changeLanguage } = useThemeContext();
 
 	function handleChange(e) {
 		setSelectedTheme(e.target.value);
@@ -78,6 +79,18 @@ function SettingsSidebar() {
 						</Sheet>
 					))}
 				</RadioGroup>
+			</div>
+
+			<div>
+				<Typography level="h1"> Choose your language : </Typography>
+				<div>
+					<label htmlFor="languageSelect">Select Language: </label>
+					<select id="languageSelect" value={language.language} onChange={(e) => changeLanguage(e.target.value)}>
+						<option value="en">English</option>
+						<option value="ar">Arabic</option>
+						{/* Add more language options as needed */}
+					</select>
+				</div>
 			</div>
 		</Box>
 	);
