@@ -13,7 +13,8 @@ import { BsJournalText, BsKanbanFill } from "react-icons/bs";
 import { FaShoppingCart, FaUserTie } from "react-icons/fa";
 import { FaCalendarDays, FaUserGroup } from "react-icons/fa6";
 import { HiColorSwatch } from "react-icons/hi";
-import { SiShopware } from "react-icons/si";
+import { MdOutlineCurrencyExchange } from "react-icons/md";
+
 import { Link as RouterLink } from "react-router-dom";
 
 export default function SideBare({ show, toggleSideBar }) {
@@ -65,7 +66,7 @@ export default function SideBare({ show, toggleSideBar }) {
 					borderColor: "divider",
 				}}
 			>
-				<Box sx={{ display: "flex", gap: 2, p: 1.5 ,alignItems: "center"}}>
+				<Box sx={{ display: "flex", gap: 2, p: 1.5, alignItems: "center" }}>
 					<Link component={RouterLink} to="/">
 						<svg viewBox="-102.4 -102.4 1228.80 1228.80" fill="red" width={"1em"} height={"1em"} color={"var(--Icon-color)"} fontSize={40} strokeWidth="0.01024" transform="matrix(-1, 0, 0, 1, 0, 0)rotate(-45)">
 							<g id="SVGRepo_iconCarrier">
@@ -103,7 +104,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton color="primary" component={RouterLink} to="/" underline="none" selected>
 								<ListItemDecorator>
-									<SiShopware className="icon" />
+									<MdOutlineCurrencyExchange className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
 									<Typography level="title-sm">Ecommerce</Typography>

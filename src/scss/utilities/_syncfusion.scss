@@ -63,6 +63,9 @@
 		color: var(--joy-palette-primary-softBg) !important;
 		background: var(--joy-palette-primary-softColor) !important;
 	}
+	.e-menu-item.e-focused{
+		color: rgba(var(--joy-palette-primary-mainChannel) / 80%) !important;
+	}
 
 	.e-menu-item.e-selected .e-icons::before {
 		color: var(--joy-palette-primary-softBg) !important;
@@ -171,7 +174,7 @@
 
 /* header filter popup dialog content line under input animation */
 .e-input-group {
-	border-color: var(--joy-palette-primary-50) !important;
+	border-color: var(--joy-palette-primary-softColor) !important;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
 	transition-property: all;
@@ -201,7 +204,7 @@
 	}
 
 	input.e-input {
-		color: var(--joy-palette-primary-50) !important;
+		color: var(--joy-palette-primary-softColor) !important;
 	}
 
 	input.e-input::placeholder {
@@ -287,5 +290,3 @@
 		box-shadow: var(--joy-shadow-sm) !important;
 	}
 }
-
-

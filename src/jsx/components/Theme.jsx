@@ -7,14 +7,16 @@ const defaultTheme = extendTheme({
 			palette: {
 				background: {
 					surface: "linear-gradient(to right top, #0c131f, #0c1623, #0c1927, #0a1b2a, #081e2e)",
-					rowSelected: "var(--joy-palette-primary-700)"
+					rowSelected: "var(--joy-palette-primary-700)",
+					tableBody: "var(--joy-palette-primary-softBg)",
 				},
 			},
 		},
 		light: {
 			palette: {
 				background: {
-					rowSelected: "var(--joy-palette-primary-300)"
+					rowSelected: "var(--joy-palette-primary-300)",
+					tableBody: "var(--joy-palette-primary-softBg)",
 				},
 			},
 		},
@@ -103,7 +105,8 @@ const greenEmeraldTheme = extendTheme({
 					900: "#0f172a",
 				},
 				background: {
-					rowSelected: "var(--joy-palette-primary-700)",
+					rowSelected: "var(--joy-palette-primary-300)",
+					tableBody: "var(--joy-palette-primary-softBg)",
 				},
 			},
 		},
@@ -135,7 +138,8 @@ const greenEmeraldTheme = extendTheme({
 					solidColor: "var(--joy-palette-primary-50)",
 				},
 				background: {
-					rowSelected: "var(--joy-palette-primary-300)",
+					rowSelected: "var(--joy-palette-primary-700)",
+					tableBody: "#1d6a5a",
 				},
 			},
 		},
@@ -218,6 +222,8 @@ const pinkFuchsiaTheme = extendTheme({
 				background: {
 					surface: "var(--joy-palette-primary-50)",
 					popup: "var(--joy-palette-primary-50)",
+					rowSelected: "var(--joy-palette-primary-300)",
+					tableBody: "var(--joy-palette-primary-softBg)",
 				},
 			},
 		},
@@ -252,6 +258,8 @@ const pinkFuchsiaTheme = extendTheme({
 				background: {
 					surface: "linear-gradient(to right top, #29162a, #251227, #210e23, #1e0820, #1b011d)",
 					// surface: `linear-gradient(90deg, var(--joy-palette-neutral-900) 0%, var(--joy-palette-neutral-700) 46%, var(--joy-palette-neutral-800) 79%)`,
+					rowSelected: "var(--joy-palette-primary-600)",
+					tableBody: "var(--joy-palette-primary-900)",
 				},
 			},
 		},

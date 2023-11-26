@@ -8,7 +8,6 @@
 	border-width: 1px !important;
 	border-radius: 1rem !important;
 
-
 	/* header filter popup dialog content */
 	.e-dialog {
 		color: var(--joy-palette-primary-50) !important;
@@ -19,7 +18,6 @@
 		color: var(--joy-palette-primary-50) !important;
 		background-color: var(--joy-palette-primary-600) !important;
 
-
 		/* header filter popup dialog search/cancel icon */
 		.e-searchbox .e-icons {
 			color: var(--joy-palette-primary-100) !important;
@@ -28,10 +26,10 @@
 		/* header filter popup dialog checkbox list */
 	}
 
-	/* header div */
+	/* grid table body */
 	.e-table {
 		overflow: hidden !important;
-		background-color: var(--joy-palette-primary-softBg) !important;
+		background-color: var(--joy-palette-background-tableBody) !important;
 	}
 
 	.e-gridheader {
@@ -69,18 +67,19 @@
 		background-color: var(--joy-palette-background-rowSelected) !important;
 	}
 
-
 	// /* toolbar  */
-	.e-toolbar{
-		border-top-left-radius: 1rem !important;
-		border-top-right-radius: 1rem !important;
+	.e-toolbar {
 		border-width: 0 !important;
-	}
-	&.no-toolbar .e-gridheader  {
 		border-top-left-radius: 1rem !important;
 		border-top-right-radius: 1rem !important;
 	}
-	&.no-toolbar .e-toolbar.e-res-toolbar ~  .e-gridheader  {
+
+	&.no-toolbar .e-gridheader {
+		border-top-left-radius: 1rem !important;
+		border-top-right-radius: 1rem !important;
+	}
+
+	&.no-toolbar .e-toolbar.e-res-toolbar ~ .e-gridheader {
 		border-top-left-radius: 0 !important;
 		border-top-right-radius: 0 !important;
 	}
@@ -151,10 +150,7 @@
 		}
 	}
 
-	.e-input.e-search,
-	.e-input.e-search::placeholder {
-		color: var(--joy-palette-primary-50) !important;
-	}
+
 
 	.e-edit::before,
 	.e-delete::before {
@@ -185,6 +181,7 @@
 	/* header filter popup dialog header */
 	.e-filter-popup {
 		overflow: hidden;
+
 		.e-contextmenu-wrapper ul {
 			color: var(--joy-palette-primary-50) !important;
 			background-color: var(--joy-palette-primary-600) !important;
@@ -237,8 +234,6 @@
 		.e-btn {
 			color: var(--joy-palette-primary-50) !important;
 		}
-
-
 	}
 }
 
@@ -283,8 +278,8 @@
 /* Grid pager page numeric link elements */
 .e-grid .e-gridpager .e-numericitem {
 	// border-radius: 50% !important;
-	color: var(--joy-palette-primary-900) !important;
-	background-color: var(--joy-palette-primary-softColor) !important;
+	color: var(--joy-palette-primary-plainHoverBg) !important;
+	background: var(--joy-palette-primary-softColor) !important;
 }
 
 .e-pager .e-spacing,
@@ -318,5 +313,5 @@
 /* pager messagebar (status in right bottom of the grid table) */
 
 .e-grid .e-gridpager .e-parentmsgbar {
-	color: var(--joy-palette-primary-300) !important;
+	color: var(--joy-palette-primary-plainColor) !important;
 }
