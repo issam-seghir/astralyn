@@ -566,10 +566,10 @@ export const customersData = {
 		{
 			CustomerID: 1004,
 
-			CustomerName: "Christopher Jamil",
+			CustomerName: "كريستوفر جاميل",
 			CustomerEmail: "jamil@gmail.com",
-			ProjectName: "MedicalPro WP Theme",
-			Status: "Completed",
+			ProjectName: "موضوع الطبي WP",
+			Status: "مكتمل",
 			CustomerImage: avatar,
 			StatusBg: "#8BE78B",
 			Weeks: "34",
@@ -579,10 +579,10 @@ export const customersData = {
 		{
 			CustomerID: 1005,
 
-			CustomerName: "Michael",
+			CustomerName: "ميخائيل",
 			CustomerEmail: "michael@gmail.com",
-			ProjectName: "Weekly WP Theme",
-			Status: "Cancel",
+			ProjectName: "موضوع WP الأسبوعي",
+			Status: "مُلغى",
 			CustomerImage: "https://i.imgur.com/TAfiQ2U.png",
 			StatusBg: "red",
 			Weeks: "34",
@@ -631,10 +631,10 @@ export const customersData = {
 		{
 			CustomerID: 1009,
 
-			CustomerName: "Christopher Jamil",
+			CustomerName: "كريستوفر جاميل",
 			CustomerEmail: "jamil@gmail.com",
-			ProjectName: "MedicalPro WP Theme",
-			Status: "Completed",
+			ProjectName: "موضوع الطبي WP",
+			Status: "مكتمل",
 			CustomerImage: avatar,
 			StatusBg: "#8BE78B",
 			Weeks: "34",
@@ -644,10 +644,10 @@ export const customersData = {
 		{
 			CustomerID: 1010,
 
-			CustomerName: "Michael",
+			CustomerName: "ميخائيل",
 			CustomerEmail: "michael@gmail.com",
-			ProjectName: "Weekly WP Theme",
-			Status: "Cancel",
+			ProjectName: "موضوع WP الأسبوعي",
+			Status: "مُلغى",
 			CustomerImage: "https://i.imgur.com/TAfiQ2U.png",
 			StatusBg: "red",
 			Weeks: "34",
@@ -696,10 +696,10 @@ export const customersData = {
 		{
 			CustomerID: 1014,
 
-			CustomerName: "Christopher Jamil",
+			CustomerName: "كريستوفر جاميل",
 			CustomerEmail: "jamil@gmail.com",
-			ProjectName: "MedicalPro WP Theme",
-			Status: "Completed",
+			ProjectName: "موضوع الطبي WP",
+			Status: "مكتمل",
 			CustomerImage: avatar,
 			StatusBg: "#8BE78B",
 			Weeks: "34",
@@ -709,10 +709,10 @@ export const customersData = {
 		{
 			CustomerID: 1015,
 
-			CustomerName: "Michael",
+			CustomerName: "ميخائيل",
 			CustomerEmail: "michael@gmail.com",
-			ProjectName: "Weekly WP Theme",
-			Status: "Cancel",
+			ProjectName: "موضوع WP الأسبوعي",
+			Status: "مُلغى",
 			CustomerImage: "https://i.imgur.com/TAfiQ2U.png",
 			StatusBg: "red",
 			Weeks: "34",
@@ -761,10 +761,10 @@ export const customersData = {
 		{
 			CustomerID: 1019,
 
-			CustomerName: "Christopher Jamil",
+			CustomerName: "كريستوفر جاميل",
 			CustomerEmail: "jamil@gmail.com",
-			ProjectName: "MedicalPro WP Theme",
-			Status: "Completed",
+			ProjectName: "موضوع الطبي WP",
+			Status: "مكتمل",
 			CustomerImage: avatar,
 			StatusBg: "#8BE78B",
 			Weeks: "34",
@@ -774,10 +774,10 @@ export const customersData = {
 		{
 			CustomerID: 1020,
 
-			CustomerName: "Michael",
+			CustomerName: "ميخائيل",
 			CustomerEmail: "michael@gmail.com",
-			ProjectName: "Weekly WP Theme",
-			Status: "Cancel",
+			ProjectName: "موضوع WP الأسبوعي",
+			Status: "مُلغى",
 			CustomerImage: "https://i.imgur.com/TAfiQ2U.png",
 			StatusBg: "red",
 			Weeks: "34",
@@ -826,10 +826,10 @@ export const customersData = {
 		{
 			CustomerID: 1024,
 
-			CustomerName: "Christopher Jamil",
+			CustomerName: "كريستوفر جاميل",
 			CustomerEmail: "jamil@gmail.com",
-			ProjectName: "MedicalPro WP Theme",
-			Status: "Completed",
+			ProjectName: "موضوع الطبي WP",
+			Status: "مكتمل",
 			CustomerImage: avatar,
 			StatusBg: "#8BE78B",
 			Weeks: "34",
@@ -839,10 +839,10 @@ export const customersData = {
 		{
 			CustomerID: 1025,
 
-			CustomerName: "Michael",
+			CustomerName: "ميخائيل",
 			CustomerEmail: "michael@gmail.com",
-			ProjectName: "Weekly WP Theme",
-			Status: "Cancel",
+			ProjectName: "موضوع WP الأسبوعي",
+			Status: "مُلغى",
 			CustomerImage: "https://i.imgur.com/TAfiQ2U.png",
 			StatusBg: "red",
 			Weeks: "34",
@@ -891,10 +891,10 @@ export const customersData = {
 		{
 			CustomerID: 1029,
 
-			CustomerName: "Christopher Jamil",
+			CustomerName: "كريستوفر جاميل",
 			CustomerEmail: "jamil@gmail.com",
-			ProjectName: "MedicalPro WP Theme",
-			Status: "Completed",
+			ProjectName: "موضوع الطبي WP",
+			Status: "مكتمل",
 			CustomerImage: avatar,
 			StatusBg: "#8BE78B",
 			Weeks: "34",
@@ -904,10 +904,10 @@ export const customersData = {
 		{
 			CustomerID: 1030,
 
-			CustomerName: "Michael",
+			CustomerName: "ميخائيل",
 			CustomerEmail: "michael@gmail.com",
-			ProjectName: "Weekly WP Theme",
-			Status: "Cancel",
+			ProjectName: "موضوع WP الأسبوعي",
+			Status: "مُلغى",
 			CustomerImage: "https://i.imgur.com/TAfiQ2U.png",
 			StatusBg: "red",
 			Weeks: "34",
@@ -956,10 +956,10 @@ export const customersData = {
 		{
 			CustomerID: 1034,
 
-			CustomerName: "Christopher Jamil",
+			CustomerName: "كريستوفر جاميل",
 			CustomerEmail: "jamil@gmail.com",
-			ProjectName: "MedicalPro WP Theme",
-			Status: "Completed",
+			ProjectName: "موضوع الطبي WP",
+			Status: "مكتمل",
 			CustomerImage: avatar,
 			StatusBg: "#8BE78B",
 			Weeks: "34",
@@ -969,10 +969,10 @@ export const customersData = {
 		{
 			CustomerID: 1035,
 
-			CustomerName: "Michael",
+			CustomerName: "ميخائيل",
 			CustomerEmail: "michael@gmail.com",
-			ProjectName: "Weekly WP Theme",
-			Status: "Cancel",
+			ProjectName: "موضوع WP الأسبوعي",
+			Status: "مُلغى",
 			CustomerImage: "https://i.imgur.com/TAfiQ2U.png",
 			StatusBg: "red",
 			Weeks: "34",
@@ -1020,10 +1020,10 @@ export const customersData = {
 		},
 		{
 			CustomerID: 1039,
-			CustomerName: "Christopher Jamil",
+			CustomerName: "كريستوفر جاميل",
 			CustomerEmail: "jamil@gmail.com",
-			ProjectName: "MedicalPro WP Theme",
-			Status: "Completed",
+			ProjectName: "موضوع الطبي WP",
+			Status: "مكتمل",
 			CustomerImage: avatar,
 			StatusBg: "#8BE78B",
 			Weeks: "34",
@@ -1032,10 +1032,10 @@ export const customersData = {
 		},
 		{
 			CustomerID: 1040,
-			CustomerName: "Michael",
+			CustomerName: "ميخائيل",
 			CustomerEmail: "michael@gmail.com",
-			ProjectName: "Weekly WP Theme",
-			Status: "Cancel",
+			ProjectName: "موضوع WP الأسبوعي",
+			Status: "مُلغى",
 			CustomerImage: "https://i.imgur.com/TAfiQ2U.png",
 			StatusBg: "red",
 			Weeks: "34",
