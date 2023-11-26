@@ -14,6 +14,8 @@ import { FaShoppingCart, FaUserTie } from "react-icons/fa";
 import { FaCalendarDays, FaUserGroup } from "react-icons/fa6";
 import { HiColorSwatch } from "react-icons/hi";
 import { MdOutlineCurrencyExchange } from "react-icons/md";
+import { BsColumnsGap } from "react-icons/bs";
+
 
 import { Link as RouterLink } from "react-router-dom";
 
@@ -104,7 +106,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton color="primary" component={RouterLink} to="/" underline="none" selected>
 								<ListItemDecorator>
-									<MdOutlineCurrencyExchange className="icon" />
+									<BsColumnsGap  className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
 									<Typography level="title-sm">Ecommerce</Typography>

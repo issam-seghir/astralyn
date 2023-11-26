@@ -632,7 +632,7 @@ export const employeesData = {
 		},
 		{
 			EmployeeID: 5,
-			Name: "Miron Vitold",
+			Name: "ميرون فيتولد",
 			Title: "الموارد البشرية",
 			HireDate: "04/19/2023",
 			Country: "بولندا",

@@ -1,27 +1,58 @@
-import { Day, DragAndDrop, Inject, Month, Resize, ResourceDirective, ResourcesDirective, ScheduleComponent, TimelineViews, ViewDirective, ViewsDirective, WorkWeek } from "@syncfusion/ej2-react-schedule";
-
-import { extend } from "@syncfusion/ej2-base";
-
+import { useThemeContext } from "@contexts/ContextProvider";
 import * as dataSource from "@data/schedule-data";
-/**
- * schedule resources group-editing sample
- */
+import * as dataSourceAr from "@data/schedule-data-arabic";
+import { extend } from "@syncfusion/ej2-base";
+import { Day, DragAndDrop, Inject, Month, Resize, ResourceDirective, ResourcesDirective, ScheduleComponent, TimelineViews, ViewDirective, ViewsDirective, WorkWeek } from "@syncfusion/ej2-react-schedule";
+import { useMediaQuery } from "@uidotdev/usehooks";
+
+
 const GroupEditing = () => {
+	// convert json to java script object
 	const data = extend([], dataSource.resourceConferenceData, null, true);
+	const dataAr = extend([], dataSourceAr.resourceConferenceData, null, true);
+	// console.log(data);
+	// console.log(dataAr);
+	const { language } = useThemeContext();
+	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
+
 	const resourceData = [
-		{ Text: "Margaret", Id: 1, Color: "#edaf94" },
-		{ Text: "Robert", Id: 2, Color: "#6ab284" },
-		{ Text: "Laura", Id: 3, Color: "#fff09d" },
+		{ Text: language.language === "ar" ? "ماركو" : "Marko", Id: 1, Color: "#edaf94" },
+		{ Text: language.language === "ar" ? "روبرت" : "Robert", Id: 2, Color: "#6ab284" },
+		{ Text: language.language === "ar" ? "لاري" : "Lari", Id: 3, Color: "#fff09d" },
 	];
+	const employeeDesignation = [{ Text: language.language === "ar" ? "مندوب مبيعات" : "Sales Representative" }, { Text: language.language === "ar" ? "نائب الرئيس ، المبيعات" : "Vice President, Sales" }, { Text: language.language === "ar" ? "منسق المبيعات داخلي" : "Inside Sales Coordinator" }];
+
+	const minValidation = (args) => {
+		return args["value"].length >= 5;
+	};
+
 	const getEmployeeName = (value) => {
 		return value.resourceData ? value.resourceData[value.resource.textField] : value.resourceName;
 	};
+	const getEmployeeId = (value) => {
+		return value.resourceData ? value.resourceData[value.resource.idField] : value.resourceData.Id;
+	};
+
 	const getEmployeeImage = (value) => {
-		return getEmployeeName(value).replace(" ", "-").toLowerCase();
+		const id = getEmployeeId(value);
+		switch (id) {
+			case 1: {
+				return "one";
+			}
+			case 2: {
+				return "two";
+			}
+			case 3: {
+				return "three";
+			}
+			default: {
+				return null;
+			}
+		}
 	};
 	const getEmployeeDesignation = (value) => {
-		let resourceName = getEmployeeName(value);
-		return resourceName === "Margaret" ? "Sales Representative" : resourceName === "Robert" ? "Vice President, Sales" : "Inside Sales Coordinator";
+		let id = getEmployeeId(value);
+		return employeeDesignation[id - 1].Text;
 	};
 	const monthEventTemplate = (props) => {
 		return <div className="subject">{props.Subject}</div>;
@@ -38,32 +69,70 @@ const GroupEditing = () => {
 		);
 	};
 	return (
-		<div className="schedule-control-section">
-			<div className="col-lg-12 control-section">
-				<div className="control-wrapper">
-					<ScheduleComponent
-						cssClass="group-editing"
-						width="100%"
-						height="100%"
-						selectedDate={new Date(2021, 5, 5)}
-						currentView="WorkWeek"
-						resourceHeaderTemplate={resourceHeaderTemplate}
-						eventSettings={{ dataSource: data, fields: { subject: { title: "Conference Name", name: "Subject" }, description: { title: "Summary", name: "Description" }, startTime: { title: "From", name: "StartTime" }, endTime: { title: "To", name: "EndTime" } } }}
-						group={{ allowGroupEdit: true, resources: ["Conferences"] }}
-					>
-						<ResourcesDirective>
-							<ResourceDirective field="ConferenceId" title="Attendees" name="Conferences" allowMultiple={true} dataSource={resourceData} textField="Text" idField="Id" colorField="Color" />
-						</ResourcesDirective>
-						<ViewsDirective>
-							<ViewDirective option="Day" />
-							<ViewDirective option="WorkWeek" />
-							<ViewDirective option="Month" eventTemplate={monthEventTemplate} />
-							<ViewDirective option="TimelineWeek" />
-						</ViewsDirective>
-						<Inject services={[Day, WorkWeek, Month, TimelineViews, Resize, DragAndDrop]} />
-					</ScheduleComponent>
-				</div>
-			</div>
+		<div className="control-wrapper">
+			<ScheduleComponent
+				cssClass="group-editing"
+				width="100%"
+				height="100%"
+				enableAdaptiveUI={isSmallDevice}
+				selectedDate={new Date(2021, 5, 5)}
+				currentView="WorkWeek"
+				resourceHeaderTemplate={resourceHeaderTemplate}
+				eventSettings={{
+					dataSource: language.language === "ar" ? dataAr : data,
+					fields: {
+						id: "Id",
+						subject: {
+							title: language.language === "ar" ? "اسم المؤتمر" : "Conference Name",
+							name: "Subject",
+							validation: { required: true },
+						},
+						location: {
+							title: language.language === "ar" ? "موقع الحدث" : "Event Location",
+							name: "Location",
+						},
+						description: {
+							title: language.language === "ar" ? "ملخص" : "Summary",
+							name: "Description",
+							validation: {
+								minLength: [minValidation, "Need atleast 5 letters to be entered"],
+							},
+						},
+						startTime: {
+							title: language.language === "ar" ? "من" : "From",
+							name: "StartTime",
+						},
+						endTime: {
+							title: language.language === "ar" ? "إلى" : "To",
+							name: "EndTime",
+						},
+						isAllDay: {
+							title: language.language === "ar" ? "هل طوال اليوم ؟" : "is All Day",
+							name: "IsAllDay",
+						},
+						startTimezone: {
+							title: language.language === "ar" ? "بداية المنطقة الزمنية" : "Start Timezone",
+							name: "StartTimezone",
+						},
+						endTimezone: {
+							title: language.language === "ar" ? "نهاية المنطقة الزمنية" : "End Timezone",
+							name: "EndTimezone",
+						},
+					},
+				}}
+				group={{ allowGroupEdit: true, resources: ["Conferences"] }}
+			>
+				<ResourcesDirective>
+					<ResourceDirective field="ConferenceId" title="Attendees" name="Conferences" allowMultiple={true} dataSource={resourceData} textField="Text" idField="Id" colorField="Color" />
+				</ResourcesDirective>
+				<ViewsDirective>
+					<ViewDirective option="Day" allowVirtualScrolling={true} />
+					<ViewDirective option="WorkWeek" allowVirtualScrolling={true} />
+					<ViewDirective option="Month" eventTemplate={monthEventTemplate} />
+					<ViewDirective option="TimelineWeek" />
+				</ViewsDirective>
+				<Inject services={[Day, WorkWeek, Month, TimelineViews, Resize, DragAndDrop]} />
+			</ScheduleComponent>
 		</div>
 	);
 };
