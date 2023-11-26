@@ -227,7 +227,7 @@
 .e-dialog {
 	background-color: var(--joy-palette-primary-softBg) !important;
 
-	.e-dlg-header-content {
+	.e-dlg-header-content  {
 		button:hover {
 			// background-color: var(--joy-palette-primary-softColor) !important;
 		}
@@ -289,4 +289,29 @@
 		border-color: var(--joy-palette-primary-softColor) !important;
 		box-shadow: var(--joy-shadow-sm) !important;
 	}
+}
+
+
+.e-responsive-dialog{
+	.e-dlg-header-content  {
+	background-color: var(--joy-palette-primary-softBg) !important;
+		border-color: var(--joy-palette-primary-softColor) !important;
+		border-radius: 0 !important;
+
+	}
+
+	.e-dlg-content {
+		color: var(--joy-palette-primary-softColor) !important;
+		background-color: var(--joy-palette-primary-softBg) !important;
+		button{
+			color: var(--joy-palette-primary-softBg) !important;
+			background-color: var(--joy-palette-primary-softColor) !important;
+
+		}
+	}
+}
+
+.e-search-icon{
+		color: var(--joy-palette-primary-softColor) !important;
+
 }
