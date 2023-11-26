@@ -1,39 +1,83 @@
-import { ColumnDirective, ColumnsDirective, Edit, Filter, GridComponent, Inject, Page, Selection, Sort, Toolbar } from "@syncfusion/ej2-react-grids";
-
-// import { Header } from "../components";
-import { customersData, customersGrid } from "../data/dummy";
+import { useThemeContext } from "@contexts/ContextProvider";
+import { ColumnDirective,ColumnChooser, ColumnsDirective, Edit, Filter, GridComponent, Inject, Page, Selection, Sort, Toolbar } from "@syncfusion/ej2-react-grids";
+import { useMediaQuery } from "@uidotdev/usehooks";
+import { customersData } from "@data/customersGrid-data.js";
 
 const Customers = () => {
+	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
+
 	const selectionsettings = { persistSelection: true };
 	const toolbarOptions = ["Add", "Delete", "Edit"];
 	const editing = { allowDeleting: true, allowEditing: true, allowAdding: true, mode: "Dialog" };
+	const { language } = useThemeContext();
+
+	const customerGridImage = (props) => {
+		return (
+			<div className="image" style={{ display: "flex", gap: "1rem" }}>
+				<img style={{ width: "2.5rem", height: "2.5rem", borderRadius: "9999px" }} src={props.CustomerImage} alt="employee" />
+				<div>
+					<p>{props.CustomerName}</p>
+					<p>{props.CustomerEmail}</p>
+				</div>
+			</div>
+		);
+	};
+	const customerGridStatus = (props) => {
+		return (
+			<div style={{ textTransform: "capitalize", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}>
+				<p style={{ background: props.StatusBg, width: "0.75rem", height: "0.75rem", borderRadius: "9999px" }} />
+				<p>{props.Status}</p>
+			</div>
+		);
+	};
+
+	const customersGrid = [
+		{ type: "checkbox", width: "50" },
+		{ headerText: language.language === "ar" ? "الإسم" : "Name", width: "150", template: customerGridImage, textAlign: "Center" },
+		{ field: "ProjectName", headerText: language.language === "ar" ? "إسم المشروع" : "Project Name", width: "150", textAlign: "Center" },
+		{ field: "Status", headerText: language.language === "ar" ? "الحالة" : "Status", width: "130", format: "yMd", textAlign: "Center", template: customerGridStatus },
+		{
+			field: "Weeks",
+			headerText: language.language === "ar" ? "الأسابيع" : "Weeks",
+			width: "100",
+			format: "C2",
+			textAlign: "Center",
+		},
+		{ field: "Budget", headerText: language.language === "ar" ? "ميزانية" : "Budget", width: "100", format:"C4",editType:"numericedit",type:"number" ,textAlign: "Center" },
+
+		{ field: "Location", headerText: language.language === "ar" ? "الموقع" : "Location", width: "150", textAlign: "Center" },
+
+		{ field: "CustomerID", headerText: language.language === "ar" ? "معرف ID الزبون" : "Customer ID", width: "120", textAlign: "Center", isPrimaryKey: true },
+	];
 
 	return (
-		<div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-			{/* <Header category="Page" title="Customers" /> */}
-			<GridComponent
-				dataSource={customersData}
-				enableHover={false}
-				allowPaging
-				enableStickyHeader
-				allowSorting
-				pageSettings={{ pageCount: 5 }}
-				selectionSettings={selectionsettings}
-				toolbar={toolbarOptions}
-				editSettings={editing}
-				allowKeyboard
-				allowFiltering={true}
-				filterSettings={{ type: "Menu" }}
-			>
-				<ColumnsDirective>
-					{/* eslint-disable-next-line react/jsx-props-no-spreading */}
-					{customersGrid.map((item, index) => (
-						<ColumnDirective key={index} {...item} />
-					))}
-				</ColumnsDirective>
-				<Inject services={[Page, Selection, Toolbar, Edit, Sort, Filter]} />
-			</GridComponent>
-		</div>
+		<GridComponent
+			dataSource={customersData[language.language]}
+			enableHover={false}
+			allowPaging
+			allowSorting
+			allowKeyboard
+			allowMultiSorting
+			allowFiltering={true}
+			enableStickyHeader={!isSmallDevice}
+			enablePersistence
+			enableAdaptiveUI={isSmallDevice}
+			rowRenderingMode={isSmallDevice ? "Vertical" : "Horizontal"}
+			pageSettings={{ pageCount: 5 }}
+			selectionSettings={selectionsettings}
+			toolbar={toolbarOptions}
+			showColumnChooser={true}
+			loadingIndicator={{ indicatorType: "Shimmer" }}
+			editSettings={editing}
+			filterSettings={{ type: "Menu" }}
+		>
+			<ColumnsDirective>
+				{customersGrid.map((item, index) => (
+					<ColumnDirective key={index} {...item} />
+				))}
+			</ColumnsDirective>
+			<Inject services={[Page, Selection, Toolbar, Edit, Sort, Filter,Toolbar, ColumnChooser]} />
+		</GridComponent>
 	);
 };
 
