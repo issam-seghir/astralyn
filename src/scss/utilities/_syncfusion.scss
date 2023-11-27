@@ -315,3 +315,17 @@
 		color: var(--joy-palette-primary-softColor) !important;
 
 }
+
+
+.Summary_wrapper .e-field{
+	color: var(--joy-palette-primary-softColor) !important;
+	border-color: var(--joy-palette-primary-softColor) !important;
+	padding: 0.5rem;
+	border-radius: .25rem;
+
+
+}
+.e-kanban-dialog.e-dialog .e-kanban-form-wrapper table .e-label, .e-kanban-dialog.e-dialog .e-kanban-form-container table .e-label{
+	padding-inline-start: 0 !important;
+	padding-inline-end: 10px !important;
+}

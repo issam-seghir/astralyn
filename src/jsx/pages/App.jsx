@@ -244,6 +244,24 @@ function App() {
 				summaryMonth: "أشهر",
 				summaryYear: "سنوات",
 			},
+			kanban: {
+				items: "العناصر",
+				min: "أقل حد",
+				max: "أقصى حد",
+				cardsSelected: "تم تحديد البطاقات",
+				addTitle: "إضافة بطاقة جديدة",
+				editTitle: "تحرير تفاصيل البطاقة",
+				deleteTitle: "حذف البطاقة",
+				deleteContent: "هل أنت متأكد أنك تريد حذف هذه البطاقة؟",
+				save: "حفظ",
+				delete: "حذف",
+				cancel: "إلغاء",
+				yes: "نعم",
+				no: "لا",
+				close: "أغلق",
+				noCard: "لا توجد بطاقات لعرضها",
+				unassigned: "غير معين",
+			},
 		},
 	});
 
@@ -278,7 +296,7 @@ function App() {
 						<SettingsBar />
 						<Sidebar />
 						{/* main content */}
-						<Box sx={{ flex: 1, p: { xs:2, md:4}, overflow: "auto" }}>
+						<Box sx={{ flex: 1, p: { xs: 2, md: 4 }, overflow: "auto" }}>
 							<Outlet />
 						</Box>
 					</Box>

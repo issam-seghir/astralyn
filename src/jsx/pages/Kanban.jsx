@@ -1,44 +1,43 @@
 /* eslint-disable react/prop-types */
 
+import { useThemeContext } from "@contexts/ContextProvider";
+import { cardData } from "@data/kanban-data";
 import Box from "@mui/joy/Box";
-import { addClass, extend } from "@syncfusion/ej2-base";
+import { addClass } from "@syncfusion/ej2-base";
 import { ColumnDirective, ColumnsDirective, KanbanComponent } from "@syncfusion/ej2-react-kanban";
+import { useMediaQuery } from "@uidotdev/usehooks";
+import { useId } from "react";
 import { BsClipboardCheckFill } from "react-icons/bs";
 import { IoIosListBox } from "react-icons/io";
 import { TbEyeSearch, TbProgressBolt } from "react-icons/tb";
-import { cardData } from "@data/kanban-data";
-import { useMediaQuery } from "@uidotdev/usehooks";
-import { useThemeContext } from "@contexts/ContextProvider";
-import { useId } from "react";
 
 const Overview = () => {
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
 	const { language } = useThemeContext();
 	const id = useId();
-
+console.log(cardData[language.language]);
 	const iconMap = {
 		open: <IoIosListBox className="icon" color="#0251cc" />,
 		inprogress: <TbProgressBolt className="icon" color="#ea9713" />,
 		review: <TbEyeSearch className="icon" color="#8e4399" />,
 		close: <BsClipboardCheckFill className="icon" color="#63ba3c" />,
-		// Add more keyField-value to icon mappings as needed
 	};
 	const fields = [
-		{ text: "ID", key: "Title", type: "TextBox" },
-		{ key: "Status", type: "DropDown" },
-		{ key: "Assignee", type: "DropDown" },
-		{ key: "RankId", type: "TextBox" },
-		{ key: "Summary", type: "TextArea" },
+		{ text: language.language === "ar" ? "معرف ID" : "ID", key: "Title", type: "TextBox" },
+		{ text: language.language === "ar" ? "الحالة" : "Status", key: "Status", type: "DropDown" },
+		{ text: language.language === "ar" ? "المعهود إليه" : "Assignee", key: "Assignee", type: "DropDown" },
+		{ text: language.language === "ar" ? "رتبة المعرف ID" : "Rank ID", key: "RankId", type: "TextBox" },
+		{ text: language.language === "ar" ? " ملخص" : "Summary", key: "Summary", type: "TextArea" },
 	];
-	const cardRendered = (args) => {
-		// let val = args.cardData.Priority;
-		addClass([args.element], "test");
-	};
+	// const cardRendered = (args) => {
+	// 	// let val = args.cardData.Priority;
+	// 	addClass([args.element], "test");
+	// };
 	const columnTemplate = (props) => {
 		return (
 			<div className="header-template-wrap">
 				<Box width={"1rem"} className={"header-icon e-icons " + props.keyField}>
-					{iconMap[props.keyField.toLowerCase()] || <TbProgressBolt />} {/* Render the icon */}
+					{iconMap[props.keyField.toLowerCase()] || <TbProgressBolt />}
 				</Box>
 				<div className="header-text">{props.headerText}</div>
 			</div>
@@ -73,34 +72,27 @@ const Overview = () => {
 			.toUpperCase();
 	};
 	return (
-		<div className="schedule-control-section">
-			<div className="col-lg-12 control-section">
-				<div className="control-wrapper">
-					<KanbanComponent
-						id="kanban"
-						cssClass="kanban-overview"
-						keyField="Status"
-						dataSource={cardData[language.language]}
-						enableTooltip={true}
-						swimlaneSettings={{ keyField: "Assignee", showItemCount: true }}
-						cardSettings={{
-							headerField: "Title",
-							template: cardTemplate.bind(this),
-							selectionType: "Multiple",
-						}}
-						dialogSettings={{ fields: fields }}
-						cardRendered={cardRendered.bind(this)}
-					>
-						<ColumnsDirective>
-							<ColumnDirective headerText="To Do" showItemCount={true} keyField="Open" allowToggle={true} template={columnTemplate.bind(this)} />
-							<ColumnDirective headerText="In Progress" showItemCount={true} keyField="InProgress" allowToggle={true} template={columnTemplate.bind(this)} />
-							<ColumnDirective headerText="In Review" showItemCount={true} keyField="Review" allowToggle={true} template={columnTemplate.bind(this)} />
-							<ColumnDirective headerText="Done" showItemCount={true} keyField="Close" allowToggle={true} template={columnTemplate.bind(this)} />
-						</ColumnsDirective>
-					</KanbanComponent>
-				</div>
-			</div>
-		</div>
+		<KanbanComponent
+			id="kanban"
+			cssClass="kanban-overview"
+			keyField="Status"
+			dataSource={cardData[language.language]}
+			swimlaneSettings={{ keyField: "Assignee", showItemCount: true }}
+			cardSettings={{
+				headerField: "Title",
+				template: cardTemplate.bind(this),
+				selectionType: "Multiple",
+			}}
+			dialogSettings={{ fields: fields }}
+			// cardRendered={cardRendered.bind(this)}
+		>
+			<ColumnsDirective>
+				<ColumnDirective headerText={language.language === "ar" ? "ما يجب فعله" : "To Do"} showItemCount={true} keyField="Open" allowToggle={true} template={columnTemplate.bind(this)} />
+				<ColumnDirective headerText={language.language === "ar" ? "قيد التنفيد" : "In Progress"} showItemCount={true} keyField="InProgress" allowToggle={true} template={columnTemplate.bind(this)} />
+				<ColumnDirective headerText={language.language === "ar" ? "قيد المراجعة" : "In Review"} showItemCount={true} keyField="Review" allowToggle={true} template={columnTemplate.bind(this)} />
+				<ColumnDirective headerText={language.language === "ar" ? "إنتهى" : "Done"} showItemCount={true} keyField="Close" allowToggle={true} template={columnTemplate.bind(this)} />
+			</ColumnsDirective>
+		</KanbanComponent>
 	);
 };
 export default Overview;

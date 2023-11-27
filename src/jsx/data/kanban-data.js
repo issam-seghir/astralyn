@@ -287,7 +287,7 @@ export const cardData = {
 		{
 			Id: "Task 1",
 			Title: "المهمة - 29001",
-			Status: "مفتوحة",
+			Status: "Open",
 			Summary: "تحليل متطلبات العملاء.",
 			Priority: "عالية",
 			Tags: "مشكلة,إصلاح المشكلة",
@@ -297,7 +297,7 @@ export const cardData = {
 		{
 			Id: "Task 2",
 			Title: "المهمة - 29002",
-			Status: "قيد التنفيد",
+			Status: "InProgress",
 			Summary: "أضف دعمًا متجاوبًا إلى التطبيق",
 			Priority: "منخفضة",
 			Tags: "قصة,كانبان",
@@ -307,7 +307,7 @@ export const cardData = {
 		{
 			Id: "Task 3",
 			Title: "المهمة - 29003",
-			Status: "مفتوحة",
+			Status: "Open",
 			Summary: "إظهار البيانات المحددة من الخادم في التحكم في الشبكة.",
 			Priority: "عالية",
 			Tags: "مشكلة,تطبيق لا يعمل",
@@ -317,7 +317,7 @@ export const cardData = {
 		{
 			Id: "Task 4",
 			Title: "المهمة - 29004",
-			Status: "مفتوحة",
+			Status: "Open",
 			Summary: "إصلاح المشكلات الواردة في متصفح IE.",
 			Priority: "عالية",
 			Tags: "مشكلة , عميل",
@@ -327,7 +327,7 @@ export const cardData = {
 		{
 			Id: "Task 5",
 			Title: "المهمة - 29005",
-			Status: "مراجعة",
+			Status: "Review",
 			Summary: "تحسين أداء التطبيق.",
 			Priority: "عادية",
 			Tags: "قصة,كانبان",
@@ -337,7 +337,7 @@ export const cardData = {
 		{
 			Id: "Task 6",
 			Title: "المهمة - 29009",
-			Status: "مراجعة",
+			Status: "Review",
 			Summary: "تحسينات API.",
 			Priority: "شديد الأهمية",
 			Tags: "مشكلة , عميل",
@@ -347,7 +347,7 @@ export const cardData = {
 		{
 			Id: "Task 7",
 			Title: "المهمة - 29010",
-			Status: "مغلقة",
+			Status: "Close",
 			Summary: "إصلاح خطأ : لا يمكن فتح قاعدة البيانات الإفتراية للمستخدم",
 			Priority: "عالية",
 			Tags: "مشكلة , داخلية",
@@ -357,7 +357,7 @@ export const cardData = {
 		{
 			Id: "Task 8",
 			Title: "المهمة - 29015",
-			Status: "مفتوحة",
+			Status: "Open",
 			Summary: "إصلاح خطأ : قضايا التصفية المبلغ عنها في Safari.",
 			Priority: "شديد الأهمية",
 			Tags: "مشكلة,تطبيق لا يعمل",
@@ -367,7 +367,7 @@ export const cardData = {
 		{
 			Id: "Task 9",
 			Title: "المهمة - 29016",
-			Status: "مراجعة",
+			Status: "Review",
 			Summary: "إصلاح المشكلات المبلغ عنها في متصفح IE.",
 			Priority: "عالية",
 			Tags: "مشكلة , عميل",
@@ -377,7 +377,7 @@ export const cardData = {
 		{
 			Id: "Task 10",
 			Title: "المهمة - 29017",
-			Status: "مراجعة",
+			Status: "Review",
 			Summary: "تعزيز وظائف التحرير.",
 			Priority: "عادية",
 			Tags: "قصة,كانبان",
@@ -387,7 +387,7 @@ export const cardData = {
 		{
 			Id: "Task 11",
 			Title: "المهمة - 29018",
-			Status: "مغلقة",
+			Status: "Close",
 			Summary: "ترتيب اجتماع الويب مع العميل للحصول على متطلبات صفحة تسجيل الدخول.",
 			Priority: "عالية",
 			Tags: "ميزة",
@@ -397,7 +397,7 @@ export const cardData = {
 		{
 			Id: "Task 12",
 			Title: "المهمة - 29020",
-			Status: "مغلقة",
+			Status: "Close",
 			Summary: "التحقق من صفحة تسجيل الدخول.",
 			Priority: "منخفضة",
 			Tags: "مشكلة",
@@ -407,7 +407,7 @@ export const cardData = {
 		{
 			Id: "Task 13",
 			Title: "المهمة - 29021",
-			Status: "مغلقة",
+			Status: "Close",
 			Summary: "اختبار التطبيق في متصفح IE.",
 			Priority: "عادية",
 			Tags: "مشكلة",
@@ -417,7 +417,7 @@ export const cardData = {
 		{
 			Id: "Task 14",
 			Title: "المهمة - 29022",
-			Status: "مغلقة",
+			Status: "Close",
 			Summary: "تحليل الإجراء المخزن.",
 			Priority: "شديد الأهمية",
 			Tags: "عينة مخصصة",
@@ -427,7 +427,7 @@ export const cardData = {
 		{
 			Id: "Task 15",
 			Title: "المهمة - 29024",
-			Status: "مراجعة",
+			Status: "Review",
 			Summary: "Check التحقق من صفحة تسجيل الدخول.",
 			Priority: "منخفضة",
 			Tags: "قصة",
@@ -437,7 +437,7 @@ export const cardData = {
 		{
 			Id: "Task 16",
 			Title: "المهمة - 29025",
-			Status: "مغلقة",
+			Status: "Close",
 			Summary: "أضف التحقق من صحة الإدخال للتحرير.",
 			Priority: "شديد الأهمية",
 			Tags: "مشكلة,تطبيق لا يعمل",
@@ -447,7 +447,7 @@ export const cardData = {
 		{
 			Id: "Task 17",
 			Title: "المهمة - 29026",
-			Status: "قيد التنفيد",
+			Status: "InProgress",
 			Summary: "تحسين أداء وظائف التحرير.",
 			Priority: "شديد الأهمية",
 			Tags: "مشكلة , عميل",
@@ -457,7 +457,7 @@ export const cardData = {
 		{
 			Id: "Task 18",
 			Title: "المهمة - 29027",
-			Status: "مفتوحة",
+			Status: "Open",
 			Summary: "ترتيب اجتماع الويب لمتطلبات العميل.",
 			Priority: "عالية",
 			Tags: "قصة",
@@ -467,7 +467,7 @@ export const cardData = {
 		{
 			Id: "Task 19",
 			Title: "المهمة - 29029",
-			Status: "مراجعة",
+			Status: "Review",
 			Summary: "إصلاح المشكلات التي أبلغ عنها العميل.",
 			Priority: "عالية",
 			Tags: "مشكلة",
@@ -477,7 +477,7 @@ export const cardData = {
 		{
 			Id: "Task 20",
 			Title: "المهمة - 29030",
-			Status: "قيد التنفيد",
+			Status: "InProgress",
 			Summary: "اختبار وظيفة تحرير",
 			Priority: "منخفضة",
 			Tags: "قصة",
@@ -487,7 +487,7 @@ export const cardData = {
 		{
 			Id: "Task 21",
 			Title: "المهمة - 29031",
-			Status: "قيد التنفيد",
+			Status: "InProgress",
 			Summary: " التحقق من صحة التصفية",
 			Priority: "عادية",
 			Tags: "ميزة, إصدار",
@@ -497,7 +497,7 @@ export const cardData = {
 		{
 			Id: "Task 22",
 			Title: "المهمة - 29032",
-			Status: "قيد التنفيد",
+			Status: "InProgress",
 			Summary: "ترتيب اجتماع الويب مع العميل للحصول على متطلبات صفحة تسجيل الدخول",
 			Priority: "شديد الأهمية",
 			Tags: "ميزة",
@@ -507,7 +507,7 @@ export const cardData = {
 		{
 			Id: "Task 23",
 			Title: "المهمة - 29033",
-			Status: "مفتوحة",
+			Status: "Open",
 			Summary: "ترتيب اجتماع الويب مع العميل للحصول على متطلبات التحرير",
 			Priority: "شديد الأهمية",
 			Tags: "قصة, تحسين ",
@@ -517,7 +517,7 @@ export const cardData = {
 		{
 			Id: "Task 24",
 			Title: "المهمة - 29034",
-			Status: "قيد التنفيد",
+			Status: "InProgress",
 			Summary: "ترتيب اجتماع الويب لمتطلبات العميل.",
 			Priority: "شديد الأهمية",
 			Tags: "مشكلة , عميل",
@@ -527,7 +527,7 @@ export const cardData = {
 		{
 			Id: "Task 25",
 			Title: "المهمة - 29035",
-			Status: "مغلقة",
+			Status: "Close",
 			Summary: "إصلاح المشكلات المبلغ عنها في متصفح Safari.",
 			Priority: "عالية",
 			Tags: "مشكلة",
@@ -537,7 +537,7 @@ export const cardData = {
 		{
 			Id: "Task 26",
 			Title: "المهمة - 29036",
-			Status: "مراجعة",
+			Status: "Review",
 			Summary: "Check التحقق من صفحة تسجيل الدخول.",
 			Priority: "شديد الأهمية",
 			Tags: "مشكلة , عميل",
@@ -547,7 +547,7 @@ export const cardData = {
 		{
 			Id: "Task 27",
 			Title: "المهمة - 29037",
-			Status: "مفتوحة",
+			Status: "Open",
 			Summary: "إصلاح المشكلات الواردة في ربط البيانات.",
 			Priority: "عادية",
 			Tags: "مشكلة",
@@ -558,7 +558,7 @@ export const cardData = {
 		{
 			Id: "Task 28",
 			Title: "المهمة - 29038",
-			Status: "مغلقة",
+			Status: "Close",
 			Summary: "اختبار وظيفة تحرير.",
 			Priority: "عادية",
 			Tags: "قصة",
