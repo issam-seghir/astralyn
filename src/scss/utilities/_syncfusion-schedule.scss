@@ -28,16 +28,16 @@
 		}
 
 		.e-selected-cell {
-			background: var(--joy-palette-primary-900) !important;
+			background: var(--joy-palette-background-card) !important;
 		}
 
 		.e-work-cells:hover {
-			background: var(--joy-palette-primary-800) !important;
+			background: var(--joy-palette-background-level1x) !important;
 		}
 	}
 
 	.e-toolbar-items {
-		background-color: var(--joy-palette-primary-softBg) !important;
+		background-color: var(--joy-palette-background-card) !important;
 	}
 
 	.e-vertical-view .e-resource-cells {

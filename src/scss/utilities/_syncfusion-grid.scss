@@ -44,7 +44,7 @@
 
 	.e-headercell {
 		color: var(--joy-palette-primary-softColor) !important;
-		background-color: var(--joy-palette-primary-softBg) !important;
+		background-color: var(--joy-palette-background-level1x) !important;
 	}
 
 	/* rowcell borders and  text color */
@@ -86,7 +86,7 @@
 
 	.e-toolbar,
 	.e-toolbar-items {
-		background: var(--joy-palette-primary-softBg) !important;
+		background: var(--joy-palette-background-level1x) !important;
 	}
 
 	.e-toolbar .e-btn:active {
@@ -149,8 +149,6 @@
 			color: var(--joy-palette-primary-softBg) !important;
 		}
 	}
-
-
 
 	.e-edit::before,
 	.e-delete::before {
@@ -241,7 +239,7 @@
 
 /* Grid pager root element */
 .e-grid .e-gridpager {
-	background-color: var(--joy-palette-primary-softBg) !important;
+	background-color: var(--joy-palette-background-level1x) !important;
 	border-color: var(--joy-palette-primary-softColor) !important;
 	border-top-width: 1px !important;
 	border-bottom-width: 1px !important;
