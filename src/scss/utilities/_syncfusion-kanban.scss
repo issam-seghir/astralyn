@@ -141,27 +141,27 @@
 .kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Low.e-selection:hover,
 .kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Low,
 .kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Low {
-	border-left: 3px solid #1f88e5 !important ;
+	border-inline-start: 3px solid #1f88e5 !important ;
 }
 
 .kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.High.e-selection:hover,
 .kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.High,
 .kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.High {
-	border-left: 3px solid #673ab8 !important;
+	border-inline-start: 3px solid #673ab8 !important;
 }
 
 .kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Normal.e-selection:hover,
 .kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Normal,
 .kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Normal {
-	border-left: 3px solid #02897b !important;
+	border-inline-start: 3px solid #02897b !important;
 }
 
 .kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Critical.e-selection:hover,
 .kanban-overview.e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Critical,
 .kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card.Critical {
-	border-left: 3px solid #e64a19 !important;
+	border-inline-start: 3px solid #e64a19 !important;
 }
 
 .kanban-overview.e-kanban.e-rtl .e-kanban .e-kanban-content .e-content-row .e-content-cells .e-card-wrapper .e-card {
-	border-left: none !important;
+	border-inline-start: none !important;
 }

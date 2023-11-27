@@ -15,7 +15,7 @@ const Overview = () => {
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
 	const { language } = useThemeContext();
 	const id = useId();
-console.log(cardData[language.language]);
+	// console.log(cardData[language.language]);
 	const iconMap = {
 		open: <IoIosListBox className="icon" color="#0251cc" />,
 		inprogress: <TbProgressBolt className="icon" color="#ea9713" />,
@@ -29,10 +29,15 @@ console.log(cardData[language.language]);
 		{ text: language.language === "ar" ? "رتبة المعرف ID" : "Rank ID", key: "RankId", type: "TextBox" },
 		{ text: language.language === "ar" ? " ملخص" : "Summary", key: "Summary", type: "TextArea" },
 	];
-	// const cardRendered = (args) => {
-	// 	// let val = args.cardData.Priority;
-	// 	addClass([args.element], "test");
-	// };
+	const cardRendered = (args) => {
+		let id = args.data.Id;
+		const selectedItem = cardData["en"].find((item) => item.Id === id);
+
+		if (selectedItem) {
+			let priority = selectedItem.Priority;
+			addClass([args.element], priority);
+		}
+	};
 	const columnTemplate = (props) => {
 		return (
 			<div className="header-template-wrap">
@@ -67,10 +72,12 @@ console.log(cardData[language.language]);
 	};
 	const getString = (assignee) => {
 		return assignee
-			.match(/\b(\w)/g)
-			.join("")
+			.split(" ")
+			.map((word) => word.charAt(0))
+			.join(" ")
 			.toUpperCase();
 	};
+
 	return (
 		<KanbanComponent
 			id="kanban"
@@ -84,7 +91,7 @@ console.log(cardData[language.language]);
 				selectionType: "Multiple",
 			}}
 			dialogSettings={{ fields: fields }}
-			// cardRendered={cardRendered.bind(this)}
+			cardRendered={cardRendered.bind(this)}
 		>
 			<ColumnsDirective>
 				<ColumnDirective headerText={language.language === "ar" ? "ما يجب فعله" : "To Do"} showItemCount={true} keyField="Open" allowToggle={true} template={columnTemplate.bind(this)} />
