@@ -32,7 +32,7 @@ const Employees = () => {
 		{ headerText: language.language === "ar" ? "موظف" : "Employee", template: gridEmployeeProfile, textAlign: "Center", width: "150" },
 		{ field: "Title", headerText: language.language === "ar" ? "المنصب" : "Designation", editType: "dropdownedit", textAlign: "Center", width: "170" },
 		{ headerText: language.language === "ar" ? "دولة" : "Country", template: gridEmployeeCountry, textAlign: "Center", width: "120" },
-		{ field: "HireDate", headerText: language.language === "ar" ? "موعد التوظيف" : "Hire Date", format: "dd/MM/yyyy", editType: "dd/MM/yyyy", type: "date", editType: "datePickerEdit", textAlign: "Center", width: "135" },
+		{ field: "HireDate", headerText: language.language === "ar" ? "موعد التوظيف" : "Hire Date", format: "dd/MM/yyyy", type: "date", editType: "datePickerEdit", textAlign: "Center", width: "135" },
 		{ field: "ReportsTo", headerText: language.language === "ar" ? "تقارير لـ" : "Reports To", textAlign: "Center", editType: "dropdownedit", width: "120" },
 		{ field: "EmployeeID", headerText: language.language === "ar" ? "معرف ID للموظف" : "Employee ID", textAlign: "Center", width: "125" },
 	];

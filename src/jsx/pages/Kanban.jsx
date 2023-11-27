@@ -1,13 +1,21 @@
-import * as dataSource from "@data/kanban-data";
+/* eslint-disable react/prop-types */
+
 import Box from "@mui/joy/Box";
 import { addClass, extend } from "@syncfusion/ej2-base";
 import { ColumnDirective, ColumnsDirective, KanbanComponent } from "@syncfusion/ej2-react-kanban";
 import { BsClipboardCheckFill } from "react-icons/bs";
 import { IoIosListBox } from "react-icons/io";
 import { TbEyeSearch, TbProgressBolt } from "react-icons/tb";
+import { cardData } from "@data/kanban-data";
+import { useMediaQuery } from "@uidotdev/usehooks";
+import { useThemeContext } from "@contexts/ContextProvider";
+import { useId } from "react";
 
 const Overview = () => {
-	let data = extend([], dataSource.cardData, null, true);
+	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
+	const { language } = useThemeContext();
+	const id = useId();
+
 	const iconMap = {
 		open: <IoIosListBox className="icon" color="#0251cc" />,
 		inprogress: <TbProgressBolt className="icon" color="#ea9713" />,
@@ -23,8 +31,8 @@ const Overview = () => {
 		{ key: "Summary", type: "TextArea" },
 	];
 	const cardRendered = (args) => {
-		let val = args.data.Priority;
-		addClass([args.element], val);
+		// let val = args.cardData.Priority;
+		addClass([args.element], "test");
 	};
 	const columnTemplate = (props) => {
 		return (
@@ -38,7 +46,7 @@ const Overview = () => {
 	};
 	const cardTemplate = (props) => {
 		return (
-			<div className={"card-template"}>
+			<div id={props.Id} key={props.Id} className={"card-template"}>
 				<div className="e-card-header">
 					<div className="e-card-header-caption">
 						<div className="e-card-header-title e-tooltip-text">{props.Title}</div>
@@ -48,8 +56,10 @@ const Overview = () => {
 					<div className="e-text">{props.Summary}</div>
 				</div>
 				<div className="e-card-custom-footer">
-					{props.Tags.split(",").map((tag) => (
-						<div className="e-card-tag-field e-tooltip-text">{tag}</div>
+					{props.Tags.split(",").map((tag, index) => (
+						<div key={index} className="e-card-tag-field e-tooltip-text">
+							{tag}
+						</div>
 					))}
 					<div className="e-card-avatar">{getString(props.Assignee)}</div>
 				</div>
@@ -70,7 +80,8 @@ const Overview = () => {
 						id="kanban"
 						cssClass="kanban-overview"
 						keyField="Status"
-						dataSource={data}
+						dataSource={cardData[language.language]}
+						enableTooltip={true}
 						swimlaneSettings={{ keyField: "Assignee", showItemCount: true }}
 						cardSettings={{
 							headerField: "Title",

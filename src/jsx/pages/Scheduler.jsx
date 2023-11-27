@@ -10,8 +10,6 @@ const GroupEditing = () => {
 	// convert json to java script object
 	const data = extend([], dataSource.resourceConferenceData, null, true);
 	const dataAr = extend([], dataSourceAr.resourceConferenceData, null, true);
-	// console.log(data);
-	// console.log(dataAr);
 	const { language } = useThemeContext();
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
 
@@ -21,10 +19,49 @@ const GroupEditing = () => {
 		{ Text: language.language === "ar" ? "لاري" : "Lari", Id: 3, Color: "#fff09d" },
 	];
 	const employeeDesignation = [{ Text: language.language === "ar" ? "مندوب مبيعات" : "Sales Representative" }, { Text: language.language === "ar" ? "نائب الرئيس ، المبيعات" : "Vice President, Sales" }, { Text: language.language === "ar" ? "منسق المبيعات داخلي" : "Inside Sales Coordinator" }];
-
 	const minValidation = (args) => {
 		return args["value"].length >= 5;
 	};
+	const fields = {
+					id: "Id",
+					subject: {
+						title: language.language === "ar" ? "اسم المؤتمر" : "Conference Name",
+						name: "Subject",
+						validation: { required: true },
+					},
+					location: {
+						title: language.language === "ar" ? "موقع الحدث" : "Event Location",
+						name: "Location",
+					},
+					description: {
+						title: language.language === "ar" ? "ملخص" : "Summary",
+						name: "Description",
+						validation: {
+							minLength: [minValidation, "Need atleast 5 letters to be entered"],
+						},
+					},
+					startTime: {
+						title: language.language === "ar" ? "من" : "From",
+						name: "StartTime",
+					},
+					endTime: {
+						title: language.language === "ar" ? "إلى" : "To",
+						name: "EndTime",
+					},
+					isAllDay: {
+						title: language.language === "ar" ? "هل طوال اليوم ؟" : "is All Day",
+						name: "IsAllDay",
+					},
+					startTimezone: {
+						title: language.language === "ar" ? "بداية المنطقة الزمنية" : "Start Timezone",
+						name: "StartTimezone",
+					},
+					endTimezone: {
+						title: language.language === "ar" ? "نهاية المنطقة الزمنية" : "End Timezone",
+						name: "EndTimezone",
+					},
+				}
+
 
 	const getEmployeeName = (value) => {
 		return value.resourceData ? value.resourceData[value.resource.textField] : value.resourceName;
@@ -69,71 +106,32 @@ const GroupEditing = () => {
 		);
 	};
 	return (
-		<div className="control-wrapper">
-			<ScheduleComponent
-				cssClass="group-editing"
-				width="100%"
-				height="100%"
-				enableAdaptiveUI={isSmallDevice}
-				selectedDate={new Date(2021, 5, 5)}
-				currentView="WorkWeek"
-				resourceHeaderTemplate={resourceHeaderTemplate}
-				eventSettings={{
-					dataSource: language.language === "ar" ? dataAr : data,
-					fields: {
-						id: "Id",
-						subject: {
-							title: language.language === "ar" ? "اسم المؤتمر" : "Conference Name",
-							name: "Subject",
-							validation: { required: true },
-						},
-						location: {
-							title: language.language === "ar" ? "موقع الحدث" : "Event Location",
-							name: "Location",
-						},
-						description: {
-							title: language.language === "ar" ? "ملخص" : "Summary",
-							name: "Description",
-							validation: {
-								minLength: [minValidation, "Need atleast 5 letters to be entered"],
-							},
-						},
-						startTime: {
-							title: language.language === "ar" ? "من" : "From",
-							name: "StartTime",
-						},
-						endTime: {
-							title: language.language === "ar" ? "إلى" : "To",
-							name: "EndTime",
-						},
-						isAllDay: {
-							title: language.language === "ar" ? "هل طوال اليوم ؟" : "is All Day",
-							name: "IsAllDay",
-						},
-						startTimezone: {
-							title: language.language === "ar" ? "بداية المنطقة الزمنية" : "Start Timezone",
-							name: "StartTimezone",
-						},
-						endTimezone: {
-							title: language.language === "ar" ? "نهاية المنطقة الزمنية" : "End Timezone",
-							name: "EndTimezone",
-						},
-					},
-				}}
-				group={{ allowGroupEdit: true, resources: ["Conferences"] }}
-			>
-				<ResourcesDirective>
-					<ResourceDirective field="ConferenceId" title="Attendees" name="Conferences" allowMultiple={true} dataSource={resourceData} textField="Text" idField="Id" colorField="Color" />
-				</ResourcesDirective>
-				<ViewsDirective>
-					<ViewDirective option="Day" allowVirtualScrolling={true} />
-					<ViewDirective option="WorkWeek" allowVirtualScrolling={true} />
-					<ViewDirective option="Month" eventTemplate={monthEventTemplate} />
-					<ViewDirective option="TimelineWeek" />
-				</ViewsDirective>
-				<Inject services={[Day, WorkWeek, Month, TimelineViews, Resize, DragAndDrop]} />
-			</ScheduleComponent>
-		</div>
+		<ScheduleComponent
+			cssClass="group-editing"
+			width="100%"
+			height="100%"
+			enableAdaptiveUI={isSmallDevice}
+			selectedDate={new Date(2021, 5, 5)}
+			enablePersistence
+			currentView="WorkWeek"
+			resourceHeaderTemplate={resourceHeaderTemplate}
+			eventSettings={{
+				dataSource: language.language === "ar" ? dataAr : data,
+				fields: fields
+			}}
+			group={{ allowGroupEdit: true, resources: ["Conferences"] }}
+		>
+			<ResourcesDirective>
+				<ResourceDirective field="ConferenceId" title="Attendees" name="Conferences" allowMultiple={true} dataSource={resourceData} textField="Text" idField="Id" colorField="Color" />
+			</ResourcesDirective>
+			<ViewsDirective>
+				<ViewDirective option="Day" allowVirtualScrolling={true} />
+				<ViewDirective option="WorkWeek" allowVirtualScrolling={true} />
+				<ViewDirective option="Month" eventTemplate={monthEventTemplate} />
+				<ViewDirective option="TimelineWeek" />
+			</ViewsDirective>
+			<Inject services={[Day, WorkWeek, Month, TimelineViews, Resize, DragAndDrop]} />
+		</ScheduleComponent>
 	);
 };
 export default GroupEditing;

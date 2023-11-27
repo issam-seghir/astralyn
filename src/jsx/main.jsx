@@ -55,7 +55,7 @@ const router = createBrowserRouter(
 					element: <Customers />,
 				},
 				{
-					path: "calendar",
+					path: "scheduler",
 					element: <Scheduler />,
 				},
 				{
@@ -63,7 +63,7 @@ const router = createBrowserRouter(
 					element: <Kanban />,
 				},
 				{
-					path: "editor",
+					path: "markdawn-editor",
 					element: <Editor />,
 				},
 				{

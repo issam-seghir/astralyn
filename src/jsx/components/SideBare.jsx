@@ -106,7 +106,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton color="primary" component={RouterLink} to="/" underline="none" selected>
 								<ListItemDecorator>
-									<BsColumnsGap  className="icon" />
+									<BsColumnsGap className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
 									<Typography level="title-sm">Ecommerce</Typography>
@@ -146,7 +146,7 @@ export default function SideBare({ show, toggleSideBar }) {
 					</ListItemHeaderNested>
 					<ListItemHeaderNested title={"APPS"}>
 						<ListItem>
-							<ListItemButton component={RouterLink} to="/calendar" underline="none">
+							<ListItemButton component={RouterLink} to="/scheduler" underline="none">
 								<ListItemDecorator>
 									<FaCalendarDays className="icon" />
 								</ListItemDecorator>
@@ -164,12 +164,12 @@ export default function SideBare({ show, toggleSideBar }) {
 							</ListItemButton>
 						</ListItem>
 						<ListItem>
-							<ListItemButton component={RouterLink} to="/editor" underline="none">
+							<ListItemButton component={RouterLink} to="/markdawn-editor" underline="none">
 								<ListItemDecorator>
 									<BsJournalText className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
-									<Typography level="title-sm">Editor</Typography>
+									<Typography level="title-sm">Markdown Editor</Typography>
 								</ListItemContent>
 							</ListItemButton>
 						</ListItem>
