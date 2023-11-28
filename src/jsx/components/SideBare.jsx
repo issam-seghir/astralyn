@@ -9,13 +9,10 @@ import ListItemButton from "@mui/joy/ListItemButton";
 import ListItemContent from "@mui/joy/ListItemContent";
 import ListItemDecorator from "@mui/joy/ListItemDecorator";
 import Typography from "@mui/joy/Typography";
-import { BsJournalText, BsKanbanFill } from "react-icons/bs";
+import { BsColumnsGap, BsJournalText, BsKanbanFill } from "react-icons/bs";
 import { FaShoppingCart, FaUserTie } from "react-icons/fa";
 import { FaCalendarDays, FaUserGroup } from "react-icons/fa6";
 import { HiColorSwatch } from "react-icons/hi";
-import { MdOutlineCurrencyExchange } from "react-icons/md";
-import { BsColumnsGap } from "react-icons/bs";
-
 
 import { Link as RouterLink } from "react-router-dom";
 
@@ -174,12 +171,12 @@ export default function SideBare({ show, toggleSideBar }) {
 							</ListItemButton>
 						</ListItem>
 						<ListItem>
-							<ListItemButton component={RouterLink} to="/color-picker" underline="none">
+							<ListItemButton component={RouterLink} to="/drawer" underline="none">
 								<ListItemDecorator>
 									<HiColorSwatch className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
-									<Typography level="title-sm">Color Picker</Typography>
+									<Typography level="title-sm">Drawer</Typography>
 								</ListItemContent>
 							</ListItemButton>
 						</ListItem>
@@ -210,16 +207,6 @@ export default function SideBare({ show, toggleSideBar }) {
 								</ListItemDecorator>
 								<ListItemContent>
 									<Typography level="title-sm">Bar</Typography>
-								</ListItemContent>
-							</ListItemButton>
-						</ListItem>
-						<ListItem>
-							<ListItemButton component={RouterLink} to="/pie" underline="none">
-								<ListItemDecorator>
-									<ShoppingCartIcon className="icon" />
-								</ListItemDecorator>
-								<ListItemContent>
-									<Typography level="title-sm">Pie</Typography>
 								</ListItemContent>
 							</ListItemButton>
 						</ListItem>

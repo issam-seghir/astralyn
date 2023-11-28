@@ -2,13 +2,13 @@
 import ModeToggle from "@components/ModeToggle";
 import { useThemeContext } from "@contexts/ContextProvider";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
+import { Typography } from "@mui/joy";
 import Avatar from "@mui/joy/Avatar";
 import Box from "@mui/joy/Box";
 import FormLabel from "@mui/joy/FormLabel";
 import Radio, { radioClasses } from "@mui/joy/Radio";
 import RadioGroup from "@mui/joy/RadioGroup";
 import Sheet from "@mui/joy/Sheet";
-import { Typography } from "@mui/joy";
 
 function splitCamelCase(input) {
 	return input.replaceAll(/([a-z])([A-Z])/g, "$1 $2");
@@ -20,7 +20,19 @@ function SettingsSidebar() {
 		setSelectedTheme(e.target.value);
 	}
 	return (
-		<Box variant="solid" sx={{ transition: "transform .5s ease", width: "40%", height: "100%", position: "fixed", right: 0, p: 1, zIndex: 1, transform: `translateX(${showSettings ? 0 : "100%"})` }}>
+		<Box
+			variant="solid"
+			sx={{
+				transition: "transform .5s ease",
+				width: "40%",
+				height: "100%",
+				position: "fixed",
+				right: 0,
+				p: 1,
+				zIndex: 1,
+				transform: `translateX(${showSettings ? 0 : "100%"})`,
+			}}
+		>
 			<h2>Settings</h2>
 			<div>
 				<p>Choose a theme:</p>

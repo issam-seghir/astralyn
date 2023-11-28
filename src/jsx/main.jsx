@@ -7,7 +7,7 @@ import App from "@pages/App";
 import Area from "@pages/Area";
 import Bar from "@pages/Bar";
 import Scheduler from "@pages/Scheduler";
-import ColorPicker from "@pages/ColorPicker";
+import Drawer from "@pages/Drawer";
 import Customers from "@pages/Customers";
 import Ecommerce from "@pages/Ecommerce";
 import Editor from "@pages/Editor";
@@ -17,7 +17,6 @@ import Kanban from "@pages/Kanban";
 import Line from "@pages/Line";
 import Loading from "@pages/Loading";
 import Orders from "@pages/Orders";
-import Pie from "@pages/Pie";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -67,8 +66,8 @@ const router = createBrowserRouter(
 					element: <Editor />,
 				},
 				{
-					path: "color-picker",
-					element: <ColorPicker />,
+					path: "drawer",
+					element: <Drawer />,
 				},
 				{
 					path: "line",
@@ -81,10 +80,6 @@ const router = createBrowserRouter(
 				{
 					path: "bar",
 					element: <Bar />,
-				},
-				{
-					path: "pie",
-					element: <Pie />,
 				},
 			],
 		},

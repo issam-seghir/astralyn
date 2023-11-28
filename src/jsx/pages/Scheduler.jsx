@@ -8,11 +8,11 @@ import { useMediaQuery } from "@uidotdev/usehooks";
 
 const GroupEditing = () => {
 	// convert json to java script object
+
 	const data = extend([], dataSource.resourceConferenceData, null, true);
 	const dataAr = extend([], dataSourceAr.resourceConferenceData, null, true);
 	const { language } = useThemeContext();
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
-
 	const resourceData = [
 		{ Text: language.language === "ar" ? "ماركو" : "Marko", Id: 1, Color: "#edaf94" },
 		{ Text: language.language === "ar" ? "روبرت" : "Robert", Id: 2, Color: "#6ab284" },

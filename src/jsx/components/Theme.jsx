@@ -1,6 +1,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import { listItemButtonClasses } from "@mui/joy/ListItemButton";
 import { extendTheme } from "@mui/joy/styles";
+
 const defaultTheme = extendTheme({
 	colorSchemes: {
 		dark: {

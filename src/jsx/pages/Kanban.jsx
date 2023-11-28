@@ -15,7 +15,6 @@ const Overview = () => {
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
 	const { language } = useThemeContext();
 	const id = useId();
-	// console.log(cardData[language.language]);
 	const iconMap = {
 		open: <IoIosListBox className="icon" color="#0251cc" />,
 		inprogress: <TbProgressBolt className="icon" color="#ea9713" />,
@@ -30,6 +29,7 @@ const Overview = () => {
 		{ text: language.language === "ar" ? " ملخص" : "Summary", key: "Summary", type: "TextArea" },
 	];
 	const cardRendered = (args) => {
+
 		let id = args.data.Id;
 		const selectedItem = cardData["en"].find((item) => item.Id === id);
 
@@ -49,6 +49,7 @@ const Overview = () => {
 		);
 	};
 	const cardTemplate = (props) => {
+
 		return (
 			<div id={props.Id} key={props.Id} className={"card-template"}>
 				<div className="e-card-header">
@@ -85,13 +86,14 @@ const Overview = () => {
 			keyField="Status"
 			dataSource={cardData[language.language]}
 			swimlaneSettings={{ keyField: "Assignee", showItemCount: true }}
+			enablePersistence={true}
 			cardSettings={{
 				headerField: "Title",
-				template: cardTemplate.bind(this),
+				template: cardTemplate,
 				selectionType: "Multiple",
 			}}
 			dialogSettings={{ fields: fields }}
-			cardRendered={cardRendered.bind(this)}
+			cardRendered={cardRendered}
 		>
 			<ColumnsDirective>
 				<ColumnDirective headerText={language.language === "ar" ? "ما يجب فعله" : "To Do"} showItemCount={true} keyField="Open" allowToggle={true} template={columnTemplate.bind(this)} />

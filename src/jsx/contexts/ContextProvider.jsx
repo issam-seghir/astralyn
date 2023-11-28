@@ -1,19 +1,11 @@
 /* eslint-disable unicorn/consistent-function-scoping */
 import { defaultTheme, greenEmeraldTheme, pinkFuchsiaTheme } from "@components/Theme";
 import { enableRtl, setCulture, setCurrencyCode } from "@syncfusion/ej2-base";
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 
 const ThemeContext = createContext();
 
-const initialState = {
-	chat: false,
-	cart: false,
-	userProfile: false,
-	notification: false,
-};
-
 export const ContextProvider = ({ children }) => {
-
 	const [showSettings, setShowSettings] = useState(false);
 	const [selectedTheme, setSelectedTheme] = useState(() => {
 		// Get Theme from local storage, defaulting to 'default' if not present
@@ -47,23 +39,43 @@ export const ContextProvider = ({ children }) => {
 		};
 	});
 
-	function changeLanguage(selectedLanguage) {
-		const newConfig = languageConfigs[selectedLanguage];
-		console.log("new config :", newConfig);
-		if (newConfig) {
-			localStorage.setItem("language", selectedLanguage);
-			localStorage.setItem("languageConfig", JSON.stringify(newConfig));
+	const changeLanguage = useCallback(
+		(selectedLanguage) => {
+			const newConfig = languageConfigs[selectedLanguage];
+			console.log("new config :", newConfig);
+			if (newConfig) {
+				localStorage.setItem("language", selectedLanguage);
+				localStorage.setItem("languageConfig", JSON.stringify(newConfig));
 
-			setLanguage({
-				language: selectedLanguage,
-				languageConfig: newConfig,
-			});
-		}
-	}
+				setLanguage({
+					language: selectedLanguage,
+					languageConfig: newConfig,
+				});
+			}
+		},
+		[languageConfigs, setLanguage]
+	);
 
-	function printChart() {
+	// function changeLanguage(selectedLanguage) {
+	// 	const newConfig = languageConfigs[selectedLanguage];
+	// 	console.log("new config :", newConfig);
+	// 	if (newConfig) {
+	// 		localStorage.setItem("language", selectedLanguage);
+	// 		localStorage.setItem("languageConfig", JSON.stringify(newConfig));
+
+	// 		setLanguage({
+	// 			language: selectedLanguage,
+	// 			languageConfig: newConfig,
+	// 		});
+	// 	}
+	// }
+
+	// function printChart() {
+	// 	chartInstance.current.print();
+	// }
+	const printChart = useCallback(() => {
 		chartInstance.current.print();
-	}
+	}, [chartInstance]);
 
 	useEffect(() => {
 		enableRtl(language.languageConfig["rtl"]);
@@ -76,7 +88,6 @@ export const ContextProvider = ({ children }) => {
 			setLoading(false); // Hide the loading screen when the page is fully loaded
 		});
 	});
-
 
 	useEffect(() => {
 		// Store the selected theme to local storage
@@ -98,29 +109,27 @@ export const ContextProvider = ({ children }) => {
 		}
 	}, [selectedTheme]);
 
-	return (
-		// eslint-disable-next-line react/jsx-no-constructed-context-values
-		<ThemeContext.Provider
-			value={{
-				theme,
-				selectedTheme,
-				setSelectedTheme,
-				initialState,
-				showSettings,
-				setShowSettings,
-				progress,
-				setProgress,
-				loading,
-				setLoading,
-				chartInstance,
-				printChart,
-				language,
-				changeLanguage,
-			}}
-		>
-			{children}
-		</ThemeContext.Provider>
+	// Wrap the context value creation in useMemo
+	const contextValue = useMemo(
+		() => ({
+			theme,
+			selectedTheme,
+			setSelectedTheme,
+			showSettings,
+			setShowSettings,
+			progress,
+			setProgress,
+			loading,
+			setLoading,
+			chartInstance,
+			printChart,
+			language,
+			changeLanguage,
+		}),
+		[theme, selectedTheme, setSelectedTheme, showSettings, setShowSettings, progress, setProgress, loading, setLoading, chartInstance, printChart, language, changeLanguage] // Add all dependencies here
 	);
+
+	return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
