@@ -76,11 +76,12 @@ border-radius: 1rem !important;
   }
 
    .e-diagram .e-diagram-text-edit {
-    background: white !important;
-    border-color: red !important;
+    background: var(--joy-palette-primary-softBg) !important;
+    border-color: var(--joy-palette-primary-softColor) !important;
     border-style: dashed;
     border-width: 1px;
     box-sizing: content-box;
-    color: black;
-    min-width: 50px;
+    color: var(--joy-palette-primary-softColor) !important;
+    font-size: var(--text-xl3);
+    min-width: 100px;
   }

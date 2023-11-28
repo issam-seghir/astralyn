@@ -1,4 +1,4 @@
-import { ConnectorEditing, DiagramComponent, DiagramTools, Inject, PortConstraints, PortVisibility, PrintAndExport, SnapConstraints, Snapping, UndoRedo } from "@syncfusion/ej2-react-diagrams";
+import { ConnectorEditing, DiagramComponent, DiagramTools,DiagramContextMenu, Inject, PortConstraints, PortVisibility, PrintAndExport, SnapConstraints, Snapping, UndoRedo } from "@syncfusion/ej2-react-diagrams";
 import * as React from "react";
 
 let shape = [
@@ -335,7 +335,7 @@ function DrawingTools() {
 						}}
 						contextMenuSettings={{ show: true }}
 					/>
-					<Inject services={[UndoRedo, Snapping, ConnectorEditing, PrintAndExport]} />
+					<Inject services={[UndoRedo, Snapping, ConnectorEditing, PrintAndExport, DiagramContextMenu]} />
 				</div>
 			</div>
 
