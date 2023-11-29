@@ -3,7 +3,7 @@ import { defaultTheme, greenEmeraldTheme, pinkFuchsiaTheme } from "@components/T
 import { enableRtl, setCulture, setCurrencyCode } from "@syncfusion/ej2-base";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 
-const ThemeContext = createContext();
+const ThemeContext = createContext(null);
 
 export const ContextProvider = ({ children }) => {
 	const [showSettings, setShowSettings] = useState(false);
@@ -16,18 +16,33 @@ export const ContextProvider = ({ children }) => {
 	const [loading, setLoading] = useState(true);
 
 	const chartInstance = useRef();
-	const languageConfigs = {
-		en: {
-			rtl: false,
-			culture: "en-US",
-			currency: "USD",
-		},
-		ar: {
-			rtl: true,
-			culture: "ar-DZ",
-			currency: "DZD",
-		},
-	};
+	const languageConfigs = useMemo(() => {
+		return {
+			en: {
+				rtl: false,
+				culture: "en-US",
+				currency: "USD",
+			},
+			ar: {
+				rtl: true,
+				culture: "ar-DZ",
+				currency: "DZD",
+			},
+		};
+	}, []); // Empty dependency array means it only runs once
+
+	// const languageConfigs = {
+	// 	en: {
+	// 		rtl: false,
+	// 		culture: "en-US",
+	// 		currency: "USD",
+	// 	},
+	// 	ar: {
+	// 		rtl: true,
+	// 		culture: "ar-DZ",
+	// 		currency: "DZD",
+	// 	},
+	// };
 
 	const [language, setLanguage] = useState(() => {
 		const storedLanguage = localStorage.getItem("language") || "en";
@@ -42,7 +57,6 @@ export const ContextProvider = ({ children }) => {
 	const changeLanguage = useCallback(
 		(selectedLanguage) => {
 			const newConfig = languageConfigs[selectedLanguage];
-			console.log("new config :", newConfig);
 			if (newConfig) {
 				localStorage.setItem("language", selectedLanguage);
 				localStorage.setItem("languageConfig", JSON.stringify(newConfig));
@@ -73,6 +87,7 @@ export const ContextProvider = ({ children }) => {
 	// function printChart() {
 	// 	chartInstance.current.print();
 	// }
+
 	const printChart = useCallback(() => {
 		chartInstance.current.print();
 	}, [chartInstance]);
@@ -126,11 +141,17 @@ export const ContextProvider = ({ children }) => {
 			language,
 			changeLanguage,
 		}),
-		[theme, selectedTheme, setSelectedTheme, showSettings, setShowSettings, progress, setProgress, loading, setLoading, chartInstance, printChart, language, changeLanguage] // Add all dependencies here
+		[theme, selectedTheme, setSelectedTheme, showSettings, setShowSettings,progress, setProgress, loading, setLoading, chartInstance, printChart, language, changeLanguage] // Add all dependencies here
 	);
 
 	return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const useThemeContext = () => useContext(ThemeContext);
+export const useThemeContext = () => {
+	const context = useContext(ThemeContext);
+	if (!context) {
+		throw new Error("useTheme must be used within a ThemeProvider");
+	}
+	return context;
+};

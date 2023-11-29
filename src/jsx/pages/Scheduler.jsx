@@ -105,6 +105,7 @@ const GroupEditing = () => {
 			</div>
 		);
 	};
+
 	return (
 		<ScheduleComponent
 			cssClass="group-editing"

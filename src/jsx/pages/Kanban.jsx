@@ -78,7 +78,6 @@ const Overview = () => {
 			.join(" ")
 			.toUpperCase();
 	};
-
 	return (
 		<KanbanComponent
 			id="kanban"

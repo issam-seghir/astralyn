@@ -1,5 +1,6 @@
 import { ConnectorEditing, DiagramComponent, DiagramTools,DiagramContextMenu, Inject, PortConstraints, PortVisibility, PrintAndExport, SnapConstraints, Snapping, UndoRedo } from "@syncfusion/ej2-react-diagrams";
 import * as React from "react";
+import { useThemeContext } from "@contexts/ContextProvider";
 
 let shape = [
 	{ shapeName: "BasicShape", shapeId: "Basic" },
@@ -91,6 +92,8 @@ function DrawingTools() {
 	React.useEffect(() => {
 		rendereComplete();
 	}, []);
+
+		const { language } = useThemeContext();
 	function rendereComplete() {
 		SetShape("Rectangle");
 		diagramInstance.tool = DiagramTools.ContinuousDraw;
@@ -296,6 +299,7 @@ function DrawingTools() {
 						ref={(diagram) => (diagramInstance = diagram)}
 						width={"100%"}
 						height={"540px"}
+						enablePersistence
 						snapSettings={snapSettings}
 						rulerSettings={{ showRulers: true }}
 						//Sets the default values of a node
@@ -340,10 +344,12 @@ function DrawingTools() {
 			</div>
 
 			<div className="col-lg-4  property-section">
-				<div className="property-panel-header">Properties</div>
+				<div className="property-panel-header" style={{ textAlign: language.language === "ar" ? "end" : "start" }}>
+					{language.language === "ar" ? "الخواص" : "Properties"}{" "}
+				</div>
 				<div className="row property-panel-content" id="appearance">
-					<div className="row row-header" style={{ paddingTop: "10px" }}>
-						Shapes
+					<div className="row row-header" style={{ paddingTop: "10px", textAlign: language.language === "ar" ? "end" : "start" }}>
+						{language.language === "ar" ? "أشكال" : "Shapes"}
 					</div>
 					<div className="row" style={{ paddingTop: "8px" }}>
 						<div
@@ -430,8 +436,8 @@ function DrawingTools() {
 							}}
 						/>
 					</div>
-					<div className="row row-header" style={{ paddingTop: "10px" }}>
-						Connector
+					<div className="row row-header" style={{ paddingTop: "10px", textAlign: language.language === "ar" ? "end" : "start" }}>
+						{language.language === "ar" ? "موصلات" : "Connector"}
 					</div>
 					<div className="row" style={{ paddingTop: "8px" }}>
 						<div
