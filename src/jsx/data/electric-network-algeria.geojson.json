@@ -1,0 +1,335 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "double", "nodes": ["Bourdim", "Ghazaouet"], "interconnection": ["Morocco", "Algeria"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[-2.373046875, 34.591389093621565],
+					[-1.8631696701049802, 35.096281095911465]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Ghazaouet", "nodeType": "town" }, "geometry": { "type": "Point", "coordinates": [-1.8631696701049802, 35.096281095911465] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 225, "lineType": "single", "nodes": ["Oujda", "Ghazaouet"], "interconnection": ["Algeria", "Morocco"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[-1.9280147552490232, 34.67655854592756],
+					[-1.8631696701049802, 35.096281095911465]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 225, "lineType": "single", "nodes": ["Oujda", "Tlemcen"], "interconnection": ["Algeria", "Morocco"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[-1.9280147552490232, 34.67655854592756],
+					[-1.3168144226074219, 34.88269218913311]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Tlemcen", "nodeType": "city" }, "geometry": { "type": "Point", "coordinates": [-1.3168144226074219, 34.88269218913311] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 225, "lineType": "single", "nodes": ["Sidi Ali Boussidi", "Tlemcen"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[-1.3168144226074219, 34.88269218913311],
+					[-0.8323001861572266, 35.102566040984065]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "double", "nodes": ["Ghazaouet", "Sidi Ali Boussidi"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[-1.8631696701049802, 35.096281095911465],
+					[-0.8323001861572266, 35.102566040984065]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Sidi Ali Boussidi", "nodeType": "town" }, "geometry": { "type": "Point", "coordinates": [-0.8323001861572266, 35.102566040984065] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "double", "nodes": ["Oran", "Sidi Ali Boussidi"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[-0.8323001861572266, 35.10270648114937],
+					[-0.6491374969482421, 35.70282282786898]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Oran", "nodeType": "city" }, "geometry": { "type": "Point", "coordinates": [-0.6491374969482421, 35.70282282786898] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "single", "nodes": ["Oran", "Oued Rhiou"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[-0.6491374969482421, 35.70282282786898],
+					[-0.11810302734375, 35.77102915686019],
+					[0.9171867370605469, 35.96119559221373]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Oued Rhiou", "nodeType": "dam" }, "geometry": { "type": "Point", "coordinates": [0.9171867370605469, 35.96119559221373] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "single", "nodes": ["Blida", "Oued Rhiou"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[0.9171867370605469, 35.96119559221373],
+					[2.829000949859619, 36.47071771129389]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Blida", "nodeType": "city" }, "geometry": { "type": "Point", "coordinates": [2.829000949859619, 36.47071771129389] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "double", "nodes": ["Blida", "Hadjret Ennouss"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[2.829000949859619, 36.47071771129389],
+					[2.079634666442871, 36.57566301841591]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Hadjret Ennouss", "nodeType": "plant" }, "geometry": { "type": "Point", "coordinates": [2.079634666442871, 36.57566301841591] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 225, "lineType": "double", "nodes": ["Blida", "Algiers"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[2.829000949859619, 36.47071771129389],
+					[3.060293197631836, 36.77512374619612]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Algiers", "nodeType": "city" }, "geometry": { "type": "Point", "coordinates": [3.060293197631836, 36.77512374619612] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "double", "nodes": ["Blida", "Bir Ghbalou"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[2.829000949859619, 36.47071771129389],
+					[3.5860919952392583, 36.2636531565099]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Bir Ghbalou", "nodeType": "town" }, "geometry": { "type": "Point", "coordinates": [3.5860919952392583, 36.2636531565099] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "double", "nodes": ["Si Mustapha", "Bir Ghbalou"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[3.5860919952392583, 36.2636531565099],
+					[3.6188364028930664, 36.72414613887916]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Si Mustapha", "nodeType": "town" }, "geometry": { "type": "Point", "coordinates": [3.6188364028930664, 36.72414613887916] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "double", "nodes": ["Si Mustapha", "Ras Djinet"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[3.6188364028930664, 36.72414613887916],
+					[3.6968994140625, 36.85029894750318]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Ras Djinet", "nodeType": "plant" }, "geometry": { "type": "Point", "coordinates": [3.6968994140625, 36.85029894750318] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 225, "lineType": "double", "nodes": ["Si Mustapha", "Algiers"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[3.6188364028930664, 36.72414613887916],
+					[3.0603790283203125, 36.74273582693763],
+					[3.060293197631836, 36.77512374619612]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "single", "nodes": ["Oran", "Oued El Abtal"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[-0.6491374969482421, 35.70282282786898],
+					[0.6886196136474609, 35.45528667885837]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Oued El Abtal", "nodeType": "transmission center" }, "geometry": { "type": "Point", "coordinates": [0.6886196136474609, 35.45528667885837] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "single", "nodes": ["Bir Ghbalou", "Oued El Abtal"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[0.6886196136474609, 35.45528667885837],
+					[3.5860919952392583, 36.2636531565099]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "single", "nodes": ["Bir Ghbalou", "Hassi R'Mel"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[3.5860919952392583, 36.2636531565099],
+					[3.2730674743652344, 32.94630973791868]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Hassi R'Mel", "nodeType": "town" }, "geometry": { "type": "Point", "coordinates": [3.2730674743652344, 32.94630973791868] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "single", "nodes": ["Hassi Messaoud", "Hassi R'Mel"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[3.2730674743652344, 32.94630973791868],
+					[6.06093406677246, 31.694652472219918]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Hassi Messaoud", "nodeType": "town" }, "geometry": { "type": "Point", "coordinates": [6.06093406677246, 31.694652472219918] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "single", "nodes": ["Bir Ghbalou", "Setif"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[3.5860919952392583, 36.2636531565099],
+					[5.4074621200561515, 36.18963734168216]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Setif", "nodeType": "city" }, "geometry": { "type": "Point", "coordinates": [5.4074621200561515, 36.18963734168216] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "single", "nodes": ["Constantine", "Setif"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[5.4074621200561515, 36.18963734168216],
+					[6.608426570892334, 36.36421325359297]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Constantine", "nodeType": "city" }, "geometry": { "type": "Point", "coordinates": [6.608426570892334, 36.36421325359297] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "single", "nodes": ["Constantine", "Ain Beida"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[6.608426570892334, 36.36421325359297],
+					[7.389893531799316, 35.79731373908073]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Ain Beida", "nodeType": "town" }, "geometry": { "type": "Point", "coordinates": [7.389893531799316, 35.79731373908073] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "single", "nodes": ["Hassi Messaoud", "Ain Beida"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[7.389893531799316, 35.79731373908073],
+					[6.06093406677246, 31.694652472219918]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "single", "nodes": ["Constantine", "Annaba"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[6.608426570892334, 36.36421325359297],
+					[7.754802703857421, 36.89801814554322]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Annaba", "nodeType": "city" }, "geometry": { "type": "Point", "coordinates": [7.754802703857421, 36.89801814554322] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "single", "nodes": ["Chefia", "Annaba"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[7.754802703857421, 36.89801814554322],
+					[7.759780883789062, 36.86643755175846],
+					[8.106944561004639, 36.65957179992132]
+				]
+			}
+		},
+		{ "type": "Feature", "properties": { "name": "Chefia", "nodeType": "town" }, "geometry": { "type": "Point", "coordinates": [8.106944561004639, 36.65957179992132] } },
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "single", "nodes": ["Chefia", "Ain Beida"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[8.106944561004639, 36.65957179992132],
+					[7.389893531799316, 35.79731373908073]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 225, "lineType": "single", "nodes": ["Ain Beida", "Tejraouine"], "interconnection": ["Algeria", "Tunisia"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[7.389893531799316, 35.79731373908073],
+					[8.55283498764038, 35.891483803668656]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 400, "lineType": "single", "nodes": ["Chefia", "Jendouba"], "interconnection": ["Algeria", "Tunisia"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[8.106944561004639, 36.65957179992132],
+					[8.780779838562012, 36.50163325162051]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": { "transmissionPower": 225, "lineType": "single", "nodes": ["Hassi Messaoud", "Gadamis"], "interconnection": ["Algeria", "Libya"] },
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[6.06093406677246, 31.694652472219918],
+					[9.49293851852417, 30.126050127288966]
+				]
+			}
+		}
+	]
+}

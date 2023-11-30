@@ -5,7 +5,6 @@ import "@scss/main.scss";
 import { ContextProvider } from "@contexts/ContextProvider";
 import App from "@pages/App";
 import Area from "@pages/Area";
-import Bar from "@pages/Bar";
 import Scheduler from "@pages/Scheduler";
 import Drawer from "@pages/Drawer";
 import Customers from "@pages/Customers";
@@ -17,6 +16,7 @@ import Kanban from "@pages/Kanban";
 import Line from "@pages/Line";
 import Loading from "@pages/Loading";
 import Orders from "@pages/Orders";
+import Map from "@pages/Map";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -78,8 +78,8 @@ const router = createBrowserRouter(
 					element: <Area />,
 				},
 				{
-					path: "bar",
-					element: <Bar />,
+					path: "map",
+					element: <Map />,
 				},
 			],
 		},

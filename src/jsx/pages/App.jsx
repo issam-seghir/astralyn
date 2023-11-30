@@ -30,6 +30,7 @@ import * as arTimeZoneData from "cldr-data/main/ar-DZ/timeZoneNames.json";
 import * as arUnitsData from "cldr-data/main/ar-DZ/units.json";
 import * as suppNumberingSystems from "cldr-data/supplemental/numberingSystems.json";
 import SettingsButton from "@components/SettingsButton";
+import Map  from "@pages/Map";
 
 loadCldr(arNumberData, arTimeZoneData, arGregorianCalander, arCurrenciesData, arCharactersData, arDateFieldsData, arDelimitersData, arLanguagesData, arLayoutData, arLocaleDisplayNamesData, arMeasurementSystemNamesData, arPosixData, arTerritoriesData, arUnitsData, suppNumberingSystems);
 
@@ -476,6 +477,7 @@ function App() {
 						</Tooltip>
 						<SettingsBar />
 						<Sidebar />
+						{/* <Map/> */}
 						{/* main content */}
 						<Box sx={{ flex: 1, p: { xs: 2, md: 4 }, overflow: "auto" }}>
 							<Outlet />

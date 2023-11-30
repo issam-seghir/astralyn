@@ -1,6 +1,4 @@
 import ListItemHeaderNested from "@components/ListItemHeaderNested";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Box from "@mui/joy/Box";
 import Link from "@mui/joy/Link";
 import List from "@mui/joy/List";
@@ -9,10 +7,11 @@ import ListItemButton from "@mui/joy/ListItemButton";
 import ListItemContent from "@mui/joy/ListItemContent";
 import ListItemDecorator from "@mui/joy/ListItemDecorator";
 import Typography from "@mui/joy/Typography";
-import { BsColumnsGap, BsJournalText, BsKanbanFill } from "react-icons/bs";
-import { FaShoppingCart, FaUserTie } from "react-icons/fa";
-import { FaCalendarDays, FaUserGroup } from "react-icons/fa6";
+import { BsColumnsGap, BsKanbanFill } from "react-icons/bs";
+import { FaChartPie, FaShoppingCart, FaUserTie } from "react-icons/fa";
+import { FaCalendarDays, FaMapLocationDot, FaUserGroup } from "react-icons/fa6";
 import { HiColorSwatch } from "react-icons/hi";
+import { MdBubbleChart, MdEditSquare, MdDashboard } from "react-icons/md";
 
 import { Link as RouterLink } from "react-router-dom";
 
@@ -103,7 +102,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton color="primary" component={RouterLink} to="/" underline="none" selected>
 								<ListItemDecorator>
-									<BsColumnsGap className="icon" />
+									<MdDashboard className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
 									<Typography level="title-sm">Ecommerce</Typography>
@@ -163,7 +162,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton component={RouterLink} to="/markdawn-editor" underline="none">
 								<ListItemDecorator>
-									<BsJournalText className="icon" />
+									<MdEditSquare className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
 									<Typography level="title-sm">Markdown Editor</Typography>
@@ -181,11 +180,11 @@ export default function SideBare({ show, toggleSideBar }) {
 							</ListItemButton>
 						</ListItem>
 					</ListItemHeaderNested>
-					<ListItemHeaderNested title={"CHARTS"}>
+					<ListItemHeaderNested title={"DATA"}>
 						<ListItem>
 							<ListItemButton component={RouterLink} to="/line" underline="none">
 								<ListItemDecorator>
-									<DashboardIcon className="icon" />
+									<MdBubbleChart className="icon" />
 								</ListItemDecorator>
 								<Typography level="title-sm">Line</Typography>
 							</ListItemButton>
@@ -193,7 +192,7 @@ export default function SideBare({ show, toggleSideBar }) {
 						<ListItem>
 							<ListItemButton component={RouterLink} to="/area" underline="none">
 								<ListItemDecorator>
-									<ShoppingCartIcon className="icon" />
+									<FaChartPie className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
 									<Typography level="title-sm">Area</Typography>
@@ -201,12 +200,12 @@ export default function SideBare({ show, toggleSideBar }) {
 							</ListItemButton>
 						</ListItem>
 						<ListItem>
-							<ListItemButton component={RouterLink} to="/bar" underline="none">
+							<ListItemButton component={RouterLink} to="/map" underline="none">
 								<ListItemDecorator>
-									<ShoppingCartIcon className="icon" />
+									<FaMapLocationDot className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
-									<Typography level="title-sm">Bar</Typography>
+									<Typography level="title-sm">Map</Typography>
 								</ListItemContent>
 							</ListItemButton>
 						</ListItem>
