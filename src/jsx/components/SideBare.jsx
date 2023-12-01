@@ -190,12 +190,12 @@ export default function SideBare({ show, toggleSideBar }) {
 							</ListItemButton>
 						</ListItem>
 						<ListItem>
-							<ListItemButton component={RouterLink} to="/area" underline="none">
+							<ListItemButton component={RouterLink} to="/tracker" underline="none">
 								<ListItemDecorator>
 									<FaChartPie className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
-									<Typography level="title-sm">Area</Typography>
+									<Typography level="title-sm">Tracker</Typography>
 								</ListItemContent>
 							</ListItemButton>
 						</ListItem>

@@ -1,71 +1,41 @@
-import { createRoot } from "react-dom/client";
-import * as React from "react";
-
-import { isNullOrUndefined as isNOU } from "@syncfusion/ej2-base";
-import { extend } from "@syncfusion/ej2-base";
-import { Query, DataManager, Predicate } from "@syncfusion/ej2-data";
-import { ColumnDirective, ColumnsDirective, GridComponent, RowDD, Selection, Edit, DetailRow, Page, Sort, Group, Toolbar, ColumnChooser, ColumnMenu } from "@syncfusion/ej2-react-grids";
-import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, AccumulationDataLabel, PieSeries, AccumulationLegend, AccumulationTooltip } from "@syncfusion/ej2-react-charts";
+import { extend, isNullOrUndefined as isNOU } from "@syncfusion/ej2-base";
+import { DataManager, Predicate, Query } from "@syncfusion/ej2-data";
+import {
+	AccumulationChartComponent,
+	AccumulationDataLabel,
+	AccumulationLegend,
+	AccumulationSeriesCollectionDirective,
+	AccumulationSeriesDirective,
+	AccumulationTooltip,
+	AnnotationDirective,
+	AnnotationsDirective,
+	AreaSeries,
+	Category,
+	ChartAnnotation,
+	ChartComponent,
+	ColumnSeries,
+	DataLabel,
+	DateTime,
+	Inject,
+	Legend,
+	LineSeries,
+	PieSeries,
+	SeriesCollectionDirective,
+	SeriesDirective,
+	Tooltip,
+} from "@syncfusion/ej2-react-charts";
 import { DiagramComponent, NodeConstraints } from "@syncfusion/ej2-react-diagrams";
-import { Category, ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, ColumnSeries, Legend, DateTime, Tooltip, DataLabel, LineSeries, AreaSeries, ChartAnnotation, AnnotationsDirective, AnnotationDirective } from "@syncfusion/ej2-react-charts";
+import { ColumnChooser, ColumnDirective, ColumnMenu, ColumnsDirective, DetailRow, Edit, GridComponent, Group, Page, RowDD, Selection, Sort, Toolbar } from "@syncfusion/ej2-react-grids";
 
-import { DateRangePickerComponent } from "@syncfusion/ej2-react-calendars";
+import { useThemeContext } from "@contexts/ContextProvider";
+import { useMediaQuery } from "@uidotdev/usehooks";
+
 import { expenseData } from "@data/diagram-data";
+import { DateRangePickerComponent } from "@syncfusion/ej2-react-calendars";
+
 let shape = { type: "HTML" };
 let constraints = NodeConstraints.Default & ~NodeConstraints.Resize & ~NodeConstraints.Rotate;
-let nodes = [
-	{
-		id: "node",
-		offsetX: 409,
-		offsetY: -151,
-		width: 250,
-		height: 30,
-		shape: shape,
-		constraints: constraints,
-	},
-	{
-		id: "lchart",
-		offsetX: 276,
-		offsetY: 550,
-		width: 512,
-		height: 408,
-		shape: shape,
-		constraints: constraints,
-	},
-	{
-		id: "colchart",
-		offsetX: -257,
-		offsetY: 550,
-		width: 512,
-		height: 408,
-		shape: shape,
-		constraints: constraints,
-	},
-	{
-		id: "pie",
-		offsetX: 10,
-		offsetY: 100,
-		width: 1050,
-		height: 450,
-		shape: shape,
-		constraints: constraints,
-	},
-	{
-		id: "node5",
-		offsetX: -434,
-		offsetY: -157,
-		width: 250,
-		height: 30,
-		style: { fill: "transparent", strokeColor: "transparent" },
-		constraints: NodeConstraints.Default & ~NodeConstraints.Select,
-		annotations: [
-			{
-				content: "EXPENSE TRACKER",
-				style: { fontSize: 16, color: "#797979", bold: true },
-			},
-		],
-	},
-];
+
 let expenseDS;
 let diagramInstance;
 let lineChart;
@@ -76,7 +46,11 @@ let exp = expenseData;
 let predicateStart;
 let predicateEnd;
 let predicate;
-let acclegendSettings = { visible: false };
+let acclegendSettings = {
+	visible: true,
+	enableHighlight: true,
+	textStyle: { background: "transparent", size: ".7rem", fontWeight: "bold", color: "var(--joy-palette-primary-900", fontFamily: "var(--joy-fontFamily-body)", position: "Top" },
+};
 let start = new Date("5/31/2017");
 let end = new Date("11/30/2017");
 let minDate = new Date(2017, 5, 1);
@@ -84,21 +58,15 @@ let maxDate = new Date(2017, 10, 30);
 predicateStart = new Predicate("DateTime", "greaterthanorequal", start);
 predicateEnd = new Predicate("DateTime", "lessthanorequal", end);
 predicate = predicateStart.and(predicateEnd);
-let datePresets = [
-	{ label: "Last Month", start: new Date("10/1/2017"), end: new Date("10/31/2017") },
-	{ label: "Last 3 Months", start: new Date("9/1/2017"), end: new Date("11/30/2017") },
-	{ label: "All Time", start: new Date("6/1/2017"), end: new Date("11/30/2017") },
-];
-let content1 = '<p style="font-family:Roboto;font-size: 16px;font-weight: 400;font-weight: 400;letter-spacing: 0.02em;line-height: 16px;color: #797979 !important;">Account - Balance</p>';
-let content2 = '<p style="font-family:Roboto;font-size: 16px;font-weight: 400;font-weight: 400;letter-spacing: 0.02em;line-height: 16px;color: #797979 !important;">Income - Expense</p>';
+
 let ltooltip = {
-	fill: "#707070",
+	fill: "var(--joy-palette-primary-900)",
 	enable: true,
 	shared: true,
 	format: "${series.name} : ${point.y}",
 	header: "Month - ${point.x} ",
 };
-let lBorder = { width: 0.5, color: "#A16EE5" };
+let lBorder = { width: 0.5, color: "var(--joy-palette-primary-800)" };
 let lchartArea = {
 	border: { width: 0 },
 };
@@ -120,8 +88,8 @@ let lmarker = {
 	visible: true,
 	width: 10,
 	height: 10,
-	fill: "white",
-	border: { width: 2, color: "#0470D8" },
+	fill: "var(--joy-palette-primary-softBg)",
+	border: { width: 2, color: "var(--joy-palette-primary-softColor)" },
 };
 let dataSource = [];
 let lineD = [];
@@ -144,7 +112,7 @@ let dataLabel = {
 	visible: true,
 	position: "Outside",
 	connectorStyle: { length: "10%" },
-	font: { color: "Black", size: "14px", fontFamily: "Roboto" },
+	font: { color: "var(--joy-palette-primary-900)", size: "14px" },
 };
 let pieRenderingData = [];
 let accanimation = { enable: false };
@@ -169,10 +137,14 @@ let animation;
 let marker;
 let cBorder;
 let showWaitingPopup = false;
-titleStyle = { textAlignment: "Near", fontWeight: "500", size: "16", color: "#000" };
-legendSettings = { visible: true };
+titleStyle = { textAlignment: "Near", fontWeight: "500", size: "16", color: "var(--joy-palette-primary-900)" };
+legendSettings = {
+	visible: true,
+	enableHighlight: true,
+	textStyle: { background: "transparent", size: "1rem", fontWeight: "bold", color: "var(--joy-palette-primary-900", fontFamily: "var(--joy-fontFamily-body)", position: "Top" },
+};
 tooltip = {
-	fill: "#707070",
+	fill: "var(--joy-palette-primary-900)",
 	enable: true,
 	shared: true,
 	format: "${series.name} : ${point.y}",
@@ -180,7 +152,7 @@ tooltip = {
 };
 marker = { visible: true, height: 10, width: 10 };
 margin = { top: 90 };
-cBorder = { width: 0.5, color: "#A16EE5" };
+cBorder = { width: 0.5, color: "var(--joy-palette-primary-softBg)" };
 animation = { enable: false };
 let expTotal = 0;
 let category = [];
@@ -191,6 +163,68 @@ function HtmlNode() {
 	var template = diagramTemplate;
 	let gtemplate = gridTemplate;
 	let datachange = onDateRangeChange;
+	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
+	const { language } = useThemeContext();
+	let nodes = [
+		{
+			id: "node",
+			offsetX: 409,
+			offsetY: -151,
+			width: 250,
+			height: 30,
+			shape: shape,
+			constraints: constraints,
+		},
+		{
+			id: "lchart",
+			offsetX: 276,
+			offsetY: 550,
+			width: 512,
+			height: 408,
+			shape: shape,
+			constraints: constraints,
+		},
+		{
+			id: "colchart",
+			offsetX: -257,
+			offsetY: 550,
+			width: 512,
+			height: 408,
+			shape: shape,
+			constraints: constraints,
+		},
+		{
+			id: "pie",
+			offsetX: 10,
+			offsetY: 100,
+			width: 1050,
+			height: 450,
+			shape: shape,
+			constraints: constraints,
+		},
+		{
+			id: "node5",
+			offsetX: -434,
+			offsetY: -157,
+			width: 250,
+			height: 30,
+			style: { fill: "transparent", strokeColor: "transparent" },
+			constraints: NodeConstraints.Default & ~NodeConstraints.Select,
+			annotations: [
+				{
+					content: language.language === "ar" ? "متعقب النفقات" : "EXPENSE TRACKER",
+					style: { fontSize: 30, color: "var(--joy-palette-primary-900)", bold: true },
+				},
+			],
+		},
+	];
+	let datePresets = [
+		{ label: language.language == "ar" ? "الشهر الماضي" : "Last Month", start: new Date("10/1/2017"), end: new Date("10/31/2017") },
+		{ label: language.language == "ar" ? "الأشهر الثلاث الماضية" : "Last 3 Months", start: new Date("9/1/2017"), end: new Date("11/30/2017") },
+		{ label: language.language == "ar" ? "كل الزمن" : "All Time", start: new Date("6/1/2017"), end: new Date("11/30/2017") },
+	];
+	let content1 = `<p style="font-size: 16px;font-weight: 400;font-weight: 400;letter-spacing: 0.02em;line-height: 16px;color: var(--joy-palette-primary-900) !important;">${language.language == "ar" ? "رصيد الحساب" : "Account - Balance"}</p>`;
+	let content2 = `<p style="font-size: 16px;font-weight: 400;font-weight: 400;letter-spacing: 0.02em;line-height: 16px;color: var(--joy-palette-primary-900) !important;">${language.language == "ar" ? "الدخل - المصاريف" : "Income - Expense"}</p>`;
 	function rendereComplete() {
 		initialRenderr();
 		onGridLoad();
@@ -205,7 +239,7 @@ function HtmlNode() {
 						style={{
 							height: "16px",
 							width: "16px",
-							marginLeft: "1px",
+							marginRight: "10px",
 							borderTopLeftRadius: "16px",
 							borderTopRightRadius: "16px",
 							borderBottomLeftRadius: "16px",
@@ -293,11 +327,10 @@ function HtmlNode() {
 		colIncomeDS = [];
 		tempIncomeDS = [];
 		let result = objectAssign(e);
-		for (let i = 0; i < result.length; i++) {
-			let cur = result[i];
+		for (let cur of result) {
 			if (cur.DateTime.getMonth() in tempIncomeDS) {
 				curDateTime = tempIncomeDS[cur.DateTime.getMonth()];
-				tempIncomeDS[cur.DateTime.getMonth()].Amount = parseInt(curDateTime.Amount, 0) + parseInt(cur.Amount, 0);
+				tempIncomeDS[cur.DateTime.getMonth()].Amount = Number.parseInt(curDateTime.Amount, 0) + Number.parseInt(cur.Amount, 0);
 			} else {
 				tempIncomeDS[cur.DateTime.getMonth()] = cur;
 				tempIncomeDS[cur.DateTime.getMonth()].DateTime = new Date(new Date(tempIncomeDS[cur.DateTime.getMonth()].DateTime.setHours(0, 0, 0, 0)).setDate(1));
@@ -312,11 +345,10 @@ function HtmlNode() {
 		colExpenseDS = [];
 		tempExpenseDS = [];
 		let result = objectAssign(e);
-		for (let i = 0; i < result.length; i++) {
-			let cur = result[i];
+		for (let cur of result) {
 			if (cur.DateTime.getMonth() in tempExpenseDS) {
 				curDateTime = tempExpenseDS[cur.DateTime.getMonth()];
-				tempExpenseDS[cur.DateTime.getMonth()].Amount = parseInt(curDateTime.Amount, 0) + parseInt(cur.Amount, 0);
+				tempExpenseDS[cur.DateTime.getMonth()].Amount = Number.parseInt(curDateTime.Amount, 0) + Number.parseInt(cur.Amount, 0);
 			} else {
 				tempExpenseDS[cur.DateTime.getMonth()] = cur;
 				tempExpenseDS[cur.DateTime.getMonth()].DateTime = new Date(new Date(tempExpenseDS[cur.DateTime.getMonth()].DateTime.setHours(0, 0, 0, 0)).setDate(1));
@@ -338,11 +370,10 @@ function HtmlNode() {
 			result.push(obj[data]);
 		}
 		tempLineDS = result;
-		for (let i = 0; i < tempLineDS.length; i++) {
-			let cur = tempLineDS[i];
+		for (let cur of tempLineDS) {
 			if (cur.DateTime.getMonth() in lineD) {
 				curDateTime = lineD[cur.DateTime.getMonth()];
-				lineD[cur.DateTime.getMonth()].Amount = Math.abs(parseInt(curDateTime.Amount, 0) - parseInt(cur.Amount, 0));
+				lineD[cur.DateTime.getMonth()].Amount = Math.abs(Number.parseInt(curDateTime.Amount, 0) - Number.parseInt(cur.Amount, 0));
 			} else {
 				lineD[cur.DateTime.getMonth()] = cur;
 			}
@@ -368,9 +399,8 @@ function HtmlNode() {
 			pieLegendData = pie.visibleSeries[0].points;
 		}
 		pieRenderData = [];
-		for (let i = 0; i < pieLegendData.length; i++) {
-			let rowdata = pieLegendData[i];
-			if (rowdata.text.indexOf("Others") > -1) {
+		for (let rowdata of pieLegendData) {
+			if (rowdata.text.includes("Others")) {
 				rowdata.x = ((rowdata.y / expTotal) * 100).toFixed(2).toString() + "%";
 			}
 			pieRenderData.push(rowdata);
@@ -384,12 +414,12 @@ function HtmlNode() {
 			args.series.dataLabel.font.size = getFontSize(pie.initialClipRect.width);
 			pie.animateSeries = true;
 		}
-		if (args.text && args.text.indexOf("Others") > -1) {
+		if (args.text && args.text.includes("Others")) {
 			args.text = "Others";
 		}
 	}
 	function onAnimateCompleted(args) {
-		let element = document.getElementById("total-expense_datalabel_Series_0");
+		let element = document.querySelector("#total-expense_datalabel_Series_0");
 		if (!isNOU(element)) {
 			element.style.visibility = "visible";
 		}
@@ -401,7 +431,7 @@ function HtmlNode() {
 			if (item.TransactionType === "Expense" && start.valueOf() <= item.DateTime.valueOf() && end.valueOf() >= item.DateTime.valueOf()) {
 				expTotal += Number(item.Amount);
 				legendData.push(item);
-				if (category.indexOf(item.Category) < 0) {
+				if (!category.includes(item.Category)) {
 					category.push(item.Category);
 				}
 			}
@@ -430,11 +460,7 @@ function HtmlNode() {
 		showWaitingPopup = true;
 	}
 	function onChartLoaded() {
-		if (initialRender) {
-			initialRender = false;
-		} else {
-			initialRender = false;
-		}
+		initialRender = initialRender ? false : false;
 	}
 	function onGridDataBound(args) {
 		showWaitingPopup = false;
@@ -453,13 +479,13 @@ function HtmlNode() {
 			return (
 				<div className="diagram_border_cus diagram_chart">
 					<div id="lineChart">
-						<ChartComponent id="Linecharts" chartArea={lchartArea} ref={(lchart) => (lineChart = lchart)} primaryXAxis={lprimaryXAxis} primaryYAxis={lprimaryYAxis} margin={lmargin} useGroupingSeparator={true} tooltip={ltooltip}>
+						<ChartComponent id="Linecharts" chartArea={lchartArea} ref={(lchart) => (lineChart = lchart)} primaryXAxis={lprimaryXAxis} primaryYAxis={lprimaryYAxis} legendSettings={legendSettings} margin={lmargin} useGroupingSeparator={true} tooltip={ltooltip}>
 							<Inject services={[ColumnSeries, Category, ChartAnnotation, AreaSeries, Legend, Tooltip, DataLabel, LineSeries, DateTime]} />
 							<AnnotationsDirective>
 								<AnnotationDirective content={content1} region="Chart" coordinateUnits="Pixel" x="75px" y="9%"></AnnotationDirective>
 							</AnnotationsDirective>
 							<SeriesCollectionDirective>
-								<SeriesDirective dataSource={lineChartData} fill="rgba(4, 112, 216, 0.3)" animation={lanimation} marker={lmarker} border={lBorder} xName="DateTime" yName="Amount" width={2} name="Amount" type="Area"></SeriesDirective>
+								<SeriesDirective dataSource={lineChartData} fill="var(--joy-palette-primary-softBg)" animation={lanimation} marker={lmarker} border={lBorder} xName="DateTime" yName="Amount" width={2} name="Amount" type="Area"></SeriesDirective>
 							</SeriesCollectionDirective>
 						</ChartComponent>
 					</div>
@@ -477,8 +503,8 @@ function HtmlNode() {
 								<AnnotationDirective content={content2} region="Chart" coordinateUnits="Pixel" x="75px" y="9%"></AnnotationDirective>
 							</AnnotationsDirective>
 							<SeriesCollectionDirective>
-								<SeriesDirective dataSource={colChartIncomeData} animation={animation} legendShape="Circle" marker={marker} border={cBorder} xName="DateTime" yName="Amount" width={2} name="Income" fill="#A16EE5" type="Column"></SeriesDirective>
-								<SeriesDirective dataSource={colChartExpenseData} animation={animation} legendShape="Circle" marker={marker} border={cBorder} xName="DateTime" yName="Amount" width={2} name="Expense" fill="#4472C4" type="Column"></SeriesDirective>
+								<SeriesDirective dataSource={colChartIncomeData} animation={animation} legendShape="Circle" marker={marker} border={cBorder} xName="DateTime" yName="Amount" width={2} name="Income" fill="var(--joy-palette-primary-500)" type="Column"></SeriesDirective>
+								<SeriesDirective dataSource={colChartExpenseData} animation={animation} legendShape="Circle" marker={marker} border={cBorder} xName="DateTime" yName="Amount" width={2} name="Expense" fill="var(--joy-palette-primary-800)" type="Column"></SeriesDirective>
 							</SeriesCollectionDirective>
 						</ChartComponent>{" "}
 					</div>
@@ -490,9 +516,9 @@ function HtmlNode() {
 				<div id="diagram_control" className="diagram_border_cus">
 					<div className="pane col-xs-12 col-sm-12 col-md-12 pie-container">
 						<div className="pieChartHeader">
-							<p className="chart-title">Total Expenses</p>
+							<p className="chart-title">{language.language == "ar" ? "المصاريف الكلية" : "Total Expenses"}</p>
 							<p id="rangeDate" className="chart-value">
-								Jun 1 - Dec 1
+								{language.language == "ar" ? "جانفي 1 - ديسمبر 1" : "Jun 1 - Dec 1"}
 							</p>
 						</div>
 						<div id="pieChart" style={{ height: "100%", width: "49%", overflow: "hidden", float: "left" }}>
@@ -516,7 +542,7 @@ function HtmlNode() {
 								</AccumulationSeriesCollectionDirective>
 							</AccumulationChartComponent>
 						</div>
-						<div id="grid" style={{ height: "100%", width: "49%", overflow: "hidden", float: "left" }}>
+						<div id="grid" style={{ height: "100%", width: "49%", overflow: "hidden", float: "left",borderRadius:"1rem" }}>
 							<GridComponent id="legend-grid" ref={(lGrids) => (lGrid = lGrids)} dataSource={pieRenderData} style={{ boxShadow: "none" }} rowTemplate={gtemplate} dataBound={onGridDataBound}>
 								<Inject services={[Page, RowDD, Toolbar, ColumnChooser, DetailRow, ColumnMenu, Selection, Edit, Sort, Group]} />
 								<ColumnsDirective>
@@ -533,23 +559,20 @@ function HtmlNode() {
 		}
 	}
 	return (
-		<div className="control-pane">
-			<div id="custom-diagram" className="control-section">
-				<DiagramComponent
-					id="diagram"
-					ref={(diagram) => (diagramInstance = diagram)}
-					width={"100%"}
-					backgroundColor="#f5f5f5"
-					height={"1100px"}
-					nodes={nodes}
-					created={(args) => {
-						rendereComplete();
-					}}
-					nodeTemplate={template.bind(this)}
-				/>
-			</div>
+		<div id="custom-diagram" className="control-section">
+			<DiagramComponent
+				id="diagram"
+				ref={(diagram) => (diagramInstance = diagram)}
+				width={"100%"}
+				height={"1100px"}
+				backgroundColor="var(--joy-palette-primary-200)"
+				nodes={nodes}
+				created={(args) => {
+					rendereComplete();
+				}}
+				nodeTemplate={template.bind(this)}
+			/>
 		</div>
 	);
 }
 export default HtmlNode;
-

@@ -30,7 +30,8 @@ function SettingsSidebar({showSettings}) {
 				position: "fixed",
 				right: 0,
 				p: 1,
-				zIndex: 1,
+				zIndex: 9998,
+				background: "linear-gradient(24deg, #0000009e, transparent)" ,
 				transform: `translateX(${showSettings ? 0 : "100%"})`,
 			}}
 		>

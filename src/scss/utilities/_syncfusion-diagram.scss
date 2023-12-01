@@ -2,7 +2,15 @@
 #diagram_control .chart-title {
   font-size: 16px;
 }
+#daterangepicker.e-control.e-daterangepicker.e-input{
+  color: var(--joy-palette-primary-900) !important;
 
+}
+
+.e-date-range-wrapper .e-input-group-icon.e-range-icon.e-icons{
+  color: var(--joy-palette-primary-900) !important;
+
+}
 #diagram_control .chart-title,
 #diagram_control .chart-subtitle {
   font-size: 16px;
@@ -10,19 +18,21 @@
   font-weight: 400;
   letter-spacing: 0.02em;
   line-height: 16px;
-  color: #797979 !important;
+  color: var(--joy-palette-primary-900) !important;
  }
 
 .chart-value {
-  color: #9d9d9d;
+  color: var(--joy-palette-primary-900);
 }
 
 #diagram_control {
-  background-color: white;
+  background-color: var(--joy-palette-primary-100);
   height: 450px;
   width: auto;
 }
-
+#diagram_control .e-grid{
+  border-radius: 1rem !important;
+}
 #diagram_control .e-grid,
 #diagram_control .e-grid .e-gridheader {
   border: none;
@@ -35,7 +45,7 @@
 
 .diagram_border_cus {
   border: 1px solid transparent;
-  background: #ffffff;
+  background: var(--joy-palette-primary-100);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   border-radius: 6px;
 }
@@ -57,7 +67,7 @@
 }
 
 #custom-diagram .e-diagram-resize-handle.e-disabled {
-  fill: #ced4da;
+  fill: #07b379;
   opacity: 1;
   stroke: #fff;
   visibility: hidden;

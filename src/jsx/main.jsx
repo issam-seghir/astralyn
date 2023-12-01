@@ -4,7 +4,7 @@ import "@scss/main.scss";
 
 import { ContextProvider } from "@contexts/ContextProvider";
 import App from "@pages/App";
-import Area from "@pages/Area";
+import Tracker from "@pages/Tracker";
 import Scheduler from "@pages/Scheduler";
 import Drawer from "@pages/Drawer";
 import Customers from "@pages/Customers";
@@ -74,8 +74,8 @@ const router = createBrowserRouter(
 					element: <Line />,
 				},
 				{
-					path: "area",
-					element: <Area />,
+					path: "tracker",
+					element: <Tracker />,
 				},
 				{
 					path: "map",

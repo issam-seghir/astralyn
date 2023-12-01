@@ -325,3 +325,33 @@
 
 
 }
+
+.e-daterangepicker.e-popup .e-range-header, .e-bigger.e-small .e-daterangepicker.e-popup .e-range-header{
+	background: none !important;
+}
+
+.e-daterangepicker.e-popup .e-footer, .e-bigger.e-small .e-daterangepicker.e-popup .e-footer, .e-bigger.e-small.e-daterangepicker.e-popup .e-footer{
+	background: none !important;
+
+}
+.e-daterangepicker.e-popup .e-footer .e-btn, .e-bigger.e-small .e-daterangepicker.e-popup .e-footer .e-btn{
+	background-color: var(--joy-palette-primary-softColor) !important;
+	color: var(--joy-palette-primary-softBg) !important;
+}
+
+.e-daterangepicker.e-popup .e-start-label, .e-daterangepicker.e-popup .e-end-label, .e-bigger.e-small .e-daterangepicker.e-popup .e-start-label, .e-bigger.e-small .e-daterangepicker.e-popup .e-end-label, .e-bigger.e-small.e-daterangepicker.e-popup .e-start-label, .e-bigger.e-small.e-daterangepicker.e-popup .e-end-label,
+.e-daterangepicker.e-popup .e-change-icon, .e-bigger.e-small .e-daterangepicker.e-popup .e-change-icon, .e-bigger.e-small.e-daterangepicker.e-popup .e-change-icon,
+.e-daterangepicker.e-popup .e-day-span, .e-bigger.e-small .e-daterangepicker.e-popup .e-day-span, .e-bigger.e-small.e-daterangepicker.e-popup .e-day-span,
+.e-daterangepicker.e-popup .e-presets, .e-bigger.e-small .e-daterangepicker.e-popup .e-presets, .e-bigger.e-small.e-daterangepicker.e-popup .e-presets{
+	color : inherit !important
+}
+
+.e-daterangepicker.e-popup .e-presets .e-list-item.e-hover, .e-bigger.e-small .e-daterangepicker.e-popup .e-presets .e-list-item.e-hover{
+opacity: .5 !important;
+	color : inherit !important
+
+}
+.e-daterangepicker.e-popup .e-presets .e-list-item.e-active, .e-bigger.e-small .e-daterangepicker.e-popup .e-presets .e-list-item.e-active, .e-bigger.e-small.e-daterangepicker.e-popup .e-presets .e-list-item.e-active{
+	background-color: var(--joy-palette-primary-softColor) !important;
+	color: var(--joy-palette-primary-softBg) !important;
+}
