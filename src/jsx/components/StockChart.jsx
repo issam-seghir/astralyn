@@ -1,6 +1,4 @@
-/**
- * Sample for Stock Chart with Default
- */
+
 import {
 	AccumulationDistributionIndicator,
 	AtrIndicator,
@@ -29,8 +27,9 @@ import {
 	Tooltip,
 	Trendlines,
 } from "@syncfusion/ej2-react-charts";
-
+import { useMediaQuery } from "@uidotdev/usehooks";
 import { chartData } from "@data/indicator-data";
+import { useThemeContext } from "@contexts/ContextProvider";
 
 const SAMPLE_CSS = `
     .control-fluid {
@@ -40,11 +39,9 @@ const SAMPLE_CSS = `
         align :center
     }`;
 const Default = () => {
-	const load = (args) => {
-		let selectedTheme = location.hash.split("/")[1];
-		selectedTheme = selectedTheme ? selectedTheme : "Material";
-		args.stockChart.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, "Contrast");
-	};
+	const { language } = useThemeContext();
+	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
+
 	const tooltipRender = (args) => {
 		if (args.text.split("<br/>")[4]) {
 			let target = Number.parseInt(args.text.split("<br/>")[4].split("<b>")[1].split("</b>")[0]);
@@ -58,13 +55,13 @@ const Default = () => {
 			<div className="control-section">
 				<StockChartComponent
 					id="stockchartdefault"
-					primaryXAxis={{ valueType: "DateTime", majorGridLines: { width: 0 }, majorTickLines: { color: "transparent" }, crosshairTooltip: { enable: true } }}
+					primaryXAxis={{
+						valueType: "DateTime", majorGridLines: { width: 0 }, majorTickLines: { color: "transparent" }, crosshairTooltip: { enable: true } }}
 					primaryYAxis={{ labelFormat: "n0", lineStyle: { width: 0 }, rangePadding: "None", majorTickLines: { height: 0 } }}
 					chartArea={{ border: { width: 0 } }}
 					tooltip={{ enable: true, shared: true }}
 					tooltipRender={tooltipRender}
 					crosshair={{ enable: true }}
-					load={load.bind(this)}
 					title="AAPL Stock Price"
 				>
 					<Inject

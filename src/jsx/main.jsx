@@ -13,7 +13,7 @@ import Editor from "@pages/Editor";
 import Employees from "@pages/Employees";
 import Error from "@pages/Error";
 import Kanban from "@pages/Kanban";
-import Line from "@pages/Line";
+import Analytics from "@pages/Analytics";
 import Loading from "@pages/Loading";
 import Orders from "@pages/Orders";
 import Map from "@pages/Map";
@@ -70,8 +70,8 @@ const router = createBrowserRouter(
 					element: <Drawer />,
 				},
 				{
-					path: "line",
-					element: <Line />,
+					path: "analytics",
+					element: <Analytics />,
 				},
 				{
 					path: "tracker",

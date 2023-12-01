@@ -182,11 +182,11 @@ export default function SideBare({ show, toggleSideBar }) {
 					</ListItemHeaderNested>
 					<ListItemHeaderNested title={"DATA"}>
 						<ListItem>
-							<ListItemButton component={RouterLink} to="/line" underline="none">
+							<ListItemButton component={RouterLink} to="/analytics" underline="none">
 								<ListItemDecorator>
 									<MdBubbleChart className="icon" />
 								</ListItemDecorator>
-								<Typography level="title-sm">Line</Typography>
+								<Typography level="title-sm">Analytics</Typography>
 							</ListItemButton>
 						</ListItem>
 						<ListItem>
