@@ -6,7 +6,6 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 const ThemeContext = createContext(null);
 
 export const ContextProvider = ({ children }) => {
-	const [showSettings, setShowSettings] = useState(false);
 	const [selectedTheme, setSelectedTheme] = useState(() => {
 		// Get Theme from local storage, defaulting to 'default' if not present
 		return localStorage.getItem("selectedTheme") || "default";
@@ -130,8 +129,6 @@ export const ContextProvider = ({ children }) => {
 			theme,
 			selectedTheme,
 			setSelectedTheme,
-			showSettings,
-			setShowSettings,
 			progress,
 			setProgress,
 			loading,
@@ -141,7 +138,7 @@ export const ContextProvider = ({ children }) => {
 			language,
 			changeLanguage,
 		}),
-		[theme, selectedTheme, setSelectedTheme, showSettings, setShowSettings,progress, setProgress, loading, setLoading, chartInstance, printChart, language, changeLanguage] // Add all dependencies here
+		[theme, selectedTheme, setSelectedTheme,progress, setProgress, loading, setLoading, chartInstance, printChart, language, changeLanguage] // Add all dependencies here
 	);
 
 	return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;

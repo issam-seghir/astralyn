@@ -30,7 +30,6 @@ import * as arTimeZoneData from "cldr-data/main/ar-DZ/timeZoneNames.json";
 import * as arUnitsData from "cldr-data/main/ar-DZ/units.json";
 import * as suppNumberingSystems from "cldr-data/supplemental/numberingSystems.json";
 import SettingsButton from "@components/SettingsButton";
-import Map  from "@pages/Map";
 
 loadCldr(arNumberData, arTimeZoneData, arGregorianCalander, arCurrenciesData, arCharactersData, arDateFieldsData, arDelimitersData, arLanguagesData, arLayoutData, arLocaleDisplayNamesData, arMeasurementSystemNamesData, arPosixData, arTerritoriesData, arUnitsData, suppNumberingSystems);
 
@@ -459,25 +458,8 @@ function App() {
 							alignItems: "stretch",
 						}}
 					>
-						<Tooltip title="setting" size="md" variant="solid" color="primary" placement="top" arrow>
-							<IconButton
-								component={motion.button}
-								whileHover={{ scale: 1.1 }}
-								whileTap={{ scale: 1 }}
-								variant="soft"
-								color="primary"
-								size="lg"
-								sx={{ zIndex: 2, borderRadius: "50%", p: ".5em", position: "absolute", right: 4, bottom: 4 }}
-								onClick={() => setShowSettings(() => !showSettings)}
-							>
-								<motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 3, ease: "linear" }}>
-									<FiSettings className="icon" />
-								</motion.div>
-							</IconButton>
-						</Tooltip>
-						<SettingsBar />
+						<SettingsButton/>
 						<Sidebar />
-						{/* <Map/> */}
 						{/* main content */}
 						<Box sx={{ flex: 1, p: { xs: 2, md: 4 }, overflow: "auto" }}>
 							<Outlet />

@@ -57,7 +57,7 @@ const HomeButton = () => {
 				btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M32 18.451L16 6.031 0 18.451v-5.064L16 .967l16 12.42zM28 18v12h-8v-8h-8v8H4V18l12-9z"></path></svg>';
 
 				btn.addEventListener("click", function () {
-					map.flyToBounds([africaCenter]);
+					map.flyToBounds([position], { maxZoom: 7 });
 					document.body.classList.remove("show-button-home");
 				});
 
@@ -130,18 +130,19 @@ const Map = () => {
 			style={{
 				height: "100%",
 				width: "100%",
+				borderRadius:"1rem"
 			}}
 			fullscreenControl={true}
 			fullscreenControlOptions={{ position: "topleft" }}
-			center={africaCenter}
-			zoom={4}
+			center={position}
+			zoom={7}
 			minZoom={3}
 			scrollWheelZoom={true}
 		>
 			<ComponentResize />
 			<TileLayer attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 			<GeoJSONData/>
-			<Marker position={africaCenter}>
+			<Marker position={position}>
 				<Popup>
 					A pretty CSS3 popup. <br /> Easily customizable.
 				</Popup>
@@ -158,7 +159,7 @@ const Map = () => {
 			<HomeButton />
 			<SearchField />
 			<Circle center={center} pathOptions={fillBlueOptions} radius={200} />
-			<CircleMarker center={africaCenter} pathOptions={redOptions} radius={20}>
+			<CircleMarker center={position} pathOptions={redOptions} radius={20}>
 				<Popup>Popup in CircleMarker</Popup>
 			</CircleMarker>
 		</MapContainer>

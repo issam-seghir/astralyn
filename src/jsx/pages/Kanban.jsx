@@ -51,7 +51,7 @@ const Overview = () => {
 	const cardTemplate = (props) => {
 
 		return (
-			<div id={props.Id} key={props.Id} className={"card-template"}>
+			<div id={id} key={id} className={"card-template"}>
 				<div className="e-card-header">
 					<div className="e-card-header-caption">
 						<div className="e-card-header-title e-tooltip-text">{props.Title}</div>
@@ -85,14 +85,13 @@ const Overview = () => {
 			keyField="Status"
 			dataSource={cardData[language.language]}
 			swimlaneSettings={{ keyField: "Assignee", showItemCount: true }}
-			enablePersistence={true}
 			cardSettings={{
 				headerField: "Title",
-				template: cardTemplate,
+				template: cardTemplate.bind(this),
 				selectionType: "Multiple",
 			}}
 			dialogSettings={{ fields: fields }}
-			cardRendered={cardRendered}
+			cardRendered={cardRendered.bind(this)}
 		>
 			<ColumnsDirective>
 				<ColumnDirective headerText={language.language === "ar" ? "ما يجب فعله" : "To Do"} showItemCount={true} keyField="Open" allowToggle={true} template={columnTemplate.bind(this)} />

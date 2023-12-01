@@ -1,15 +1,12 @@
-// SettingsSidebar.js
-import { useThemeContext } from "@contexts/ContextProvider";
+import SettingsBar from "@components/SettingsBar";
 import IconButton from "@mui/joy/IconButton";
 import Tooltip from "@mui/joy/Tooltip";
 import { motion } from "framer-motion";
+import { memo, useState } from "react";
 import { FiSettings } from "react-icons/fi";
-import { memo } from "react";
-import SettingsBar from "@components/SettingsBar";
 
 function SettingsButton() {
-	const { showSettings, setShowSettings } = useThemeContext();
-
+	const [showSettings, setShowSettings] = useState(false);
 	return (
 		<>
 			<Tooltip title="setting" size="md" variant="solid" color="primary" placement="top" arrow>
@@ -19,9 +16,8 @@ function SettingsButton() {
 					</motion.div>
 				</IconButton>
 			</Tooltip>
-							<SettingsBar />
+			<SettingsBar showSettings={showSettings} />
 		</>
-
 	);
 }
 

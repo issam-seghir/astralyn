@@ -13,8 +13,9 @@ import Sheet from "@mui/joy/Sheet";
 function splitCamelCase(input) {
 	return input.replaceAll(/([a-z])([A-Z])/g, "$1 $2");
 }
-function SettingsSidebar() {
-	const { showSettings, selectedTheme, setSelectedTheme, language, changeLanguage } = useThemeContext();
+function SettingsSidebar({showSettings}) {
+	const {  selectedTheme, setSelectedTheme, language, changeLanguage } = useThemeContext();
+
 
 	function handleChange(e) {
 		setSelectedTheme(e.target.value);
