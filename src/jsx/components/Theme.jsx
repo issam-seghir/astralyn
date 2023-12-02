@@ -35,6 +35,12 @@ const defaultTheme = extendTheme({
 			},
 		},
 	},
+	fontFamily: {
+		//applies to `title-*` and `body-*`
+		body: "'Inter', var(--joy-fontFamily-fallback, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol')",
+		//applies to `h1`–`h4`
+		display: "'Inter', var(--joy-fontFamily-fallback, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,Arial, sans-serif,'Apple Color Emoji', 'Segoe UI Emoji','Segoe UI Symbol')",
+	},
 	fontSize: {
 		xs: "var(--text-xs)",
 		sm: "var(--text-sm)",

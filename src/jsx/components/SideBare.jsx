@@ -14,8 +14,12 @@ import { HiColorSwatch } from "react-icons/hi";
 import { MdBubbleChart, MdEditSquare, MdDashboard } from "react-icons/md";
 
 import { Link as RouterLink } from "react-router-dom";
+import { useThemeContext } from "@contexts/ContextProvider";
+
 
 export default function SideBare({ show, toggleSideBar }) {
+		const { language } = useThemeContext();
+
 	return (
 		<>
 			{/* Overlay background */}
@@ -79,8 +83,8 @@ export default function SideBare({ show, toggleSideBar }) {
 							</g>
 						</svg>
 					</Link>
-					<Typography flex={1} level="title-lg">
-						Astralyn
+					<Typography flex={1} level="title-lg" fontFamily={"Rubik"}>
+						{language.language === "ar" ? "أستراليــن" : "Astralyn"}
 					</Typography>
 				</Box>
 				<List
@@ -98,25 +102,25 @@ export default function SideBare({ show, toggleSideBar }) {
 						},
 					}}
 				>
-					<ListItemHeaderNested title={"DASHBOARD"}>
+					<ListItemHeaderNested title={language.language === "ar" ? "لوحة القيادة" : "DASHBOARD"}>
 						<ListItem>
 							<ListItemButton color="primary" component={RouterLink} to="/" underline="none" selected>
 								<ListItemDecorator>
 									<MdDashboard className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
-									<Typography level="title-sm">Ecommerce</Typography>
+									<Typography level="title-sm">{language.language === "ar" ? "لوحة القيادة" : "Ecommerce"}</Typography>
 								</ListItemContent>
 							</ListItemButton>
 						</ListItem>
 					</ListItemHeaderNested>
-					<ListItemHeaderNested title={"RECORDS"}>
+					<ListItemHeaderNested title={language.language === "ar" ? "السجلات" : "RECORDS"}>
 						<ListItem>
 							<ListItemButton component={RouterLink} to="/orders" underline="none">
 								<ListItemDecorator>
 									<FaShoppingCart className="icon" />
 								</ListItemDecorator>
-								<Typography level="title-sm">Orders</Typography>
+								<Typography level="title-sm">{language.language === "ar" ? "طلبات" : "Orders"}</Typography>
 							</ListItemButton>
 						</ListItem>
 						<ListItem>
@@ -125,7 +129,7 @@ export default function SideBare({ show, toggleSideBar }) {
 									<FaUserGroup className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
-									<Typography level="title-sm">Employees</Typography>
+									<Typography level="title-sm">{language.language === "ar" ? "موظفين" : "Employees"}</Typography>
 								</ListItemContent>
 							</ListItemButton>
 						</ListItem>
@@ -135,18 +139,18 @@ export default function SideBare({ show, toggleSideBar }) {
 									<FaUserTie className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
-									<Typography level="title-sm">Customers</Typography>
+									<Typography level="title-sm">{language.language === "ar" ? "عملاء" : "Customers"}</Typography>
 								</ListItemContent>
 							</ListItemButton>
 						</ListItem>
 					</ListItemHeaderNested>
-					<ListItemHeaderNested title={"APPS"}>
+					<ListItemHeaderNested title={language.language === "ar" ? "التطبيقات" : "APPS"}>
 						<ListItem>
 							<ListItemButton component={RouterLink} to="/scheduler" underline="none">
 								<ListItemDecorator>
 									<FaCalendarDays className="icon" />
 								</ListItemDecorator>
-								<Typography level="title-sm">Scheduler</Typography>
+								<Typography level="title-sm">{language.language === "ar" ? "جدولة" : "Scheduler"}</Typography>
 							</ListItemButton>
 						</ListItem>
 						<ListItem>
@@ -155,7 +159,7 @@ export default function SideBare({ show, toggleSideBar }) {
 									<BsKanbanFill className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
-									<Typography level="title-sm">Kanban</Typography>
+									<Typography level="title-sm">{language.language === "ar" ? "لوحة كانبان" : "Kanban"}</Typography>
 								</ListItemContent>
 							</ListItemButton>
 						</ListItem>
@@ -165,7 +169,7 @@ export default function SideBare({ show, toggleSideBar }) {
 									<MdEditSquare className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
-									<Typography level="title-sm">Markdown Editor</Typography>
+									<Typography level="title-sm">{language.language === "ar" ? "محرر ماركداون" : "Markdown Editor"}</Typography>
 								</ListItemContent>
 							</ListItemButton>
 						</ListItem>
@@ -175,18 +179,18 @@ export default function SideBare({ show, toggleSideBar }) {
 									<HiColorSwatch className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
-									<Typography level="title-sm">Drawer</Typography>
+									<Typography level="title-sm">{language.language === "ar" ? "رسم تخطيطي" : "Drawer"}</Typography>
 								</ListItemContent>
 							</ListItemButton>
 						</ListItem>
 					</ListItemHeaderNested>
-					<ListItemHeaderNested title={"DATA"}>
+					<ListItemHeaderNested title={language.language === "ar" ? "البيانات" : "DATA"}>
 						<ListItem>
 							<ListItemButton component={RouterLink} to="/analytics" underline="none">
 								<ListItemDecorator>
 									<MdBubbleChart className="icon" />
 								</ListItemDecorator>
-								<Typography level="title-sm">Analytics</Typography>
+								<Typography level="title-sm">{language.language === "ar" ? "التحليلات" : "Analytics"}</Typography>
 							</ListItemButton>
 						</ListItem>
 						<ListItem>
@@ -195,7 +199,7 @@ export default function SideBare({ show, toggleSideBar }) {
 									<FaChartPie className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
-									<Typography level="title-sm">Tracker</Typography>
+									<Typography level="title-sm">{language.language === "ar" ? "المتعقب" : "Tracker"}</Typography>
 								</ListItemContent>
 							</ListItemButton>
 						</ListItem>
@@ -205,7 +209,7 @@ export default function SideBare({ show, toggleSideBar }) {
 									<FaMapLocationDot className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
-									<Typography level="title-sm">Map</Typography>
+									<Typography level="title-sm">{language.language === "ar" ? "خريطة" : "Map"}</Typography>
 								</ListItemContent>
 							</ListItemButton>
 						</ListItem>

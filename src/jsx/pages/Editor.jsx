@@ -51,7 +51,6 @@ function Preview() {
 		}
 	}
 	function content1() {
-	console.log(value[language.language]);
 
 		return (
 			<div className="content">
@@ -87,14 +86,19 @@ function Preview() {
 			</div>
 		);
 	}
+	const panesEnglish = [<PaneDirective key={id} resizable={true} size="50%" min="40%" cssClass="pane1" content={content1.bind(this)}></PaneDirective>, <PaneDirective key={id} min="40%" cssClass="pane2" content={content2.bind(this)}></PaneDirective>];
+
+	const panesArabic = [<PaneDirective key={id} min="40%" cssClass="pane2" content={content2.bind(this)}></PaneDirective>, <PaneDirective key={id} resizable={true} size="50%" min="40%" cssClass="pane1" content={content1.bind(this)}></PaneDirective>];
+
 	return (
 		<div className="control-pane" style={{ height: "100%" }}>
 			<div className="control-section onlineEditor" id="rtePreview">
 				<div className="content-wrapper">
-					<SplitterComponent orientation={isSmallDevice ? "Vertical" : "Horizontal"}  ref={(splitter) => (splitterInstance = splitter)} height="450px" width="100%" resizing={onResizing.bind(this)} created={updateOrientation.bind(this)}>
+					<SplitterComponent orientation={isSmallDevice ? "Vertical" : "Horizontal"} ref={(splitter) => (splitterInstance = splitter)} height="450px" width="100%" resizing={onResizing.bind(this)} created={updateOrientation.bind(this)}>
 						<PanesDirective>
-							<PaneDirective resizable={true} size="50%" min="40%" cssClass="pane1" content={content1.bind(this)}></PaneDirective>
-							<PaneDirective min="40%" cssClass="pane2" content={content2.bind(this)}></PaneDirective>
+							{language.language === "ar" ?  panesArabic : panesEnglish}
+							{/* <PaneDirective resizable={true} size="50%" min="40%" cssClass="pane1" content={content1.bind(this)}></PaneDirective> */}
+							{/* <PaneDirective min="40%" cssClass="pane2" content={content2.bind(this)}></PaneDirective> */}
 						</PanesDirective>
 					</SplitterComponent>
 				</div>

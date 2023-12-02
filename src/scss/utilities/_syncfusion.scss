@@ -7,9 +7,21 @@
 // }
 
 /* change font family for all components  */
-// .e-control {
-//   font-family: Arial !important;
-// }
+.e-control,
+.e-card,
+.e-pane {
+	font-family: Inter !important;
+}
+
+.e-control.e-rtl,
+.e-rtl,
+html[dir="rtl"] .e-control,
+html[dir="rtl"] .e-card,
+html[dir="rtl"] .e-pane,
+html[dir="rtl"] .control-pane,
+ {
+	font-family: Cairo !important;
+}
 
 /* change font size for all components  */
 
@@ -50,7 +62,8 @@
 	}
 }
 
-.e-contextmenu,.e-menu-parent {
+.e-contextmenu,
+.e-menu-parent {
 	color: var(--joy-palette-primary-softColor) !important;
 	background: var(--joy-palette-primary-softBg) !important;
 	border-color: var(--joy-palette-primary-300) !important;
@@ -63,7 +76,8 @@
 		color: var(--joy-palette-primary-softBg) !important;
 		background: var(--joy-palette-primary-softColor) !important;
 	}
-	.e-menu-item.e-focused{
+
+	.e-menu-item.e-focused {
 		color: rgba(var(--joy-palette-primary-mainChannel) / 80%) !important;
 	}
 
@@ -227,7 +241,7 @@
 .e-dialog {
 	background-color: var(--joy-palette-primary-softBg) !important;
 
-	.e-dlg-header-content  {
+	.e-dlg-header-content {
 		button:hover {
 			// background-color: var(--joy-palette-primary-softColor) !important;
 		}
@@ -291,67 +305,79 @@
 	}
 }
 
-
-.e-responsive-dialog{
-	.e-dlg-header-content  {
-	background-color: var(--joy-palette-primary-softBg) !important;
+.e-responsive-dialog {
+	.e-dlg-header-content {
+		background-color: var(--joy-palette-primary-softBg) !important;
 		border-color: var(--joy-palette-primary-softColor) !important;
 		border-radius: 0 !important;
-
 	}
 
 	.e-dlg-content {
 		color: var(--joy-palette-primary-softColor) !important;
 		background-color: var(--joy-palette-primary-softBg) !important;
-		button{
+
+		button {
 			color: var(--joy-palette-primary-softBg) !important;
 			background-color: var(--joy-palette-primary-softColor) !important;
-
 		}
 	}
 }
 
-.e-search-icon{
-		color: var(--joy-palette-primary-softColor) !important;
-
+.e-search-icon {
+	color: var(--joy-palette-primary-softColor) !important;
 }
 
-
-.Summary_wrapper .e-field{
+.Summary_wrapper .e-field {
+	padding: 0.5rem;
 	color: var(--joy-palette-primary-softColor) !important;
 	border-color: var(--joy-palette-primary-softColor) !important;
-	padding: 0.5rem;
-	border-radius: .25rem;
-
-
+	border-radius: 0.25rem;
 }
 
-.e-daterangepicker.e-popup .e-range-header, .e-bigger.e-small .e-daterangepicker.e-popup .e-range-header{
+.e-daterangepicker.e-popup .e-range-header,
+.e-bigger.e-small .e-daterangepicker.e-popup .e-range-header {
 	background: none !important;
 }
 
-.e-daterangepicker.e-popup .e-footer, .e-bigger.e-small .e-daterangepicker.e-popup .e-footer, .e-bigger.e-small.e-daterangepicker.e-popup .e-footer{
+.e-daterangepicker.e-popup .e-footer,
+.e-bigger.e-small .e-daterangepicker.e-popup .e-footer,
+.e-bigger.e-small.e-daterangepicker.e-popup .e-footer {
 	background: none !important;
-
 }
-.e-daterangepicker.e-popup .e-footer .e-btn, .e-bigger.e-small .e-daterangepicker.e-popup .e-footer .e-btn{
-	background-color: var(--joy-palette-primary-softColor) !important;
+
+.e-daterangepicker.e-popup .e-footer .e-btn,
+.e-bigger.e-small .e-daterangepicker.e-popup .e-footer .e-btn {
 	color: var(--joy-palette-primary-softBg) !important;
-}
-
-.e-daterangepicker.e-popup .e-start-label, .e-daterangepicker.e-popup .e-end-label, .e-bigger.e-small .e-daterangepicker.e-popup .e-start-label, .e-bigger.e-small .e-daterangepicker.e-popup .e-end-label, .e-bigger.e-small.e-daterangepicker.e-popup .e-start-label, .e-bigger.e-small.e-daterangepicker.e-popup .e-end-label,
-.e-daterangepicker.e-popup .e-change-icon, .e-bigger.e-small .e-daterangepicker.e-popup .e-change-icon, .e-bigger.e-small.e-daterangepicker.e-popup .e-change-icon,
-.e-daterangepicker.e-popup .e-day-span, .e-bigger.e-small .e-daterangepicker.e-popup .e-day-span, .e-bigger.e-small.e-daterangepicker.e-popup .e-day-span,
-.e-daterangepicker.e-popup .e-presets, .e-bigger.e-small .e-daterangepicker.e-popup .e-presets, .e-bigger.e-small.e-daterangepicker.e-popup .e-presets{
-	color : inherit !important
-}
-
-.e-daterangepicker.e-popup .e-presets .e-list-item.e-hover, .e-bigger.e-small .e-daterangepicker.e-popup .e-presets .e-list-item.e-hover{
-opacity: .5 !important;
-	color : inherit !important
-
-}
-.e-daterangepicker.e-popup .e-presets .e-list-item.e-active, .e-bigger.e-small .e-daterangepicker.e-popup .e-presets .e-list-item.e-active, .e-bigger.e-small.e-daterangepicker.e-popup .e-presets .e-list-item.e-active{
 	background-color: var(--joy-palette-primary-softColor) !important;
+}
+
+.e-daterangepicker.e-popup .e-start-label,
+.e-daterangepicker.e-popup .e-end-label,
+.e-bigger.e-small .e-daterangepicker.e-popup .e-start-label,
+.e-bigger.e-small .e-daterangepicker.e-popup .e-end-label,
+.e-bigger.e-small.e-daterangepicker.e-popup .e-start-label,
+.e-bigger.e-small.e-daterangepicker.e-popup .e-end-label,
+.e-daterangepicker.e-popup .e-change-icon,
+.e-bigger.e-small .e-daterangepicker.e-popup .e-change-icon,
+.e-bigger.e-small.e-daterangepicker.e-popup .e-change-icon,
+.e-daterangepicker.e-popup .e-day-span,
+.e-bigger.e-small .e-daterangepicker.e-popup .e-day-span,
+.e-bigger.e-small.e-daterangepicker.e-popup .e-day-span,
+.e-daterangepicker.e-popup .e-presets,
+.e-bigger.e-small .e-daterangepicker.e-popup .e-presets,
+.e-bigger.e-small.e-daterangepicker.e-popup .e-presets {
+	color: inherit !important;
+}
+
+.e-daterangepicker.e-popup .e-presets .e-list-item.e-hover,
+.e-bigger.e-small .e-daterangepicker.e-popup .e-presets .e-list-item.e-hover {
+	color: inherit !important;
+	opacity: 0.5 !important;
+}
+
+.e-daterangepicker.e-popup .e-presets .e-list-item.e-active,
+.e-bigger.e-small .e-daterangepicker.e-popup .e-presets .e-list-item.e-active,
+.e-bigger.e-small.e-daterangepicker.e-popup .e-presets .e-list-item.e-active {
 	color: var(--joy-palette-primary-softBg) !important;
+	background-color: var(--joy-palette-primary-softColor) !important;
 }

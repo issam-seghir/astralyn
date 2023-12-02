@@ -213,7 +213,7 @@ function HtmlNode() {
 			annotations: [
 				{
 					content: language.language === "ar" ? "متعقب النفقات" : "EXPENSE TRACKER",
-					style: { fontSize: 30, color: "var(--joy-palette-primary-900)", bold: true },
+					style: { fontSize: 30, fontFamily: "var(--joy-fontFamily-body)", color: "var(--joy-palette-primary-900)", bold: true },
 				},
 			],
 		},
@@ -239,7 +239,7 @@ function HtmlNode() {
 						style={{
 							height: "16px",
 							width: "16px",
-							marginRight: "10px",
+							marginInlineStart: "10px",
 							borderTopLeftRadius: "16px",
 							borderTopRightRadius: "16px",
 							borderBottomLeftRadius: "16px",
@@ -250,7 +250,7 @@ function HtmlNode() {
 				</td>
 				<td> {props.text} </td>
 				<td> {props.y} </td>
-				<td style={{ textAlign: "right" }}> {props.x} </td>
+				<td style={{ textAlign: "center" }}> {props.x} </td>
 			</tr>
 		);
 	}
@@ -515,7 +515,7 @@ function HtmlNode() {
 			return (
 				<div id="diagram_control" className="diagram_border_cus">
 					<div className="pane col-xs-12 col-sm-12 col-md-12 pie-container">
-						<div className="pieChartHeader">
+						<div className="pieChartHeader" style={{ padding: "1rem" }}>
 							<p className="chart-title">{language.language == "ar" ? "المصاريف الكلية" : "Total Expenses"}</p>
 							<p id="rangeDate" className="chart-value">
 								{language.language == "ar" ? "جانفي 1 - ديسمبر 1" : "Jun 1 - Dec 1"}
@@ -542,7 +542,7 @@ function HtmlNode() {
 								</AccumulationSeriesCollectionDirective>
 							</AccumulationChartComponent>
 						</div>
-						<div id="grid" style={{ height: "100%", width: "49%", overflow: "hidden", float: "left",borderRadius:"1rem" }}>
+						<div id="grid" style={{ height: "100%", width: "49%", overflow: "hidden", float: "left", borderRadius: "1rem" }}>
 							<GridComponent id="legend-grid" ref={(lGrids) => (lGrid = lGrids)} dataSource={pieRenderData} style={{ boxShadow: "none" }} rowTemplate={gtemplate} dataBound={onGridDataBound}>
 								<Inject services={[Page, RowDD, Toolbar, ColumnChooser, DetailRow, ColumnMenu, Selection, Edit, Sort, Group]} />
 								<ColumnsDirective>

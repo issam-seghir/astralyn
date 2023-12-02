@@ -8,13 +8,17 @@ import Box from "@mui/joy/Box";
 import FormLabel from "@mui/joy/FormLabel";
 import Radio, { radioClasses } from "@mui/joy/Radio";
 import RadioGroup from "@mui/joy/RadioGroup";
+import Select, { selectClasses } from "@mui/joy/Select";
 import Sheet from "@mui/joy/Sheet";
+import Option from "@mui/joy/Option";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import Snackbar from '@mui/joy/Snackbar';
 
 function splitCamelCase(input) {
 	return input.replaceAll(/([a-z])([A-Z])/g, "$1 $2");
 }
 function SettingsSidebar({showSettings}) {
-	const {  selectedTheme, setSelectedTheme, language, changeLanguage } = useThemeContext();
+	const { selectedTheme, setSelectedTheme, language, changeLanguage, setShowSnackBar, showSnackBar } = useThemeContext();
 
 
 	function handleChange(e) {
@@ -28,11 +32,11 @@ function SettingsSidebar({showSettings}) {
 				width: "40%",
 				height: "100%",
 				position: "fixed",
-				right: 0,
+				insetInlineEnd: 0,
 				p: 1,
-				zIndex: 9998,
-				background: "linear-gradient(24deg, #0000009e, transparent)" ,
-				transform: `translateX(${showSettings ? 0 : "100%"})`,
+				zIndex: 998,
+				background: "linear-gradient(24deg, #0000009e, transparent)",
+				transform: `translateX(${showSettings ? 0 : language.language === "ar" ? "-100%" : "100%"})`,
 			}}
 		>
 			<h2>Settings</h2>
@@ -96,15 +100,41 @@ function SettingsSidebar({showSettings}) {
 			</div>
 
 			<div>
-				<Typography level="h1"> Choose your language : </Typography>
+				<Typography level="h1"> Select Language:: </Typography>
 				<div>
-					<label htmlFor="languageSelect">Select Language: </label>
-					<select id="languageSelect" value={language.language} onChange={(e) => changeLanguage(e.target.value)}>
-						<option value="en">English</option>
-						<option value="ar">Arabic</option>
-						{/* Add more language options as needed */}
-					</select>
+					<Select
+						defaultValue={language.language}
+						onChange={changeLanguage}
+						indicator={<MdKeyboardArrowDown />}
+						sx={{
+							width: 240,
+							[`& .${selectClasses.indicator}`]: {
+								transition: "0.2s",
+								[`&.${selectClasses.expanded}`]: {
+									transform: "rotate(-180deg)",
+								},
+							},
+						}}
+					>
+						<Option value="en">English</Option>
+						<Option value="ar">Arabic</Option>
+					</Select>
 				</div>
+				<Snackbar
+					size="md"
+					variant="soft"
+					autoHideDuration={4000}
+					open={showSnackBar}
+					onClose={(event, reason) => {
+						if (reason === "clickaway") {
+							return;
+						}
+						setShowSnackBar(false);
+					}}
+				>
+					{language.language === "ar"
+					? "تم تغيير اللغة ⚠: قد لا تعمل بعض الميزات بشكل صحيح حتى تتم إعادة تحميل الصفحة." : "Language Changed ⚠ : Some features may not work properly until the page is reloaded."}
+				</Snackbar>
 			</div>
 		</Box>
 	);

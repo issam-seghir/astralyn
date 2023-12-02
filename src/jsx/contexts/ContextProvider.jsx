@@ -13,6 +13,7 @@ export const ContextProvider = ({ children }) => {
 	const [theme, setTheme] = useState(defaultTheme);
 	const [progress, setProgress] = useState(0);
 	const [loading, setLoading] = useState(true);
+	const [showSnackBar, setShowSnackBar] = useState(false);
 
 	const chartInstance = useRef();
 	const languageConfigs = useMemo(() => {
@@ -54,7 +55,8 @@ export const ContextProvider = ({ children }) => {
 	});
 
 	const changeLanguage = useCallback(
-		(selectedLanguage) => {
+		(event, selectedLanguage) => {
+			setShowSnackBar(!showSnackBar);
 			const newConfig = languageConfigs[selectedLanguage];
 			if (newConfig) {
 				localStorage.setItem("language", selectedLanguage);
@@ -78,7 +80,7 @@ export const ContextProvider = ({ children }) => {
 
 	// 		setLanguage({
 	// 			language: selectedLanguage,
-	// 			languageConfig: newConfig,
+	// 			languageConfig: newConfig,F
 	// 		});
 	// 	}
 	// }
@@ -92,6 +94,8 @@ export const ContextProvider = ({ children }) => {
 	}, [chartInstance]);
 
 	useEffect(() => {
+		 document.documentElement.lang = language.language;
+		 document.documentElement.dir = language.languageConfig["rtl"] ? "rtl" : "ltr";
 		enableRtl(language.languageConfig["rtl"]);
 		setCulture(language.languageConfig["culture"]);
 		setCurrencyCode(language.languageConfig["currency"]);
@@ -133,12 +137,14 @@ export const ContextProvider = ({ children }) => {
 			setProgress,
 			loading,
 			setLoading,
+			showSnackBar,
+			setShowSnackBar,
 			chartInstance,
 			printChart,
 			language,
 			changeLanguage,
 		}),
-		[theme, selectedTheme, setSelectedTheme,progress, setProgress, loading, setLoading, chartInstance, printChart, language, changeLanguage] // Add all dependencies here
+		[theme, selectedTheme, setSelectedTheme, progress, setProgress, loading, setLoading, showSnackBar, setShowSnackBar, chartInstance, printChart, language, changeLanguage] // Add all dependencies here
 	);
 
 	return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;

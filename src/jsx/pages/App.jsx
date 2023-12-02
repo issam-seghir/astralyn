@@ -1,18 +1,14 @@
 /* eslint-disable unicorn/prefer-number-properties */
-import SettingsBar from "@components/SettingsBar";
 import Sidebar from "@components/SideBare";
 import { useThemeContext } from "@contexts/ContextProvider";
 import Box from "@mui/joy/Box";
 import GlobalStyles from "@mui/joy/GlobalStyles";
-import IconButton from "@mui/joy/IconButton";
 import Sheet from "@mui/joy/Sheet";
-import Tooltip from "@mui/joy/Tooltip";
 import { CssVarsProvider } from "@mui/joy/styles";
 import Loading from "@pages/Loading";
-import { motion } from "framer-motion";
-import { FiSettings } from "react-icons/fi";
 import { Outlet } from "react-router-dom";
 
+import SettingsButton from "@components/SettingsButton";
 import { L10n, loadCldr } from "@syncfusion/ej2-base";
 import * as arGregorianCalander from "cldr-data/main/ar-DZ/ca-gregorian.json";
 import * as arCharactersData from "cldr-data/main/ar-DZ/characters.json";
@@ -29,7 +25,6 @@ import * as arTerritoriesData from "cldr-data/main/ar-DZ/territories.json";
 import * as arTimeZoneData from "cldr-data/main/ar-DZ/timeZoneNames.json";
 import * as arUnitsData from "cldr-data/main/ar-DZ/units.json";
 import * as suppNumberingSystems from "cldr-data/supplemental/numberingSystems.json";
-import SettingsButton from "@components/SettingsButton";
 
 loadCldr(arNumberData, arTimeZoneData, arGregorianCalander, arCurrenciesData, arCharactersData, arDateFieldsData, arDelimitersData, arLanguagesData, arLayoutData, arLocaleDisplayNamesData, arMeasurementSystemNamesData, arPosixData, arTerritoriesData, arUnitsData, suppNumberingSystems);
 
@@ -428,9 +423,8 @@ L10n.load({
 	},
 });
 function App() {
+	const { setShowSettings, showSettings, theme, loading, language } = useThemeContext();
 
-	const { setShowSettings,showSettings, theme, loading } = useThemeContext();
-	console.log("app rerender !!");
 	return (
 		<CssVarsProvider theme={theme} defaultMode="system">
 			{/* style for icons library's */}
@@ -443,13 +437,15 @@ function App() {
 						width: "0.75em",
 						height: "0.75em",
 					},
+					html: {
+					},
 				}}
 			/>
 
 			{loading ? (
 				<Loading />
 			) : (
-				<Sheet variant="plain">
+				<Sheet variant="plain" id="sheetBg">
 					<Box
 						position={"relative"}
 						sx={{
@@ -458,7 +454,7 @@ function App() {
 							alignItems: "stretch",
 						}}
 					>
-						<SettingsButton/>
+						<SettingsButton />
 						<Sidebar />
 						{/* main content */}
 						<Box sx={{ flex: 1, p: { xs: 2, md: 4 }, overflow: "auto" }}>

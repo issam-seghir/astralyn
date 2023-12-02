@@ -344,11 +344,11 @@ function DrawingTools() {
 			</div>
 
 			<div className="col-lg-4  property-section">
-				<div className="property-panel-header" style={{ textAlign: language.language === "ar" ? "end" : "start" }}>
+				<div className="property-panel-header">
 					{language.language === "ar" ? "الخواص" : "Properties"}{" "}
 				</div>
 				<div className="row property-panel-content" id="appearance">
-					<div className="row row-header" style={{ paddingTop: "10px", textAlign: language.language === "ar" ? "end" : "start" }}>
+					<div className="row row-header" style={{ paddingTop: "10px", }}>
 						{language.language === "ar" ? "أشكال" : "Shapes"}
 					</div>
 					<div className="row" style={{ paddingTop: "8px" }}>
@@ -431,12 +431,13 @@ function DrawingTools() {
 							className="image-pattern-style"
 							id="text"
 							style={{
+
 								backgroundImage: "url('https://ej2.syncfusion.com/react/demos/src/diagram/Images/drawingTool/DrawingTool_9.png')",
 								marginRight: "3px",
 							}}
 						/>
 					</div>
-					<div className="row row-header" style={{ paddingTop: "10px", textAlign: language.language === "ar" ? "end" : "start" }}>
+					<div className="row row-header" style={{ paddingTop: "10px", }}>
 						{language.language === "ar" ? "موصلات" : "Connector"}
 					</div>
 					<div className="row" style={{ paddingTop: "8px" }}>

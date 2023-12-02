@@ -50,51 +50,56 @@ const Default = () => {
 		}
 	};
 	return (
-		<div className="control-pane">
+		<div className="control-pane-scc" style={{ height: "100%", width: "100%" }}>
 			<style>{SAMPLE_CSS}</style>
-			<div className="control-section">
-				<StockChartComponent
-					id="stockchartdefault"
-					primaryXAxis={{
-						valueType: "DateTime", majorGridLines: { width: 0 }, majorTickLines: { color: "transparent" }, crosshairTooltip: { enable: true } }}
-					primaryYAxis={{ labelFormat: "n0", lineStyle: { width: 0 }, rangePadding: "None", majorTickLines: { height: 0 } }}
-					chartArea={{ border: { width: 0 } }}
-					tooltip={{ enable: true, shared: true }}
-					tooltipRender={tooltipRender}
-					crosshair={{ enable: true }}
-					title="AAPL Stock Price"
-				>
-					<Inject
-						services={[
-							DateTime,
-							Tooltip,
-							RangeTooltip,
-							Crosshair,
-							LineSeries,
-							SplineSeries,
-							CandleSeries,
-							HiloOpenCloseSeries,
-							HiloSeries,
-							RangeAreaSeries,
-							Trendlines,
-							EmaIndicator,
-							RsiIndicator,
-							BollingerBands,
-							TmaIndicator,
-							MomentumIndicator,
-							SmaIndicator,
-							AtrIndicator,
-							Export,
-							AccumulationDistributionIndicator,
-							MacdIndicator,
-							StochasticIndicator,
-						]}
-					/>
-					<StockChartSeriesCollectionDirective>
-						<StockChartSeriesDirective dataSource={chartData} xName="x" type="Candle" animation={{ enable: true }} />
-					</StockChartSeriesCollectionDirective>
-				</StockChartComponent>
-			</div>
+			<StockChartComponent
+				id="stockchartdefault"
+				primaryXAxis={{
+					valueType: "DateTime",
+					majorGridLines: { width: 0 },
+					majorTickLines: { color: "red" },
+					crosshairTooltip: { enable: true },
+				}}
+				primaryYAxis={{ labelFormat: "n0", lineStyle: { width: 0 }, rangePadding: "None", majorTickLines: { height: 0 } }}
+				height={"100%"}
+				width="100%"
+				chartArea={{ border: { width: 0 } }}
+				tooltip={{ enable: true, shared: true }}
+				tooltipRender={tooltipRender}
+				crosshair={{ enable: true }}
+				title={language.language == "ar" ? "سعر السهم AAPL" : "AAPL Stock Price"}
+				titleStyle={{ background: "transparent", size: "1rem", fontWeight: "bold", color: "var(--joy-palette-primary-softColor", fontFamily: "var(--joy-fontFamily-body)", position: "Top" }}
+			>
+				<Inject
+					services={[
+						DateTime,
+						Tooltip,
+						RangeTooltip,
+						Crosshair,
+						LineSeries,
+						SplineSeries,
+						CandleSeries,
+						HiloOpenCloseSeries,
+						HiloSeries,
+						RangeAreaSeries,
+						Trendlines,
+						EmaIndicator,
+						RsiIndicator,
+						BollingerBands,
+						TmaIndicator,
+						MomentumIndicator,
+						SmaIndicator,
+						AtrIndicator,
+						Export,
+						AccumulationDistributionIndicator,
+						MacdIndicator,
+						StochasticIndicator,
+					]}
+				/>
+				<StockChartSeriesCollectionDirective>
+					<StockChartSeriesDirective dataSource={chartData} xName="x" type="Candle" animation={{ enable: true }} />
+				</StockChartSeriesCollectionDirective>
+			</StockChartComponent>
 		</div>
 	);
 };
