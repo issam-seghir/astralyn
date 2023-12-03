@@ -420,6 +420,13 @@ L10n.load({
 			emojiPickerNoResultFound: "لم يتم العثور على نتائج",
 			emojiPickerTrySomethingElse: "جرب شيئًا آخر",
 		},
+		chart: {
+			ZoomIn: "تكبير",
+			ZoomOut: "تصغير",
+			Zoom: "زوم",
+			Pan: "مقلاة",
+			Reset: "إعادة تعيين",
+		},
 	},
 });
 function App() {

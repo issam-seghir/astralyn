@@ -8,18 +8,24 @@
 
 /* change font family for all components  */
 .e-control,
+.e-control tspan,
+.e-control text,
 .e-card,
-.e-pane {
+.e-pane,
+.control-pane .e-chart .e-chart * {
 	font-family: Inter !important;
 }
 
 .e-control.e-rtl,
 .e-rtl,
 html[dir="rtl"] .e-control,
+html[dir="rtl"] .e-control tspan,
+html[dir="rtl"] .e-control text,
 html[dir="rtl"] .e-card,
 html[dir="rtl"] .e-pane,
 html[dir="rtl"] .control-pane,
- {
+html[dir="rtl"] .e-chart,
+html[dir="rtl"] .e-chart * {
 	font-family: Cairo !important;
 }
 
@@ -62,6 +68,40 @@ html[dir="rtl"] .control-pane,
 	}
 }
 
+.e-hscroll .e-scroll-nav{
+	background: inherit !important;
+	border-color: inherit !important;
+}
+.e-toolbar {
+	background: inherit !important;
+	.e-toolbar-items {
+		color: var(--joy-palette-primary-softColor) !important;
+		background: var(--joy-palette-primary-softBg) !important;
+		border-color: var(--joy-palette-primary-300) !important;
+		.e-dropdown-btn.e-active,
+		.e-tbar-btn.e-active {
+			color: var(--joy-palette-primary-softBg) !important;
+			background: var(--joy-palette-primary-softColor) !important;
+
+			.e-tbar-btn-text {
+				color: var(--joy-palette-primary-softBg) !important;
+			}
+		}
+		.e-tbar-btn,.e-dropdown-btn{
+			color: var(--joy-palette-primary-softColor) !important;
+			.e-tbar-btn-text{
+				color: var(--joy-palette-primary-softColor) !important;
+
+			}
+
+		}
+	}
+}
+
+.e-daterangepicker.e-popup .e-calendar .e-content .e-range-hover, .e-bigger.e-small .e-daterangepicker.e-popup .e-calendar .e-content .e-range-hover, .e-bigger.e-small.e-daterangepicker.e-popup .e-calendar .e-content .e-range-hover{
+			background: var(--joy-palette-background-card) !important;
+
+}
 .e-contextmenu,
 .e-menu-parent {
 	color: var(--joy-palette-primary-softColor) !important;

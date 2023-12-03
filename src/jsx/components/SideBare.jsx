@@ -60,7 +60,7 @@ export default function SideBare({ show, toggleSideBar }) {
 					zIndex: 999,
 					inset: 0,
 					transform: {
-						xs: show ? "translateX(0)" : "translateX(calc(100% * (var(--SideNavigation-slideIn, 0) - 1)))",
+						xs: show ? "translateX(0)" : `translateX(calc(${language.language === "ar" ? "-100%" : "100%"} * (var(--SideNavigation-slideIn, 0) - 1)))`,
 						md: "none",
 					},
 					transition: "transform 0.4s, width 0.4s",

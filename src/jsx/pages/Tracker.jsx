@@ -42,7 +42,6 @@ let lineChart;
 let columnChart;
 let pie;
 let lGrid;
-let exp = expenseData;
 let predicateStart;
 let predicateEnd;
 let predicate;
@@ -165,6 +164,8 @@ function HtmlNode() {
 	let datachange = onDateRangeChange;
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
 	const { language } = useThemeContext();
+	let exp = language.language == "ar" ? expenseData["ar"] : expenseData["en"];
+
 	let nodes = [
 		{
 			id: "node",
@@ -204,7 +205,7 @@ function HtmlNode() {
 		},
 		{
 			id: "node5",
-			offsetX: -434,
+			offsetX: language.language === "ar" ? -200 : -434,
 			offsetY: -157,
 			width: 250,
 			height: 30,
@@ -213,7 +214,7 @@ function HtmlNode() {
 			annotations: [
 				{
 					content: language.language === "ar" ? "متعقب النفقات" : "EXPENSE TRACKER",
-					style: { fontSize: 30, fontFamily: "var(--joy-fontFamily-body)", color: "var(--joy-palette-primary-900)", bold: true },
+					style: { fontSize: 30, color: "var(--joy-palette-primary-900)", bold: true },
 				},
 			],
 		},
@@ -297,11 +298,11 @@ function HtmlNode() {
 	function initialRenderr() {
 		start = new Date("5/31/2017");
 		end = new Date("11/30/2017");
-		expenseDS = expenseData;
+		expenseDS = exp;
 		predicateStart = new Predicate("DateTime", "greaterthanorequal", start);
 		predicateEnd = new Predicate("DateTime", "lessthanorequal", end);
 		predicate = predicateStart.and(predicateEnd);
-		dataSource = expenseData;
+		dataSource = exp;
 		refreshPieChart();
 		updateChartData();
 		lineChart.refresh();
@@ -485,7 +486,18 @@ function HtmlNode() {
 								<AnnotationDirective content={content1} region="Chart" coordinateUnits="Pixel" x="75px" y="9%"></AnnotationDirective>
 							</AnnotationsDirective>
 							<SeriesCollectionDirective>
-								<SeriesDirective dataSource={lineChartData} fill="var(--joy-palette-primary-softBg)" animation={lanimation} marker={lmarker} border={lBorder} xName="DateTime" yName="Amount" width={2} name="Amount" type="Area"></SeriesDirective>
+								<SeriesDirective
+									dataSource={lineChartData}
+									fill="var(--joy-palette-primary-softBg)"
+									animation={lanimation}
+									marker={lmarker}
+									border={lBorder}
+									xName="DateTime"
+									yName="Amount"
+									width={2}
+									name={language.language === "ar" ? "الكمية" : "Amount"}
+									type="Area"
+								></SeriesDirective>
 							</SeriesCollectionDirective>
 						</ChartComponent>
 					</div>
@@ -503,8 +515,32 @@ function HtmlNode() {
 								<AnnotationDirective content={content2} region="Chart" coordinateUnits="Pixel" x="75px" y="9%"></AnnotationDirective>
 							</AnnotationsDirective>
 							<SeriesCollectionDirective>
-								<SeriesDirective dataSource={colChartIncomeData} animation={animation} legendShape="Circle" marker={marker} border={cBorder} xName="DateTime" yName="Amount" width={2} name="Income" fill="var(--joy-palette-primary-500)" type="Column"></SeriesDirective>
-								<SeriesDirective dataSource={colChartExpenseData} animation={animation} legendShape="Circle" marker={marker} border={cBorder} xName="DateTime" yName="Amount" width={2} name="Expense" fill="var(--joy-palette-primary-800)" type="Column"></SeriesDirective>
+								<SeriesDirective
+									dataSource={colChartIncomeData}
+									animation={animation}
+									legendShape="Circle"
+									marker={marker}
+									border={cBorder}
+									xName="DateTime"
+									yName="Amount"
+									width={2}
+									name={language.language === "ar" ? "الدخل" : "Income"}
+									fill="var(--joy-palette-primary-500)"
+									type="Column"
+								></SeriesDirective>
+								<SeriesDirective
+									dataSource={colChartExpenseData}
+									animation={animation}
+									legendShape="Circle"
+									marker={marker}
+									border={cBorder}
+									xName="DateTime"
+									yName="Amount"
+									width={2}
+									name={language.language === "ar" ? "الإنفاق" : "Expense"}
+									fill="var(--joy-palette-primary-800)"
+									type="Column"
+								></SeriesDirective>
 							</SeriesCollectionDirective>
 						</ChartComponent>{" "}
 					</div>

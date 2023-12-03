@@ -1,104 +1,119 @@
-
 #diagram_control .chart-title {
-  font-size: 16px;
-}
-#daterangepicker.e-control.e-daterangepicker.e-input{
-  color: var(--joy-palette-primary-900) !important;
-
+	font-size: 16px;
 }
 
-.e-date-range-wrapper .e-input-group-icon.e-range-icon.e-icons{
-  color: var(--joy-palette-primary-900) !important;
-
+#daterangepicker.e-control.e-daterangepicker.e-input {
+	color: var(--joy-palette-primary-900) !important;
 }
+
+.e-date-range-wrapper .e-input-group-icon.e-range-icon.e-icons {
+	color: var(--joy-palette-primary-900) !important;
+}
+
 #diagram_control .chart-title,
 #diagram_control .chart-subtitle {
-  font-size: 16px;
-  font-weight: 400;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  line-height: 16px;
-  color: var(--joy-palette-primary-900) !important;
- }
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 16px;
+	color: var(--joy-palette-primary-900) !important;
+	letter-spacing: 0.02em;
+}
 
 .chart-value {
-  color: var(--joy-palette-primary-900);
+	color: var(--joy-palette-primary-900);
 }
 
 #diagram_control {
-  background-color: var(--joy-palette-primary-100);
-  height: 450px;
-  width: auto;
+	width: auto;
+	height: 450px;
+	background-color: var(--joy-palette-primary-100);
 }
-#diagram_control .e-grid{
-  border-radius: 1rem !important;
+
+#diagram_control .e-grid {
+	border-radius: 1rem !important;
 }
+
 #diagram_control .e-grid,
 #diagram_control .e-grid .e-gridheader {
-  border: none;
+	border: none;
 }
 
 .pieChartHeader {
-  margin-left: 20px;
-  margin-top: 20px;
+	margin-top: 20px;
+	margin-left: 20px;
 }
 
 .diagram_border_cus {
-  border: 1px solid transparent;
-  background: var(--joy-palette-primary-100);
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-  border-radius: 6px;
+	background: var(--joy-palette-primary-100);
+	border: 1px solid transparent;
+	border-radius: 6px;
+	box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
 }
 
 .diagram_chart {
-  padding-left: 15px;
-  padding-right: 15px;
+	padding-right: 15px;
+	padding-left: 15px;
 }
 
-#element_calander .e-input-group:not(.e-success):not(.e-warning):not(.e-error):not(.e-float-icon-left),
-#element_calander .e-input-group.e-float-icon-left:not(.e-success):not(.e-warning):not(.e-error) .e-input-in-wrap,
-#element_calander .e-input-group.e-control-wrapper:not(.e-success):not(.e-warning):not(.e-error):not(.e-float-icon-left) {
-  border: none;
+#element_calander .e-input-group:not(.e-success, .e-warning, .e-error, .e-float-icon-left),
+#element_calander .e-input-group.e-float-icon-left:not(.e-success, .e-warning, .e-error) .e-input-in-wrap,
+#element_calander .e-input-group.e-control-wrapper:not(.e-success, .e-warning, .e-error, .e-float-icon-left) {
+	border: none;
 }
 
 .diagram_border_cal {
-  height: 30px;
-  padding-left: 12px;
+	height: 30px;
+	padding-left: 12px;
 }
 
 #custom-diagram .e-diagram-resize-handle.e-disabled {
-  fill: #07b379;
-  opacity: 1;
-  stroke: #fff;
-  visibility: hidden;
+	visibility: hidden;
+	opacity: 1;
+	fill: #07b379;
+	stroke: #fff;
 }
 
-
-.e-diagram{
-border-radius: 1rem !important;
+.e-diagram {
+	border-radius: 1rem !important;
 }
+
 .e-diagram .e-ruler {
-    background-color: var(--joy-palette-primary-softBg) !important;
-    font-size: 13px;
-  }
+	font-size: 13px;
+	background-color: var(--joy-palette-primary-softBg) !important;
+}
+
 .e-diagram .e-ruler-overlap {
-    background-color: var(--joy-palette-primary-softBg)  !important;
+	background-color: var(--joy-palette-primary-softBg) !important;
+}
+
+.e-diagram .e-diagram-text-edit {
+	box-sizing: content-box;
+	min-width: 100px;
+	font-size: var(--text-xl3);
+	color: var(--joy-palette-primary-softColor) !important;
+	background: var(--joy-palette-primary-softBg) !important;
+	border-color: var(--joy-palette-primary-softColor) !important;
+	border-style: dashed;
+	border-width: 1px;
+}
+
+#stockchartdefault_stock_border {
+	border-style: none !important;
+}
+
+#stockchartdefault_selector {
+	width: 99% !important;
+  border-radius: 1rem !important;
+  .e-toolbar-item.e-template{
+    padding-inline: 1rem !important;
   }
+}
+.e-dropdown-popup ul .e-item:hover{
+  background-color: var(--joy-palette-primary-softColor) !important;
+  color: var(--joy-palette-primary-softBg) !important;
+}
 
-   .e-diagram .e-diagram-text-edit {
-    background: var(--joy-palette-primary-softBg) !important;
-    border-color: var(--joy-palette-primary-softColor) !important;
-    border-style: dashed;
-    border-width: 1px;
-    box-sizing: content-box;
-    color: var(--joy-palette-primary-softColor) !important;
-    font-size: var(--text-xl3);
-    min-width: 100px;
-  }
-
-
-
-
-#stockchartdefault_stock_border{
-  border-style: none !important;
+#stockchartdefault_Secondary_Element_Secondary_Element{
+  inset-block-start: 34px !important;
+    inset-inline-start: 10px !important;
 }

@@ -7,7 +7,7 @@ function Analytics() {
 	return (
 		<Sheet variant="outlined" color="primary" sx={{ borderRadius:"1rem" }}>
 			<StockChart />
-			<Box display={"flex"} justifyContent={"space-evenly"}>
+			<Box display={"flex"} justifyContent={"space-evenly"} flexWrap={"wrap"}>
 				<ScatterChart />
 				<PolarRadarChart />
 			</Box>
