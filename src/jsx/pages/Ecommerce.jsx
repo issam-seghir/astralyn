@@ -2,39 +2,36 @@
 import { useThemeContext } from "@contexts/ContextProvider";
 import { Box, Button, Card, CardActions, CardContent, CardCover, Chip, Divider, Sheet } from "@mui/joy";
 import Typography from "@mui/joy/Typography";
-import { BsCurrencyDollar } from "react-icons/bs";
+import { BsCurrencyDollar,BsClipboardData } from "react-icons/bs";
 import { GoDotFill } from "react-icons/go";
-
+import { FaChartPie, FaShoppingCart, FaUserTie } from "react-icons/fa";
+import { FaCalendarDays, FaMapLocationDot, FaUserGroup } from "react-icons/fa6";
 import BarColumnChart from "@components/BarColumnChart";
 import DashedLineChart from "@components/DashedLineChart";
 import FinancialHeloChart from "@components/FinancialHeloChart";
 import { useRef } from "react";
+import { LuBox } from "react-icons/lu";
+import { TbMobiledata } from "react-icons/tb";
 
 const Ecommerce = () => {
-	const { printChart } = useThemeContext();
-
+	const { printChart, language } = useThemeContext();
+	const isArabic = language.language === "ar" ? true : false;
 	return (
 		<Box sx={{ my: 12, display: "flex", flexDirection: "column", gap: 4 }}>
+			<Card variant="outlined" color="primary" orientation="vertical" size="lg" sx={{ flexBasis: { xs: "100%", lg: "20rem" }, alignItems: "flex-start" }}>
+				<CardContent sx={{ mb: 4 }}>
+					<Typography level="title-md">{isArabic ? "الأرباح" : "Earnings"}</Typography>
+					<Typography level="h3">{isArabic ? "دج 63,448.78" : "$63,448.78"}</Typography>
+				</CardContent>
+				<Button size="lg" color="primary" variant="solid">
+					{isArabic ? "تحميل" : "Download"}
+				</Button>
+			</Card>
 			<Box variant="soft" component="ul" sx={{ display: "flex", flexWrap: { xs: "wrap", xl: "nowrap" }, gap: 2, "--Icon-fontSize": "4.5rem" }}>
-				<Card variant="soft" color="neutral" orientation="vertical" size="lg" sx={{ flexBasis: { xs: "100%", lg: "20rem" }, alignItems: "flex-start" }}>
-					<CardCover>
-						<img src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800" srcSet="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800&dpr=2 2x" loading="lazy" alt="" />
-					</CardCover>
-					<CardContent sx={{ mb: 4 }}>
-						<Typography level="title-md">Earnings</Typography>
-						<Typography level="h3">$63,448.78</Typography>
-					</CardContent>
-					<Button size="lg" color="primary" variant="soft">
-						Download
-					</Button>
-				</Card>
 				<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: "30%", alignItems: "flex-start" }}>
-					<CardCover>
-						<img src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800" srcSet="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800&dpr=2 2x" loading="lazy" alt="" />
-					</CardCover>
 					<CardContent>
-						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 2, mb: 2 }} variant="soft" color="primary">
-							<BsCurrencyDollar />
+						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2 }} variant="soft" color="primary">
+							<FaUserGroup className="icon" />
 						</Sheet>
 						<CardContent>
 							<Typography
@@ -46,19 +43,16 @@ const Ecommerce = () => {
 									</Typography>
 								}
 							>
-								$63,448.78
+								45,120
 							</Typography>
-							<Typography level="title-md">Earnings</Typography>
+							<Typography level="title-md">{isArabic ? "العملاء" : "Customers"}</Typography>
 						</CardContent>
 					</CardContent>
 				</Card>
 				<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: "30%", alignItems: "flex-start" }}>
-					<CardCover>
-						<img src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800" srcSet="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800&dpr=2 2x" loading="lazy" alt="" />
-					</CardCover>
 					<CardContent>
-						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 2, mb: 2 }} variant="soft" color="primary">
-							<BsCurrencyDollar />
+						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2 }} variant="soft" color="primary">
+							<LuBox className="icon" />
 						</Sheet>
 						<CardContent>
 							<Typography
@@ -70,19 +64,16 @@ const Ecommerce = () => {
 									</Typography>
 								}
 							>
-								$63,448.78
+								7,500
 							</Typography>
-							<Typography level="title-md">Earnings</Typography>
+							<Typography level="title-md">{isArabic ? "المنتجات" : "Products"}</Typography>
 						</CardContent>
 					</CardContent>
 				</Card>
 				<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: "30%", alignItems: "flex-start" }}>
-					<CardCover>
-						<img src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800" srcSet="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800&dpr=2 2x" loading="lazy" alt="" />
-					</CardCover>
 					<CardContent>
-						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 2, mb: 2 }} variant="soft" color="primary">
-							<BsCurrencyDollar />
+						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2 }} variant="soft" color="primary">
+							<BsClipboardData className="icon" />
 						</Sheet>
 						<CardContent>
 							<Typography
@@ -94,19 +85,16 @@ const Ecommerce = () => {
 									</Typography>
 								}
 							>
-								$63,448.78
+								950,210
 							</Typography>
-							<Typography level="title-md">Earnings</Typography>
+							<Typography level="title-md">{isArabic ? "المبيعات" : "Sales"}</Typography>
 						</CardContent>
 					</CardContent>
 				</Card>
 				<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: "30%", alignItems: "flex-start" }}>
-					<CardCover>
-						<img src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800" srcSet="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800&dpr=2 2x" loading="lazy" alt="" />
-					</CardCover>
 					<CardContent>
 						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 2, mb: 2 }} variant="soft" color="primary">
-							<BsCurrencyDollar />
+							<TbMobiledata />
 						</Sheet>
 						<CardContent>
 							<Typography
@@ -118,9 +106,9 @@ const Ecommerce = () => {
 									</Typography>
 								}
 							>
-								$63,448.78
+								39,352
 							</Typography>
-							<Typography level="title-md">Earnings</Typography>
+							<Typography level="title-md">{isArabic ? "الحسم" : "Refunds"}</Typography>
 						</CardContent>
 					</CardContent>
 				</Card>
@@ -167,15 +155,15 @@ const Ecommerce = () => {
 					</Card>
 					<Divider orientation="vertical" />
 					<Card color="neutral" size="lg" variant="soft" sx={{ flex: { lg: 1, xs: "100%" } }}>
-							<Typography>
-								<Typography level="body-md" startDecorator={<GoDotFill />}>
-									Expense
-								</Typography>
-								<Typography level="body-md" startDecorator={<GoDotFill />}>
-									Budget
-								</Typography>
+						<Typography>
+							<Typography level="body-md" startDecorator={<GoDotFill />}>
+								Expense
 							</Typography>
-						<BarColumnChart/>
+							<Typography level="body-md" startDecorator={<GoDotFill />}>
+								Budget
+							</Typography>
+						</Typography>
+						<BarColumnChart />
 					</Card>
 				</Box>
 			</Sheet>
