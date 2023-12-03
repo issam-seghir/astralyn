@@ -421,3 +421,21 @@ html[dir="rtl"] .e-chart * {
 	color: var(--joy-palette-primary-softBg) !important;
 	background-color: var(--joy-palette-primary-softColor) !important;
 }
+
+
+
+.e-bigger .e-daterangepicker .e-start-btn.e-active, .e-bigger .e-daterangepicker .e-start-btn.e-active:active, .e-bigger .e-daterangepicker .e-end-btn.e-active, .e-bigger .e-daterangepicker .e-end-btn.e-active:active:not([disabled]), .e-bigger .e-daterangepicker .e-start-btn.e-active:hover, .e-bigger .e-daterangepicker .e-end-btn.e-active:hover, *.e-bigger.e-daterangepicker .e-start-btn.e-active, *.e-bigger.e-daterangepicker .e-start-btn.e-active:active, *.e-bigger.e-daterangepicker .e-end-btn.e-active, *.e-bigger.e-daterangepicker .e-end-btn.e-active:active:not([disabled]), *.e-bigger.e-daterangepicker .e-start-btn.e-active:hover, *.e-bigger.e-daterangepicker .e-end-btn.e-active:hover, *.e-device.e-daterangepicker .e-start-btn.e-active, *.e-device.e-daterangepicker .e-start-btn.e-active:active, *.e-device.e-daterangepicker .e-end-btn.e-active, *.e-device.e-daterangepicker .e-end-btn.e-active:active:not([disabled]), *.e-device.e-daterangepicker .e-start-btn.e-active:hover, *.e-device.e-daterangepicker .e-end-btn.e-active:hover{
+
+	background: var(--joy-palette-primary-softColor) !important;
+	color: var(--joy-palette-primary-softBg) !important;
+
+}
+
+.e-bigger .e-daterangepicker .e-start-btn, .e-bigger .e-daterangepicker .e-end-btn, *.e-bigger.e-daterangepicker .e-start-btn, *.e-bigger.e-daterangepicker .e-end-btn, *.e-device.e-daterangepicker .e-start-btn, *.e-device.e-daterangepicker .e-end-btn{
+	background: var(--joy-palette-primary-softBg) !important;
+	color: var(--joy-palette-primary-softColor) !important;
+}
+
+.e-bigger .e-daterangepicker.e-popup .e-range-header .e-start-end .e-start-btn, .e-bigger .e-daterangepicker.e-popup .e-range-header .e-start-end .e-end-btn, *.e-bigger.e-daterangepicker.e-popup .e-range-header .e-start-end .e-start-btn, *.e-bigger.e-daterangepicker.e-popup .e-range-header .e-start-end .e-end-btn, *.e-device.e-daterangepicker.e-popup .e-range-header .e-start-end .e-start-btn, *.e-device.e-daterangepicker.e-popup .e-range-header .e-start-end .e-end-btn{
+	border-color : var(--joy-palette-primary-softColor) !important;
+}

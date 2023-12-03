@@ -40,9 +40,10 @@ const SAMPLE_CSS = `
 const Default = () => {
 	const { language } = useThemeContext();
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
+	const isMobileDevice = useMediaQuery("only screen and (max-width : 400px)");
   const periodselector = [
-		{ text: language.language == "ar" ? "1ش" : "1M", interval: 1, intervalType: "Months" },
-		{ text: language.language == "ar" ? "3ش" : "3M", interval: 3, intervalType: "Months", selected: isSmallDevice },
+		{ text: language.language == "ar" ? "1ش" : "1M", interval: 1, intervalType: "Months", selected: isMobileDevice },
+		{ text: language.language == "ar" ? "3ش" : "3M", interval: 3, intervalType: "Months", selected: isSmallDevice && !isMobileDevice },
 		{ text: language.language == "ar" ? "6ش" : "6M", interval: 6, intervalType: "Months" },
 		{ text: "YTD", selected: !isSmallDevice },
 		{ text: language.language == "ar" ? "1سنة" : "1Y", interval: 1, intervalType: "Years" },

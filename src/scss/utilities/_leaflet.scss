@@ -25,3 +25,24 @@
   display: block;
   margin-left: 10px;
 }
+
+
+// fix z-index of top left buttons llike layer to be in top of search bar its opened in mobile devices
+
+.leaflet-top .leaflet-right{
+      z-index: 1001;
+}
+
+
+// fix text doesnt shown completly (input search bar)  in mobile devices
+.leaflet-control-geosearch.leaflet-geosearch-bar{
+  input.glass {
+padding-inline: 1rem !important;
+  }
+}
+
+
+// change search input result text color
+.results.active{
+  color : cadetblue !important;
+}

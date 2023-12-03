@@ -5,9 +5,9 @@ import PolarRadarChart from "@components/PolarRadarChart";
 
 function Analytics() {
 	return (
-		<Sheet variant="outlined" color="primary" sx={{ borderRadius:"1rem" }}>
+		<Sheet variant="outlined" color="primary" sx={{ borderRadius: "1rem" }}>
 			<StockChart />
-			<Box display={"flex"} justifyContent={"space-evenly"} flexWrap={"wrap"}>
+			<Box display={"flex"} justifyContent={"space-evenly"} flexWrap={{ xs: "wrap" }}>
 				<ScatterChart />
 				<PolarRadarChart />
 			</Box>

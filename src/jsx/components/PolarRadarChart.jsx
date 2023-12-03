@@ -1,3 +1,5 @@
+import { useThemeContext } from "@contexts/ContextProvider";
+import Box from "@mui/joy/Box";
 import { Browser } from "@syncfusion/ej2-base";
 import { AreaSeries, Category, ChartComponent, Highlight, Inject, Legend, PolarSeries, RadarSeries, SeriesCollectionDirective, SeriesDirective, Tooltip } from "@syncfusion/ej2-react-charts";
 import { useRef, useState } from "react";
@@ -34,14 +36,11 @@ const PolarArea = () => {
 	const [type, setType] = useState("Polar");
 	let chartInstance = useRef(null);
 	let dropElement = useRef(null);
+	const { language } = useThemeContext();
+
 	let loaded;
 	const onChartLoad = (args) => {
 		document.querySelector("#charts").setAttribute("title", "");
-	};
-	const load = (args) => {
-		let selectedTheme = location.hash.split("/")[1];
-		selectedTheme = selectedTheme ? selectedTheme : "Material";
-		args.chart.theme = (selectedTheme.charAt(0).toUpperCase() + selectedTheme.slice(1)).replace(/-dark/i, "Dark").replace(/contrast/i, "Contrast");
 	};
 	const change = () => {
 		setType(dropElement.current.value);
@@ -49,31 +48,26 @@ const PolarArea = () => {
 	};
 	let droplist = [{ value: "Polar" }, { value: "Radar" }];
 	return (
-		<div className="control-pane">
+		<Box className="control-pane" sx={{ flex: { lg: 1, xs: "100%" }, alignItems: "center" }}>
 			<style>{SAMPLE_CSS}</style>
-			<div className="control-section row">
-				<div className="col-md-8">
-					<ChartComponent
-						id="charts"
-						ref={chartInstance}
-						primaryXAxis={{ valueType: "Category", labelPlacement: "OnTicks", interval: 1, coefficient: Browser.isDevice ? 80 : 100 }}
-						primaryYAxis={{ title: "Revenue in Millions", labelFormat: "{value}M" }}
-						legendSettings={{ visible: true, enableHighlight: true }}
-						tooltip={{ enable: true }}
-						load={load.bind(this)}
-						title="Average Sales Comparison"
-						loaded={onChartLoad.bind(this)}
-					>
-						<Inject services={[AreaSeries, Legend, Category, PolarSeries, RadarSeries, Highlight, Tooltip]} />
-						<SeriesCollectionDirective>
-							<SeriesDirective dataSource={data1} xName="x" yName="y" name="Product A" width={2} opacity={0.5} type={type} drawType="Area" border={{ color: "transparent" }} />
-							<SeriesDirective dataSource={data2} xName="x" yName="y" name="Product B" width={2} opacity={0.5} type={type} drawType="Area" border={{ color: "transparent" }} />
-							<SeriesDirective dataSource={data3} xName="x" yName="y" name="Product C" width={2} opacity={0.5} type={type} drawType="Area" border={{ color: "transparent" }} />
-						</SeriesCollectionDirective>
-					</ChartComponent>
-				</div>
-			</div>
-		</div>
+			<ChartComponent
+				id="charts"
+				ref={chartInstance}
+				primaryXAxis={{ valueType: "Category", labelPlacement: "OnTicks", interval: 1, coefficient: Browser.isDevice ? 80 : 100 }}
+				primaryYAxis={{ title: "Revenue in Millions", labelFormat: "{value}M" }}
+				legendSettings={{ visible: true, enableHighlight: true }}
+				tooltip={{ enable: true }}
+				title={language.language === "ar" ? "متوسط ​​مقارنة المبيعات" : "Average Sales Comparison"}
+				loaded={onChartLoad.bind(this)}
+			>
+				<Inject services={[AreaSeries, Legend, Category, PolarSeries, RadarSeries, Highlight, Tooltip]} />
+				<SeriesCollectionDirective>
+					<SeriesDirective dataSource={data1} xName="x" yName="y" name="Product A" width={2} opacity={0.5} type={type} drawType="Area" border={{ color: "transparent" }} />
+					<SeriesDirective dataSource={data2} xName="x" yName="y" name="Product B" width={2} opacity={0.5} type={type} drawType="Area" border={{ color: "transparent" }} />
+					<SeriesDirective dataSource={data3} xName="x" yName="y" name="Product C" width={2} opacity={0.5} type={type} drawType="Area" border={{ color: "transparent" }} />
+				</SeriesCollectionDirective>
+			</ChartComponent>
+		</Box>
 	);
 };
 export default PolarArea;

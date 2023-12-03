@@ -2,11 +2,14 @@ import { useThemeContext } from "@contexts/ContextProvider";
 import { scatterData } from "@data/scatterChart-data";
 import { Browser } from "@syncfusion/ej2-base";
 import { Category, ChartComponent, Highlight, Inject, Legend, ScatterSeries, SeriesCollectionDirective, SeriesDirective, Tooltip } from "@syncfusion/ej2-react-charts";
+import Box  from "@mui/joy/Box";
+
 
 const SAMPLE_CSS = `
     .control-fluid {
         padding: 0px !important;
     }`;
+
 const Scatter = () => {
 	const { language } = useThemeContext();
 
@@ -16,7 +19,7 @@ const Scatter = () => {
 	};
 
 	return (
-		<div className="control-paneb">
+		<Box className="control-paneb" sx={{ flex: { lg: 1, xs: "100%" }, alignItems: "center" }}>
 			<style>{SAMPLE_CSS}</style>
 			<div className="control-sectionb">
 				<ChartComponent
@@ -64,7 +67,7 @@ const Scatter = () => {
 					</SeriesCollectionDirective>
 				</ChartComponent>
 			</div>
-		</div>
+		</Box>
 	);
 };
 export default Scatter;
