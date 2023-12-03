@@ -83,7 +83,7 @@ export default function SideBare({ show, toggleSideBar }) {
 							</g>
 						</svg>
 					</Link>
-					<Typography flex={1} level="title-lg" fontFamily={"Rubik"}>
+					<Typography flex={1} level="h2" fontFamily={"Rubik"}>
 						{language.language === "ar" ? "أستراليــن" : "Astralyn"}
 					</Typography>
 				</Box>

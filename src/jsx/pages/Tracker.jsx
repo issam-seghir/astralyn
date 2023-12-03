@@ -31,6 +31,7 @@ import { useThemeContext } from "@contexts/ContextProvider";
 import { useMediaQuery } from "@uidotdev/usehooks";
 
 import { expenseData } from "@data/diagram-data";
+import { Box } from "@mui/joy";
 import { DateRangePickerComponent } from "@syncfusion/ej2-react-calendars";
 
 let shape = { type: "HTML" };
@@ -165,6 +166,11 @@ function HtmlNode() {
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
 	const { language } = useThemeContext();
 	let exp = language.language == "ar" ? expenseData["ar"] : expenseData["en"];
+	const SAMPLE_CSS = `
+#lchart_content_html_element,#colchart_content_html_element{
+	top: 800px !important;
+}
+`;
 
 	let nodes = [
 		{
@@ -471,7 +477,7 @@ function HtmlNode() {
 			return (
 				<div className="diagram_border_cus diagram_border_cal">
 					<div id="element_calander">
-						<DateRangePickerComponent id="daterangepicker" presets={datePresets} placeholder="Select a range" startDate={start} endDate={end} min={minDate} max={maxDate} change={datachange} />{" "}
+						<DateRangePickerComponent enablePersistence id="daterangepicker" presets={datePresets} placeholder="Select a range" startDate={start} endDate={end} min={minDate} max={maxDate} change={datachange} />{" "}
 					</div>
 				</div>
 			);
@@ -479,8 +485,8 @@ function HtmlNode() {
 		if (props.id === "lchart") {
 			return (
 				<div className="diagram_border_cus diagram_chart">
-					<div id="lineChart">
-						<ChartComponent id="Linecharts" chartArea={lchartArea} ref={(lchart) => (lineChart = lchart)} primaryXAxis={lprimaryXAxis} primaryYAxis={lprimaryYAxis} legendSettings={legendSettings} margin={lmargin} useGroupingSeparator={true} tooltip={ltooltip}>
+					<Box id="lineChart">
+						<ChartComponent enablePersistence id="Linecharts" chartArea={lchartArea} ref={(lchart) => (lineChart = lchart)} primaryXAxis={lprimaryXAxis} primaryYAxis={lprimaryYAxis} legendSettings={legendSettings} margin={lmargin} useGroupingSeparator={true} tooltip={ltooltip}>
 							<Inject services={[ColumnSeries, Category, ChartAnnotation, AreaSeries, Legend, Tooltip, DataLabel, LineSeries, DateTime]} />
 							<AnnotationsDirective>
 								<AnnotationDirective content={content1} region="Chart" coordinateUnits="Pixel" x="75px" y="9%"></AnnotationDirective>
@@ -500,7 +506,7 @@ function HtmlNode() {
 								></SeriesDirective>
 							</SeriesCollectionDirective>
 						</ChartComponent>
-					</div>
+					</Box>
 				</div>
 			);
 		}
@@ -509,7 +515,19 @@ function HtmlNode() {
 				<div className="diagram_border_cus diagram_chart">
 					{" "}
 					<div id="barChart">
-						<ChartComponent id="colcharts" ref={(cchart) => (columnChart = cchart)} primaryXAxis={primaryXAxis} primaryYAxis={primaryYAxis} margin={margin} useGroupingSeparator={true} legendSettings={legendSettings} titleStyle={titleStyle} loaded={onChartLoaded} tooltip={tooltip}>
+						<ChartComponent
+							enablePersistence
+							id="colcharts"
+							ref={(cchart) => (columnChart = cchart)}
+							primaryXAxis={primaryXAxis}
+							primaryYAxis={primaryYAxis}
+							margin={margin}
+							useGroupingSeparator={true}
+							legendSettings={legendSettings}
+							titleStyle={titleStyle}
+							loaded={onChartLoaded}
+							tooltip={tooltip}
+						>
 							<Inject services={[ColumnSeries, Category, ChartAnnotation, AreaSeries, Legend, Tooltip, DataLabel, LineSeries, DateTime]} />
 							<AnnotationsDirective>
 								<AnnotationDirective content={content2} region="Chart" coordinateUnits="Pixel" x="75px" y="9%"></AnnotationDirective>
@@ -549,16 +567,16 @@ function HtmlNode() {
 		}
 		if (props.id === "pie") {
 			return (
-				<div id="diagram_control" className="diagram_border_cus">
-					<div className="pane col-xs-12 col-sm-12 col-md-12 pie-container">
-						<div className="pieChartHeader" style={{ padding: "1rem" }}>
-							<p className="chart-title">{language.language == "ar" ? "المصاريف الكلية" : "Total Expenses"}</p>
-							<p id="rangeDate" className="chart-value">
-								{language.language == "ar" ? "جانفي 1 - ديسمبر 1" : "Jun 1 - Dec 1"}
-							</p>
-						</div>
-						<div id="pieChart" style={{ height: "100%", width: "49%", overflow: "hidden", float: "left" }}>
-							<AccumulationChartComponent style={{ display: "block" }} ref={(pies) => (pie = pies)} id="pieChart" width="100%" height="350px" legendSettings={acclegendSettings} enableSmartLabels={true} textRender={onTextRender} animationComplete={onAnimateCompleted}>
+				<Box id="diagram_control" className="diagram_border_cus" display={"flex"} alignItems={"center"}>
+					<Box className="pane  pie-container" display={"flex"} alignItems={"center"} p={2} flexWrap={{ xs: "wrap" }}>
+						<Box id="pieChart" sx={{ flex: { lg: 1, xs: "100%" }, height: "100%", overflow: "hidden" }}>
+							<div className="pieChartHeader">
+								<p className="chart-title">{language.language == "ar" ? "المصاريف الكلية" : "Total Expenses"}</p>
+								<p id="rangeDate" className="chart-value">
+									{language.language == "ar" ? "جانفي 1 - ديسمبر 1" : "Jun 1 - Dec 1"}
+								</p>
+							</div>
+							<AccumulationChartComponent enablePersistence style={{ display: "block" }} ref={(pies) => (pie = pies)} id="pieChart" width="100%" height="350px" legendSettings={acclegendSettings} enableSmartLabels={true} textRender={onTextRender} animationComplete={onAnimateCompleted}>
 								<Inject services={[PieSeries, AccumulationLegend, AccumulationDataLabel, AccumulationTooltip]} />
 								<AccumulationSeriesCollectionDirective>
 									<AccumulationSeriesDirective
@@ -577,9 +595,9 @@ function HtmlNode() {
 									></AccumulationSeriesDirective>
 								</AccumulationSeriesCollectionDirective>
 							</AccumulationChartComponent>
-						</div>
-						<div id="grid" style={{ height: "100%", width: "49%", overflow: "hidden", float: "left", borderRadius: "1rem" }}>
-							<GridComponent id="legend-grid" ref={(lGrids) => (lGrid = lGrids)} dataSource={pieRenderData} style={{ boxShadow: "none" }} rowTemplate={gtemplate} dataBound={onGridDataBound}>
+						</Box>
+						<Box id="grid" sx={{ flex: { lg: 1, xs: "100%" }, height: "100%", overflow: "hidden", borderRadius: "1rem" }}>
+							<GridComponent enablePersistence id="legend-grid" ref={(lGrids) => (lGrid = lGrids)} dataSource={pieRenderData} style={{ boxShadow: "none" }} rowTemplate={gtemplate} dataBound={onGridDataBound}>
 								<Inject services={[Page, RowDD, Toolbar, ColumnChooser, DetailRow, ColumnMenu, Selection, Edit, Sort, Group]} />
 								<ColumnsDirective>
 									<ColumnDirective width="10%" textAlign="Center" />
@@ -588,19 +606,21 @@ function HtmlNode() {
 									<ColumnDirective width="20%" />
 								</ColumnsDirective>
 							</GridComponent>
-						</div>
-					</div>
-				</div>
+						</Box>
+					</Box>
+				</Box>
 			);
 		}
 	}
 	return (
-		<div id="custom-diagram" className="control-section">
+		<div id="custom-diagram" className="control-section" style={{ height: "100%" }}>
+			{isSmallDevice && <style>{SAMPLE_CSS}</style>}
 			<DiagramComponent
+				enablePersistence
 				id="diagram"
 				ref={(diagram) => (diagramInstance = diagram)}
 				width={"100%"}
-				height={"1100px"}
+				height={"100%"}
 				backgroundColor="var(--joy-palette-primary-200)"
 				nodes={nodes}
 				created={(args) => {

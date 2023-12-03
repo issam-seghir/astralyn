@@ -12,6 +12,7 @@
 .e-control text,
 .e-card,
 .e-pane,
+.e-popup,
 .control-pane .e-chart .e-chart * {
 	font-family: Inter !important;
 }
@@ -23,6 +24,7 @@ html[dir="rtl"] .e-control tspan,
 html[dir="rtl"] .e-control text,
 html[dir="rtl"] .e-card,
 html[dir="rtl"] .e-pane,
+html[dir="rtl"] .e-popup,
 html[dir="rtl"] .control-pane,
 html[dir="rtl"] .e-chart,
 html[dir="rtl"] .e-chart * {
@@ -197,7 +199,7 @@ html[dir="rtl"] .e-chart * {
 	.e-uncheck.e-icons,
 	.e-icons:not(.e-check) {
 		background-color: transparent !important;
-		border-color: var(--joy-palette-primary-50) !important;
+		border-color: var(--joy-palette-primary-softColor) !important;
 	}
 
 	.e-checkboxfiltertext {

@@ -25,7 +25,7 @@
 
 #diagram_control {
 	width: auto;
-	height: 450px;
+	height: auto;
 	background-color: var(--joy-palette-primary-100);
 }
 
@@ -117,3 +117,8 @@
   inset-block-start: 34px !important;
     inset-inline-start: 10px !important;
 }
+
+
+// #lchart_content_html_element,#colchart_content_html_element{
+// 	top: 800px !important;
+// }
