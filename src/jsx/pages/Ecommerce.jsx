@@ -15,20 +15,46 @@ import { TbMobiledata } from "react-icons/tb";
 
 const Ecommerce = () => {
 	const { printChart, language } = useThemeContext();
-	const isArabic = language.language === "ar" ? true : false;
+	const isArabic = language.language === "ar";
 	return (
 		<Box sx={{ my: 12, display: "flex", flexDirection: "column", gap: 4 }}>
-			<Card variant="outlined" color="primary" orientation="vertical" size="lg" sx={{ flexBasis: { xs: "100%", lg: "20rem" }, alignItems: "flex-start" }}>
-				<CardContent sx={{ mb: 4 }}>
-					<Typography level="title-md">{isArabic ? "الأرباح" : "Earnings"}</Typography>
-					<Typography level="h3">{isArabic ? "دج 63,448.78" : "$63,448.78"}</Typography>
+			<Card variant="outlined" color="primary" orientation="vertical" size="lg" sx={{ flexBasis: { xs: "100%", lg: "20rem" }, alignItems: "center" }}>
+				<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
+					<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
+						<defs>
+							<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+								<feGaussianBlur stdDeviation="130" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur>
+							</filter>
+						</defs>
+						<g filter="url(#bbblurry-filter)">
+							<ellipse rx="232.5" ry="125" cx="709.9019508561539" cy="34.70028654567864" fill="var(--joy-palette-background-cardSvg)"></ellipse>
+							<ellipse rx="232.5" ry="125" cx="73.33563288344146" cy="662.326581865081" fill="var(--joy-palette-background-cardSvg)"></ellipse>
+						</g>
+					</svg>
+				</CardCover>
+				<CardContent sx={{alignItems:"center" ,justifyContent:"center",gap:3}}>
+					<Typography level="h1" fontSize={"xl7"} letterSpacing={{md:17,xs:8}}>{isArabic ? "الأرباح" : "Earnings"}</Typography>
+					<Typography level="h2">{isArabic ? "دج 63,448.78" : "$63,448.78"}</Typography>
 				</CardContent>
-				<Button size="lg" color="primary" variant="solid">
+				<Button size="lg" color="primary" variant="solid" sx={{paddingInline:"3rem"}}>
 					{isArabic ? "تحميل" : "Download"}
 				</Button>
 			</Card>
 			<Box variant="soft" component="ul" sx={{ display: "flex", flexWrap: { xs: "wrap", xl: "nowrap" }, gap: 2, "--Icon-fontSize": "4.5rem" }}>
-				<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: "30%", alignItems: "flex-start" }}>
+				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" sx={{ flex: "30%", alignItems: {md:"flex-start" , xs:"center"} }}>
+					<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
+						<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
+							<defs>
+								<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+									<feGaussianBlur stdDeviation="130" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur>
+								</filter>
+							</defs>
+							<g filter="url(#bbblurry-filter)">
+								<ellipse rx="232.5" ry="125" cx="709.9019508561539" cy="34.70028654567864" fill="var(--joy-palette-background-cardSvg)"></ellipse>
+								<ellipse rx="232.5" ry="125" cx="73.33563288344146" cy="662.326581865081" fill="var(--joy-palette-background-cardSvg)"></ellipse>
+							</g>
+						</svg>
+					</CardCover>
 					<CardContent>
 						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2 }} variant="soft" color="primary">
 							<FaUserGroup className="icon" />
@@ -49,7 +75,20 @@ const Ecommerce = () => {
 						</CardContent>
 					</CardContent>
 				</Card>
-				<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: "30%", alignItems: "flex-start" }}>
+				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" sx={{ flex: "30%", alignItems: {md:"flex-start" , xs:"center"} }}>
+					<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
+						<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
+							<defs>
+								<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+									<feGaussianBlur stdDeviation="130" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur>
+								</filter>
+							</defs>
+							<g filter="url(#bbblurry-filter)">
+								<ellipse rx="232.5" ry="125" cx="709.9019508561539" cy="34.70028654567864" fill="var(--joy-palette-background-cardSvg)"></ellipse>
+								<ellipse rx="232.5" ry="125" cx="73.33563288344146" cy="662.326581865081" fill="var(--joy-palette-background-cardSvg)"></ellipse>
+							</g>
+						</svg>
+					</CardCover>
 					<CardContent>
 						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2 }} variant="soft" color="primary">
 							<LuBox className="icon" />
@@ -70,7 +109,20 @@ const Ecommerce = () => {
 						</CardContent>
 					</CardContent>
 				</Card>
-				<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: "30%", alignItems: "flex-start" }}>
+				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" sx={{ flex: "30%", alignItems: {md:"flex-start" , xs:"center"} }}>
+					<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
+						<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
+							<defs>
+								<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+									<feGaussianBlur stdDeviation="130" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur>
+								</filter>
+							</defs>
+							<g filter="url(#bbblurry-filter)">
+								<ellipse rx="232.5" ry="125" cx="709.9019508561539" cy="34.70028654567864" fill="var(--joy-palette-background-cardSvg)"></ellipse>
+								<ellipse rx="232.5" ry="125" cx="73.33563288344146" cy="662.326581865081" fill="var(--joy-palette-background-cardSvg)"></ellipse>
+							</g>
+						</svg>
+					</CardCover>
 					<CardContent>
 						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2 }} variant="soft" color="primary">
 							<BsClipboardData className="icon" />
@@ -91,12 +143,25 @@ const Ecommerce = () => {
 						</CardContent>
 					</CardContent>
 				</Card>
-				<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: "30%", alignItems: "flex-start" }}>
+				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" sx={{ flex: "30%", alignItems: {md:"flex-start" , xs:"center"} }}>
+					<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
+						<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
+							<defs>
+								<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+									<feGaussianBlur stdDeviation="130" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur>
+								</filter>
+							</defs>
+							<g filter="url(#bbblurry-filter)">
+								<ellipse rx="232.5" ry="125" cx="709.9019508561539" cy="34.70028654567864" fill="var(--joy-palette-background-cardSvg)"></ellipse>
+								<ellipse rx="232.5" ry="125" cx="73.33563288344146" cy="662.326581865081" fill="var(--joy-palette-background-cardSvg)"></ellipse>
+							</g>
+						</svg>
+					</CardCover>
 					<CardContent>
-						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 2, mb: 2 }} variant="soft" color="primary">
-							<TbMobiledata />
+						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2 }} variant="soft" color="primary">
+							<TbMobiledata className="icon" />
 						</Sheet>
-						<CardContent>
+						<CardContent >
 							<Typography
 								sx={{ alignItems: "flex-end" }}
 								level="h3"
