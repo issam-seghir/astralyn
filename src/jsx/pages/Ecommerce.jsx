@@ -40,7 +40,7 @@ const Ecommerce = () => {
 					{isArabic ? "تحميل" : "Download"}
 				</Button>
 			</Card>
-			<Box variant="soft" component="ul" sx={{ display: "flex", flexWrap: { xs: "wrap", xl: "nowrap" }, gap: 2, "--Icon-fontSize": "4.5rem",containerType:"inline-size" }}>
+			<Box variant="soft" component="ul" sx={{ display: "flex", flexWrap: { xs: "wrap", xl: "nowrap" }, gap: 2, "--Icon-fontSize": "4.5rem", containerType: "inline-size" }}>
 				<Card
 					component="li"
 					color="primary"
@@ -49,8 +49,10 @@ const Ecommerce = () => {
 					variant="outlined"
 					sx={{
 						flex: "30%",
-						alignItems: { md: "flex-start", xs: "center" },
-						container: { alignItems: { md: "center", xs: "flex-start" } },
+						alignItems: "flex-start",
+						"@container (max-width: 1230px)": {
+							alignItems: "center",
+						},
 					}}
 				>
 					<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
@@ -86,7 +88,13 @@ const Ecommerce = () => {
 						</CardContent>
 					</CardContent>
 				</Card>
-				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" sx={{ flex: "30%", alignItems: { md: "flex-start", xs: "center" } }}>
+				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" 					sx={{
+						flex: "30%",
+						alignItems: "flex-start",
+						"@container (max-width: 1230px)": {
+							alignItems: "center",
+						},
+					}}>
 					<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
 						<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 							<defs>
@@ -120,7 +128,13 @@ const Ecommerce = () => {
 						</CardContent>
 					</CardContent>
 				</Card>
-				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" sx={{ flex: "30%", alignItems: { md: "flex-start", xs: "center" } }}>
+				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" 					sx={{
+						flex: "30%",
+						alignItems: "flex-start",
+						"@container (max-width: 1230px)": {
+							alignItems: "center",
+						},
+					}}>
 					<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
 						<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 							<defs>
@@ -154,7 +168,13 @@ const Ecommerce = () => {
 						</CardContent>
 					</CardContent>
 				</Card>
-				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" sx={{ flex: "30%", alignItems: { md: "flex-start", xs: "center" } }}>
+				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" 					sx={{
+						flex: "30%",
+						alignItems: "flex-start",
+						"@container (max-width: 1230px)": {
+							alignItems: "center",
+						},
+					}}>
 					<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
 						<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 							<defs>
@@ -189,7 +209,7 @@ const Ecommerce = () => {
 					</CardContent>
 				</Card>
 			</Box>
-			<Sheet variant="outlined" color="primary" component="ul" sx={{ p: 1 }}>
+			<Sheet variant="outlined" borderRadius={15} color="primary" component="ul" sx={{ p: 1 }}>
 				<Box display={"flex"} p={2}></Box>
 				<Box display={"flex"} gap={2} flexWrap={{ xs: "wrap" }}>
 					<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: { lg: 1, xs: "100%" }, alignItems: "center" }}>

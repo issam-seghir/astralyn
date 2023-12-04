@@ -68,7 +68,7 @@ export const ContextProvider = ({ children }) => {
 				});
 			}
 		},
-		[languageConfigs, setLanguage]
+		[languageConfigs, setLanguage, showSnackBar]
 	);
 
 	// function changeLanguage(selectedLanguage) {
@@ -94,8 +94,8 @@ export const ContextProvider = ({ children }) => {
 	}, [chartInstance]);
 
 	useEffect(() => {
-		 document.documentElement.lang = language.language;
-		 document.documentElement.dir = language.languageConfig["rtl"] ? "rtl" : "ltr";
+		document.documentElement.lang = language.language;
+		document.documentElement.dir = language.languageConfig["rtl"] ? "rtl" : "ltr";
 		enableRtl(language.languageConfig["rtl"]);
 		setCulture(language.languageConfig["culture"]);
 		setCurrencyCode(language.languageConfig["currency"]);
