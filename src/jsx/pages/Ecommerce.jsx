@@ -1,15 +1,13 @@
 // import { Button, LineChart, Pie, SparkLine, Stacked } from "../components";
-import { useThemeContext } from "@contexts/ContextProvider";
-import { Box, Button, Card, CardActions, CardContent, CardCover, Chip, Divider, Sheet } from "@mui/joy";
-import Typography from "@mui/joy/Typography";
-import { BsCurrencyDollar,BsClipboardData } from "react-icons/bs";
-import { GoDotFill } from "react-icons/go";
-import { FaChartPie, FaShoppingCart, FaUserTie } from "react-icons/fa";
-import { FaCalendarDays, FaMapLocationDot, FaUserGroup } from "react-icons/fa6";
 import BarColumnChart from "@components/BarColumnChart";
 import DashedLineChart from "@components/DashedLineChart";
 import FinancialHeloChart from "@components/FinancialHeloChart";
-import { useRef } from "react";
+import { useThemeContext } from "@contexts/ContextProvider";
+import { Box, Button, Card, CardActions, CardContent, CardCover, Chip, Divider, Sheet } from "@mui/joy";
+import Typography from "@mui/joy/Typography";
+import { BsClipboardData } from "react-icons/bs";
+import { FaUserGroup } from "react-icons/fa6";
+import { GoDotFill } from "react-icons/go";
 import { LuBox } from "react-icons/lu";
 import { TbMobiledata } from "react-icons/tb";
 
@@ -22,7 +20,7 @@ const Ecommerce = () => {
 				<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
 					<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 						<defs>
-							<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+							<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
 								<feGaussianBlur stdDeviation="130" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur>
 							</filter>
 						</defs>
@@ -32,20 +30,33 @@ const Ecommerce = () => {
 						</g>
 					</svg>
 				</CardCover>
-				<CardContent sx={{alignItems:"center" ,justifyContent:"center",gap:3}}>
-					<Typography level="h1" fontSize={"xl7"} letterSpacing={{md:17,xs:8}}>{isArabic ? "الأرباح" : "Earnings"}</Typography>
+				<CardContent sx={{ alignItems: "center", justifyContent: "center", gap: 3 }}>
+					<Typography level="h1" fontSize={"xl7"} letterSpacing={{ md: 17, xs: 8 }}>
+						{isArabic ? "الأرباح" : "Earnings"}
+					</Typography>
 					<Typography level="h2">{isArabic ? "دج 63,448.78" : "$63,448.78"}</Typography>
 				</CardContent>
-				<Button size="lg" color="primary" variant="solid" sx={{paddingInline:"3rem"}}>
+				<Button size="lg" color="primary" variant="solid" sx={{ paddingInline: "3rem" }}>
 					{isArabic ? "تحميل" : "Download"}
 				</Button>
 			</Card>
-			<Box variant="soft" component="ul" sx={{ display: "flex", flexWrap: { xs: "wrap", xl: "nowrap" }, gap: 2, "--Icon-fontSize": "4.5rem" }}>
-				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" sx={{ flex: "30%", alignItems: {md:"flex-start" , xs:"center"} }}>
+			<Box variant="soft" component="ul" sx={{ display: "flex", flexWrap: { xs: "wrap", xl: "nowrap" }, gap: 2, "--Icon-fontSize": "4.5rem",containerType:"inline-size" }}>
+				<Card
+					component="li"
+					color="primary"
+					orientation="vertical"
+					size="lg"
+					variant="outlined"
+					sx={{
+						flex: "30%",
+						alignItems: { md: "flex-start", xs: "center" },
+						container: { alignItems: { md: "center", xs: "flex-start" } },
+					}}
+				>
 					<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
 						<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 							<defs>
-								<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+								<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
 									<feGaussianBlur stdDeviation="130" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur>
 								</filter>
 							</defs>
@@ -75,11 +86,11 @@ const Ecommerce = () => {
 						</CardContent>
 					</CardContent>
 				</Card>
-				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" sx={{ flex: "30%", alignItems: {md:"flex-start" , xs:"center"} }}>
+				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" sx={{ flex: "30%", alignItems: { md: "flex-start", xs: "center" } }}>
 					<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
 						<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 							<defs>
-								<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+								<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
 									<feGaussianBlur stdDeviation="130" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur>
 								</filter>
 							</defs>
@@ -109,11 +120,11 @@ const Ecommerce = () => {
 						</CardContent>
 					</CardContent>
 				</Card>
-				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" sx={{ flex: "30%", alignItems: {md:"flex-start" , xs:"center"} }}>
+				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" sx={{ flex: "30%", alignItems: { md: "flex-start", xs: "center" } }}>
 					<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
 						<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 							<defs>
-								<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+								<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
 									<feGaussianBlur stdDeviation="130" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur>
 								</filter>
 							</defs>
@@ -143,11 +154,11 @@ const Ecommerce = () => {
 						</CardContent>
 					</CardContent>
 				</Card>
-				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" sx={{ flex: "30%", alignItems: {md:"flex-start" , xs:"center"} }}>
+				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" sx={{ flex: "30%", alignItems: { md: "flex-start", xs: "center" } }}>
 					<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
 						<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 							<defs>
-								<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+								<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
 									<feGaussianBlur stdDeviation="130" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur>
 								</filter>
 							</defs>
@@ -161,7 +172,7 @@ const Ecommerce = () => {
 						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2 }} variant="soft" color="primary">
 							<TbMobiledata className="icon" />
 						</Sheet>
-						<CardContent >
+						<CardContent>
 							<Typography
 								sx={{ alignItems: "flex-end" }}
 								level="h3"

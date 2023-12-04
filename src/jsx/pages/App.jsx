@@ -1,13 +1,13 @@
 /* eslint-disable unicorn/prefer-number-properties */
 import Sidebar from "@components/SideBare";
 import { useThemeContext } from "@contexts/ContextProvider";
+import { CardCover } from "@mui/joy";
 import Box from "@mui/joy/Box";
 import GlobalStyles from "@mui/joy/GlobalStyles";
 import Sheet from "@mui/joy/Sheet";
 import { CssVarsProvider } from "@mui/joy/styles";
 import Loading from "@pages/Loading";
 import { Outlet } from "react-router-dom";
-import {  Card, CardActions, CardContent, CardCover, Chip, Divider } from "@mui/joy";
 
 import SettingsButton from "@components/SettingsButton";
 import { L10n, loadCldr } from "@syncfusion/ej2-base";
@@ -121,6 +121,35 @@ L10n.load({
 			AND: "و",
 			OR: "أو",
 			ShowRowsWhere: "عرض الصفوف حيث",
+		},
+		treegrid: {
+			EmptyRecord: "لا توجد سجلات لعرضها",
+			True: "صحيح",
+			False: "خطأ",
+			ExpandAll: "توسيع الكل",
+			CollapseAll: "طي الكل",
+			RowOutdent: "Oudent",
+			RowIndent: "Indent",
+			InvalidFilterMessage: "بيانات فلترة غير صالحة",
+			ClearButton: "klar",
+			"Collapse All": "Alles einklappen",
+			Contains: "Enthält",
+			EndsWith: "Endet mit",
+			EnterValue: "Geben Sie den Wert ein",
+			Equal: "Gleich",
+			Excelexport: "Excel-Export",
+			"Expand All": "Alle erweitern",
+			FilterButton: "Filter",
+			FilterMenu: "Filter",
+			GreaterThan: "Größer als",
+			GreaterThanOrEqual: "Größer als oder gleich",
+			LessThan: "Weniger als",
+			LessThanOrEqual: "Weniger als oder gleich",
+			NotEqual: "Nicht gleich",
+			Pdfexport: "PDF-Export",
+			Print: "Drucken",
+			StartsWith: "Beginnt mit",
+			Wordexport: "Word-Export",
 		},
 		pager: {
 			currentPageInfo: "{0} من {1} صفحة",
@@ -428,6 +457,112 @@ L10n.load({
 			Pan: "مقلاة",
 			Reset: "إعادة تعيين",
 		},
+		pivotview: {
+			grandTotal: "المجموع الكلى",
+			total: "المجموع",
+			value: "القيمة",
+			noValue: "لا قيمة لها",
+			row: "صف",
+			column: "العمود",
+			collapse: "تضييق",
+			expand: "توسيع",
+			rowAxisPrompt: "قم بإسقاط الصف هنا",
+			columnAxisPrompt: "قم بإسقاط العمود هنا",
+			valueAxisPrompt: "قم بإسقاط القيمة هنا",
+			filterAxisPrompt: "قم بإسقاط الفلترة هنا",
+			filter: "فلترة",
+			filtered: "مُفلتر",
+			filters: "فلترات",
+			sort: "ترتيب",
+			rows: "صفوف",
+			columns: "أعمدة",
+			values: "قِيم",
+			close: "أغلق",
+			cancel: "ألغي",
+			delete: "إحذف",
+			calculatedField: "الحقل المحسوب",
+			createCalculatedField: "إنشاء حقل محسوب",
+			fieldName: "أدخل اسم الحقل",
+			error: "خطأ",
+			invalidFormula: "صيغة غير صالحة",
+			dropText: "مثال: ('Sum(Order_Count)' + 'Sum(In_Stock)') * 250",
+			dropTextMobile: "أضف الحقول وقم بتحرير الصيغة هنا",
+			dropAction: "لا يمكن وضع الحقل المحسوب في أي منطقة أخرى باستثناء محور القيمة.",
+			alert: "إنذار",
+			warning: "تحذير",
+			ok: "موافق",
+			search: "بحث",
+			drag: "سحب",
+			remove: "إزالة",
+			sum: "مجموع",
+			average: "متوسط",
+			count: "تعداد",
+			min: "min",
+			max: "max",
+			allFields: "جميع الحقول",
+			formula: "صيغة",
+			addToRow: "أضف إلى الصف",
+			addToColumn: "أضف إلى العمود",
+			addToValue: "أضف إلى القيمة",
+			addToFilter: "أضف إلى فلترة",
+			emptyData: "لا يوجد سجلات لعرضها",
+			fieldExist: "يوجد حقل بهذا الاسم بالفعل. الرجاء إدخال اسم مختلف.",
+			confirmText: "يوجد بالفعل حقل حساب بهذا الاسم. هل تريد استبدالها؟",
+			noMatches: "لا يوجد تطابق",
+			format: "ملخصات القيم بواسطة",
+			edit: "تعديل",
+			clear: "إزالة",
+			formulaField: "قم بسحب وإسقاط الحقول إلى الصيغة",
+			dragField: "اسحب الحقل إلى الصيغة",
+		},
+		pivotfieldlist: {
+			staticFieldList: "قائمة الحقول المحورية",
+			fieldList: "قائمة الحقول",
+			dropRowPrompt: "أسقط الصف هنا",
+			dropColPrompt: "أسقط العمود هنا",
+			dropValPrompt: "أسقط القيمة هنا",
+			dropFilterPrompt: "أسقط الفلتر هنا",
+			addPrompt: "اضافة حقل هنا",
+			adaptiveFieldHeader: "اختر الحقل",
+			centerHeader: "اسحب الحقول بين المحاور ادناه:",
+			add: "اضافة",
+			drag: "اسحب",
+			filter: "فلترة",
+			filters: "فلترات",
+			rows: "الصفوف",
+			columns: "الاعمدة",
+			values: "قِيم",
+			close: "أغلق",
+			cancel: "ألغي",
+			delete: "إحذف",
+			alert: "إنذار",
+			warning: "تحذير",
+			ok: "موافق",
+			calculatedField: "الحقل المحسوب",
+			createCalculatedField: "إنشاء حقل محسوب",
+			fieldName: "أدخل اسم الحقل",
+			search: "إبحث",
+			invalidFormula: "صيغة غير صالحة",
+			dropText: "مثال: ('Sum(Order_Count)' + 'Sum(In_Stock)') * 250",
+			dropTextMobile: "أضف الحقول وقم بتحرير الصيغة هنا",
+			dropAction: "لا يمكن وضع الحقل المحسوب في أي منطقة أخرى باستثناء محور القيمة.",
+			error: "خطأ",
+			allFields: "جميع الحقول",
+			sum: "مجموع",
+			average: "متوسط",
+			count: "تعداد",
+			min: "min",
+			max: "max",
+			formula: "صيغة",
+			fieldExist: "يوجد حقل بهذا الاسم بالفعل. الرجاء إدخال اسم مختلف.",
+			confirmText: "يوجد بالفعل حقل حساب بهذا الاسم. هل تريد استبدالها؟",
+			noMatches: "لا يوجد تطابق",
+			format: "ملخصات القيم بواسطة",
+			edit: "تعديل",
+			clear: "إزالة",
+			formulaField: "قم بسحب وإسقاط الحقول إلى الصيغة",
+			dragField: "اسحب الحقل إلى الصيغة",
+		},
 	},
 });
 function App() {
@@ -457,9 +592,9 @@ function App() {
 						<svg viewBox="0 0 800 800">
 							<defs>
 								<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="ffflurry-grad" gradientTransform="rotate(270)">
-									<stop id="stop-1" stop-color="var(--joy-palette-primary-softColor)" stop-opacity="1" offset="0%"></stop>
-									<stop id="stop-2" stop-color="var(--joy-palette-primary-softBg)" stop-opacity="1" offset="45%"></stop>
-									<stop id="stop-3" stop-color="var(--joy-palette-background-card)" stop-opacity="1" offset="100%"></stop>
+									<stop id="stop-1" stopColor="var(--joy-palette-primary-softColor)" stopOpacity="1" offset="0%"></stop>
+									<stop id="stop-2" stopColor="var(--joy-palette-primary-softBg)" stopOpacity="1" offset="45%"></stop>
+									<stop id="stop-3" stopColor="var(--joy-palette-background-card)" stopOpacity="1" offset="100%"></stop>
 								</linearGradient>
 							</defs>
 							<rect width="100%" height="100%" fill="transparent"></rect>
@@ -534,9 +669,9 @@ function App() {
 						<svg viewBox="0 0 800 800">
 							<defs>
 								<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="ffflurry-grad" gradientTransform="rotate(270)">
-									<stop id="stop-1" stop-color="var(--joy-palette-primary-softColor)" stop-opacity="1" offset="0%"></stop>
-									<stop id="stop-2" stop-color="var(--joy-palette-primary-softBg)" stop-opacity="1" offset="45%"></stop>
-									<stop id="stop-3" stop-color="var(--joy-palette-background-card)" stop-opacity="1" offset="100%"></stop>
+									<stop id="stop-1" stopColor="var(--joy-palette-primary-softColor)" stopOpacity="1" offset="0%"></stop>
+									<stop id="stop-2" stopColor="var(--joy-palette-primary-softBg)" stopOpacity="1" offset="45%"></stop>
+									<stop id="stop-3" stopColor="var(--joy-palette-background-card)" stopOpacity="1" offset="100%"></stop>
 								</linearGradient>
 							</defs>
 							<rect width="100%" height="100%" fill="transparent"></rect>
