@@ -642,7 +642,7 @@ function App() {
 			{loading ? (
 				<Loading />
 			) : (
-				<Sheet variant="plain" id="sheetBg">
+				<Sheet  variant="plain" id="sheetBg">
 					<CardCover id="sheetBg__stars">
 						<svg viewBox="0 0 800 800">
 							<defs>

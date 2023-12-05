@@ -66,8 +66,8 @@ const SAMPLE_CSS = `
     }`;
 const DashedLine = () => {
 	const theme = useTheme(); // The runtime theme.
-	const { chartInstance } = useThemeContext();
-
+	const { chartInstance, language } = useThemeContext();
+	const isArabic = language.language === "ar";
 	const content = "<div>Actual</div>";
 	const content1 = "<div>Forecast</div>";
 	const onChartLoad = (args) => {
@@ -78,15 +78,14 @@ const DashedLine = () => {
 	return (
 		<div className="control-pane-dl" style={{ width: "100%" }}>
 			<style>{SAMPLE_CSS}</style>
-			<Sheet variant="plain" color="primary" sx={{ textAlign: "center", borderRadius: 9, height: { xs: "300px", md: "auto" } }} className="control-pane-dl__control-section">
-				{/* <Button onClick={clickHandler}>Download Report</Button> */}
+			<Sheet variant="plain" color="primary" sx={{ textAlign: "center", borderRadius: 9, height: { xs: "300px", sm: "auto" } }} className="control-pane-dl__control-section">
 				<ChartComponent
 					ref={chartInstance}
 					id="control-pane-dl__control-section__chart"
 					legendSettings={{ enableHighlight: true }}
 					primaryXAxis={{
 						valueType: "Category",
-						labelStyle: { size: "1rem", fontWeight: "bold", color: "var(--joy-palette-primary-softColor)", fontFamily: "var(--joy-fontFamily-body)" },
+						labelStyle: { size: theme.vars.fontSize.lg, fontWeight: "bold", color: "var(--joy-palette-primary-softColor)", fontFamily: "var(--joy-fontFamily-body)" },
 						// labelPlacement:"OnTicks",
 						// edgeLabelPlacement:"shift",
 						majorGridLines: { width: 0 },
@@ -100,7 +99,7 @@ const DashedLine = () => {
 					}}
 					primaryYAxis={{
 						labelFormat: "{value}k",
-						labelStyle: { size: "1rem", fontWeight: "bold", color: "var(--joy-palette-primary-softColor)", fontFamily: "var(--joy-fontFamily-body)" },
+						labelStyle: { size: theme.vars.fontSize.lg, fontWeight: "bold", color: "var(--joy-palette-primary-softColor)", fontFamily: "var(--joy-fontFamily-body)" },
 						// labelPlacement:"OnTicks",
 						// edgeLabelPlacement:"shift",
 						rangePadding: "None",
@@ -122,10 +121,10 @@ const DashedLine = () => {
 					}}
 					crosshair={{ enable: false, line: { color: "rgba(204,214,235,0.25)", width: Browser.isDevice ? 50 : 20 }, lineType: "Vertical" }}
 					chartArea={{ border: { width: 5, color: "var(--joy-palette-primary-softColor)" }, opacity: 0.5, background: "var(--joy-palette-primary-softBg)" }}
-					tooltip={{ enable: true, shared: true, format: "${point.x} : <b>${point.y}</b>", header: "<b>Production</b>" }}
+					tooltip={{ enable: true, shared: true, format: "${point.x} : <b>${point.y}</b>", header: isArabic ? "<b>الإنتاج</b>" : "<b>Production</b>" }}
 					height={"100%"}
-					margin={{ left: 12, top: 12, right: 50, bottom: 12 }}
-					title="Production Statistics"
+					margin={{ left: 15, top: 12, right: 15, bottom: 12 }}
+					title={isArabic ? "إحصائيات الإنتاج"  : "Production Statistics"}
 					titleStyle={{ border: { cornerRadius: 5, color: "var(--joy-palette-primary-800)", width: 1 }, background: "transparent", size: "1rem", fontWeight: "bold", color: "var(--joy-palette-primary-softColor", fontFamily: "var(--joy-fontFamily-body)", position: "Top" }}
 					loaded={onChartLoad.bind(this)}
 				>

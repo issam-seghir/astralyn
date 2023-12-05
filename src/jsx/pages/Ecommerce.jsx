@@ -53,6 +53,12 @@ const Ecommerce = () => {
 						"@container (max-width: 1230px)": {
 							alignItems: "center",
 						},
+						"@media (max-width: 600px)": {
+							flex: "45%",
+						},
+						"@media (max-width: 380px)": {
+							flex: "90%",
+						},
 					}}
 				>
 					<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
@@ -88,13 +94,26 @@ const Ecommerce = () => {
 						</CardContent>
 					</CardContent>
 				</Card>
-				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" 					sx={{
+				<Card
+					component="li"
+					color="primary"
+					orientation="vertical"
+					size="lg"
+					variant="outlined"
+					sx={{
 						flex: "30%",
 						alignItems: "flex-start",
 						"@container (max-width: 1230px)": {
 							alignItems: "center",
 						},
-					}}>
+						"@media (max-width: 600px)": {
+							flex: "45%",
+						},
+						"@media (max-width: 380px)": {
+							flex: "90%",
+						},
+					}}
+				>
 					<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
 						<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 							<defs>
@@ -128,13 +147,26 @@ const Ecommerce = () => {
 						</CardContent>
 					</CardContent>
 				</Card>
-				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" 					sx={{
+				<Card
+					component="li"
+					color="primary"
+					orientation="vertical"
+					size="lg"
+					variant="outlined"
+					sx={{
 						flex: "30%",
 						alignItems: "flex-start",
 						"@container (max-width: 1230px)": {
 							alignItems: "center",
 						},
-					}}>
+						"@media (max-width: 600px)": {
+							flex: "45%",
+						},
+						"@media (max-width: 380px)": {
+							flex: "90%",
+						},
+					}}
+				>
 					<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
 						<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 							<defs>
@@ -168,13 +200,26 @@ const Ecommerce = () => {
 						</CardContent>
 					</CardContent>
 				</Card>
-				<Card component="li" color="primary" orientation="vertical" size="lg" variant="outlined" 					sx={{
+				<Card
+					component="li"
+					color="primary"
+					orientation="vertical"
+					size="lg"
+					variant="outlined"
+					sx={{
 						flex: "30%",
 						alignItems: "flex-start",
 						"@container (max-width: 1230px)": {
 							alignItems: "center",
 						},
-					}}>
+						"@media (max-width: 600px)": {
+							flex: "45%",
+						},
+						"@media (max-width: 380px)": {
+							flex: "90%",
+						},
+					}}
+				>
 					<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
 						<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 							<defs>
@@ -209,48 +254,77 @@ const Ecommerce = () => {
 					</CardContent>
 				</Card>
 			</Box>
-			<Sheet variant="outlined" borderRadius={15} color="primary" component="ul" sx={{ p: 1 }}>
-				<Box display={"flex"} p={2}></Box>
+			<Sheet variant="outlined" color="primary" component="ul" sx={{ p: 1, borderRadius: "md" }}>
 				<Box display={"flex"} gap={2} flexWrap={{ xs: "wrap" }}>
-					<Card component="li" color="neutral" orientation="vertical" size="lg" variant="soft" sx={{ flex: { lg: 1, xs: "100%" }, alignItems: "center" }}>
-						<Typography level="h4">Revenue updates</Typography>
-						<CardContent sx={{ alignSelf: "flex-start", gap: 3 }}>
+					<Card   component="li" color="primary" orientation="vertical" size="lg" variant="soft" sx={{ flex: { lg: 1, xs: "100%" },gap:"2.5rem", alignItems: "center" }}>
+						<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
+							<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
+								<defs>
+									<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+										<feGaussianBlur stdDeviation="130" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur>
+									</filter>
+								</defs>
+								<g filter="url(#bbblurry-filter)">
+									<ellipse rx="232.5" ry="125" cx="709.9019508561539" cy="34.70028654567864" fill="var(--joy-palette-background-cardSvg)"></ellipse>
+									<ellipse rx="232.5" ry="125" cx="73.33563288344146" cy="662.326581865081" fill="var(--joy-palette-background-cardSvg)"></ellipse>
+								</g>
+							</svg>
+						</CardCover>
+						<CardContent sx={{ width: 1, alignItems: "flex-start", gap: 3 }}>
+							<Typography alignSelf={"center"} level="h3">
+								{isArabic ? "تحديثات الإيرادات" : "Revenue updates"}
+							</Typography>
 							<CardContent>
 								<Typography
 									sx={{ alignItems: "flex-end", justifyContent: "center" }}
 									level="h3"
 									endDecorator={
-										<Chip variant="outlined" color="primary" size="sm">
+										<Chip variant="soft" color="success" size="sm">
 											14%
 										</Chip>
 									}
 								>
-									$63,448.78
+									{isArabic ? "دج 530,448.78" : "$530,448.78"}
 								</Typography>
-								<Typography level="title-md">Budget</Typography>
+								<Typography level="title-md">{isArabic ? "الميزانـية" : "Budget"}</Typography>
 							</CardContent>
 							<CardContent>
 								<Typography
 									sx={{ alignItems: "flex-end", justifyContent: "center" }}
 									level="h3"
 									endDecorator={
-										<Chip variant="outlined" color="danger" size="sm">
+										<Chip variant="soft" color="danger" size="sm">
 											-7%
 										</Chip>
 									}
 								>
-									$63,448.78
+									{isArabic ? "دج 260,000.00" : "$260,000.00"}
 								</Typography>
-								<Typography level="title-md">Expense</Typography>
+								<Typography level="title-md">{isArabic ? "الإنفاق" : "Expense"}</Typography>
 							</CardContent>
 						</CardContent>
 						<DashedLineChart />
-						<CardActions sx={{ alignSelf: { xs: "stretch", lg: "center" } }}>
-							<Button onClick={printChart}>Download Report</Button>
+						<CardActions  sx={{p:0, alignSelf: { xs: "stretch", lg: "center" } }}>
+							<Button onClick={printChart} size="lg" color="primary" variant="solid" sx={{ paddingInline: "3rem" }}>
+								{isArabic ? "تحميل التقرير" : "Download Report"}
+							</Button>
 						</CardActions>
 					</Card>
 					<Divider orientation="vertical" />
-					<Card color="neutral" size="lg" variant="soft" sx={{ flex: { lg: 1, xs: "100%" } }}>
+					<Card color="primary" size="lg" variant="soft" sx={{ flex: { lg: 1, xs: "100%" } }}>
+						<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
+							<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
+								<defs>
+									<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+										<feGaussianBlur stdDeviation="130" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur>
+									</filter>
+								</defs>
+								<g filter="url(#bbblurry-filter)">
+									<ellipse rx="232.5" ry="125" cx="709.9019508561539" cy="34.70028654567864" fill="var(--joy-palette-background-cardSvg)"></ellipse>
+									<ellipse rx="232.5" ry="125" cx="73.33563288344146" cy="662.326581865081" fill="var(--joy-palette-background-cardSvg)"></ellipse>
+								</g>
+							</svg>
+						</CardCover>
 						<Typography>
 							<Typography level="body-md" startDecorator={<GoDotFill />}>
 								Expense
