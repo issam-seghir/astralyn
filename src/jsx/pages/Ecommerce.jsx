@@ -12,7 +12,7 @@ import { LuBox } from "react-icons/lu";
 import { TbMobiledata } from "react-icons/tb";
 
 const Ecommerce = () => {
-	const { printChart, language } = useThemeContext();
+	const { printLineChart,prinBarChartChart, language } = useThemeContext();
 	const isArabic = language.language === "ar";
 	return (
 		<Box sx={{ my: 12, display: "flex", flexDirection: "column", gap: 4 }}>
@@ -256,7 +256,7 @@ const Ecommerce = () => {
 			</Box>
 			<Sheet variant="outlined" color="primary" component="ul" sx={{ p: 1, borderRadius: "md" }}>
 				<Box display={"flex"} gap={2} flexWrap={{ xs: "wrap" }}>
-					<Card   component="li" color="primary" orientation="vertical" size="lg" variant="soft" sx={{ flex: { lg: 1, xs: "100%" },gap:"2.5rem", alignItems: "center" }}>
+					<Card component="li" color="primary" orientation="vertical" size="lg" variant="soft" sx={{ flex: { lg: 1, xs: "100%" }, gap: "2.5rem", alignItems: "center" }}>
 						<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
 							<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 								<defs>
@@ -304,14 +304,14 @@ const Ecommerce = () => {
 							</CardContent>
 						</CardContent>
 						<DashedLineChart />
-						<CardActions  sx={{p:0, alignSelf: { xs: "stretch", lg: "center" } }}>
-							<Button onClick={printChart} size="lg" color="primary" variant="solid" sx={{ paddingInline: "3rem" }}>
+						<CardActions sx={{ p: 0, alignSelf: { xs: "stretch", lg: "center" } }}>
+							<Button onClick={printLineChart} size="lg" color="primary" variant="solid" sx={{ paddingInline: "3rem" }}>
 								{isArabic ? "تحميل التقرير" : "Download Report"}
 							</Button>
 						</CardActions>
 					</Card>
 					<Divider orientation="vertical" />
-					<Card color="primary" size="lg" variant="soft" sx={{ flex: { lg: 1, xs: "100%" } }}>
+					<Card color="primary" size="lg" variant="soft" sx={{ flex: { lg: 1, xs: "100%", gap: "2.5rem", alignItems: "center" } }}>
 						<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
 							<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 								<defs>
@@ -325,19 +325,62 @@ const Ecommerce = () => {
 								</g>
 							</svg>
 						</CardCover>
-						<Typography>
-							<Typography level="body-md" startDecorator={<GoDotFill />}>
-								Expense
+						<CardContent sx={{ width: 1, alignItems: "flex-start", gap: 3 }}>
+							<Typography alignSelf={"center"} level="h3">
+								{isArabic ? "تحديثات الصادرات" : "Outcome updates"}
 							</Typography>
-							<Typography level="body-md" startDecorator={<GoDotFill />}>
-								Budget
-							</Typography>
-						</Typography>
+							<CardContent>
+								<Typography
+									sx={{ alignItems: "flex-end", justifyContent: "center" }}
+									level="h3"
+									endDecorator={
+										<Chip variant="soft" color="success" size="sm">
+											55%
+										</Chip>
+									}
+								>
+									{isArabic ? "دج 1230,00.78" : "$1230,00.78"}
+								</Typography>
+								<Typography level="title-md">{isArabic ? "داخلية" : "Internal"}</Typography>
+							</CardContent>
+							<CardContent>
+								<Typography
+									sx={{ alignItems: "flex-end", justifyContent: "center" }}
+									level="h3"
+									endDecorator={
+										<Chip variant="soft" color="danger" size="sm">
+											-2%
+										</Chip>
+									}
+								>
+									{isArabic ? "دج 770,992.00" : "$770,992.00"}
+								</Typography>
+								<Typography level="title-md">{isArabic ? "خارجية" : "External"}</Typography>
+							</CardContent>
+						</CardContent>
 						<BarColumnChart />
+						<CardActions sx={{ p: 0, alignSelf: { xs: "stretch", lg: "center" } }}>
+							<Button onClick={prinBarChartChart} size="lg" color="primary" variant="solid" sx={{ paddingInline: "3rem" }}>
+								{isArabic ? "تحميل التقرير" : "Download Report"}
+							</Button>
+						</CardActions>
 					</Card>
 				</Box>
 			</Sheet>
-			<Sheet variant="soft" color="primary" sx={{ p: 1 }}>
+			<Sheet variant="outlined" color="primary" sx={{ p: 1,borderRadius: "md"  }}>
+				<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
+					<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
+						<defs>
+							<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+								<feGaussianBlur stdDeviation="130" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur>
+							</filter>
+						</defs>
+						<g filter="url(#bbblurry-filter)">
+							<ellipse rx="232.5" ry="125" cx="709.9019508561539" cy="34.70028654567864" fill="var(--joy-palette-background-cardSvg)"></ellipse>
+							<ellipse rx="232.5" ry="125" cx="73.33563288344146" cy="662.326581865081" fill="var(--joy-palette-background-cardSvg)"></ellipse>
+						</g>
+					</svg>
+				</CardCover>
 				<FinancialHeloChart />
 			</Sheet>
 		</Box>
