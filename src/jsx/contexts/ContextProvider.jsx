@@ -14,6 +14,7 @@ export const ContextProvider = ({ children }) => {
 	const [progress, setProgress] = useState(0);
 	const [loading, setLoading] = useState(true);
 	const [showSnackBar, setShowSnackBar] = useState(false);
+	const [show, setSideBar] = useState(false);
 
 	const LineChartInstance = useRef();
 	const BarChartInstance = useRef();
@@ -93,6 +94,10 @@ export const ContextProvider = ({ children }) => {
 	const printLineChart = useCallback(() => {
 		LineChartInstance.current.print();
 	}, [LineChartInstance]);
+	const toggleSideBar = useCallback(() => {
+		setSideBar((show) => !show);
+	}, []);
+
 	const prinBarChartChart = useCallback(() => {
 		BarChartInstance.current.print();
 	}, [BarChartInstance]);
@@ -143,6 +148,8 @@ export const ContextProvider = ({ children }) => {
 			setLoading,
 			showSnackBar,
 			setShowSnackBar,
+			show,
+			toggleSideBar,
 			BarChartInstance,
 			LineChartInstance,
 			printLineChart,
@@ -150,7 +157,7 @@ export const ContextProvider = ({ children }) => {
 			language,
 			changeLanguage,
 		}),
-		[theme, selectedTheme, setSelectedTheme, progress, setProgress, loading, setLoading, showSnackBar, setShowSnackBar, BarChartInstance, LineChartInstance, printLineChart, prinBarChartChart, language, changeLanguage] // Add all dependencies here
+		[theme, selectedTheme, setSelectedTheme, progress, setProgress, loading, setLoading, showSnackBar, setShowSnackBar,show,toggleSideBar, BarChartInstance, LineChartInstance, printLineChart, prinBarChartChart, language, changeLanguage] // Add all dependencies here
 	);
 
 	return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;

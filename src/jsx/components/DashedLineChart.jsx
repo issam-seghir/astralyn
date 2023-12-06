@@ -53,7 +53,7 @@ const DashedLine = () => {
 	const { LineChartInstance, language } = useThemeContext();
 	const isArabic = language.language === "ar";
 	const content = isArabic ? "<div>الحالي</div>" : "<div>Actual</div>";
-	const content1 = "<div>المتنبأ به</div>";
+	const content1 = isArabic ? "<div>المتنبأ به</div>" : "<div>Expected</div>"; ;
 	let data1 = [
 		{ x: isArabic ? "جانفي" : "Jan", y: 50 },
 		{ x: isArabic ? "فيفري" : "Feb", y: 60 },

@@ -108,7 +108,7 @@ const Ecommerce = () => {
 						</svg>
 					</CardCover>
 					<CardContent>
-						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2 }} variant="soft" color="primary">
+						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2, bgcolor: "var(--joy-palette-background-card)" }} variant="soft" color="primary">
 							<FaUserGroup className="icon" />
 						</Sheet>
 						<CardContent>
@@ -163,7 +163,7 @@ const Ecommerce = () => {
 						</svg>
 					</CardCover>
 					<CardContent>
-						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2 }} variant="soft" color="primary">
+						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2, bgcolor: "var(--joy-palette-background-card)" }} variant="soft" color="primary">
 							<LuBox className="icon" />
 						</Sheet>
 						<CardContent>
@@ -218,7 +218,7 @@ const Ecommerce = () => {
 						</svg>
 					</CardCover>
 					<CardContent>
-						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2 }} variant="soft" color="primary">
+						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2, bgcolor: "var(--joy-palette-background-card)" }} variant="soft" color="primary">
 							<BsClipboardData className="icon" />
 						</Sheet>
 						<CardContent>
@@ -273,7 +273,7 @@ const Ecommerce = () => {
 						</svg>
 					</CardCover>
 					<CardContent>
-						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2 }} variant="soft" color="primary">
+						<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2, bgcolor: "var(--joy-palette-background-card)" }} variant="soft" color="primary">
 							<TbMobiledata className="icon" />
 						</Sheet>
 						<CardContent>

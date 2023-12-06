@@ -17,8 +17,9 @@ import { Link as RouterLink } from "react-router-dom";
 import { useThemeContext } from "@contexts/ContextProvider";
 
 
-export default function SideBare({ show, toggleSideBar }) {
+export default function SideBare() {
 		const { language } = useThemeContext();
+	const { toggleSideBar, show } = useThemeContext();
 
 	return (
 		<>

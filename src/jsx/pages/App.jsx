@@ -9,6 +9,7 @@ import { CssVarsProvider } from "@mui/joy/styles";
 import Loading from "@pages/Loading";
 import { Outlet } from "react-router-dom";
 
+
 import SettingsButton from "@components/SettingsButton";
 import { L10n, loadCldr } from "@syncfusion/ej2-base";
 import * as arGregorianCalander from "cldr-data/main/ar-DZ/ca-gregorian.json";
@@ -26,6 +27,8 @@ import * as arTerritoriesData from "cldr-data/main/ar-DZ/territories.json";
 import * as arTimeZoneData from "cldr-data/main/ar-DZ/timeZoneNames.json";
 import * as arUnitsData from "cldr-data/main/ar-DZ/units.json";
 import * as suppNumberingSystems from "cldr-data/supplemental/numberingSystems.json";
+import Header from "@components/Header";
+import { radioClasses } from "@mui/joy/Radio";
 
 loadCldr(arNumberData, arTimeZoneData, arGregorianCalander, arCurrenciesData, arCharactersData, arDateFieldsData, arDelimitersData, arLanguagesData, arLayoutData, arLocaleDisplayNamesData, arMeasurementSystemNamesData, arPosixData, arTerritoriesData, arUnitsData, suppNumberingSystems);
 
@@ -619,10 +622,9 @@ L10n.load({
 	},
 });
 function App() {
-	const { setShowSettings, showSettings, theme, loading, language } = useThemeContext();
+	const { theme, loading} = useThemeContext();
 	return (
 		<CssVarsProvider theme={theme} defaultMode="system">
-			{/* style for icons library's */}
 			<GlobalStyles
 				styles={{
 					"svg.icon": {
@@ -642,7 +644,18 @@ function App() {
 			{loading ? (
 				<Loading />
 			) : (
-				<Sheet variant="plain" id="sheetBg">
+				<Sheet
+					variant="plain"
+					id="sheetBg"
+					position="relative"
+					sx={{
+						display: "flex",
+						flexDirection: { xs: "column", md: "row" },
+						minHeight: "100dvh",
+						alignItems: "stretch",
+					}}
+				>
+					{/* svg background */}
 					<CardCover>
 						<svg viewBox="0 0 800 800">
 							<defs>
@@ -720,20 +733,13 @@ function App() {
 							</g>
 						</svg>
 					</CardCover>
-					<Box
-						position={"relative"}
-						sx={{
-							display: "flex",
-							height: " calc(100dvh - var(--variant-borderWidth) *2 )",
-							alignItems: "stretch",
-						}}
-					>
-						<SettingsButton />
-						<Sidebar />
-						{/* main content */}
-						<Box sx={{ flex: 1, p: { xs: 2, md: 4 }, overflow: "auto" }}>
-							<Outlet />
-						</Box>
+
+					<SettingsButton />
+					<Sidebar/>
+					<Header/>
+					{/* main content */}
+					<Box sx={{ flex: 1, p: { xs: 2, md: 4 }, overflow: "auto", height: "100dvh" }}>
+						<Outlet />
 					</Box>
 				</Sheet>
 			)}
