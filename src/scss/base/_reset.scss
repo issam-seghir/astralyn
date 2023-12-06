@@ -11,10 +11,7 @@
 html:focus-within {
 	scroll-behavior: smooth;
 }
-/* fix empty scrollbar problem  */
-html{
-	    overflow: auto;
-}
+
 /* Set core body defaults */
 body {
 	min-height: 100vh;
