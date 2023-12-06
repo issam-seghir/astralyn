@@ -5,7 +5,6 @@ import { extend } from "@syncfusion/ej2-base";
 import { Day, DragAndDrop, Inject, Month, Resize, ResourceDirective, ResourcesDirective, ScheduleComponent, TimelineViews, ViewDirective, ViewsDirective, WorkWeek } from "@syncfusion/ej2-react-schedule";
 import { useMediaQuery } from "@uidotdev/usehooks";
 
-
 const GroupEditing = () => {
 	// convert json to java script object
 
@@ -23,45 +22,44 @@ const GroupEditing = () => {
 		return args["value"].length >= 5;
 	};
 	const fields = {
-					id: "Id",
-					subject: {
-						title: language.language === "ar" ? "اسم المؤتمر" : "Conference Name",
-						name: "Subject",
-						validation: { required: true },
-					},
-					location: {
-						title: language.language === "ar" ? "موقع الحدث" : "Event Location",
-						name: "Location",
-					},
-					description: {
-						title: language.language === "ar" ? "ملخص" : "Summary",
-						name: "Description",
-						validation: {
-							minLength: [minValidation, "Need atleast 5 letters to be entered"],
-						},
-					},
-					startTime: {
-						title: language.language === "ar" ? "من" : "From",
-						name: "StartTime",
-					},
-					endTime: {
-						title: language.language === "ar" ? "إلى" : "To",
-						name: "EndTime",
-					},
-					isAllDay: {
-						title: language.language === "ar" ? "هل طوال اليوم ؟" : "is All Day",
-						name: "IsAllDay",
-					},
-					startTimezone: {
-						title: language.language === "ar" ? "بداية المنطقة الزمنية" : "Start Timezone",
-						name: "StartTimezone",
-					},
-					endTimezone: {
-						title: language.language === "ar" ? "نهاية المنطقة الزمنية" : "End Timezone",
-						name: "EndTimezone",
-					},
-				}
-
+		id: "Id",
+		subject: {
+			title: language.language === "ar" ? "اسم المؤتمر" : "Conference Name",
+			name: "Subject",
+			validation: { required: true },
+		},
+		location: {
+			title: language.language === "ar" ? "موقع الحدث" : "Event Location",
+			name: "Location",
+		},
+		description: {
+			title: language.language === "ar" ? "ملخص" : "Summary",
+			name: "Description",
+			validation: {
+				minLength: [minValidation, "Need atleast 5 letters to be entered"],
+			},
+		},
+		startTime: {
+			title: language.language === "ar" ? "من" : "From",
+			name: "StartTime",
+		},
+		endTime: {
+			title: language.language === "ar" ? "إلى" : "To",
+			name: "EndTime",
+		},
+		isAllDay: {
+			title: language.language === "ar" ? "هل طوال اليوم ؟" : "is All Day",
+			name: "IsAllDay",
+		},
+		startTimezone: {
+			title: language.language === "ar" ? "بداية المنطقة الزمنية" : "Start Timezone",
+			name: "StartTimezone",
+		},
+		endTimezone: {
+			title: language.language === "ar" ? "نهاية المنطقة الزمنية" : "End Timezone",
+			name: "EndTimezone",
+		},
+	};
 
 	const getEmployeeName = (value) => {
 		return value.resourceData ? value.resourceData[value.resource.textField] : value.resourceName;
@@ -118,7 +116,7 @@ const GroupEditing = () => {
 			resourceHeaderTemplate={resourceHeaderTemplate}
 			eventSettings={{
 				dataSource: language.language === "ar" ? dataAr : data,
-				fields: fields
+				fields: fields,
 			}}
 			group={{ allowGroupEdit: true, resources: ["Conferences"] }}
 		>

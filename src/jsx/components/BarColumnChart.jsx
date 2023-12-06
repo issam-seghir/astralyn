@@ -65,7 +65,7 @@ let data2 = [
 					primaryXAxis={{
 						labelStyle: { size: "1rem", fontWeight: "bold", color: "var(--joy-palette-primary-softColor)", fontFamily: "var(--joy-fontFamily-body)" },
 						labelIntersectAction: Browser.isDevice ? "None" : "Trim",
-						labelRotation: Browser.isDevice ? -45 : 0,
+						labelRotation:  -45 ,
 						valueType: "Category",
 						rangePadding: "Round",
 						maximum: isSmallDevice ? 4 : null,
@@ -85,7 +85,6 @@ let data2 = [
 					margin={{ left: isSmallDevice ? 25 : 15, top: 12, right: 15, bottom: 12 }}
 					chartArea={{ border: { width: 5, color: "var(--joy-palette-primary-softColor)" }, opacity: 0.5, background: "var(--joy-palette-primary-softBg)" }}
 					tooltip={{ enable: true, header: "<b>${point.tooltip}</b>", shared: true }}
-					height={Browser.isDevice ? "100%" : "75%"}
 					title={isArabic ? "عدد الميداليات الأولمبية - RIO" : "Olympic Medal Counts - RIO"}
 					titleStyle={{ border: { cornerRadius: 5, color: "var(--joy-palette-primary-800)", width: 1 }, background: "transparent", size: "1rem", fontWeight: "bold", color: "var(--joy-palette-primary-softColor", fontFamily: "var(--joy-fontFamily-body)", position: "Top" }}
 					loaded={loaded.bind(this)}

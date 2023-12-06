@@ -6,6 +6,7 @@ import { useMediaQuery } from "@uidotdev/usehooks";
 import * as Marked from "marked";
 import { useId } from "react";
 import {value} from "@data/editor-data"
+import { Box, CardCover } from "@mui/joy";
 
 function Preview() {
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
@@ -54,6 +55,7 @@ function Preview() {
 
 		return (
 			<div className="content">
+				
 				<RichTextEditorComponent
 					id="defaultRTE"
 					ref={(richtexteditor) => {
@@ -95,11 +97,7 @@ function Preview() {
 			<div className="control-section onlineEditor" id="rtePreview">
 				<div className="content-wrapper">
 					<SplitterComponent orientation={isSmallDevice ? "Vertical" : "Horizontal"} ref={(splitter) => (splitterInstance = splitter)} height="450px" width="100%" resizing={onResizing.bind(this)} created={updateOrientation.bind(this)}>
-						<PanesDirective>
-							{language.language === "ar" ?  panesArabic : panesEnglish}
-							{/* <PaneDirective resizable={true} size="50%" min="40%" cssClass="pane1" content={content1.bind(this)}></PaneDirective> */}
-							{/* <PaneDirective min="40%" cssClass="pane2" content={content2.bind(this)}></PaneDirective> */}
-						</PanesDirective>
+						<PanesDirective>{language.language === "ar" ? panesArabic : panesEnglish}</PanesDirective>
 					</SplitterComponent>
 				</div>
 			</div>

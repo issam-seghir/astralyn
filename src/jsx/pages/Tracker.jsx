@@ -31,7 +31,7 @@ import { useThemeContext } from "@contexts/ContextProvider";
 import { useMediaQuery } from "@uidotdev/usehooks";
 
 import { expenseData } from "@data/diagram-data";
-import { Box } from "@mui/joy";
+import { Box ,CardCover} from "@mui/joy";
 import { DateRangePickerComponent } from "@syncfusion/ej2-react-calendars";
 
 let shape = { type: "HTML" };
@@ -614,6 +614,7 @@ function HtmlNode() {
 	}
 	return (
 		<div id="custom-diagram" className="control-section" style={{ height: "100%" }}>
+
 			{isSmallDevice && <style>{SAMPLE_CSS}</style>}
 			<DiagramComponent
 				enablePersistence

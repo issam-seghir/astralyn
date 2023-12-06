@@ -54,7 +54,6 @@ const Scatter = () => {
 						textStyle: { background: "transparent", color: "var(--joy-palette-primary-softColor)" },
 					}}
 					tooltip={{ enable: true }}
-					width={Browser.isDevice ? "100%" : "75%"}
 					chartArea={{ border: { width: 0 } }}
 				>
 					<Inject services={[ScatterSeries, Legend, Tooltip, Category, Highlight]} />

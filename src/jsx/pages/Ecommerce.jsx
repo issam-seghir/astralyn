@@ -7,13 +7,44 @@ import { Box, Button, Card, CardActions, CardContent, CardCover, Chip, Divider, 
 import Typography from "@mui/joy/Typography";
 import { BsClipboardData } from "react-icons/bs";
 import { FaUserGroup } from "react-icons/fa6";
-import { GoDotFill } from "react-icons/go";
 import { LuBox } from "react-icons/lu";
 import { TbMobiledata } from "react-icons/tb";
+import { useEffect } from "react";
 
 const Ecommerce = () => {
-	const { printLineChart,prinBarChartChart, language } = useThemeContext();
+
+	 useEffect(() => {
+			const tiltCards = document.querySelectorAll(".card");
+
+			tiltCards.forEach((card) => {
+				card.addEventListener("mousemove", (e) => {
+					const rect = card.getBoundingClientRect();
+					const posX = e.clientX - rect.left;
+					const posY = e.clientY - rect.top;
+					const cardWidth = rect.width;
+					const cardHeight = rect.height;
+
+					const tiltX = (cardWidth / 2 - posX) / 10;
+					const tiltY = (cardHeight / 2 - posY) / 10;
+
+					card.style.transform = `rotateY(${tiltX}deg) rotateX(${tiltY}deg)`;
+				});
+
+				card.addEventListener("mouseleave", () => {
+					card.style.transform = "rotateY(0deg) rotateX(0deg)";
+				});
+			});
+
+			return () => {
+				tiltCards.forEach((card) => {
+					card.removeEventListener("mousemove", () => {});
+					card.removeEventListener("mouseleave", () => {});
+				});
+			};
+	 }, []);
+	const { printLineChart, prinBarChartChart, language } = useThemeContext();
 	const isArabic = language.language === "ar";
+
 	return (
 		<Box sx={{ my: 12, display: "flex", flexDirection: "column", gap: 4 }}>
 			<Card variant="outlined" color="primary" orientation="vertical" size="lg" sx={{ flexBasis: { xs: "100%", lg: "20rem" }, alignItems: "center" }}>
@@ -42,12 +73,14 @@ const Ecommerce = () => {
 			</Card>
 			<Box variant="soft" component="ul" sx={{ display: "flex", flexWrap: { xs: "wrap", xl: "nowrap" }, gap: 2, "--Icon-fontSize": "4.5rem", containerType: "inline-size" }}>
 				<Card
+					className={"card"}
 					component="li"
 					color="primary"
 					orientation="vertical"
 					size="lg"
 					variant="outlined"
 					sx={{
+						transition: ".2s transform",
 						flex: "30%",
 						alignItems: "flex-start",
 						"@container (max-width: 1230px)": {
@@ -95,12 +128,14 @@ const Ecommerce = () => {
 					</CardContent>
 				</Card>
 				<Card
+					className={"card"}
 					component="li"
 					color="primary"
 					orientation="vertical"
 					size="lg"
 					variant="outlined"
 					sx={{
+						transition: ".2s transform",
 						flex: "30%",
 						alignItems: "flex-start",
 						"@container (max-width: 1230px)": {
@@ -148,12 +183,14 @@ const Ecommerce = () => {
 					</CardContent>
 				</Card>
 				<Card
+					className={"card"}
 					component="li"
 					color="primary"
 					orientation="vertical"
 					size="lg"
 					variant="outlined"
 					sx={{
+						transition: ".2s transform",
 						flex: "30%",
 						alignItems: "flex-start",
 						"@container (max-width: 1230px)": {
@@ -201,12 +238,14 @@ const Ecommerce = () => {
 					</CardContent>
 				</Card>
 				<Card
+					className={"card"}
 					component="li"
 					color="primary"
 					orientation="vertical"
 					size="lg"
 					variant="outlined"
 					sx={{
+						transition: ".2s transform",
 						flex: "30%",
 						alignItems: "flex-start",
 						"@container (max-width: 1230px)": {
@@ -311,7 +350,7 @@ const Ecommerce = () => {
 						</CardActions>
 					</Card>
 					<Divider orientation="vertical" />
-					<Card color="primary" size="lg" variant="soft" sx={{ flex: { lg: 1, xs: "100%", gap: "2.5rem", alignItems: "center" } }}>
+					<Card component="li" color="primary" orientation="vertical" size="lg" variant="soft" sx={{ flex: { lg: 1, xs: "100%", gap: "2.5rem", alignItems: "center" } }}>
 						<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
 							<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 								<defs>
@@ -367,8 +406,8 @@ const Ecommerce = () => {
 					</Card>
 				</Box>
 			</Sheet>
-			<Sheet variant="outlined" color="primary" sx={{ p: 1,borderRadius: "md"  }}>
-				<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
+			<Sheet variant="outlined" color="primary" sx={{ borderRadius: "md", height: { xs: "300px", sm: "auto" } }}>
+				<CardCover sx={{ borderRadius: "md", backdropFilter: "blur(16px) saturate(180%)" }}>
 					<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 						<defs>
 							<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">

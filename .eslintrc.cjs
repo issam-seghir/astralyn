@@ -80,6 +80,7 @@ module.exports = {
 		// get ride of import/no-unresolved when using ?react for svgr (svg as component)
 		// 'import/no-unresolved': ['error', { ignore: ['\\.svg\\?react$'] }],
 		"react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+		"react/prop-types": ["warn"],
 		// Organize imports using simple-import-sort
 		"simple-import-sort/imports": "off",
 		"simple-import-sort/exports": "error",
@@ -96,6 +97,7 @@ module.exports = {
 		"sonarjs/no-duplicate-string": "warn",
 
 		// Disable some unicorn plugin rules
+		"unicorn/consistent-function-scoping":"warn",
 		"unicorn/numeric-separators-style":"warn",
 		"unicorn/prevent-abbreviations": "off",
 		"unicorn/no-array-reduce": "off",

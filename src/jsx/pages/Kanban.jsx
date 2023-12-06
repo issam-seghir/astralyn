@@ -5,14 +5,12 @@ import { cardData } from "@data/kanban-data";
 import Box from "@mui/joy/Box";
 import { addClass } from "@syncfusion/ej2-base";
 import { ColumnDirective, ColumnsDirective, KanbanComponent } from "@syncfusion/ej2-react-kanban";
-import { useMediaQuery } from "@uidotdev/usehooks";
 import { useId } from "react";
 import { BsClipboardCheckFill } from "react-icons/bs";
 import { IoIosListBox } from "react-icons/io";
 import { TbEyeSearch, TbProgressBolt } from "react-icons/tb";
 
 const Overview = () => {
-	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
 	const { language } = useThemeContext();
 	const id = useId();
 	const iconMap = {
@@ -29,7 +27,6 @@ const Overview = () => {
 		{ text: language.language === "ar" ? " ملخص" : "Summary", key: "Summary", type: "TextArea" },
 	];
 	const cardRendered = (args) => {
-
 		let id = args.data.Id;
 		const selectedItem = cardData["en"].find((item) => item.Id === id);
 
@@ -49,7 +46,6 @@ const Overview = () => {
 		);
 	};
 	const cardTemplate = (props) => {
-
 		return (
 			<div id={id} key={id} className={"card-template"}>
 				<div className="e-card-header">

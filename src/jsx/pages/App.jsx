@@ -643,7 +643,7 @@ function App() {
 				<Loading />
 			) : (
 				<Sheet variant="plain" id="sheetBg">
-					<CardCover id="sheetBg__stars">
+					<CardCover>
 						<svg viewBox="0 0 800 800">
 							<defs>
 								<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="ffflurry-grad" gradientTransform="rotate(270)">
@@ -720,9 +720,6 @@ function App() {
 							</g>
 						</svg>
 					</CardCover>
-					{/* <CardCover id="sheetBg__stars">
-						<img src="../../assets/images/dddepth-1.jpg" alt="" />
-					</CardCover> */}
 					<Box
 						position={"relative"}
 						sx={{
