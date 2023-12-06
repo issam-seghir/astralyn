@@ -62,8 +62,8 @@ const Ecommerce = () => {
 					</svg>
 				</CardCover>
 				<CardContent sx={{ alignItems: "center", justifyContent: "center", gap: 3 }}>
-					<Typography level="h1" fontSize={"xl7"} letterSpacing={{ md: 17, xs: 8 }}>
-						{isArabic ? "الأرباح" : "Earnings"}
+					<Typography level="h1" fontSize={"xl7"}   letterSpacing={isArabic ? "" : { md: 17, xs: 8 } }>
+						{isArabic ? "الأربـــاح" : "Earnings"}
 					</Typography>
 					<Typography level="h2">{isArabic ? "دج 63,448.78" : "$63,448.78"}</Typography>
 				</CardContent>
