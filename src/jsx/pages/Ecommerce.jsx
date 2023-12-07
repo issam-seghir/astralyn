@@ -5,49 +5,86 @@ import FinancialHeloChart from "@components/FinancialHeloChart";
 import { useThemeContext } from "@contexts/ContextProvider";
 import { Box, Button, Card, CardActions, CardContent, CardCover, Chip, Divider, Sheet } from "@mui/joy";
 import Typography from "@mui/joy/Typography";
+import { useEffect, useRef } from "react";
 import { BsClipboardData } from "react-icons/bs";
 import { FaUserGroup } from "react-icons/fa6";
 import { LuBox } from "react-icons/lu";
 import { TbMobiledata } from "react-icons/tb";
-import { useEffect } from "react";
 
 const Ecommerce = () => {
-
-	 useEffect(() => {
-			const tiltCards = document.querySelectorAll(".card");
-
-			tiltCards.forEach((card) => {
-				card.addEventListener("mousemove", (e) => {
-					const rect = card.getBoundingClientRect();
-					const posX = e.clientX - rect.left;
-					const posY = e.clientY - rect.top;
-					const cardWidth = rect.width;
-					const cardHeight = rect.height;
-
-					const tiltX = (cardWidth / 2 - posX) / 10;
-					const tiltY = (cardHeight / 2 - posY) / 10;
-
-					card.style.transform = `rotateY(${tiltX}deg) rotateX(${tiltY}deg)`;
-				});
-
-				card.addEventListener("mouseleave", () => {
-					card.style.transform = "rotateY(0deg) rotateX(0deg)";
-				});
-			});
-
-			return () => {
-				tiltCards.forEach((card) => {
-					card.removeEventListener("mousemove", () => {});
-					card.removeEventListener("mouseleave", () => {});
-				});
-			};
-	 }, []);
 	const { printLineChart, prinBarChartChart, language } = useThemeContext();
 	const isArabic = language.language === "ar";
+	// const cardRef = useRef(null);
+
+	// function mouseMoveEvent(e) {
+	// 	const { x, y } = cardRef.current.getBoundingClientRect();
+	// 	cardRef.current.style.setProperty("--x", e.clientX - x);
+	// 	cardRef.current.style.setProperty("--y", e.clientY - y);
+	// }
+	// useEffect(() => {
+	// 	if (cardRef) {
+	// 		cardRef.current.addEventListener("mousemove", mouseMoveEvent);
+	// 	}
+	// 	// don't forget to *remove* the eventListener
+	// 	// when your component unmounts!
+	// 	return () => cardRef.current.removeEventListener("mousemove", mouseMoveEvent);
+	// }, [cardRef]);
+	useEffect(() => {
+		const tiltCards = document.querySelectorAll(".card");
+
+		tiltCards.forEach((card) => {
+			card.addEventListener("mousemove", (e) => {
+				const rect = card.getBoundingClientRect();
+				const posX = e.clientX - rect.left;
+				const posY = e.clientY - rect.top;
+				const cardWidth = rect.width;
+				const cardHeight = rect.height;
+
+				const tiltX = (cardWidth / 2 - posX) / 10;
+				const tiltY = (cardHeight / 2 - posY) / 10;
+
+				card.style.transform = `rotateY(${tiltX}deg) rotateX(${tiltY}deg)`;
+			});
+
+			card.addEventListener("mouseleave", () => {
+				card.style.transform = "rotateY(0deg) rotateX(0deg)";
+			});
+		});
+
+		return () => {
+			tiltCards.forEach((card) => {
+				card.removeEventListener("mousemove", () => {});
+				card.removeEventListener("mouseleave", () => {});
+			});
+		};
+	}, []);
 
 	return (
 		<Box sx={{ my: 12, display: "flex", flexDirection: "column", gap: 4 }}>
-			<Card variant="outlined" color="primary" orientation="vertical" size="lg" sx={{ flexBasis: { xs: "100%", lg: "20rem" }, alignItems: "center" }}>
+			<Card
+				// ref={cardRef}
+				variant="outlined"
+				color="primary"
+				orientation="vertical"
+				size="lg"
+				sx={{
+					flexBasis: { xs: "100%", lg: "20rem" },
+					alignItems: "center",
+					position: "relative",
+					// "&::after": {
+					// 	content: "''",
+					// 	position: "absolute",
+					// 	top: "calc(var(--y, 0) * 1px - 50px)",
+					// 	left: "calc(var(--x, 0) * 1px - 50px)",
+					// 	width: "200px",
+					// 	height: "200px",
+					// 	background: "radial-gradient(white, red 80%)",
+					// 	opacity: 0,
+					// 	zIndex:99,
+					// 	transition: "opacity 0.2s",
+					// },
+				}}
+			>
 				<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
 					<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 						<defs>
@@ -62,7 +99,7 @@ const Ecommerce = () => {
 					</svg>
 				</CardCover>
 				<CardContent sx={{ alignItems: "center", justifyContent: "center", gap: 3 }}>
-					<Typography level="h1" fontSize={"xl7"}   letterSpacing={isArabic ? "" : { md: 17, xs: 8 } }>
+					<Typography level="h1" fontSize={"xl7"} letterSpacing={isArabic ? "" : { md: 17, xs: 8 }} sx={{ animation: "glow 1s ease-in-out infinite alternate" }}>
 						{isArabic ? "الأربـــاح" : "Earnings"}
 					</Typography>
 					<Typography level="h2">{isArabic ? "دج 63,448.78" : "$63,448.78"}</Typography>

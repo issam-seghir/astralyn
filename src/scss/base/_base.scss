@@ -8,8 +8,9 @@
 }
 
 ::selection {
-	background-color: $bg-selection;
+	background-color: var(--joy-palette-primary-softBg);
 }
+
 
 /* Chrome, Edge and Safari */
 // *::-webkit-scrollbar {

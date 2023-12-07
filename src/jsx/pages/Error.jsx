@@ -10,7 +10,7 @@ export default function ErrorPage() {
 
 	return (
 		<CssVarsProvider theme={theme} defaultMode="system">
-			<Card sx={{ height: "100svh", borderRadius: 0 }} className="container error-page">
+			<Card sx={{ height: "100svh", borderRadius: 0 ,overflow:"auto"}} className="container error-page">
 				<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
 					<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 						<defs>
@@ -639,7 +639,7 @@ export default function ErrorPage() {
 					</svg>
 				</CardCover>
 				<CardContent>
-					<Box  position={"absolute"} typography={"h1"} sx={{ fontSize: "xl8" ,WebkitTextStrokeWidth:"0.1px",WebkitTextStrokeColor:"var(--joy-palette-primary-softColor)",textAlign:"center",transform:"translateX(-50%)" }} left={"50%"} top={"80%"}>
+					<Box  position={"absolute"} typography={"h1"} width={"80%"} sx={{ fontSize: "xl5" ,WebkitTextStrokeWidth:"0.1px",WebkitTextStrokeColor:"var(--joy-palette-primary-softColor)",textAlign:"center",transform:"translateX(-50%)" }} left={"50%"} top={"75%"}>
 						{error.statusText || error.message}
 					</Box>
 				</CardContent>

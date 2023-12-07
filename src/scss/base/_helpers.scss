@@ -7,46 +7,56 @@
 // }
 
 @keyframes bounce {
-    0%,
-    100% {
-        transform: translateY(-10%);
-        animation-timing-function: cubic-bezier(0.83, -0.04, 0.25, 1.19);
-    }
+	0%,
+	100% {
+		transform: translateY(-10%);
+		animation-timing-function: cubic-bezier(0.83, -0.04, 0.25, 1.19);
+	}
 
-    50% {
-        transform: translateY(5%);
-        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    }
+	50% {
+		transform: translateY(5%);
+		animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+	}
 }
-@keyframes rock {
-    0%,
-    100% {
-        animation-timing-function: linear;
-    }
 
-    50% {
-        transform: translateY(7%);
-        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    }
+@keyframes rock {
+	0%,
+	100% {
+		animation-timing-function: linear;
+	}
+
+	50% {
+		transform: translateY(7%);
+		animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+	}
+}
+
+@keyframes glow {
+	from {
+		text-shadow: 0 0 20px var(--joy-palette-primary-100);
+	}
+
+	to {
+		text-shadow: 0 0 30px var(--joy-palette-primary-200), 0 0 10px var(--joy-palette-primary-300);
+	}
 }
 
 #rocket {
 	&_fire {
 		animation: bounce 1s infinite;
 	}
-    &_shape{
-		animation: rock 1.5s infinite;
 
-    }
-    &_head{
+	&_shape {
 		animation: rock 1.5s infinite;
+	}
 
-    }
+	&_head {
+		animation: rock 1.5s infinite;
+	}
 }
 
-
 // .text-animate{
-//      -webkit-text-fill-color: transparent;
+//  -webkit-text-fill-color: transparent;
 // //   background-image: url(https://media.giphy.com/media/9JxkPTP3alOykb8PmQ/source.gif);
 // //   background-image: url(https://media.giphy.com/media/jaOXKCxtBPLieRLI0c/giphy.gif);
 // //   background-image: url(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDloZzMxa2xzbDU3bzc0MXk4Z2N3M2gzeXhwdnRpZm1mYW9nMGY5ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3q2RgN7WUjeUUXm0/giphy.gif);
@@ -60,119 +70,121 @@
 //   background-size: 200% 200%;
 // }
 
-.green{
-	background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
-	background-size: cover;
-	color: transparent;
-	-moz-background-clip: text;
-	-webkit-background-clip: text;
-	text-transform: uppercase;
-	font-size: 120px;
+.text-animate {
 	margin: 10px 0;
+	font-size: 120px;
+	color: transparent;
+	text-transform: uppercase;
+	background-image: url("https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif");
+	background-clip: text;
+	background-clip: text;
+	background-clip: text;
+	background-size: cover;
+	-webkit-text-fill-color: transparent;
 }
 
-.water {
-     font-family: "Bebas Neue", Arial Helvetica, serif;
-    font-size: 20vmin;
-    -webkit-text-stroke: 0px #0000004f;
-    -webkit-text-fill-color: #ffffff1c;
-    text-shadow: -3px -3px 3px #00000040;
-    background-repeat: repeat;
-    background-position: center center;
-    background-size: contain;
-    -webkit-text-fill-color: #002e422e;
-    -webkit-background-clip: text;
-    letter-spacing: 1px;
-    display: inline-flex;
-    width: 50vw;
-    height: 38vh;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    background-image: url(https://i.makeagif.com/media/1-10-2018/4oMeP9.gif);
-    -webkit-text-fill-color: #00e2ff5c;
-}
+// .text-animate {
+//      font-family: "Bebas Neue", Arial Helvetica, serif;
+//     font-size: 20vmin;
+//     -webkit-text-stroke: 0px #0000004f;
+//     -webkit-text-fill-color: #ffffff1c;
+//     text-shadow: -3px -3px 3px #00000040;
+//     background-repeat: repeat;
+//     background-position: center center;
+//     background-size: contain;
+//     -webkit-text-fill-color: #002e422e;
+//     -webkit-background-clip: text;
+//     letter-spacing: 1px;
+//     display: inline-flex;
+//     width: 50vw;
+//     height: 38vh;
+//     text-align: center;
+//     align-items: center;
+//     justify-content: center;
+//     font-weight: bold;
+//     background-image: url(https://i.makeagif.com/media/1-10-2018/4oMeP9.gif);
+//     -webkit-text-fill-color: #00e2ff5c;
+// }
 
-.fire {
-     font-family: "Bebas Neue", Arial Helvetica, serif;
-    font-size: 20vmin;
-    -webkit-text-stroke: 0px #0000004f;
-    -webkit-text-fill-color: #ffffff1c;
-    text-shadow: -3px -3px 3px #00000040;
-    background-repeat: repeat;
-    background-position: center center;
-    background-size: contain;
-    -webkit-text-fill-color: #002e422e;
-    -webkit-background-clip: text;
-    letter-spacing: 1px;
-    display: inline-flex;
-    width: 50vw;
-    height: 38vh;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    background-image: url(https://c.tenor.com/5RKB-LuSHb0AAAAC/fire.gif);
-    -webkit-text-fill-color: #cd0e0054;
-}
+// .text-animate {
+//      font-family: "Bebas Neue", Arial Helvetica, serif;
+//     font-size: 20vmin;
+//     -webkit-text-stroke: 0px #0000004f;
+//     -webkit-text-fill-color: #ffffff1c;
+//     text-shadow: -3px -3px 3px #00000040;
+//     background-repeat: repeat;
+//     background-position: center center;
+//     background-size: contain;
+//     -webkit-text-fill-color: #002e422e;
+//     -webkit-background-clip: text;
+//     letter-spacing: 1px;
+//     display: inline-flex;
+//     width: 50vw;
+//     height: 38vh;
+//     text-align: center;
+//     align-items: center;
+//     justify-content: center;
+//     font-weight: bold;
+//     background-image: url(https://c.tenor.com/5RKB-LuSHb0AAAAC/fire.gif);
+//     -webkit-text-fill-color: #cd0e0054;
+// }
 
-.stars {
-     font-family: "Bebas Neue", Arial Helvetica, serif;
-    font-size: 20vmin;
-    -webkit-text-stroke: 0px #0000004f;
-    -webkit-text-fill-color: #ffffff1c;
-    text-shadow: -3px -3px 3px #00000040;
-    background-repeat: repeat;
-    background-position: center center;
-    background-size: contain;
-    -webkit-text-fill-color: #002e422e;
-    -webkit-background-clip: text;
-    letter-spacing: 1px;
-    display: inline-flex;
-    width: 50vw;
-    height: 38vh;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    background-image: url(https://i.pinimg.com/originals/5c/c0/d7/5cc0d7bd98a28bdcd8d0916e5db7bd7e.gif);
-    -webkit-text-fill-color: #00189d33;
-    text-shadow: -3px -3px 10px #4027b030, 3px 3px 10px #00080c42,
-        0px 0px 10px #00000080;
-}
+// .text-animate {
+//      font-family: "Bebas Neue", Arial Helvetica, serif;
+//     font-size: 20vmin;
+//     -webkit-text-stroke: 0px #0000004f;
+//     -webkit-text-fill-color: #ffffff1c;
+//     text-shadow: -3px -3px 3px #00000040;
+//     background-repeat: repeat;
+//     background-position: center center;
+//     background-size: contain;
+//     -webkit-text-fill-color: #002e422e;
+//     -webkit-background-clip: text;
+//     letter-spacing: 1px;
+//     display: inline-flex;
+//     width: 50vw;
+//     height: 38vh;
+//     text-align: center;
+//     align-items: center;
+//     justify-content: center;
+//     font-weight: bold;
+//     background-image: url(https://i.pinimg.com/originals/5c/c0/d7/5cc0d7bd98a28bdcd8d0916e5db7bd7e.gif);
+//     -webkit-text-fill-color: #00189d33;
+//     text-shadow: -3px -3px 10px #4027b030, 3px 3px 10px #00080c42,
+//         0px 0px 10px #00000080;
+// }
 
-.snow {
-     font-family: "Bebas Neue", Arial Helvetica, serif;
-    font-size: 20vmin;
-    -webkit-text-stroke: 0px #0000004f;
-    -webkit-text-fill-color: #ffffff1c;
-    text-shadow: -3px -3px 3px #00000040;
-    background-repeat: repeat;
-    background-position: center center;
-    background-size: contain;
-    -webkit-text-fill-color: #002e422e;
-    -webkit-background-clip: text;
-    letter-spacing: 1px;
-    display: inline-flex;
-    width: 50vw;
-    height: 38vh;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    background-image: url(https://c.tenor.com/4rSybJ_qYGsAAAAC/snow.gif);
-    -webkit-text-fill-color: #00000042;
-    text-shadow: -3px -3px 10px #ffffff0d;
-}
+// .text-animate {
+//      font-family: "Bebas Neue", Arial Helvetica, serif;
+//     font-size: 20vmin;
+//     -webkit-text-stroke: 0px #0000004f;
+//     -webkit-text-fill-color: #ffffff1c;
+//     text-shadow: -3px -3px 3px #00000040;
+//     background-repeat: repeat;
+//     background-position: center center;
+//     background-size: contain;
+//     -webkit-text-fill-color: #002e422e;
+//     -webkit-background-clip: text;
+//     letter-spacing: 1px;
+//     display: inline-flex;
+//     width: 50vw;
+//     height: 38vh;
+//     text-align: center;
+//     align-items: center;
+//     justify-content: center;
+//     font-weight: bold;
+//     background-image: url(https://c.tenor.com/4rSybJ_qYGsAAAAC/snow.gif);
+//     -webkit-text-fill-color: #00000042;
+//     text-shadow: -3px -3px 10px #ffffff0d;
+// }
 
-.bubbles {
-    width: 100vw;
-    height: 24vh;
-    background-image: url(https://c.tenor.com/OPMJAHXKIU0AAAAd/looking-water.gif);
-    -webkit-text-fill-color: #9c27b026;
-    text-shadow: -3px -3px 10px #9c27b030, 3px 3px 10px #0000004f;
-}
+// .text-animate {
+//     width: 100vw;
+//     height: 24vh;
+//     background-image: url(https://c.tenor.com/OPMJAHXKIU0AAAAd/looking-water.gif);
+//     -webkit-text-fill-color: #9c27b026;
+//     text-shadow: -3px -3px 10px #9c27b030, 3px 3px 10px #0000004f;
+// }
 
 // .container {
 //   max-width: $page-width; /* 1 */
