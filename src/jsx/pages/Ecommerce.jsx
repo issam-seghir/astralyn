@@ -120,6 +120,7 @@ const Ecommerce = () => {
 						transition: ".2s transform",
 						flex: "30%",
 						alignItems: "flex-start",
+
 						"@container (max-width: 1230px)": {
 							alignItems: "center",
 						},

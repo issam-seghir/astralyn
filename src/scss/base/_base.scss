@@ -1,9 +1,10 @@
 @use "../abstracts" as *;
 
 :root {
+	// Firefox
 	scroll-behavior: smooth;
+	scrollbar-color: var(--joy-palette-primary-softBg) var(--joy-palette-primary-softColor);
 	scrollbar-width: thin;
-	// scrollbar-color:var() #8484B3;
 	scrollbar-gutter: auto;
 }
 
@@ -11,34 +12,40 @@
 	background-color: var(--joy-palette-primary-softBg);
 }
 
-
 /* Chrome, Edge and Safari */
-// *::-webkit-scrollbar {
-//   height: 6px;
-//   width: 6px;
-// }
-// *::-webkit-scrollbar-track {
-//   border-radius: 20px;
-//   background-color: #8484B3;
-// }
+*::-webkit-scrollbar {
+	width: 7px;
+	height: 4px;
+}
 
-// *::-webkit-scrollbar-track:hover {
-//   background-color: #8484B3;
-// }
+// the vertical scrollbar.
+::-webkit-scrollbar:horizontal {
+	background-color: var(--joy-palette-primary-50);
+}
 
-// *::-webkit-scrollbar-track:active {
-//   background-color: #8484B3;
-// }
+//  the track (progress bar) of the scrollbar
+*::-webkit-scrollbar-track {
+	background-color: transparent;
+	border-radius: 20px;
+	//   &:hover,&:active{
+		// 	    background-color: var(--joy-palette-primary-softBg);
+	//   }
+}
 
-// *::-webkit-scrollbar-thumb {
-//   border-radius: 5px;
-//   background-color: #0F172A;
-// }
+// thumb the draggable scrolling handle
+*::-webkit-scrollbar-thumb {
+	height: 4px;
+	background-color: var(--joy-palette-primary-softColor);
+	box-shadow: inset 5px -1px 50px -12px var(--joy-palette-primary-600);
+	border-radius: 5px;
 
-// *::-webkit-scrollbar-thumb:hover {
-//   background-color: #0F172A;
-// }
+	&:hover,
+	&:active {
+		background-color: var(--joy-palette-primary-600);
+	}
+}
 
-// *::-webkit-scrollbar-thumb:active {
-//   background-color: #263B6A;
-// }
+// where both horizontal and vertical scrollbars meet. This is often the bottom-right corner of the browser window.
+::-webkit-scrollbar-corner {
+	background-color: transparent;
+}

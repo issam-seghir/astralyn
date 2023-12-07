@@ -290,7 +290,7 @@ function DrawingTools() {
 	}
 
 	return (
-		<div className="control-pane diagram-control-pane">
+		<div className="control-pane diagram-control-pane" style={{zIndex:1,position:"relative"}}>
 			<style>{SAMPLE_CSS}</style>
 			<div className="col-lg-8 control-section">
 				<div className="content-wrapper" style={{ width: "100%" }}>
