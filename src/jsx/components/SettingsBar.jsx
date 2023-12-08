@@ -6,20 +6,20 @@ import { Typography } from "@mui/joy";
 import Avatar from "@mui/joy/Avatar";
 import Box from "@mui/joy/Box";
 import FormLabel from "@mui/joy/FormLabel";
+import Option from "@mui/joy/Option";
 import Radio, { radioClasses } from "@mui/joy/Radio";
 import RadioGroup from "@mui/joy/RadioGroup";
 import Select, { selectClasses } from "@mui/joy/Select";
 import Sheet from "@mui/joy/Sheet";
-import Option from "@mui/joy/Option";
+import Snackbar from "@mui/joy/Snackbar";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import Snackbar from '@mui/joy/Snackbar';
 
 function splitCamelCase(input) {
 	return input.replaceAll(/([a-z])([A-Z])/g, "$1 $2");
 }
-function SettingsSidebar({showSettings}) {
+function SettingsSidebar({ showSettings }) {
 	const { selectedTheme, setSelectedTheme, language, changeLanguage, setShowSnackBar, showSnackBar } = useThemeContext();
-
+	const isArabic = language.language === "ar";
 
 	function handleChange(e) {
 		setSelectedTheme(e.target.value);
@@ -36,15 +36,15 @@ function SettingsSidebar({showSettings}) {
 				p: 1,
 				zIndex: 998,
 				background: "linear-gradient(24deg, #0000009e, transparent)",
-				transform: `translateX(${showSettings ? 0 : language.language === "ar" ? "-100%" : "100%"})`,
+				transform: `translateX(${showSettings ? 0 : isArabic ? "-100%" : "100%"})`,
 			}}
 		>
-			<h2>Settings</h2>
+			<Typography level="h1">{isArabic ? "الإعدادات" : "Settings"} </Typography>
 			<div>
-				<p>Choose a theme:</p>
-				<ModeToggle />
-			</div>
-			<div>
+				<div>
+					<Typography level="h2">{isArabic ? "إختر ثِيــمًا" : "Choose a theme:"}</Typography>
+					<ModeToggle />
+				</div>
 				<RadioGroup
 					aria-label="platform"
 					value={selectedTheme}
@@ -100,7 +100,7 @@ function SettingsSidebar({showSettings}) {
 			</div>
 
 			<div>
-				<Typography level="h1"> Select Language:: </Typography>
+				<Typography level="h2">{isArabic ? "إختر اللغة :" : "Select Language :"} </Typography>
 				<div>
 					<Select
 						defaultValue={language.language}
@@ -116,8 +116,8 @@ function SettingsSidebar({showSettings}) {
 							},
 						}}
 					>
-						<Option value="en">English</Option>
-						<Option value="ar">Arabic</Option>
+						<Option value="en">{isArabic ? "الإنجليزية" : "English"}</Option>
+						<Option value="ar">{isArabic ? "العربية" : "Arabic"}</Option>
 					</Select>
 				</div>
 				<Snackbar
@@ -132,8 +132,7 @@ function SettingsSidebar({showSettings}) {
 						setShowSnackBar(false);
 					}}
 				>
-					{language.language === "ar"
-					? "تم تغيير اللغة ⚠: قد لا تعمل بعض الميزات بشكل صحيح حتى تتم إعادة تحميل الصفحة." : "Language Changed ⚠ : Some features may not work properly until the page is reloaded."}
+					{isArabic ? "تم تغيير اللغة ⚠: قد لا تعمل بعض الميزات بشكل صحيح حتى تتم إعادة تحميل الصفحة." : "Language Changed ⚠ : Some features may not work properly until the page is reloaded."}
 				</Snackbar>
 			</div>
 		</Box>

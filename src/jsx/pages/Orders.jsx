@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import Seo from "@components/Seo";
 import { useThemeContext } from "@contexts/ContextProvider";
 import { ordersData } from "@data/ordersGrid-data.js";
 import { ColumnChooser, ColumnDirective, ColumnsDirective, ContextMenu, Edit, ExcelExport, Filter, GridComponent, Inject, Page, PdfExport, Resize, Sort, Toolbar } from "@syncfusion/ej2-react-grids";
@@ -12,7 +13,11 @@ const Orders = () => {
 	const editSettings = { allowDeleting: true, allowEditing: true, allowAdding: true, showDeleteConfirmDialog: true, mode: `${isSmallDevice ? "Dialog" : "Normal"}` };
 	const id = useId();
 	const { language } = useThemeContext();
-
+	const isArabic = language.language === "ar";
+	const title = isArabic ? " الطلبات | أسترالين" : "Astralyn | Orders";
+	const description = isArabic ? "صفحة الطلبات تحتوي على جدول بيانات يعرض طلبات المنتجات." : "The order page displays a data grid table of product orders.";
+	const name = isArabic ? "أسترالين" : "Astralyn";
+	const type = "website";
 	const gridOrderImage = (props) => {
 		return (
 			<div>
@@ -32,41 +37,44 @@ const Orders = () => {
 	};
 
 	return (
-		<GridComponent
-			cssClass="no-toolbar"
-			id="gridcomp"
-			dataSource={ordersData[language.language]}
-			allowPaging
-			allowSorting
-			allowExcelExport
-			allowPdfExport
-			allowKeyboard
-			allowMultiSorting
-			allowFiltering={true}
-			enableStickyHeader={!isSmallDevice}
-			enablePersistence
-			enableAdaptiveUI={isSmallDevice}
-			rowRenderingMode={isSmallDevice ? "Vertical" : "Horizontal"}
-			contextMenuItems={isSmallDevice ? null : contextMenuItems}
-			editSettings={editSettings}
-			filterSettings={{ type: "Excel" }}
-			showDeleteConfirmDialog
-			showConfirmDialog={false}
-			loadingIndicator={{ indicatorType: "Shimmer" }}
-			toolbar={isSmallDevice ? toolbarOptions : null}
-			showColumnChooser={true}
-		>
-			<ColumnsDirective>
-				<ColumnDirective key={id} field="ProductImage" headerText={language.language === "ar" ? "صورة" : "Image"} template={gridOrderImage} textAlign="Center" width="120" />
-				<ColumnDirective key={id} field="OrderItems" headerText={language.language === "ar" ? "عنصر" : "Item"} editType="dropdownedit" textAlign="Center" width="150" />
-				<ColumnDirective key={id} field="CustomerName" headerText={language.language === "ar" ? "إسم الزبون" : "Customer Name"} textAlign="Center" width="150" />
-				<ColumnDirective key={id} field="TotalAmount" headerText={language.language === "ar" ? "المبلغ الإجمالي" : "Total Amount"} format="C2" textAlign="Center" editType="numericedit" width="150" />
-				<ColumnDirective key={id} field="Status" headerText={language.language === "ar" ? "حالة" : "Status"} template={gridOrderStatus} editType="dropdownedit" textAlign="Center" width="90" />
-				<ColumnDirective key={id} field="OrderID" headerText={language.language === "ar" ? "ID الخاص بالطلب" : "Order ID"} textAlign="Center" width="150" />
-				<ColumnDirective key={id} field="Location" headerText={language.language === "ar" ? "موقع" : "Location"} textAlign="Center" width="150" />
-			</ColumnsDirective>
-			<Inject services={[Resize, Sort, ContextMenu, Filter, Page, ExcelExport, Edit, PdfExport, Toolbar, ColumnChooser]} />
-		</GridComponent>
+		<>
+			<Seo title={title} description={description} name={name} type={type} />
+			<GridComponent
+				cssClass="no-toolbar"
+				id="gridcomp"
+				dataSource={ordersData[language.language]}
+				allowPaging
+				allowSorting
+				allowExcelExport
+				allowPdfExport
+				allowKeyboard
+				allowMultiSorting
+				allowFiltering={true}
+				enableStickyHeader={!isSmallDevice}
+				enablePersistence
+				enableAdaptiveUI={isSmallDevice}
+				rowRenderingMode={isSmallDevice ? "Vertical" : "Horizontal"}
+				contextMenuItems={isSmallDevice ? null : contextMenuItems}
+				editSettings={editSettings}
+				filterSettings={{ type: "Excel" }}
+				showDeleteConfirmDialog
+				showConfirmDialog={false}
+				loadingIndicator={{ indicatorType: "Shimmer" }}
+				toolbar={isSmallDevice ? toolbarOptions : null}
+				showColumnChooser={true}
+			>
+				<ColumnsDirective>
+					<ColumnDirective key={id} field="ProductImage" headerText={isArabic ? "صورة" : "Image"} template={gridOrderImage} textAlign="Center" width="120" />
+					<ColumnDirective key={id} field="OrderItems" headerText={isArabic ? "عنصر" : "Item"} editType="dropdownedit" textAlign="Center" width="150" />
+					<ColumnDirective key={id} field="CustomerName" headerText={isArabic ? "إسم الزبون" : "Customer Name"} textAlign="Center" width="150" />
+					<ColumnDirective key={id} field="TotalAmount" headerText={isArabic ? "المبلغ الإجمالي" : "Total Amount"} format="C2" textAlign="Center" editType="numericedit" width="150" />
+					<ColumnDirective key={id} field="Status" headerText={isArabic ? "حالة" : "Status"} template={gridOrderStatus} editType="dropdownedit" textAlign="Center" width="90" />
+					<ColumnDirective key={id} field="OrderID" headerText={isArabic ? "ID الخاص بالطلب" : "Order ID"} textAlign="Center" width="150" />
+					<ColumnDirective key={id} field="Location" headerText={isArabic ? "موقع" : "Location"} textAlign="Center" width="150" />
+				</ColumnsDirective>
+				<Inject services={[Resize, Sort, ContextMenu, Filter, Page, ExcelExport, Edit, PdfExport, Toolbar, ColumnChooser]} />
+			</GridComponent>
+		</>
 	);
 };
 

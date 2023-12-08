@@ -1,3 +1,4 @@
+import Seo from "@components/Seo";
 import { useThemeContext } from "@contexts/ContextProvider";
 import * as dataSource from "@data/schedule-data";
 import * as dataSourceAr from "@data/schedule-data-arabic";
@@ -11,52 +12,58 @@ const GroupEditing = () => {
 	const data = extend([], dataSource.resourceConferenceData, null, true);
 	const dataAr = extend([], dataSourceAr.resourceConferenceData, null, true);
 	const { language } = useThemeContext();
+	const isArabic = language.language === "ar";
+	const title = isArabic ? " الطلبات | أسترالين" : "Astralyn | Orders";
+	const description = isArabic ? "صفحة الطلبات تحتوي على جدول بيانات يعرض طلبات المنتجات." : "The order page displays a data grid table of product orders.";
+	const name = isArabic ? "أسترالين" : "Astralyn";
+	const type = "website";
+
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
 	const resourceData = [
-		{ Text: language.language === "ar" ? "ماركو" : "Marko", Id: 1, Color: "#edaf94" },
-		{ Text: language.language === "ar" ? "روبرت" : "Robert", Id: 2, Color: "#6ab284" },
-		{ Text: language.language === "ar" ? "لاري" : "Lari", Id: 3, Color: "#fff09d" },
+		{ Text: isArabic ? "ماركو" : "Marko", Id: 1, Color: "#edaf94" },
+		{ Text: isArabic ? "روبرت" : "Robert", Id: 2, Color: "#6ab284" },
+		{ Text: isArabic ? "لاري" : "Lari", Id: 3, Color: "#fff09d" },
 	];
-	const employeeDesignation = [{ Text: language.language === "ar" ? "مندوب مبيعات" : "Sales Representative" }, { Text: language.language === "ar" ? "نائب الرئيس ، المبيعات" : "Vice President, Sales" }, { Text: language.language === "ar" ? "منسق المبيعات داخلي" : "Inside Sales Coordinator" }];
+	const employeeDesignation = [{ Text: isArabic ? "مندوب مبيعات" : "Sales Representative" }, { Text: isArabic ? "نائب الرئيس ، المبيعات" : "Vice President, Sales" }, { Text: isArabic ? "منسق المبيعات داخلي" : "Inside Sales Coordinator" }];
 	const minValidation = (args) => {
 		return args["value"].length >= 5;
 	};
 	const fields = {
 		id: "Id",
 		subject: {
-			title: language.language === "ar" ? "اسم المؤتمر" : "Conference Name",
+			title: isArabic ? "اسم المؤتمر" : "Conference Name",
 			name: "Subject",
 			validation: { required: true },
 		},
 		location: {
-			title: language.language === "ar" ? "موقع الحدث" : "Event Location",
+			title: isArabic ? "موقع الحدث" : "Event Location",
 			name: "Location",
 		},
 		description: {
-			title: language.language === "ar" ? "ملخص" : "Summary",
+			title: isArabic ? "ملخص" : "Summary",
 			name: "Description",
 			validation: {
 				minLength: [minValidation, "Need atleast 5 letters to be entered"],
 			},
 		},
 		startTime: {
-			title: language.language === "ar" ? "من" : "From",
+			title: isArabic ? "من" : "From",
 			name: "StartTime",
 		},
 		endTime: {
-			title: language.language === "ar" ? "إلى" : "To",
+			title: isArabic ? "إلى" : "To",
 			name: "EndTime",
 		},
 		isAllDay: {
-			title: language.language === "ar" ? "هل طوال اليوم ؟" : "is All Day",
+			title: isArabic ? "هل طوال اليوم ؟" : "is All Day",
 			name: "IsAllDay",
 		},
 		startTimezone: {
-			title: language.language === "ar" ? "بداية المنطقة الزمنية" : "Start Timezone",
+			title: isArabic ? "بداية المنطقة الزمنية" : "Start Timezone",
 			name: "StartTimezone",
 		},
 		endTimezone: {
-			title: language.language === "ar" ? "نهاية المنطقة الزمنية" : "End Timezone",
+			title: isArabic ? "نهاية المنطقة الزمنية" : "End Timezone",
 			name: "EndTimezone",
 		},
 	};
@@ -105,32 +112,35 @@ const GroupEditing = () => {
 	};
 
 	return (
-		<ScheduleComponent
-			cssClass="group-editing"
-			width="100%"
-			height="100%"
-			enableAdaptiveUI={isSmallDevice}
-			selectedDate={new Date(2021, 5, 5)}
-			enablePersistence
-			currentView="WorkWeek"
-			resourceHeaderTemplate={resourceHeaderTemplate}
-			eventSettings={{
-				dataSource: language.language === "ar" ? dataAr : data,
-				fields: fields,
-			}}
-			group={{ allowGroupEdit: true, resources: ["Conferences"] }}
-		>
-			<ResourcesDirective>
-				<ResourceDirective field="ConferenceId" title="Attendees" name="Conferences" allowMultiple={true} dataSource={resourceData} textField="Text" idField="Id" colorField="Color" />
-			</ResourcesDirective>
-			<ViewsDirective>
-				<ViewDirective option="Day" allowVirtualScrolling={true} />
-				<ViewDirective option="WorkWeek" allowVirtualScrolling={true} />
-				<ViewDirective option="Month" eventTemplate={monthEventTemplate} />
-				<ViewDirective option="TimelineWeek" />
-			</ViewsDirective>
-			<Inject services={[Day, WorkWeek, Month, TimelineViews, Resize, DragAndDrop]} />
-		</ScheduleComponent>
+		<>
+			<Seo title={title} description={description} name={name} type={type} />
+			<ScheduleComponent
+				cssClass="group-editing"
+				width="100%"
+				height="100%"
+				enableAdaptiveUI={isSmallDevice}
+				selectedDate={new Date(2021, 5, 5)}
+				enablePersistence
+				currentView="WorkWeek"
+				resourceHeaderTemplate={resourceHeaderTemplate}
+				eventSettings={{
+					dataSource: isArabic ? dataAr : data,
+					fields: fields,
+				}}
+				group={{ allowGroupEdit: true, resources: ["Conferences"] }}
+			>
+				<ResourcesDirective>
+					<ResourceDirective field="ConferenceId" title="Attendees" name="Conferences" allowMultiple={true} dataSource={resourceData} textField="Text" idField="Id" colorField="Color" />
+				</ResourcesDirective>
+				<ViewsDirective>
+					<ViewDirective option="Day" allowVirtualScrolling={true} />
+					<ViewDirective option="WorkWeek" allowVirtualScrolling={true} />
+					<ViewDirective option="Month" eventTemplate={monthEventTemplate} />
+					<ViewDirective option="TimelineWeek" />
+				</ViewsDirective>
+				<Inject services={[Day, WorkWeek, Month, TimelineViews, Resize, DragAndDrop]} />
+			</ScheduleComponent>
+		</>
 	);
 };
 export default GroupEditing;

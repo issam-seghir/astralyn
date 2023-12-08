@@ -1,7 +1,8 @@
+import Seo from "@components/Seo";
 import { useThemeContext } from "@contexts/ContextProvider";
-import { ColumnDirective,ColumnChooser, ColumnsDirective, Edit, Filter, GridComponent, Inject, Page, Selection, Sort, Toolbar } from "@syncfusion/ej2-react-grids";
-import { useMediaQuery } from "@uidotdev/usehooks";
 import { customersData } from "@data/customersGrid-data.js";
+import { ColumnChooser, ColumnDirective, ColumnsDirective, Edit, Filter, GridComponent, Inject, Page, Selection, Sort, Toolbar } from "@syncfusion/ej2-react-grids";
+import { useMediaQuery } from "@uidotdev/usehooks";
 
 const Customers = () => {
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
@@ -10,7 +11,11 @@ const Customers = () => {
 	const toolbarOptions = ["Add", "Delete", "Edit"];
 	const editing = { allowDeleting: true, allowEditing: true, allowAdding: true, mode: "Dialog" };
 	const { language } = useThemeContext();
-
+	const isArabic = language.language === "ar";
+	const title = isArabic ? "أسترالين | صفحة العملاء" : "Astralyn | Customers";
+	const description = isArabic ? "صفحة العملاء تحتوي على جدول بيانات يعرض قائمة العملاء مع تفاصيل مشاريعهم وحالتها والميزانية والموقع." : "The customers page displays a data grid table listing customers with project details, status, budget, and location.";
+	const name = isArabic ? "أسترالين" : "Astralyn";
+	const type = "website";
 	const customerGridImage = (props) => {
 		return (
 			<div className="image" style={{ display: "flex", gap: "1rem" }}>
@@ -43,7 +48,7 @@ const Customers = () => {
 			format: "C2",
 			textAlign: "Center",
 		},
-		{ field: "Budget", headerText: language.language === "ar" ? "ميزانية" : "Budget", width: "100", format:"C4",editType:"numericedit",type:"number" ,textAlign: "Center" },
+		{ field: "Budget", headerText: language.language === "ar" ? "ميزانية" : "Budget", width: "100", format: "C4", editType: "numericedit", type: "number", textAlign: "Center" },
 
 		{ field: "Location", headerText: language.language === "ar" ? "الموقع" : "Location", width: "150", textAlign: "Center" },
 
@@ -51,33 +56,36 @@ const Customers = () => {
 	];
 
 	return (
-		<GridComponent
-			dataSource={customersData[language.language]}
-			enableHover={false}
-			allowPaging
-			allowSorting
-			allowKeyboard
-			allowMultiSorting
-			allowFiltering={true}
-			enableStickyHeader={!isSmallDevice}
-			enablePersistence
-			enableAdaptiveUI={isSmallDevice}
-			rowRenderingMode={isSmallDevice ? "Vertical" : "Horizontal"}
-			pageSettings={{ pageCount: 5 }}
-			selectionSettings={selectionsettings}
-			toolbar={toolbarOptions}
-			showColumnChooser={true}
-			loadingIndicator={{ indicatorType: "Shimmer" }}
-			editSettings={editing}
-			filterSettings={{ type: "Menu" }}
-		>
-			<ColumnsDirective>
-				{customersGrid.map((item, index) => (
-					<ColumnDirective key={index} {...item} />
-				))}
-			</ColumnsDirective>
-			<Inject services={[Page, Selection, Toolbar, Edit, Sort, Filter,Toolbar, ColumnChooser]} />
-		</GridComponent>
+		<>
+			<Seo title={title} description={description} name={name} type={type} />
+			<GridComponent
+				dataSource={customersData[language.language]}
+				enableHover={false}
+				allowPaging
+				allowSorting
+				allowKeyboard
+				allowMultiSorting
+				allowFiltering={true}
+				enableStickyHeader={!isSmallDevice}
+				enablePersistence
+				enableAdaptiveUI={isSmallDevice}
+				rowRenderingMode={isSmallDevice ? "Vertical" : "Horizontal"}
+				pageSettings={{ pageCount: 5 }}
+				selectionSettings={selectionsettings}
+				toolbar={toolbarOptions}
+				showColumnChooser={true}
+				loadingIndicator={{ indicatorType: "Shimmer" }}
+				editSettings={editing}
+				filterSettings={{ type: "Menu" }}
+			>
+				<ColumnsDirective>
+					{customersGrid.map((item, index) => (
+						<ColumnDirective key={index} {...item} />
+					))}
+				</ColumnsDirective>
+				<Inject services={[Page, Selection, Toolbar, Edit, Sort, Filter, Toolbar, ColumnChooser]} />
+			</GridComponent>
+		</>
 	);
 };
 
