@@ -33,6 +33,8 @@ import { useMediaQuery } from "@uidotdev/usehooks";
 import { expenseData } from "@data/diagram-data";
 import { Box ,CardCover} from "@mui/joy";
 import { DateRangePickerComponent } from "@syncfusion/ej2-react-calendars";
+import Seo from "@components/Seo";
+
 
 let shape = { type: "HTML" };
 let constraints = NodeConstraints.Default & ~NodeConstraints.Resize & ~NodeConstraints.Rotate;
@@ -165,6 +167,11 @@ function HtmlNode() {
 	let datachange = onDateRangeChange;
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
 	const { language } = useThemeContext();
+	const isArabic = language.language === "ar";
+	const title = isArabic ? "أسترالين | المتعقب" : "Astralyn | Tracker";
+	const description = isArabic ? "صفحة التتبع لتتبع المصاريف استنادًا إلى التاريخ مع منتقي التقويم لعرض 3 مخططات: شريطية / خطية / عادية ومخطط دائري" : "The tracker page tracks expenses based on date with a calendar picker to display 3 charts: bar/line/normal and a circular chart";
+	const name = isArabic ? "أسترالين" : "Astralyn";
+	const type = "website";
 	let exp = language.language == "ar" ? expenseData["ar"] : expenseData["en"];
 	const SAMPLE_CSS = `
 #lchart_content_html_element,#colchart_content_html_element{
@@ -211,7 +218,7 @@ function HtmlNode() {
 		},
 		{
 			id: "node5",
-			offsetX: language.language === "ar" ? -200 : -434,
+			offsetX: isArabic ? -200 : -434,
 			offsetY: -157,
 			width: 250,
 			height: 30,
@@ -219,7 +226,7 @@ function HtmlNode() {
 			constraints: NodeConstraints.Default & ~NodeConstraints.Select,
 			annotations: [
 				{
-					content: language.language === "ar" ? "متعقب النفقات" : "EXPENSE TRACKER",
+					content: isArabic ? "متعقب النفقات" : "EXPENSE TRACKER",
 					style: { fontSize: 30, color: "var(--joy-palette-primary-900)", bold: true },
 				},
 			],
@@ -473,6 +480,7 @@ function HtmlNode() {
 		showWaitingPopup = false;
 	}
 	function diagramTemplate(props) {
+
 		if (props.id === "node") {
 			return (
 				<div className="diagram_border_cus diagram_border_cal">
@@ -501,7 +509,7 @@ function HtmlNode() {
 									xName="DateTime"
 									yName="Amount"
 									width={2}
-									name={language.language === "ar" ? "الكمية" : "Amount"}
+									name={isArabic ? "الكمية" : "Amount"}
 									type="Area"
 								></SeriesDirective>
 							</SeriesCollectionDirective>
@@ -542,7 +550,7 @@ function HtmlNode() {
 									xName="DateTime"
 									yName="Amount"
 									width={2}
-									name={language.language === "ar" ? "الدخل" : "Income"}
+									name={isArabic ? "الدخل" : "Income"}
 									fill="var(--joy-palette-primary-500)"
 									type="Column"
 								></SeriesDirective>
@@ -555,7 +563,7 @@ function HtmlNode() {
 									xName="DateTime"
 									yName="Amount"
 									width={2}
-									name={language.language === "ar" ? "الإنفاق" : "Expense"}
+									name={isArabic ? "الإنفاق" : "Expense"}
 									fill="var(--joy-palette-primary-800)"
 									type="Column"
 								></SeriesDirective>
@@ -614,8 +622,8 @@ function HtmlNode() {
 	}
 	return (
 		<div id="custom-diagram" className="control-section" style={{ height: "100%" }}>
-
 			{isSmallDevice && <style>{SAMPLE_CSS}</style>}
+			<Seo title={title} description={description} name={name} type={type} />
 			<DiagramComponent
 				enablePersistence
 				id="diagram"

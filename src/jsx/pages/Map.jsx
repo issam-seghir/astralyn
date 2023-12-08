@@ -6,10 +6,11 @@ import "leaflet.fullscreen/Control.FullScreen.css";
 import "leaflet.fullscreen/Control.FullScreen.js";
 import "leaflet/dist/leaflet.css";
 import { useEffect } from "react";
-import { Circle, CircleMarker, GeoJSON, LayersControl, MapContainer, Marker, Popup, TileLayer, useMap, useMapEvent } from "react-leaflet";
+import { Circle, CircleMarker, LayersControl, MapContainer, Marker, Popup, TileLayer, useMap, useMapEvent } from "react-leaflet";
 
+import Seo from "@components/Seo";
+import { useThemeContext } from "@contexts/ContextProvider";
 import { GeoSearchControl, OpenStreetMapProvider } from "leaflet-geosearch";
-
 
 const ComponentResize = () => {
 	const map = useMap();
@@ -102,8 +103,6 @@ const SearchField = () => {
 	return null;
 };
 
-
-
 const center = [51.505, -0.09];
 const position = [36.0339, 1.6596];
 const africaCenter = [0, 20];
@@ -125,44 +124,53 @@ const layers = [
 ];
 
 const Map = () => {
+	const { language } = useThemeContext();
+	const isArabic = language.language === "ar";
+	const title = isArabic ? "أسترالين | الخريطة" : "Astralyn | Map";
+	const description = isArabic ? "خريطة تعرض مواقع العملاء" : "map displaying the customer's locations";
+	const name = isArabic ? "أسترالين" : "Astralyn";
+	const type = "website";
 	return (
-		<MapContainer
-			style={{
-				height: "100%",
-				width: "100%",
-				borderRadius:"1rem"
-			}}
-			fullscreenControl={true}
-			fullscreenControlOptions={{ position: "topleft" }}
-			center={position}
-			zoom={7}
-			minZoom={3}
-			scrollWheelZoom={true}
-		>
-			<ComponentResize />
-			<TileLayer attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-			<GeoJSONData/>
-			<Marker position={position}>
-				<Popup>
-					A pretty CSS3 popup. <br /> Easily customizable.
-				</Popup>
-			</Marker>
-			<LayersControl position="topright">
-				{layers.map((layer, index) => {
-					return (
-						<LayersControl.BaseLayer key={index} checked={index === 0 ? true : false} name={layer.name}>
-							<TileLayer attribution={layer.attribution} url={layer.url} />
-						</LayersControl.BaseLayer>
-					);
-				})}
-			</LayersControl>
-			<HomeButton />
-			<SearchField />
-			<Circle center={center} pathOptions={fillBlueOptions} radius={200} />
-			<CircleMarker center={position} pathOptions={redOptions} radius={20}>
-				<Popup>Popup in CircleMarker</Popup>
-			</CircleMarker>
-		</MapContainer>
+		<>
+			<Seo title={title} description={description} name={name} type={type} />
+			<MapContainer
+				style={{
+					height: "100%",
+					width: "100%",
+					borderRadius: "1rem",
+				}}
+				fullscreenControl={true}
+				fullscreenControlOptions={{ position: "topleft" }}
+				center={position}
+				zoom={7}
+				minZoom={3}
+				scrollWheelZoom={true}
+			>
+				<ComponentResize />
+				<TileLayer attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+				<GeoJSONData />
+				<Marker position={position}>
+					<Popup>
+						A pretty CSS3 popup. <br /> Easily customizable.
+					</Popup>
+				</Marker>
+				<LayersControl position="topright">
+					{layers.map((layer, index) => {
+						return (
+							<LayersControl.BaseLayer key={index} checked={index === 0 ? true : false} name={layer.name}>
+								<TileLayer attribution={layer.attribution} url={layer.url} />
+							</LayersControl.BaseLayer>
+						);
+					})}
+				</LayersControl>
+				<HomeButton />
+				<SearchField />
+				<Circle center={center} pathOptions={fillBlueOptions} radius={200} />
+				<CircleMarker center={position} pathOptions={redOptions} radius={20}>
+					<Popup>Popup in CircleMarker</Popup>
+				</CircleMarker>
+			</MapContainer>
+		</>
 	);
 };
 

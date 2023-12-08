@@ -8,10 +8,8 @@ import Seo from "@components/Seo";
 function Analytics() {
 		const { language } = useThemeContext();
 		const isArabic = language.language === "ar";
-		const title = isArabic ? "أسترالين | محرر الماركداون" : "Astralyn | Markdown Editor";
-		const description = isArabic
-			? "محرر Markdown مع معاينة ومعاينة للتغييرات وزر لتنسيق النص (نمط Markdown) مع زر للتصدير وميزة الحفظ على التخزين المحلي."
-			: "A markdown editor with preview, resizable, and formatting buttons (Markdown style) with an export button and save-to-local-storage feature.";
+		const title = isArabic ? "أسترالين | التحليلات" : "Astralyn | Analytics";
+		const description = isArabic ? "تحتوي صفحة التحليلات على مخططات مرئية مثل سعر سهم AAPL ومخططين أخريين Polarradarchart / ScatterChart" : "The analytics page contains visual charts like AAPL stock price and two other charts PolarRadarChart / ScatterChart";
 		const name = isArabic ? "أسترالين" : "Astralyn";
 		const type = "website";
 	return (
