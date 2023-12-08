@@ -12,7 +12,7 @@ const Customers = () => {
 	const editing = { allowDeleting: true, allowEditing: true, allowAdding: true, mode: "Dialog" };
 	const { language } = useThemeContext();
 	const isArabic = language.language === "ar";
-	const title = isArabic ? "أسترالين | صفحة العملاء" : "Astralyn | Customers";
+	const title = isArabic ? "أسترالين | العملاء" : "Astralyn | Customers";
 	const description = isArabic ? "صفحة العملاء تحتوي على جدول بيانات يعرض قائمة العملاء مع تفاصيل مشاريعهم وحالتها والميزانية والموقع." : "The customers page displays a data grid table listing customers with project details, status, budget, and location.";
 	const name = isArabic ? "أسترالين" : "Astralyn";
 	const type = "website";

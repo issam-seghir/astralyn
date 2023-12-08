@@ -1,6 +1,7 @@
 import { ConnectorEditing, DiagramComponent, DiagramTools,DiagramContextMenu, Inject, PortConstraints, PortVisibility, PrintAndExport, SnapConstraints, Snapping, UndoRedo } from "@syncfusion/ej2-react-diagrams";
 import * as React from "react";
 import { useThemeContext } from "@contexts/ContextProvider";
+import Seo from "@components/Seo";
 
 let shape = [
 	{ shapeName: "BasicShape", shapeId: "Basic" },
@@ -94,6 +95,11 @@ function DrawingTools() {
 	}, []);
 
 		const { language } = useThemeContext();
+		const isArabic = language.language === "ar";
+		const title = isArabic ? "أسترالين | تطبيق الرسم التخطيطي" : "Astralyn | Drawer App";
+		const description = isArabic ? "يوفر تطبيق رسم تخطيطي منطقة رسم حيث يمكنك رسم أي أشكال وموصلات لرسم مخطط تفاعلي" : "The drawer app provides a drawing area where you can draw any shapes, connectors to draw an interactive diagram";
+		const name = isArabic ? "أسترالين" : "Astralyn";
+		const type = "website";
 	function rendereComplete() {
 		SetShape("Rectangle");
 		diagramInstance.tool = DiagramTools.ContinuousDraw;
@@ -290,8 +296,9 @@ function DrawingTools() {
 	}
 
 	return (
-		<div className="control-pane diagram-control-pane" style={{zIndex:1,position:"relative"}}>
+		<div className="control-pane diagram-control-pane" style={{ zIndex: 1, position: "relative" }}>
 			<style>{SAMPLE_CSS}</style>
+			<Seo title={title} description={description} name={name} type={type} />
 			<div className="col-lg-8 control-section">
 				<div className="content-wrapper" style={{ width: "100%" }}>
 					<DiagramComponent
@@ -344,11 +351,9 @@ function DrawingTools() {
 			</div>
 
 			<div className="col-lg-4  property-section">
-				<div className="property-panel-header">
-					{language.language === "ar" ? "الخواص" : "Properties"}{" "}
-				</div>
+				<div className="property-panel-header">{language.language === "ar" ? "الخواص" : "Properties"} </div>
 				<div className="row property-panel-content" id="appearance">
-					<div className="row row-header" style={{ paddingTop: "10px", }}>
+					<div className="row row-header" style={{ paddingTop: "10px" }}>
 						{language.language === "ar" ? "أشكال" : "Shapes"}
 					</div>
 					<div className="row" style={{ paddingTop: "8px" }}>
@@ -431,13 +436,12 @@ function DrawingTools() {
 							className="image-pattern-style"
 							id="text"
 							style={{
-
 								backgroundImage: "url('https://ej2.syncfusion.com/react/demos/src/diagram/Images/drawingTool/DrawingTool_9.png')",
 								marginRight: "3px",
 							}}
 						/>
 					</div>
-					<div className="row row-header" style={{ paddingTop: "10px", }}>
+					<div className="row row-header" style={{ paddingTop: "10px" }}>
 						{language.language === "ar" ? "موصلات" : "Connector"}
 					</div>
 					<div className="row" style={{ paddingTop: "8px" }}>

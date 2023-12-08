@@ -14,6 +14,7 @@ import { TbMobiledata } from "react-icons/tb";
 const Ecommerce = () => {
 	const { printLineChart, prinBarChartChart, language } = useThemeContext();
 	const isArabic = language.language === "ar";
+
 	// const cardRef = useRef(null);
 
 	// function mouseMoveEvent(e) {

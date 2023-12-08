@@ -5,12 +5,18 @@ import { Count, HtmlEditor, Image, Inject, Link, MarkdownEditor, QuickToolbar, R
 import { useMediaQuery } from "@uidotdev/usehooks";
 import * as Marked from "marked";
 import { useId } from "react";
-import {value} from "@data/editor-data"
+import { value } from "@data/editor-data";
 import { Box, CardCover } from "@mui/joy";
+import Seo from "@components/Seo";
 
 function Preview() {
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
 	const { language } = useThemeContext();
+	const isArabic = language.language === "ar";
+	const title = isArabic ? "أسترالين | محرر الماركداون" : "Astralyn | Markdown Editor";
+	const description = isArabic ? "محرر Markdown مع معاينة ومعاينة للتغييرات وزر لتنسيق النص (نمط Markdown) مع زر للتصدير وميزة الحفظ على التخزين المحلي." : "A markdown editor with preview, resizable, and formatting buttons (Markdown style) with an export button and save-to-local-storage feature.";
+	const name = isArabic ? "أسترالين" : "Astralyn";
+	const type = "website";
 	const id = useId();
 	let rteObj;
 	let splitterInstance;
@@ -52,10 +58,8 @@ function Preview() {
 		}
 	}
 	function content1() {
-
 		return (
 			<div className="content">
-				
 				<RichTextEditorComponent
 					id="defaultRTE"
 					ref={(richtexteditor) => {
@@ -94,6 +98,7 @@ function Preview() {
 
 	return (
 		<div className="control-pane" style={{ height: "100%" }}>
+			<Seo title={title} description={description} name={name} type={type} />
 			<div className="control-section onlineEditor" id="rtePreview">
 				<div className="content-wrapper">
 					<SplitterComponent orientation={isSmallDevice ? "Vertical" : "Horizontal"} ref={(splitter) => (splitterInstance = splitter)} height="450px" width="100%" resizing={onResizing.bind(this)} created={updateOrientation.bind(this)}>

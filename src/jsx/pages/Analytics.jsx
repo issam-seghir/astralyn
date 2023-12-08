@@ -2,11 +2,22 @@ import StockChart from "@components/StockChart";
 import { Box, Button, Card, CardContent, CardCover, Divider, IconButton, List, ListItem, Chip, Sheet } from "@mui/joy";
 import ScatterChart from "@components/ScatterChart";
 import PolarRadarChart from "@components/PolarRadarChart";
+import { useThemeContext } from "@contexts/ContextProvider";
+import Seo from "@components/Seo";
 
 function Analytics() {
+		const { language } = useThemeContext();
+		const isArabic = language.language === "ar";
+		const title = isArabic ? "أسترالين | محرر الماركداون" : "Astralyn | Markdown Editor";
+		const description = isArabic
+			? "محرر Markdown مع معاينة ومعاينة للتغييرات وزر لتنسيق النص (نمط Markdown) مع زر للتصدير وميزة الحفظ على التخزين المحلي."
+			: "A markdown editor with preview, resizable, and formatting buttons (Markdown style) with an export button and save-to-local-storage feature.";
+		const name = isArabic ? "أسترالين" : "Astralyn";
+		const type = "website";
 	return (
 		<Sheet variant="outlined" color="primary" sx={{ borderRadius: "1rem" }}>
-			<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)", borderRadius:"1rem", overflow:"hidden" }}>
+			<Seo title={title} description={description} name={name} type={type} />
+			<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)", borderRadius: "1rem", overflow: "hidden" }}>
 				<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 					<defs>
 						<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">

@@ -13,8 +13,8 @@ const GroupEditing = () => {
 	const dataAr = extend([], dataSourceAr.resourceConferenceData, null, true);
 	const { language } = useThemeContext();
 	const isArabic = language.language === "ar";
-	const title = isArabic ? " الطلبات | أسترالين" : "Astralyn | Orders";
-	const description = isArabic ? "صفحة الطلبات تحتوي على جدول بيانات يعرض طلبات المنتجات." : "The order page displays a data grid table of product orders.";
+	const title = isArabic ? "أسترالين | تطبيق الجدولة" : "Astralyn | Scheduler App";
+	const description = isArabic ? "تطبيق الجدولة يتميز بتقويم كبير مع إمكانية إضافة مواعيد لكل عامل" : "The scheduler app features a large calendar with filters , Taking appointments";
 	const name = isArabic ? "أسترالين" : "Astralyn";
 	const type = "website";
 

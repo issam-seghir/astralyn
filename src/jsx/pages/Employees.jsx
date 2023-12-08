@@ -13,7 +13,7 @@ const Employees = () => {
 	const editing = { allowDeleting: true, allowEditing: true, mode: `${isSmallDevice ? "Dialog" : "Normal"}` };
 	const { language } = useThemeContext();
 	const isArabic = language.language === "ar";
-	const title = isArabic ? "أسترالين | صفحة الموظفين" : "Astralyn | Employees";
+	const title = isArabic ? "أسترالين | الموظفين" : "Astralyn | Employees";
 	const description = isArabic ? "صفحة الموظفين تحتوي على جدول بيانات يعرض قائمة الموظفين مع تاريخ التعيين والتقارير." : "The employees page displays a data grid table listing employees with hire date and reporting.";
 	const name = isArabic ? "أسترالين" : "Astralyn";
 	const type = "website";

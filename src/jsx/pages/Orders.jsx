@@ -14,7 +14,7 @@ const Orders = () => {
 	const id = useId();
 	const { language } = useThemeContext();
 	const isArabic = language.language === "ar";
-	const title = isArabic ? " الطلبات | أسترالين" : "Astralyn | Orders";
+	const title = isArabic ? "أسترالين | الطلبات" : "Astralyn | Orders";
 	const description = isArabic ? "صفحة الطلبات تحتوي على جدول بيانات يعرض طلبات المنتجات." : "The order page displays a data grid table of product orders.";
 	const name = isArabic ? "أسترالين" : "Astralyn";
 	const type = "website";

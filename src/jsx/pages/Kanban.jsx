@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 
+import Seo from "@components/Seo";
 import { useThemeContext } from "@contexts/ContextProvider";
 import { cardData } from "@data/kanban-data";
 import Box from "@mui/joy/Box";
@@ -12,6 +13,11 @@ import { TbEyeSearch, TbProgressBolt } from "react-icons/tb";
 
 const Overview = () => {
 	const { language } = useThemeContext();
+	const isArabic = language.language === "ar";
+	const title = isArabic ? "أسترالين | تطبيق كانبان" : "Astralyn | Kanban App";;
+	const description = isArabic ? "تطبيق Kanban حيث يمكنك سحب وإسقاط البطاقات ، والتوسيع وطي ، وتحرير ، وحذف ، وإضافة بطاقات جديدة." : "kanban app where you can drag and drop cards, expand and collapse, edit, delete, and add new cards.";
+	const name = isArabic ? "أسترالين" : "Astralyn";
+	const type = "website";
 	const id = useId();
 	const iconMap = {
 		open: <IoIosListBox className="icon" color="#0251cc" />,
@@ -20,11 +26,11 @@ const Overview = () => {
 		close: <BsClipboardCheckFill className="icon" color="#63ba3c" />,
 	};
 	const fields = [
-		{ text: language.language === "ar" ? "معرف ID" : "ID", key: "Title", type: "TextBox" },
-		{ text: language.language === "ar" ? "الحالة" : "Status", key: "Status", type: "DropDown" },
-		{ text: language.language === "ar" ? "المعهود إليه" : "Assignee", key: "Assignee", type: "DropDown" },
-		{ text: language.language === "ar" ? "رتبة المعرف ID" : "Rank ID", key: "RankId", type: "TextBox" },
-		{ text: language.language === "ar" ? " ملخص" : "Summary", key: "Summary", type: "TextArea" },
+		{ text: isArabic ? "معرف ID" : "ID", key: "Title", type: "TextBox" },
+		{ text: isArabic ? "الحالة" : "Status", key: "Status", type: "DropDown" },
+		{ text: isArabic ? "المعهود إليه" : "Assignee", key: "Assignee", type: "DropDown" },
+		{ text: isArabic ? "رتبة المعرف ID" : "Rank ID", key: "RankId", type: "TextBox" },
+		{ text: isArabic ? " ملخص" : "Summary", key: "Summary", type: "TextArea" },
 	];
 	const cardRendered = (args) => {
 		let id = args.data.Id;
@@ -75,27 +81,30 @@ const Overview = () => {
 			.toUpperCase();
 	};
 	return (
-		<KanbanComponent
-			id="kanban"
-			cssClass="kanban-overview"
-			keyField="Status"
-			dataSource={cardData[language.language]}
-			swimlaneSettings={{ keyField: "Assignee", showItemCount: true }}
-			cardSettings={{
-				headerField: "Title",
-				template: cardTemplate.bind(this),
-				selectionType: "Multiple",
-			}}
-			dialogSettings={{ fields: fields }}
-			cardRendered={cardRendered.bind(this)}
-		>
-			<ColumnsDirective>
-				<ColumnDirective headerText={language.language === "ar" ? "ما يجب فعله" : "To Do"} showItemCount={true} keyField="Open" allowToggle={true} template={columnTemplate.bind(this)} />
-				<ColumnDirective headerText={language.language === "ar" ? "قيد التنفيد" : "In Progress"} showItemCount={true} keyField="InProgress" allowToggle={true} template={columnTemplate.bind(this)} />
-				<ColumnDirective headerText={language.language === "ar" ? "قيد المراجعة" : "In Review"} showItemCount={true} keyField="Review" allowToggle={true} template={columnTemplate.bind(this)} />
-				<ColumnDirective headerText={language.language === "ar" ? "إنتهى" : "Done"} showItemCount={true} keyField="Close" allowToggle={true} template={columnTemplate.bind(this)} />
-			</ColumnsDirective>
-		</KanbanComponent>
+		<>
+			<Seo title={title} description={description} name={name} type={type} />
+			<KanbanComponent
+				id="kanban"
+				cssClass="kanban-overview"
+				keyField="Status"
+				dataSource={cardData[language.language]}
+				swimlaneSettings={{ keyField: "Assignee", showItemCount: true }}
+				cardSettings={{
+					headerField: "Title",
+					template: cardTemplate.bind(this),
+					selectionType: "Multiple",
+				}}
+				dialogSettings={{ fields: fields }}
+				cardRendered={cardRendered.bind(this)}
+			>
+				<ColumnsDirective>
+					<ColumnDirective headerText={isArabic ? "ما يجب فعله" : "To Do"} showItemCount={true} keyField="Open" allowToggle={true} template={columnTemplate.bind(this)} />
+					<ColumnDirective headerText={isArabic ? "قيد التنفيد" : "In Progress"} showItemCount={true} keyField="InProgress" allowToggle={true} template={columnTemplate.bind(this)} />
+					<ColumnDirective headerText={isArabic ? "قيد المراجعة" : "In Review"} showItemCount={true} keyField="Review" allowToggle={true} template={columnTemplate.bind(this)} />
+					<ColumnDirective headerText={isArabic ? "إنتهى" : "Done"} showItemCount={true} keyField="Close" allowToggle={true} template={columnTemplate.bind(this)} />
+				</ColumnsDirective>
+			</KanbanComponent>
+		</>
 	);
 };
 export default Overview;
