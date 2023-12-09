@@ -18,7 +18,8 @@ export default function ModeToggle() {
 	return (
 		<IconButton
 			color="primary"
-			size="sm"
+			size="md"
+			sx={{borderRadius:"50%"}}
 			variant="outlined"
 			aria-label="Switch between Dark/White mode"
 			onClick={() => {
