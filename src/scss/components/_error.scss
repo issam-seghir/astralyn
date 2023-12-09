@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 .error-page {
 	// background: radial-gradient(at 50% -20%, #908392, #0d060e) fixed;
 	background: var(--joy-palette-background-surface);
@@ -9,6 +11,7 @@
 	transform-box: fill-box;
 	animation: swing ease-in-out 1.3s infinite alternate;
 }
+
 
 #girllight {
 	transform-origin: 0% 97%;
@@ -25,24 +28,4 @@
 #zero {
 	transform-origin: bottom;
 	transform-box: fill-box;
-}
-
-/*************  swing  ************/
-@keyframes swing {
-	0% {
-		transform: rotate(10deg);
-	}
-	100% {
-		transform: rotate(-10deg);
-	}
-}
-
-/*************  swing hair  ************/
-@keyframes swinghair {
-	0% {
-		transform: rotate(6deg);
-	}
-	100% {
-		transform: rotate(-6deg);
-	}
 }

@@ -1,2 +1,58 @@
 @use "variables" as *;
 
+
+@keyframes bounce {
+	0%,
+	100% {
+		transform: translateY(-10%);
+		animation-timing-function: cubic-bezier(0.83, -0.04, 0.25, 1.19);
+	}
+
+	50% {
+		transform: translateY(5%);
+		animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+	}
+}
+
+@keyframes rock {
+	0%,
+	100% {
+		animation-timing-function: linear;
+	}
+
+	50% {
+		transform: translateY(7%);
+		animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+	}
+}
+
+@keyframes glow {
+	from {
+		text-shadow: 0 0 20px var(--joy-palette-primary-100);
+	}
+
+	to {
+		text-shadow: 0 0 30px var(--joy-palette-primary-200), 0 0 10px var(--joy-palette-primary-300);
+	}
+}
+
+
+/*************  swing  ************/
+@keyframes swing {
+	0% {
+		transform: rotate(10deg);
+	}
+	100% {
+		transform: rotate(-10deg);
+	}
+}
+
+/*************  swing hair  ************/
+@keyframes swinghair {
+	0% {
+		transform: rotate(6deg);
+	}
+	100% {
+		transform: rotate(-6deg);
+	}
+}

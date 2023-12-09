@@ -3,9 +3,9 @@ import BarColumnChart from "@components/BarColumnChart";
 import DashedLineChart from "@components/DashedLineChart";
 import FinancialHeloChart from "@components/FinancialHeloChart";
 import { useThemeContext } from "@contexts/ContextProvider";
-import { Box, Button, Card, CardActions, CardContent, CardCover, Chip, Divider, Sheet,Skeleton } from "@mui/joy";
+import { Box, Button, Card, CardActions, CardContent, CardCover, Chip, Divider, Sheet } from "@mui/joy";
 import Typography from "@mui/joy/Typography";
-import { useEffect, useRef, Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { BsClipboardData } from "react-icons/bs";
 import { FaUserGroup } from "react-icons/fa6";
 import { LuBox } from "react-icons/lu";
@@ -119,10 +119,12 @@ const Ecommerce = () => {
 						size="lg"
 						variant="outlined"
 						sx={{
-							transition: ".2s transform",
+							transition: ".2s all",
 							flex: "30%",
 							alignItems: "flex-start",
-
+							"&:hover .card-icon": {
+								boxShadow: "md",
+							},
 							"@container (max-width: 1230px)": {
 								alignItems: "center",
 							},
@@ -148,7 +150,20 @@ const Ecommerce = () => {
 							</svg>
 						</CardCover>
 						<CardContent>
-							<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2, bgcolor: "var(--joy-palette-background-card)" }} variant="soft" color="primary">
+							<Sheet
+								sx={{
+									gap: 2,
+									borderRadius: "50%",
+									width: "fit-content",
+									transition: ".3s all",
+									p: 3,
+									mb: 2,
+									bgcolor: "var(--joy-palette-background-card)",
+								}}
+								variant="soft"
+								className="card-icon"
+								color="primary"
+							>
 								<FaUserGroup className="icon" />
 							</Sheet>
 							<CardContent>
@@ -178,6 +193,9 @@ const Ecommerce = () => {
 							transition: ".2s transform",
 							flex: "30%",
 							alignItems: "flex-start",
+							"&:hover .card-icon": {
+								boxShadow: "md",
+							},
 							"@container (max-width: 1230px)": {
 								alignItems: "center",
 							},
@@ -203,7 +221,7 @@ const Ecommerce = () => {
 							</svg>
 						</CardCover>
 						<CardContent>
-							<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2, bgcolor: "var(--joy-palette-background-card)" }} variant="soft" color="primary">
+							<Sheet className="card-icon" sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2, bgcolor: "var(--joy-palette-background-card)", transition: ".3s all" }} variant="soft" color="primary">
 								<LuBox className="icon" />
 							</Sheet>
 							<CardContent>
@@ -233,6 +251,9 @@ const Ecommerce = () => {
 							transition: ".2s transform",
 							flex: "30%",
 							alignItems: "flex-start",
+							"&:hover .card-icon": {
+								boxShadow: "md",
+							},
 							"@container (max-width: 1230px)": {
 								alignItems: "center",
 							},
@@ -258,7 +279,7 @@ const Ecommerce = () => {
 							</svg>
 						</CardCover>
 						<CardContent>
-							<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2, bgcolor: "var(--joy-palette-background-card)" }} variant="soft" color="primary">
+							<Sheet className="card-icon" sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2, bgcolor: "var(--joy-palette-background-card)", transition: ".3s all" }} variant="soft" color="primary">
 								<BsClipboardData className="icon" />
 							</Sheet>
 							<CardContent>
@@ -288,6 +309,9 @@ const Ecommerce = () => {
 							transition: ".2s transform",
 							flex: "30%",
 							alignItems: "flex-start",
+							"&:hover .card-icon": {
+								boxShadow: "md",
+							},
 							"@container (max-width: 1230px)": {
 								alignItems: "center",
 							},
@@ -313,7 +337,7 @@ const Ecommerce = () => {
 							</svg>
 						</CardCover>
 						<CardContent>
-							<Sheet sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2, bgcolor: "var(--joy-palette-background-card)" }} variant="soft" color="primary">
+							<Sheet className="card-icon" sx={{ gap: 2, borderRadius: "50%", width: "fit-content", p: 3, mb: 2, bgcolor: "var(--joy-palette-background-card)", transition: ".3s all" }} variant="soft" color="primary">
 								<TbMobiledata className="icon" />
 							</Sheet>
 							<CardContent>
@@ -391,7 +415,7 @@ const Ecommerce = () => {
 						</Card>
 						<Divider orientation="vertical" />
 						<Card component="li" color="primary" orientation="vertical" size="lg" variant="soft" sx={{ flex: { lg: 1, xs: "100%", gap: "2.5rem", alignItems: "center" } }}>
-							<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)" }}>
+							<CardCover sx={{ backdropFilter: "blur(16px) saturate(108%)" }}>
 								<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 									<defs>
 										<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
@@ -447,7 +471,7 @@ const Ecommerce = () => {
 					</Box>
 				</Sheet>
 				<Sheet variant="outlined" color="primary" sx={{ borderRadius: "md", height: { xs: "300px", sm: "auto" } }}>
-					<CardCover sx={{ borderRadius: "md", backdropFilter: "blur(16px) saturate(180%)" }}>
+					<CardCover sx={{ borderRadius: "md", backdropFilter: "blur(16px) saturate(108%)" }}>
 						<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 							<defs>
 								<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">

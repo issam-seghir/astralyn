@@ -3,11 +3,16 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title></title>
 		<!-- five icon -->
 		<link rel="apple-touch-icon" sizes="180x180" href="/logo/apple-touch-icon.png" />
 		<link rel="icon" type="image/png" sizes="32x32" href="/logo/favicon-32x32.png" />
 		<link rel="icon" type="image/png" sizes="16x16" href="/logo/favicon-16x16.png" />
 		<link rel="manifest" href="/logo/site.webmanifest" />
+		<!-- Preload Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 	</head>
 	<body>
 		<div id="root"></div>
@@ -15,29 +20,23 @@
 	</body>
 </html>
 
+<!-- Preload Images -->
+<!-- <link rel="preload" as="image" href="src/assets/images/mockup.webp" /> -->
+<!-- <link rel="preload" as="image" href="src/assets/images/hero-mockup-img.webp" /> -->
+<!-- <link rel="preload" as="image" href="src/assets/images/mockup.webp" /> -->
+<!-- <link rel="preload" as="image" href="src/assets/svg/gradient-blur.svg" /> -->
+<!-- <link rel="preload" as="image" href="src/assets/svg/gradient-blur-med.svg" /> -->
+<!-- <link rel="preload" as="image" href="src/assets/svg/gradient-blur-big.svg" /> -->
+<!-- <link rel="preload" as="image" href="src/assets/svg/lines.svg" /> -->
+<!-- preconnect servers -->
+<!-- <link rel="preload" as="fetch" href="https://lottie.host/0295e92a-27eb-42dd-b0ee-d97339256f4b/wJ1XB6BqMT.json" crossorigin="anonymous" /> -->
+<!-- <link rel="preconnect" href="https://lottie.host" crossorigin /> -->
 
-
-		<!-- Preload Fonts -->
-		<!-- <link rel="preload" href="/fonts/aileron/Aileron-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous" /> -->
-		<!-- <link rel="preload" href="/fonts/aileron/Aileron-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous" /> -->
-		<!-- <link rel="preload" href="/fonts/aileron/Aileron-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" /> -->
-		<!-- Preload Images -->
-		<!-- <link rel="preload" as="image" href="src/assets/images/mockup.webp" /> -->
-		<!-- <link rel="preload" as="image" href="src/assets/images/hero-mockup-img.webp" /> -->
-		<!-- <link rel="preload" as="image" href="src/assets/images/mockup.webp" /> -->
-		<!-- <link rel="preload" as="image" href="src/assets/svg/gradient-blur.svg" /> -->
-		<!-- <link rel="preload" as="image" href="src/assets/svg/gradient-blur-med.svg" /> -->
-		<!-- <link rel="preload" as="image" href="src/assets/svg/gradient-blur-big.svg" /> -->
-		<!-- <link rel="preload" as="image" href="src/assets/svg/lines.svg" /> -->
-		<!-- preconnect servers -->
-		<!-- <link rel="preload" as="fetch" href="https://lottie.host/0295e92a-27eb-42dd-b0ee-d97339256f4b/wJ1XB6BqMT.json" crossorigin="anonymous" /> -->
-		<!-- <link rel="preconnect" href="https://lottie.host" crossorigin /> -->
-
-		<!-- container query polyfill -->
-		<!-- <script defer src="https://cdn.jsdelivr.net/npm/container-query-polyfill@1/dist/container-query-polyfill.modern.js"></script> -->
-		<!-- :has selector polyfill -->
-		<!-- <script src="https://unpkg.com/css-has-pseudo@6.0.0/dist/browser-global.js"></script> -->
-		<!-- <script module defer>
+<!-- container query polyfill -->
+<!-- <script defer src="https://cdn.jsdelivr.net/npm/container-query-polyfill@1/dist/container-query-polyfill.modern.js"></script> -->
+<!-- :has selector polyfill -->
+<!-- <script src="https://unpkg.com/css-has-pseudo@6.0.0/dist/browser-global.js"></script> -->
+<!-- <script module defer>
 			// eslint-disable-next-line no-undef
 			cssHasPseudo(document, { debug: true });
 			console.log("has polyfill loaded correctly : " + typeof cssHasPseudo);

@@ -119,6 +119,7 @@ export const ContextProvider = ({ children }) => {
 	useEffect(() => {
 		// Store the selected theme to local storage
 		localStorage.setItem("selectedTheme", selectedTheme);
+		document.documentElement.dataset.joyTheme = selectedTheme;
 
 		// Set the theme
 		switch (selectedTheme) {
@@ -157,7 +158,7 @@ export const ContextProvider = ({ children }) => {
 			language,
 			changeLanguage,
 		}),
-		[theme, selectedTheme, setSelectedTheme, progress, setProgress, loading, setLoading, showSnackBar, setShowSnackBar,show,toggleSideBar, BarChartInstance, LineChartInstance, printLineChart, prinBarChartChart, language, changeLanguage] // Add all dependencies here
+		[theme, selectedTheme, setSelectedTheme, progress, setProgress, loading, setLoading, showSnackBar, setShowSnackBar, show, toggleSideBar, BarChartInstance, LineChartInstance, printLineChart, prinBarChartChart, language, changeLanguage] // Add all dependencies here
 	);
 
 	return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;

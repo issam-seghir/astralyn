@@ -7,7 +7,6 @@
 // * Third party mixins
 @import "gerillass";
 @import "@syncfusion/ej2/material3-dark.css";
-@import "https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
 
 @layer abstracts {
 	@include meta.load-css("abstracts");

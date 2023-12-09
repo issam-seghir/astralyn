@@ -15,7 +15,7 @@ function Analytics() {
 	return (
 		<Sheet variant="outlined" color="primary" sx={{ borderRadius: "1rem" }}>
 			<Seo title={title} description={description} name={name} type={type} />
-			<CardCover sx={{ backdropFilter: "blur(16px) saturate(180%)", borderRadius: "1rem", overflow: "hidden" }}>
+			<CardCover sx={{ backdropFilter: "blur(16px) saturate(108%)", borderRadius: "1rem", overflow: "hidden" }}>
 				<svg viewBox="0 0 800 800" opacity="0.92" preserveAspectRatio="xMidYMid slice">
 					<defs>
 						<filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
