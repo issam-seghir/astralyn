@@ -1,4 +1,3 @@
-// SettingsSidebar.js
 import ModeToggle from "@components/ModeToggle";
 import { useThemeContext } from "@contexts/ContextProvider";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";

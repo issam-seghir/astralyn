@@ -1,10 +1,10 @@
-import product1 from "@assets/images/product1.jpg";
-import product2 from "@assets/images/product2.jpg";
-import product3 from "@assets/images/product3.jpg";
-import product4 from "@assets/images/product4.jpg";
-import product5 from "@assets/images/product5.jpg";
-import product6 from "@assets/images/product6.jpg";
-import product7 from "@assets/images/product7.jpg";
+import product1 from "@assets/images/product1.webp";
+import product2 from "@assets/images/product2.webp";
+import product3 from "@assets/images/product3.webp";
+import product4 from "@assets/images/product4.webp";
+import product5 from "@assets/images/product5.webp";
+import product6 from "@assets/images/product6.webp";
+import product7 from "@assets/images/product7.webp";
 
 export const ordersData = {
 	en: [

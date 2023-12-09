@@ -3,33 +3,39 @@ import BarColumnChart from "@components/BarColumnChart";
 import DashedLineChart from "@components/DashedLineChart";
 import FinancialHeloChart from "@components/FinancialHeloChart";
 import { useThemeContext } from "@contexts/ContextProvider";
-import { Box, Button, Card, CardActions, CardContent, CardCover, Chip, Divider, Sheet } from "@mui/joy";
+import { Box, Button, Card, CardActions, CardContent, CardCover, Chip, Divider, Sheet,Skeleton } from "@mui/joy";
 import Typography from "@mui/joy/Typography";
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, useRef } from "react";
 import { BsClipboardData } from "react-icons/bs";
 import { FaUserGroup } from "react-icons/fa6";
 import { LuBox } from "react-icons/lu";
 import { TbMobiledata } from "react-icons/tb";
+import { useTheme } from "@mui/joy/styles";
 
 const Ecommerce = () => {
 	const { printLineChart, prinBarChartChart, language } = useThemeContext();
 	const isArabic = language.language === "ar";
+const theme = useTheme();
+const isDarkMode = theme.palette.mode === "dark";
+	const cardRef = useRef(null);
 
-	// const cardRef = useRef(null);
+	function mouseMoveEvent(e) {
+		const { x, y } = cardRef.current.getBoundingClientRect();
+		cardRef.current.style.setProperty("--x", e.clientX - x);
+		cardRef.current.style.setProperty("--y", e.clientY - y);
+	}
+	useEffect(() => {
+		const cardElement = cardRef.current;
+		if (cardElement) {
+			cardElement.addEventListener("mousemove", mouseMoveEvent);
+		}
 
-	// function mouseMoveEvent(e) {
-	// 	const { x, y } = cardRef.current.getBoundingClientRect();
-	// 	cardRef.current.style.setProperty("--x", e.clientX - x);
-	// 	cardRef.current.style.setProperty("--y", e.clientY - y);
-	// }
-	// useEffect(() => {
-	// 	if (cardRef) {
-	// 		cardRef.current.addEventListener("mousemove", mouseMoveEvent);
-	// 	}
-	// 	// don't forget to *remove* the eventListener
-	// 	// when your component unmounts!
-	// 	return () => cardRef.current.removeEventListener("mousemove", mouseMoveEvent);
-	// }, [cardRef]);
+		return () => {
+			if (cardElement) {
+				cardElement.removeEventListener("mousemove", mouseMoveEvent);
+			}
+		};
+	}, []);
 	useEffect(() => {
 		const tiltCards = document.querySelectorAll(".card");
 
@@ -60,11 +66,12 @@ const Ecommerce = () => {
 		};
 	}, []);
 
+	
 	return (
-		<Suspense fallback={<div>Loading...</div>}>
+		<Suspense fallback={<Skeleton />}>
 			<Box sx={{ my: 12, display: "flex", flexDirection: "column", gap: 4 }}>
 				<Card
-					// ref={cardRef}
+					ref={cardRef}
 					variant="outlined"
 					color="primary"
 					orientation="vertical"
@@ -73,18 +80,23 @@ const Ecommerce = () => {
 						flexBasis: { xs: "100%", lg: "20rem" },
 						alignItems: "center",
 						position: "relative",
-						// "&::after": {
-						// 	content: "''",
-						// 	position: "absolute",
-						// 	top: "calc(var(--y, 0) * 1px - 50px)",
-						// 	left: "calc(var(--x, 0) * 1px - 50px)",
-						// 	width: "200px",
-						// 	height: "200px",
-						// 	background: "radial-gradient(white, red 80%)",
-						// 	opacity: 0,
-						// 	zIndex:99,
-						// 	transition: "opacity 0.2s",
-						// },
+						overflow: "hidden",
+						...(isDarkMode && {
+							"&:before": {
+								content: "''",
+								position: "absolute",
+								top: "calc(var(--y, 0) * 1px - 50px)",
+								left: "calc(var(--x, 0) * 1px - 50px)",
+								width: "100px",
+								height: "100px",
+								background: "radial-gradient(var(--joy-palette-primary-softColor), #3984ff00 80%)",
+								opacity: 0,
+								transition: "opacity 0.2s",
+							},
+							"&:hover:before": {
+								opacity: 0.4,
+							},
+						}),
 					}}
 				>
 					<CardCover sx={{ backdropFilter: "blur(16px) saturate(108%)" }}>
@@ -106,7 +118,7 @@ const Ecommerce = () => {
 						</Typography>
 						<Typography level="h2">{isArabic ? "دج 63,448.78" : "$63,448.78"}</Typography>
 					</CardContent>
-					<Button size="lg" color="primary" variant="solid" sx={{ paddingInline: "3rem" }}>
+					<Button onClick={handleClick} size="lg" color="primary" variant="solid" sx={{ paddingInline: "3rem" }}>
 						{isArabic ? "تحميل" : "Download"}
 					</Button>
 				</Card>

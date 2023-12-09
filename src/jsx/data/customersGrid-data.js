@@ -1,6 +1,6 @@
-import avatar from "@assets/images/avatar.jpg";
-import avatar3 from "@assets/images/avatar3.png";
-import avatar4 from "@assets/images/avatar4.jpg";
+import avatar from "@assets/images/avatar.webp";
+import avatar3 from "@assets/images/avatar3.webp";
+import avatar4 from "@assets/images/avatar4.webp";
 
 export const customersData = {
 	en: [

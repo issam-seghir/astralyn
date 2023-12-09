@@ -46,6 +46,23 @@
 	-webkit-text-fill-color: rgba(var(--joy-palette-primary-mainChannel) / 0.7);
 }
 
+html[data-joy-color-scheme="light"] .text-animate {
+	background-repeat: repeat;
+	background-position: center center;
+	background-size: contain;
+	-webkit-background-clip: text;
+	// background-image: url(https://c.tenor.com/5RKB-LuSHb0AAAAC/fire.gif);
+	// background-image: url(https://i.pinimg.com/originals/5c/c0/d7/5cc0d7bd98a28bdcd8d0916e5db7bd7e.gif);
+	background-image: url(https://c.tenor.com/4rSybJ_qYGsAAAAC/snow.gif);
+	text-shadow: -3px -3px 10px #ffffff0d;
+	-webkit-text-fill-color: #00000042;
+	-webkit-text-stroke-color: var(--joy-palette-primary-500);
+	-webkit-text-stroke-width: 0.3px;
+	background-image: url("https://c.tenor.com/OPMJAHXKIU0AAAAd/looking-water.gif");
+	background-clip: text;
+	// text-shadow: -3px -3px 10px var(--joy-palette-primary-softBg), 3px 3px 10px #0000004f;
+}
+
 // .text-animate {
 //     -webkit-text-stroke: 0px #0000004f;
 //     -webkit-text-fill-color: #ffffff1c;
@@ -60,26 +77,5 @@
 // }
 
 
-
-
 // html[data-joy-theme="greenEmerald"] {
 // }
-
-html[data-joy-color-scheme="light"] .text-animate {
-	background-repeat: repeat;
-    background-position: center center;
-    background-size: contain;
-    -webkit-background-clip: text;
-	// background-image: url(https://c.tenor.com/5RKB-LuSHb0AAAAC/fire.gif);
-    // background-image: url(https://i.pinimg.com/originals/5c/c0/d7/5cc0d7bd98a28bdcd8d0916e5db7bd7e.gif);
-    background-image: url(https://c.tenor.com/4rSybJ_qYGsAAAAC/snow.gif);
-    text-shadow: -3px -3px 10px #ffffff0d;
-    -webkit-text-fill-color: #00000042;
-	-webkit-text-stroke-color: var(--joy-palette-primary-500);
-	-webkit-text-stroke-width: 0.3px;
-	background-image: url("https://c.tenor.com/OPMJAHXKIU0AAAAd/looking-water.gif");
-	background-clip: text;
-	// text-shadow: -3px -3px 10px var(--joy-palette-primary-softBg), 3px 3px 10px #0000004f;
-
-
-}

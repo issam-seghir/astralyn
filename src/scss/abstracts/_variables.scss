@@ -33,11 +33,6 @@
 $rounded: 1rem;
 $margin-section: rfs(15rem);
 
-// ? page padding container
-$page-width: 89rem;
-$page-width-range: 89vw;
-$page-padding-x: calc((var($page-width-range) - min(80vw, var(--page-width))) / 2);
-
 /** others */
 $box-shadow: rfs(0 0 2rem rgb(0 0 0 / 25%));
 $main-transition-delay: 0.8s;
