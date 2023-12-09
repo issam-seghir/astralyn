@@ -9,7 +9,7 @@ function SettingsButton() {
 	const [showSettings, setShowSettings] = useState(false);
 	return (
 		<>
-			<Tooltip title="setting" size="md" variant="solid" color="primary" placement="top" arrow>
+			<Tooltip title="setting"  size="md" variant="solid" color="primary" placement="top" sx={{boxShadow:"none"}} arrow>
 				<IconButton component={motion.button} whileHover={{ scale: 1.1 }} whileTap={{ scale: 1 }} variant="soft" color="primary" size="lg" sx={{ zIndex: 999, borderRadius: "50%", p: ".5em", position: "fixed", insetInlineEnd: 4, bottom: 4 }} onClick={() => setShowSettings(() => !showSettings)}>
 					<motion.div animate={{ rotate: 360 }} transition={{ repeat: Number.POSITIVE_INFINITY, duration: 3, ease: "linear" }}>
 						<FiSettings className="icon" />

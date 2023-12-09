@@ -1,13 +1,23 @@
+import { useThemeContext } from "@contexts/ContextProvider";
 import DensityMediumIcon from "@mui/icons-material/DensityMedium";
 import Box from "@mui/joy/Box";
 import IconButton from "@mui/joy/IconButton";
-import { useThemeContext } from "@contexts/ContextProvider";
 
 export default function Header() {
-	const { toggleSideBar} = useThemeContext();
+	const { toggleSideBar } = useThemeContext();
 
 	return (
-		<Box sx={{ borderBottom: "1px solid", borderColor: "background.level1", boxShadow: "sm" }}>
+		<Box
+			sx={{
+				borderBottom: "1px solid",
+				borderColor: "background.level1",
+				boxShadow: "sm",
+				position: "sticky",
+				top: 0,
+				backgroundColor: "var(--joy-palette-background-surface)",
+				zIndex: 2,
+			}}
+		>
 			<IconButton
 				onClick={() => toggleSideBar()}
 				variant="soft"

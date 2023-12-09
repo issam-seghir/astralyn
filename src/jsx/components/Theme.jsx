@@ -20,6 +20,7 @@ const defaultTheme = extendTheme({
 				text: {
 					primary: "var(--joy-palette-primary-200)",
 				},
+				divider: "rgba(var(--joy-palette-primary-mainChannel) / 15%)",
 			},
 			shadowChannel: "var(--joy-palette-primary-mainChannel)",
 			shadowRing: "inset -1px -3px 3px rgb(0 0 0 / 29%)",
@@ -36,6 +37,7 @@ const defaultTheme = extendTheme({
 					level1xl: "var(--joy-palette-primary-300)",
 					level1xll: "var(--joy-palette-primary-400)",
 				},
+				divider: "rgba(var(--joy-palette-primary-mainChannel) / 35%)",
 			},
 			shadowChannel: "var(--joy-palette-primary-lightChannel)",
 			shadowRing: "inset -1px -3px 3px rgba(var(--joy-palette-primary-mainChannel) / 15%)",
@@ -145,6 +147,7 @@ const greenEmeraldTheme = extendTheme({
 					level1xl: "var(--joy-palette-primary-300)",
 					level1xll: "var(--joy-palette-primary-400)",
 				},
+				divider: "rgba(var(--joy-palette-primary-mainChannel) / 35%)",
 			},
 			shadowChannel: "var(--joy-palette-primary-lightChannel)",
 			shadowRing: "inset -1px -3px 3px rgba(var(--joy-palette-primary-mainChannel) / 15%)",
@@ -186,6 +189,8 @@ const greenEmeraldTheme = extendTheme({
 					level1xl: "var(--joy-palette-primary-800)",
 					level1xll: "var(--joy-palette-primary-800)",
 				},
+				divider: "rgba(var(--joy-palette-primary-mainChannel) / 15%)",
+
 				text: {
 					primary: "var(--joy-palette-primary-200)",
 				},
@@ -286,6 +291,7 @@ const pinkFuchsiaTheme = extendTheme({
 					level1xl: "var(--joy-palette-primary-300)",
 					level1xll: "var(--joy-palette-primary-400)",
 				},
+				divider: "rgba(var(--joy-palette-primary-mainChannel) / 15%)",
 			},
 			shadowChannel: "var(--joy-palette-primary-lightChannel)",
 			shadowRing: "inset -1px -3px 3px rgba(var(--joy-palette-primary-mainChannel) / 15%)",
@@ -330,6 +336,7 @@ const pinkFuchsiaTheme = extendTheme({
 					level1xl: "var(--joy-palette-primary-900)",
 					level1xll: "var(--joy-palette-primary-800)",
 				},
+				divider: "rgba(var(--joy-palette-primary-mainChannel) / 15%)",
 				text: {
 					primary: "var(--joy-palette-primary-200)",
 				},

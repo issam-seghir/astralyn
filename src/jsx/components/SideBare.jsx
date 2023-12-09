@@ -54,6 +54,7 @@ export default function SideBare() {
 					flexBasis: "auto",
 					px: "1rem",
 					py: "1rem",
+					overflow: "auto" ,
 					position: {
 						xs: "fixed",
 						md: "unset",
@@ -67,6 +68,7 @@ export default function SideBare() {
 					transition: "transform 0.4s, width 0.4s",
 					borderInlineEnd: "1px solid",
 					borderColor: "divider",
+					backgroundColor: "var(--joy-palette-background-surface)"
 				}}
 			>
 				<Box sx={{ display: "flex", gap: 2, p: 1.5, alignItems: "center" }}>

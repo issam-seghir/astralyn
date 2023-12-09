@@ -127,6 +127,7 @@ const isDarkMode = theme.palette.mode === "dark";
 						variant="solid"
 						color="primary"
 						open={open}
+						size={"sm"}
 						onClose={() => setOpen(false)}
 						anchorOrigin={{ vertical: "top", horizontal: isArabic ? "left" : "right" }}
 						endDecorator={
