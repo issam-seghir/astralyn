@@ -3,14 +3,15 @@ import BarColumnChart from "@components/BarColumnChart";
 import DashedLineChart from "@components/DashedLineChart";
 import FinancialHeloChart from "@components/FinancialHeloChart";
 import { useThemeContext } from "@contexts/ContextProvider";
-import { Box, Button, Card, CardActions, CardContent, CardCover, Chip, Divider, Sheet,Skeleton } from "@mui/joy";
+import { Box, Button, Card, CardActions, CardContent, CardCover, Chip, Divider, Sheet, Skeleton, Snackbar } from "@mui/joy";
 import Typography from "@mui/joy/Typography";
-import { Suspense, useEffect, useRef } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { BsClipboardData } from "react-icons/bs";
 import { FaUserGroup } from "react-icons/fa6";
 import { LuBox } from "react-icons/lu";
 import { TbMobiledata } from "react-icons/tb";
 import { useTheme } from "@mui/joy/styles";
+import { SiDatadotai } from "react-icons/si";
 
 const Ecommerce = () => {
 	const { printLineChart, prinBarChartChart, language } = useThemeContext();
@@ -18,6 +19,7 @@ const Ecommerce = () => {
 const theme = useTheme();
 const isDarkMode = theme.palette.mode === "dark";
 	const cardRef = useRef(null);
+ const [open, setOpen] = useState(false);
 
 	function mouseMoveEvent(e) {
 		const { x, y } = cardRef.current.getBoundingClientRect();
@@ -66,7 +68,7 @@ const isDarkMode = theme.palette.mode === "dark";
 		};
 	}, []);
 
-	
+
 	return (
 		<Suspense fallback={<Skeleton />}>
 			<Box sx={{ my: 12, display: "flex", flexDirection: "column", gap: 4 }}>
@@ -118,9 +120,23 @@ const isDarkMode = theme.palette.mode === "dark";
 						</Typography>
 						<Typography level="h2">{isArabic ? "دج 63,448.78" : "$63,448.78"}</Typography>
 					</CardContent>
-					<Button onClick={handleClick} size="lg" color="primary" variant="solid" sx={{ paddingInline: "3rem" }}>
+					<Button onClick={() => setOpen(true)} size="lg" color="primary" variant="solid" sx={{ paddingInline: "3rem" }}>
 						{isArabic ? "تحميل" : "Download"}
 					</Button>
+					<Snackbar
+						variant="solid"
+						color="primary"
+						open={open}
+						onClose={() => setOpen(false)}
+						anchorOrigin={{ vertical: "top", horizontal: isArabic ? "left" : "right" }}
+						endDecorator={
+							<Button onClick={() => setOpen(false)} size="sm" variant="soft" sx={{borderRadius:"sm"}}>
+								{isArabic ? "إلغــاء " : "Dismiss"}
+							</Button>
+						}
+					>
+						{isArabic ? "أنت شخص رائــع 🚀🥳" : "You are awesome 🚀🥳"}
+					</Snackbar>
 				</Card>
 				<Box variant="soft" component="ul" sx={{ display: "flex", flexWrap: { xs: "wrap", xl: "nowrap" }, gap: 2, "--Icon-fontSize": "4.5rem", containerType: "inline-size" }}>
 					<Card

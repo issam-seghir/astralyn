@@ -37,8 +37,8 @@ const defaultTheme = extendTheme({
 					level1xll: "var(--joy-palette-primary-400)",
 				},
 			},
-			shadowChannel: "var(--joy-palette-primary-mainChannel)",
-			shadowRing: "inset -1px -3px 3px rgb(0 0 0 / 29%)",
+			shadowChannel: "var(--joy-palette-primary-lightChannel)",
+			shadowRing: "inset -1px -3px 3px rgba(var(--joy-palette-primary-mainChannel) / 15%)",
 		},
 	},
 	fontFamily: {
@@ -146,8 +146,8 @@ const greenEmeraldTheme = extendTheme({
 					level1xll: "var(--joy-palette-primary-400)",
 				},
 			},
-			shadowChannel: "var(--joy-palette-primary-mainChannel)",
-			shadowRing: "inset -1px -3px 3px rgb(0 0 0 / 29%)",
+			shadowChannel: "var(--joy-palette-primary-lightChannel)",
+			shadowRing: "inset -1px -3px 3px rgba(var(--joy-palette-primary-mainChannel) / 15%)",
 		},
 		dark: {
 			palette: {
@@ -287,8 +287,8 @@ const pinkFuchsiaTheme = extendTheme({
 					level1xll: "var(--joy-palette-primary-400)",
 				},
 			},
-			shadowChannel: "var(--joy-palette-primary-mainChannel)",
-			shadowRing: "inset -1px -3px 3px rgb(0 0 0 / 29%)",
+			shadowChannel: "var(--joy-palette-primary-lightChannel)",
+			shadowRing: "inset -1px -3px 3px rgba(var(--joy-palette-primary-mainChannel) / 15%)",
 		},
 		dark: {
 			palette: {

@@ -65,7 +65,7 @@ export default function SideBare() {
 						md: "none",
 					},
 					transition: "transform 0.4s, width 0.4s",
-					borderRight: "1px solid",
+					borderInlineEnd: "1px solid",
 					borderColor: "divider",
 				}}
 			>
