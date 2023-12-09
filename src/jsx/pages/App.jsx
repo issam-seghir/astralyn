@@ -746,7 +746,7 @@ function App() {
 									</g>
 								</svg>
 							</CardCover>
-							<Outlet style={{ zIndex: 1 }} />
+							<Outlet />
 						</Box>
 					</Sheet>
 				)}

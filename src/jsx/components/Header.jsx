@@ -14,7 +14,7 @@ export default function Header() {
 				boxShadow: "sm",
 				position: "sticky",
 				top: 0,
-				backgroundColor: "var(--joy-palette-background-surface)",
+				background: "var(--joy-palette-background-surface)",
 				zIndex: 2,
 			}}
 		>

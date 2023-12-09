@@ -131,12 +131,12 @@ const isDarkMode = theme.palette.mode === "dark";
 						onClose={() => setOpen(false)}
 						anchorOrigin={{ vertical: "top", horizontal: isArabic ? "left" : "right" }}
 						endDecorator={
-							<Button onClick={() => setOpen(false)} size="sm" variant="soft" sx={{borderRadius:"sm"}}>
+							<Button onClick={() => setOpen(false)} size="sm" variant="soft" sx={{ borderRadius: "sm" }}>
 								{isArabic ? "إلغــاء " : "Dismiss"}
 							</Button>
 						}
 					>
-						{isArabic ? "أنت شخص رائــع 🚀🥳" : "You are awesome 🚀🥳"}
+						<Typography level="title-md" color="commun.white">{isArabic ? "أنت شخص رائــع 🚀🥳" : "You are awesome 🚀🥳"}</Typography>
 					</Snackbar>
 				</Card>
 				<Box variant="soft" component="ul" sx={{ display: "flex", flexWrap: { xs: "wrap", xl: "nowrap" }, gap: 2, "--Icon-fontSize": "4.5rem", containerType: "inline-size" }}>

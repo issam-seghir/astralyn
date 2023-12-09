@@ -15,11 +15,13 @@ import { MdBubbleChart, MdEditSquare, MdDashboard } from "react-icons/md";
 
 import { Link as RouterLink } from "react-router-dom";
 import { useThemeContext } from "@contexts/ContextProvider";
+import { useState } from "react";
 
 
 export default function SideBare() {
-		const { language } = useThemeContext();
+	const { language } = useThemeContext();
 	const { toggleSideBar, show } = useThemeContext();
+	const [selectedItem, setSelectedItem] = useState("dashboard"); // Initially selected item
 
 	return (
 		<>
@@ -54,7 +56,7 @@ export default function SideBare() {
 					flexBasis: "auto",
 					px: "1rem",
 					py: "1rem",
-					overflow: "auto" ,
+					overflow: "auto",
 					position: {
 						xs: "fixed",
 						md: "unset",
@@ -68,7 +70,7 @@ export default function SideBare() {
 					transition: "transform 0.4s, width 0.4s",
 					borderInlineEnd: "1px solid",
 					borderColor: "divider",
-					backgroundColor: "var(--joy-palette-background-surface)"
+					background: "var(--joy-palette-background-surface)",
 				}}
 			>
 				<Box sx={{ display: "flex", gap: 2, p: 1.5, alignItems: "center" }}>
@@ -108,7 +110,7 @@ export default function SideBare() {
 				>
 					<ListItemHeaderNested title={language.language === "ar" ? "لوحة القيادة" : "DASHBOARD"}>
 						<ListItem>
-							<ListItemButton color="primary" component={RouterLink} to="/" underline="none" selected>
+							<ListItemButton color="primary" component={RouterLink} to="/" underline="none" selected={selectedItem === "dashboard"} onClick={() => setSelectedItem("dashboard")}>
 								<ListItemDecorator>
 									<MdDashboard className="icon" />
 								</ListItemDecorator>
@@ -120,7 +122,7 @@ export default function SideBare() {
 					</ListItemHeaderNested>
 					<ListItemHeaderNested title={language.language === "ar" ? "السجلات" : "RECORDS"}>
 						<ListItem>
-							<ListItemButton component={RouterLink} to="/orders" underline="none">
+							<ListItemButton component={RouterLink} to="/orders" underline="none" selected={selectedItem === "orders"} onClick={() => setSelectedItem("orders")}>
 								<ListItemDecorator>
 									<FaShoppingCart className="icon" />
 								</ListItemDecorator>
@@ -128,7 +130,7 @@ export default function SideBare() {
 							</ListItemButton>
 						</ListItem>
 						<ListItem>
-							<ListItemButton component={RouterLink} to="/employees" underline="none">
+							<ListItemButton component={RouterLink} to="/employees" underline="none" selected={selectedItem === "employees"} onClick={() => setSelectedItem("employees")}>
 								<ListItemDecorator>
 									<FaUserGroup className="icon" />
 								</ListItemDecorator>
@@ -138,7 +140,7 @@ export default function SideBare() {
 							</ListItemButton>
 						</ListItem>
 						<ListItem>
-							<ListItemButton component={RouterLink} to="/customers" underline="none">
+							<ListItemButton component={RouterLink} to="/customers" underline="none" selected={selectedItem === "customers"} onClick={() => setSelectedItem("customers")}>
 								<ListItemDecorator>
 									<FaUserTie className="icon" />
 								</ListItemDecorator>
@@ -150,7 +152,7 @@ export default function SideBare() {
 					</ListItemHeaderNested>
 					<ListItemHeaderNested title={language.language === "ar" ? "التطبيقات" : "APPS"}>
 						<ListItem>
-							<ListItemButton component={RouterLink} to="/scheduler" underline="none">
+							<ListItemButton component={RouterLink} to="/scheduler" underline="none" selected={selectedItem === "scheduler"} onClick={() => setSelectedItem("scheduler")}>
 								<ListItemDecorator>
 									<FaCalendarDays className="icon" />
 								</ListItemDecorator>
@@ -158,7 +160,7 @@ export default function SideBare() {
 							</ListItemButton>
 						</ListItem>
 						<ListItem>
-							<ListItemButton component={RouterLink} to="/kanban" underline="none">
+							<ListItemButton component={RouterLink} to="/kanban" underline="none" selected={selectedItem === "kanban"} onClick={() => setSelectedItem("kanban")}>
 								<ListItemDecorator>
 									<BsKanbanFill className="icon" />
 								</ListItemDecorator>
@@ -168,7 +170,7 @@ export default function SideBare() {
 							</ListItemButton>
 						</ListItem>
 						<ListItem>
-							<ListItemButton component={RouterLink} to="/markdawn-editor" underline="none">
+							<ListItemButton component={RouterLink} to="/markdawn-editor" underline="none" selected={selectedItem === "markdawn-editor"} onClick={() => setSelectedItem("markdawn-editor")}>
 								<ListItemDecorator>
 									<MdEditSquare className="icon" />
 								</ListItemDecorator>
@@ -178,7 +180,7 @@ export default function SideBare() {
 							</ListItemButton>
 						</ListItem>
 						<ListItem>
-							<ListItemButton component={RouterLink} to="/drawer" underline="none">
+							<ListItemButton component={RouterLink} to="/drawer" underline="none" selected={selectedItem === "drawer"} onClick={() => setSelectedItem("drawer")}>
 								<ListItemDecorator>
 									<HiColorSwatch className="icon" />
 								</ListItemDecorator>
@@ -190,7 +192,7 @@ export default function SideBare() {
 					</ListItemHeaderNested>
 					<ListItemHeaderNested title={language.language === "ar" ? "البيانات" : "DATA"}>
 						<ListItem>
-							<ListItemButton component={RouterLink} to="/analytics" underline="none">
+							<ListItemButton component={RouterLink} to="/analytics" underline="none" selected={selectedItem === "analytics"} onClick={() => setSelectedItem("analytics")}>
 								<ListItemDecorator>
 									<MdBubbleChart className="icon" />
 								</ListItemDecorator>
@@ -198,7 +200,7 @@ export default function SideBare() {
 							</ListItemButton>
 						</ListItem>
 						<ListItem>
-							<ListItemButton component={RouterLink} to="/tracker" underline="none">
+							<ListItemButton component={RouterLink} to="/tracker" underline="none" selected={selectedItem === "tracker"} onClick={() => setSelectedItem("tracker")}>
 								<ListItemDecorator>
 									<FaChartPie className="icon" />
 								</ListItemDecorator>
@@ -208,7 +210,7 @@ export default function SideBare() {
 							</ListItemButton>
 						</ListItem>
 						<ListItem>
-							<ListItemButton component={RouterLink} to="/map" underline="none">
+							<ListItemButton component={RouterLink} to="/map" underline="none" selected={selectedItem === "map"} onClick={() => setSelectedItem("map")}>
 								<ListItemDecorator>
 									<FaMapLocationDot className="icon" />
 								</ListItemDecorator>
