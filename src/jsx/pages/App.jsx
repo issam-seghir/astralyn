@@ -654,7 +654,7 @@ function App() {
 				) : (
 					<Sheet
 						variant="plain"
-						id="sheetBg"
+						className="bg-rainbow-blur"
 						position="relative"
 						sx={{
 							display: "flex",
@@ -754,10 +754,4 @@ function App() {
 		</CssVarsProvider>
 	);
 }
-
-{
-	/* <Header toggleSideBar={toggleSideBar} />
-	<SideBare show={show} toggleSideBar={toggleSideBar} /> */
-}
-
 export default App;

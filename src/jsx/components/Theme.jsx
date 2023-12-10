@@ -77,6 +77,21 @@ const defaultTheme = extendTheme({
 				}),
 			},
 		},
+		JoySelect: {
+			styleOverrides: {
+				listbox: ({ theme }) => ({
+					boxShadow: "none",
+				}),
+			},
+		},
+		JoyRadio: {
+			styleOverrides: {
+				// Update the styles of MuiRadio-action based on RTL
+				action: ({ theme }) => ({
+					textAlign: "start",
+				}),
+			},
+		},
 		JoyListItemButton: {
 			defaultProps: {
 				color: "primary",
@@ -218,6 +233,21 @@ const greenEmeraldTheme = extendTheme({
 		JoyStack: {
 			defaultProps: {
 				useFlexGap: true /* uses flexbox gap by default */,
+			},
+		},
+		JoySelect: {
+			styleOverrides: {
+				listbox: ({ theme }) => ({
+					boxShadow: "none",
+				}),
+			},
+		},
+		JoyRadio: {
+			styleOverrides: {
+				// Update the styles of MuiRadio-action based on RTL
+				action: ({ theme }) => ({
+					textAlign: "start",
+				}),
 			},
 		},
 		JoyListItemButton: {
@@ -370,6 +400,21 @@ const pinkFuchsiaTheme = extendTheme({
 			styleOverrides: {
 				root: ({ theme }) => ({
 					background: theme.vars.palette.background.surface,
+				}),
+			},
+		},
+		JoySelect: {
+			styleOverrides: {
+				listbox: ({ theme }) => ({
+					boxShadow: "none",
+				}),
+			},
+		},
+		JoyRadio: {
+			styleOverrides: {
+				// Update the styles of MuiRadio-action based on RTL
+				action: ({ theme }) => ({
+					textAlign: "start",
 				}),
 			},
 		},

@@ -54,6 +54,7 @@ export default function SideBare() {
 				onClick={() => toggleSideBar()}
 			/>
 			<Box
+				className="bg-rainbow-blur"
 				sx={{
 					display: "flex",
 					alignSelf: "stretch",

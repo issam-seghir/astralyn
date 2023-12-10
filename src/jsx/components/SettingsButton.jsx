@@ -32,7 +32,7 @@ function SettingsButton() {
 						},
 						[theme.breakpoints.up("md")]: {
 							bottom: 4,
-							top: "initial"
+							top: "initial",
 						},
 					}}
 					onClick={() => setShowSettings(() => !showSettings)}
@@ -42,7 +42,7 @@ function SettingsButton() {
 					</motion.div>
 				</IconButton>
 			</Tooltip>
-			<SettingsBar showSettings={showSettings} />
+			<SettingsBar showSettings={showSettings} setShowSettings={setShowSettings}/>
 		</>
 	);
 }
