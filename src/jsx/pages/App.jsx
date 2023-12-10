@@ -622,12 +622,13 @@ L10n.load({
 	},
 });
 function App() {
-	const { theme, loading ,language} = useThemeContext();
+	const { theme, loading, language,  status } = useThemeContext();
 	const isArabic = language.language === "ar" ;
 	const title =  isArabic ? 'أسترالين' : 'Astralyn'
 	const description = isArabic ? "صفحة الصفحة الرئيسية للتجارة الإلكترونية تقدم إحصائيات حول العملاء والمنتجات والمبيعات والأرباح والميزانية والنفقات." : "The e-commerce home page provides stats on customers, products, sales, earnings, budget, and expenses.";
 	const name = isArabic ? "أسترالين" : "Astralyn";
 	const type = "website";
+
 	return (
 		<CssVarsProvider theme={theme} defaultMode="system">
 			<HelmetProvider>
@@ -654,7 +655,7 @@ function App() {
 				) : (
 					<Sheet
 						variant="plain"
-						className="bg-rainbow-blur"
+						className={status.bgBlurAll && "bg-rainbow-blur"}
 						position="relative"
 						sx={{
 							display: "flex",

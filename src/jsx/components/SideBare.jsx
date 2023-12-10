@@ -20,7 +20,7 @@ import { useState, useEffect} from "react";
 
 export default function SideBare() {
 	const { language } = useThemeContext();
-	const { toggleSideBar, show } = useThemeContext();
+	const { toggleSideBar, show, status } = useThemeContext();
 	// const [selectedItem, setSelectedItem] = useState("dashboard"); // Initially selected item
   const location = useLocation();
   const [selectedItem, setSelectedItem] = useState("");
@@ -54,7 +54,7 @@ export default function SideBare() {
 				onClick={() => toggleSideBar()}
 			/>
 			<Box
-				className="bg-rainbow-blur"
+				className={status.bgBlurAll && !status.bgBlurOnlyMainPage && "bg-rainbow-blur"}
 				sx={{
 					display: "flex",
 					alignSelf: "stretch",
