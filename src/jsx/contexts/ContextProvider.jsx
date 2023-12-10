@@ -1,5 +1,5 @@
 /* eslint-disable unicorn/consistent-function-scoping */
-import { defaultTheme, greenEmeraldTheme, pinkFuchsiaTheme } from "@components/Theme";
+import { defaultTheme, greenEmeraldTheme, pinkFuchsiaTheme } from "@jsx/utils/theme";
 import { enableRtl, setCulture, setCurrencyCode } from "@syncfusion/ej2-base";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 

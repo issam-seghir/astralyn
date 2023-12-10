@@ -1,6 +1,5 @@
 @use "variables" as *;
 
-
 @keyframes bounce {
 	0%,
 	100% {
@@ -36,12 +35,12 @@
 	}
 }
 
-
 /*************  swing  ************/
 @keyframes swing {
 	0% {
 		transform: rotate(10deg);
 	}
+
 	100% {
 		transform: rotate(-10deg);
 	}
@@ -52,7 +51,18 @@
 	0% {
 		transform: rotate(6deg);
 	}
+
 	100% {
 		transform: rotate(-6deg);
+	}
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
 	}
 }

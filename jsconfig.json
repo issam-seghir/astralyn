@@ -10,6 +10,7 @@
 			"@contexts/*": ["src/jsx/contexts/*"],
 			"@data/*": ["src/jsx/data/*"],
 			"@pages/*": ["src/jsx/pages/*"],
+			"@utils/*": ["src/jsx/utils/*"],
 			"@abstracts/*": ["src/scss/abstracts/*"],
 			"@base/*": ["src/scss/base/*"],
 			"@scssComponents/*": ["src/scss/components/*"],

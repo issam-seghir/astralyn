@@ -1,4 +1,4 @@
-import ListItemHeaderNested from "@components/ListItemHeaderNested";
+import ListItemHeaderNested from "@jsx/components/ui/ListItemHeaderNested";
 import Box from "@mui/joy/Box";
 import Link from "@mui/joy/Link";
 import List from "@mui/joy/List";

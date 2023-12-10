@@ -2,7 +2,6 @@ import SettingsBar from "@components/SettingsBar";
 import IconButton from "@mui/joy/IconButton";
 import Tooltip from "@mui/joy/Tooltip";
 import { useTheme } from "@mui/joy/styles";
-import { motion } from "framer-motion";
 import { memo, useState } from "react";
 import { FiSettings } from "react-icons/fi";
 
@@ -13,9 +12,6 @@ function SettingsButton() {
 		<>
 			<Tooltip title="setting" size="md" variant="solid" color="primary" placement="top" sx={{ boxShadow: "none" }} arrow>
 				<IconButton
-					component={motion.button}
-					whileHover={{ scale: 1.1 }}
-					whileTap={{ scale: 1 }}
 					variant="soft"
 					color="primary"
 					size="lg"
@@ -35,9 +31,7 @@ function SettingsButton() {
 					}}
 					onClick={() => setShowSettings(() => !showSettings)}
 				>
-					<motion.div animate={{ rotate: 360 }} transition={{ repeat: Number.POSITIVE_INFINITY, duration: 3, ease: "linear" }}>
-						<FiSettings className="icon" />
-					</motion.div>
+						<FiSettings className="icon rotate" />
 				</IconButton>
 			</Tooltip>
 			<SettingsBar showSettings={showSettings} setShowSettings={setShowSettings}/>
@@ -48,5 +42,3 @@ function SettingsButton() {
 const MemoizedSettingsButton = memo(SettingsButton);
 
 export default MemoizedSettingsButton;
-
-// export default SettingsButton;

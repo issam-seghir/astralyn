@@ -1,4 +1,4 @@
-import ModeToggle from "@components/ModeToggle";
+import ModeToggle from "@jsx/components/ui/ModeToggle";
 import { useThemeContext } from "@contexts/ContextProvider";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import { Badge, Chip, Typography, Button, Checkbox } from "@mui/joy";

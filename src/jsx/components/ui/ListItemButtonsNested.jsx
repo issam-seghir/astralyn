@@ -1,4 +1,4 @@
-import Toggler from "@components/Toggler";
+import Toggler from "@jsx/components/ui/Toggler";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import List from "@mui/joy/List";
 import ListItem from "@mui/joy/ListItem";

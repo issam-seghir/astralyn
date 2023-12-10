@@ -10,8 +10,8 @@ import Loading from "@pages/Loading";
 import { HelmetProvider } from "react-helmet-async";
 import { Outlet } from "react-router-dom";
 
-import Header from "@components/Header";
-import SettingsButton from "@components/SettingsButton";
+import Header from "@jsx/components/layout/Header";
+import SettingsButton from "@jsx/components/ui/SettingsButton";
 import { L10n, loadCldr } from "@syncfusion/ej2-base";
 import * as arGregorianCalander from "cldr-data/main/ar-DZ/ca-gregorian.json";
 import * as arCharactersData from "cldr-data/main/ar-DZ/characters.json";

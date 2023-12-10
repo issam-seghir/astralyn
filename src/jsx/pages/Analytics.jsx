@@ -1,4 +1,4 @@
-import StockChart from "@components/StockChart";
+import StockChart from "@jsx/components/charts/StockChart";
 import { Box, Button, Card, CardContent, CardCover, Divider, IconButton, List, ListItem, Chip, Sheet } from "@mui/joy";
 import ScatterChart from "@jsx/components/charts/ScatterChart";
 import PolarRadarChart from "@jsx/components/charts/PolarRadarChart";

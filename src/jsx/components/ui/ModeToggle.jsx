@@ -2,6 +2,7 @@ import IconButton from "@mui/joy/IconButton";
 import { useColorScheme } from "@mui/joy/styles";
 import { useEffect, useState } from "react";
 import { BiSolidMoon as DarkModeIcon, BiSun as LightModeIcon } from "react-icons/bi";
+
 export default function ModeToggle() {
 	const { mode, setMode } = useColorScheme();
 	const [mounted, setMounted] = useState(false);
