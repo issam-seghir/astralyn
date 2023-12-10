@@ -15,7 +15,10 @@ export const ContextProvider = ({ children }) => {
 	const [loading, setLoading] = useState(true);
 	const [showSnackBar, setShowSnackBar] = useState(false);
 	const [show, setSideBar] = useState(false);
-
+	const [status, setStatus] = useState({
+		bgBlurAll: false,
+		bgBlurOnlyMainPage: false,
+	});
 	const LineChartInstance = useRef();
 	const BarChartInstance = useRef();
 	const languageConfigs = useMemo(() => {
@@ -72,6 +75,21 @@ export const ContextProvider = ({ children }) => {
 		},
 		[languageConfigs, setLanguage, showSnackBar]
 	);
+
+	const handleCheckboxbgBlurAll = () => {
+		setStatus((prevStatus) => ({
+			...prevStatus,
+			bgBlurAll: !prevStatus.bgBlurAll,
+			bgBlurOnlyMainPage: false, // Reset the second checkbox when the first one changes
+		}));
+	};
+
+	const handleCheckboxbgBlurOnlyMainPagee = () => {
+		setStatus((prevStatus) => ({
+			...prevStatus,
+			bgBlurOnlyMainPage: !prevStatus.bgBlurOnlyMainPage,
+		}));
+	};
 
 	// function changeLanguage(selectedLanguage) {
 	// 	const newConfig = languageConfigs[selectedLanguage];
@@ -150,6 +168,9 @@ export const ContextProvider = ({ children }) => {
 			showSnackBar,
 			setShowSnackBar,
 			show,
+			handleCheckboxbgBlurOnlyMainPagee,
+			handleCheckboxbgBlurAll,
+			status,
 			toggleSideBar,
 			BarChartInstance,
 			LineChartInstance,
@@ -158,7 +179,28 @@ export const ContextProvider = ({ children }) => {
 			language,
 			changeLanguage,
 		}),
-		[theme, selectedTheme, setSelectedTheme, progress, setProgress, loading, setLoading, showSnackBar, setShowSnackBar, show, toggleSideBar, BarChartInstance, LineChartInstance, printLineChart, prinBarChartChart, language, changeLanguage] // Add all dependencies here
+		[
+			theme,
+			selectedTheme,
+			setSelectedTheme,
+			progress,
+			setProgress,
+			loading,
+			setLoading,
+			showSnackBar,
+			setShowSnackBar,
+			show,
+			handleCheckboxbgBlurOnlyMainPagee,
+			handleCheckboxbgBlurAll,
+			status,
+			toggleSideBar,
+			BarChartInstance,
+			LineChartInstance,
+			printLineChart,
+			prinBarChartChart,
+			language,
+			changeLanguage,
+		] // Add all dependencies here
 	);
 
 	return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;

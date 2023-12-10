@@ -14,19 +14,21 @@ import Snackbar from "@mui/joy/Snackbar";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import { GiCurledLeaf } from "react-icons/gi";
-
+import { useState } from "react";
 
 function splitCamelCase(input) {
 	return input.replaceAll(/([a-z])([A-Z])/g, "$1 $2");
 }
 function SettingsSidebar({ showSettings, setShowSettings }) {
-	const { selectedTheme, setSelectedTheme, language, changeLanguage, setShowSnackBar, showSnackBar } = useThemeContext();
+	const { selectedTheme, setSelectedTheme, language, changeLanguage, setShowSnackBar, showSnackBar, handleCheckboxbgBlurOnlyMainPagee, handleCheckboxbgBlurAll, status } = useThemeContext();
 	const isArabic = language.language === "ar";
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 380px)");
 
 	function handleChange(e) {
 		setSelectedTheme(e.target.value);
 	}
+
+
 	return (
 		<>
 			{/* Overlay background */}
@@ -100,7 +102,7 @@ function SettingsSidebar({ showSettings, setShowSettings }) {
 						onChange={changeLanguage}
 						indicator={<MdKeyboardArrowDown />}
 						sx={{
-							boxShadow:"none",
+							boxShadow: "none",
 							width: 240,
 							[`& .${selectClasses.indicator}`]: {
 								transition: "0.2s",
@@ -110,8 +112,14 @@ function SettingsSidebar({ showSettings, setShowSettings }) {
 							},
 						}}
 					>
-						<Option sx={{
-							boxShadow:"none"}} value="en">{isArabic ? "الإنجليزية" : "English"}</Option>
+						<Option
+							sx={{
+								boxShadow: "none",
+							}}
+							value="en"
+						>
+							{isArabic ? "الإنجليزية" : "English"}
+						</Option>
 						<Option value="ar">{isArabic ? "العربية" : "Arabic"}</Option>
 					</Select>
 					<Typography level="h3">{isArabic ? "إختر ثِيــمًا" : "Choose a Theme:"}</Typography>
@@ -188,11 +196,11 @@ function SettingsSidebar({ showSettings, setShowSettings }) {
 								badgeInset="-15%"
 								color="primary"
 							>
-								<Checkbox overlay label="rainbow blurring background" />
+								<Checkbox checked={status.bgBlurAll} onChange={handleCheckboxbgBlurAll} overlay label="rainbow blurring background" />
 							</Badge>
 						</Sheet>
 						<Sheet variant="outlined">
-							<Checkbox label="only for main page (deactive for sidebar)" overlay />
+							<Checkbox checked={status.bgBlurOnlyMainPage} disabled={!status.bgBlurAll} onChange={handleCheckboxbgBlurOnlyMainPagee} label="only for main page" overlay />
 						</Sheet>
 					</Box>
 				</Box>
