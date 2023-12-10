@@ -13,7 +13,7 @@ import Sheet from "@mui/joy/Sheet";
 import Snackbar from "@mui/joy/Snackbar";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useMediaQuery } from "@uidotdev/usehooks";
-import { GiCurledLeaf } from "react-icons/gi";
+import { HiColorSwatch } from "react-icons/hi";
 import { useState } from "react";
 
 function splitCamelCase(input) {
@@ -168,7 +168,7 @@ function SettingsSidebar({ showSettings, setShowSettings }) {
 								}}
 							>
 								<Radio id={value} value={value} checkedIcon={<CheckCircleRoundedIcon />} />
-								<Avatar variant="soft" size="sm" />
+								<HiColorSwatch />
 								<FormLabel sx={{ textTransform: "capitalize" }} htmlFor={value}>
 									{splitCamelCase(value)}
 								</FormLabel>
@@ -196,11 +196,11 @@ function SettingsSidebar({ showSettings, setShowSettings }) {
 								badgeInset="-15%"
 								color="primary"
 							>
-								<Checkbox checked={status.bgBlurAll} onChange={handleCheckboxbgBlurAll} overlay label="rainbow blurring background" />
+								<Checkbox checked={status.bgBlurAll} onChange={handleCheckboxbgBlurAll} overlay label={isArabic ? "خلفية تأثير قوس قزح" : "rainbow blurring background"} />
 							</Badge>
 						</Sheet>
 						<Sheet variant="outlined">
-							<Checkbox checked={status.bgBlurOnlyMainPage} disabled={!status.bgBlurAll} onChange={handleCheckboxbgBlurOnlyMainPagee} label="only for main page" overlay />
+							<Checkbox checked={status.bgBlurOnlyMainPage} disabled={!status.bgBlurAll} onChange={handleCheckboxbgBlurOnlyMainPagee} label={isArabic ? "فقط للصفحات (استبعاد الشريط الجانبي)" : "only for pages (exclude sidebar)"} overlay />
 						</Sheet>
 					</Box>
 				</Box>

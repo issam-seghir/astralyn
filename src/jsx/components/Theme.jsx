@@ -86,7 +86,15 @@ const defaultTheme = extendTheme({
 		},
 		JoyRadio: {
 			styleOverrides: {
-				// Update the styles of MuiRadio-action based on RTL
+				// fix RTL input  text align problem
+				action: ({ theme }) => ({
+					textAlign: "start",
+				}),
+			},
+		},
+		JoyCheckbox: {
+			styleOverrides: {
+				// fix RTL input  text align problem
 				action: ({ theme }) => ({
 					textAlign: "start",
 				}),
@@ -243,6 +251,14 @@ const greenEmeraldTheme = extendTheme({
 			},
 		},
 		JoyRadio: {
+			styleOverrides: {
+				// Update the styles of MuiRadio-action based on RTL
+				action: ({ theme }) => ({
+					textAlign: "start",
+				}),
+			},
+		},
+		JoyCheckbox: {
 			styleOverrides: {
 				// Update the styles of MuiRadio-action based on RTL
 				action: ({ theme }) => ({
@@ -411,6 +427,14 @@ const pinkFuchsiaTheme = extendTheme({
 			},
 		},
 		JoyRadio: {
+			styleOverrides: {
+				// Update the styles of MuiRadio-action based on RTL
+				action: ({ theme }) => ({
+					textAlign: "start",
+				}),
+			},
+		},
+		JoyCheckbox: {
 			styleOverrides: {
 				// Update the styles of MuiRadio-action based on RTL
 				action: ({ theme }) => ({

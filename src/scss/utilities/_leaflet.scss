@@ -28,11 +28,17 @@
 
 
 // fix z-index of top left buttons llike layer to be in top of search bar its opened in mobile devices
+.leaflet-top, .leaflet-bottom{
+      z-index: 990 !important;
 
-.leaflet-top .leaflet-right{
-      z-index: 1001;
 }
+.leaflet-geosearch-bar{
+      z-index: 990 !important;
 
+}
+.leaflet-top .leaflet-right{
+      z-index: 991 !important;
+}
 
 // fix text doesnt shown completly (input search bar)  in mobile devices
 .leaflet-control-geosearch.leaflet-geosearch-bar{
