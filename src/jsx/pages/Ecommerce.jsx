@@ -1,7 +1,7 @@
 // import { Button, LineChart, Pie, SparkLine, Stacked } from "../components";
-import BarColumnChart from "@components/BarColumnChart";
-import DashedLineChart from "@components/DashedLineChart";
-import FinancialHeloChart from "@components/FinancialHeloChart";
+import BarColumnChart from "@jsx/components/charts/BarColumnChart";
+import DashedLineChart from "@jsx/components/charts/DashedLineChart";
+import FinancialHeloChart from "@jsx/components/charts/FinancialHeloChart";
 import { useThemeContext } from "@contexts/ContextProvider";
 import { Box, Button, Card, CardActions, CardContent, CardCover, Chip, Divider, Sheet, Skeleton, Snackbar } from "@mui/joy";
 import Typography from "@mui/joy/Typography";

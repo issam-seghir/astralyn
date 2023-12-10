@@ -1,7 +1,7 @@
 import StockChart from "@components/StockChart";
 import { Box, Button, Card, CardContent, CardCover, Divider, IconButton, List, ListItem, Chip, Sheet } from "@mui/joy";
-import ScatterChart from "@components/ScatterChart";
-import PolarRadarChart from "@components/PolarRadarChart";
+import ScatterChart from "@jsx/components/charts/ScatterChart";
+import PolarRadarChart from "@jsx/components/charts/PolarRadarChart";
 import { useThemeContext } from "@contexts/ContextProvider";
 import Seo from "@components/Seo";
 

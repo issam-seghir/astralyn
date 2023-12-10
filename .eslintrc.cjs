@@ -44,15 +44,17 @@ module.exports = {
 				extensions: [".js", ".jsx", ".json", ".ts", ".tsx", ".d.ts"],
 				map: [
 					["@", "./src"],
-					["@data", "./src/jsx/data"],
 					["@assets", "./src/assets"],
 					["@images", "./src/assets/images"],
 					["@svg", "./src/assets/svg"],
 					["@videos", "./src/assets/videos"],
 					["@scss", "./src/scss"],
+					["@jsx", "./src/jsx"],
 					["@components", "./src/jsx/components"],
 					["@contexts", "./src/jsx/contexts"],
+					["@data", "./src/jsx/data"],
 					["@pages", "./src/jsx/pages"],
+					["@routes", "./src/jsx/routes"],
 					["@images", "./src/assets/images"],
 					["@svg", "./src/assets/svg"],
 				],
@@ -95,10 +97,11 @@ module.exports = {
 		// Allow empty named blocks in imports (with a warning)
 		"import/no-empty-named-blocks": "warn",
 		"sonarjs/no-duplicate-string": "warn",
+		"sonarjs/cognitive-complexity": "warn",
 
 		// Disable some unicorn plugin rules
-		"unicorn/consistent-function-scoping":"warn",
-		"unicorn/numeric-separators-style":"warn",
+		"unicorn/consistent-function-scoping": "warn",
+		"unicorn/numeric-separators-style": "warn",
 		"unicorn/prevent-abbreviations": "off",
 		"unicorn/no-array-reduce": "off",
 		"unicorn/no-array-for-each": "off",

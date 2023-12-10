@@ -1,6 +1,4 @@
-/**
- * Sample for Line Series with dashed line
- */
+
 import { useThemeContext } from "@contexts/ContextProvider";
 import { Sheet } from "@mui/joy";
 import { useTheme } from "@mui/joy/styles";

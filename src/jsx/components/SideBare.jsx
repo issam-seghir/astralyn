@@ -54,7 +54,7 @@ export default function SideBare() {
 				onClick={() => toggleSideBar()}
 			/>
 			<Box
-				className={status.bgBlurAll && !status.bgBlurOnlyMainPage && "bg-rainbow-blur"}
+				className={status.bgBlurAll && !status.bgBlurOnlyMainPage ? "bg-rainbow-blur" : ""}
 				sx={{
 					display: "flex",
 					alignSelf: "stretch",

@@ -9,8 +9,6 @@ import { FiSettings } from "react-icons/fi";
 function SettingsButton() {
 	const [showSettings, setShowSettings] = useState(false);
 	const theme = useTheme();
-	const isMobile = theme.breakpoints.down("md"); // Check if it's mobile or not
-	console.log(isMobile);
 	return (
 		<>
 			<Tooltip title="setting" size="md" variant="solid" color="primary" placement="top" sx={{ boxShadow: "none" }} arrow>

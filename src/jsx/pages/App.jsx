@@ -655,7 +655,7 @@ function App() {
 				) : (
 					<Sheet
 						variant="plain"
-						className={status.bgBlurAll && "bg-rainbow-blur"}
+						className={status.bgBlurAll ? "bg-rainbow-blur" : ""}
 						position="relative"
 						sx={{
 							display: "flex",

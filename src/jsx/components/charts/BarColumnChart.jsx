@@ -1,6 +1,4 @@
-/**
- * Sample for Column series
- */
+
 import { useThemeContext } from "@contexts/ContextProvider";
 import { Sheet } from "@mui/joy";
 import { Browser } from "@syncfusion/ej2-base";

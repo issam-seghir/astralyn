@@ -16,7 +16,7 @@ export let data2 = [
 	{ x: "2000", y: 2.6 },
 	{ x: "2001", y: 3.8 },
 	{ x: "2002", y: 2.6 },
-	{ x: "2003", y: 4},
+	{ x: "2003", y: 4 },
 	{ x: "2004", y: 4.6 },
 	{ x: "2005", y: 4 },
 ];
@@ -37,7 +37,7 @@ const PolarArea = () => {
 	let chartInstance = useRef(null);
 	let dropElement = useRef(null);
 	const { language } = useThemeContext();
-
+	const isArabic = language.language === "ar";
 	let loaded;
 	const onChartLoad = (args) => {
 		document.querySelector("#charts").setAttribute("title", "");
@@ -48,7 +48,7 @@ const PolarArea = () => {
 	};
 	let droplist = [{ value: "Polar" }, { value: "Radar" }];
 	return (
-		<Box className="control-pane" sx={{ flex: { lg: 1, xs: "100%" }, alignItems: "center" }} >
+		<Box className="control-pane" sx={{ flex: { lg: 1, xs: "100%" }, alignItems: "center" }}>
 			<style>{SAMPLE_CSS}</style>
 			<ChartComponent
 				id="charts"
@@ -62,22 +62,22 @@ const PolarArea = () => {
 					titleStyle: { background: "transparent", color: "var(--joy-palette-primary-softColor)" },
 				}}
 				primaryYAxis={{
-					title: language.language === "ar" ? "الإيرادات بالملايين" : "Revenue in Millions",
+					title: isArabic ? "الإيرادات بالملايين" : "Revenue in Millions",
 					labelFormat: "{value}M",
 					labelStyle: { color: "var(--joy-palette-primary-300" },
 					titleStyle: { background: "transparent", color: "var(--joy-palette-primary-100)" },
 				}}
 				legendSettings={{ visible: true, enableHighlight: true, textStyle: { background: "transparent", color: "var(--joy-palette-primary-softColor)" } }}
 				tooltip={{ enable: true }}
-				title={language.language === "ar" ? "متوسط مقارنة المبيعات" : "Average Sales Comparison"}
+				title={isArabic ? "متوسط مقارنة المبيعات" : "Average Sales Comparison"}
 				titleStyle={{ color: "var(--joy-palette-primary-softColor)" }}
 				loaded={onChartLoad.bind(this)}
 			>
 				<Inject services={[AreaSeries, Legend, Category, PolarSeries, RadarSeries, Highlight, Tooltip]} />
 				<SeriesCollectionDirective>
-					<SeriesDirective dataSource={data2} xName="x" yName="y" name={language.language === "ar" ? "المنتج ب " : "Product B"} fill={"#e46590"} width={2} opacity={0.5} type={type} drawType="Area" border={{ color: "transparent" }} />
-					<SeriesDirective dataSource={data1} xName="x" yName="y" name={language.language === "ar" ? "المنتج أ " : "Product A"} fill={"#00bdae"} width={2} opacity={0.5} type={type} drawType="Area" border={{ color: "transparent" }} />
-					<SeriesDirective dataSource={data3} xName="x" yName="y" name={language.language === "ar" ? "المنتج س " : "Product C"} fill={"#ec5883"} width={2} opacity={0.5} type={type} drawType="Area" border={{ color: "transparent" }} />
+					<SeriesDirective dataSource={data2} xName="x" yName="y" name={isArabic ? "المنتج ب " : "Product B"} fill={"#e46590"} width={2} opacity={0.5} type={type} drawType="Area" border={{ color: "transparent" }} />
+					<SeriesDirective dataSource={data1} xName="x" yName="y" name={isArabic ? "المنتج أ " : "Product A"} fill={"#00bdae"} width={2} opacity={0.5} type={type} drawType="Area" border={{ color: "transparent" }} />
+					<SeriesDirective dataSource={data3} xName="x" yName="y" name={isArabic ? "المنتج س " : "Product C"} fill={"#ec5883"} width={2} opacity={0.5} type={type} drawType="Area" border={{ color: "transparent" }} />
 				</SeriesCollectionDirective>
 			</ChartComponent>
 		</Box>

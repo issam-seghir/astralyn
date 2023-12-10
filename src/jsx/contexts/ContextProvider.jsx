@@ -76,20 +76,20 @@ export const ContextProvider = ({ children }) => {
 		[languageConfigs, setLanguage, showSnackBar]
 	);
 
-	const handleCheckboxbgBlurAll = () => {
+	const handleCheckboxbgBlurAll = useCallback(() => {
 		setStatus((prevStatus) => ({
 			...prevStatus,
 			bgBlurAll: !prevStatus.bgBlurAll,
 			bgBlurOnlyMainPage: false, // Reset the second checkbox when the first one changes
 		}));
-	};
+	}, [setStatus]);
 
-	const handleCheckboxbgBlurOnlyMainPagee = () => {
+	const handleCheckboxbgBlurOnlyMainPagee = useCallback(() => {
 		setStatus((prevStatus) => ({
 			...prevStatus,
 			bgBlurOnlyMainPage: !prevStatus.bgBlurOnlyMainPage,
 		}));
-	};
+	}, [setStatus]);
 
 	// function changeLanguage(selectedLanguage) {
 	// 	const newConfig = languageConfigs[selectedLanguage];
