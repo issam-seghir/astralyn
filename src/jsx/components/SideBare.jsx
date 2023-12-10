@@ -13,16 +13,23 @@ import { FaCalendarDays, FaMapLocationDot, FaUserGroup } from "react-icons/fa6";
 import { HiColorSwatch } from "react-icons/hi";
 import { MdBubbleChart, MdEditSquare, MdDashboard } from "react-icons/md";
 
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink ,useLocation} from "react-router-dom";
 import { useThemeContext } from "@contexts/ContextProvider";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 
 
 export default function SideBare() {
 	const { language } = useThemeContext();
 	const { toggleSideBar, show } = useThemeContext();
-	const [selectedItem, setSelectedItem] = useState("dashboard"); // Initially selected item
+	// const [selectedItem, setSelectedItem] = useState("dashboard"); // Initially selected item
+  const location = useLocation();
+  const [selectedItem, setSelectedItem] = useState("");
 
+  useEffect(() => {
+		// Extract the current pathname and set the selectedItem based on it
+		const path = location.pathname.split("/")[1];
+		setSelectedItem(path || "dashboard");
+  }, [location.pathname]);
 	return (
 		<>
 			{/* Overlay background */}

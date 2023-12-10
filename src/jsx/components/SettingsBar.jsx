@@ -62,7 +62,7 @@ function SettingsSidebar({ showSettings }) {
 				</Chip>
 				<Typography level="title-lg">Issam Seghir</Typography>
 				<Button variant="soft" sx={{ mt: 2 }}>
-					Sign Out
+					{isArabic ? "تسجيل الخروج" : "Sign Out"}
 				</Button>
 			</Box>
 			<Box sx={{ display: "flex", alignItems: "flex-start", flexDirection: "column", gap: 2 }}>
