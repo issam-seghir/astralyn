@@ -2,7 +2,7 @@
 
 import Seo from "@components/Seo";
 import { useThemeContext } from "@contexts/ContextProvider";
-import { cardData } from "@data/kanban-data";
+import { cardData } from "@jsx/data/kanban/kanban-data";
 import Box from "@mui/joy/Box";
 import { addClass } from "@syncfusion/ej2-base";
 import { ColumnDirective, ColumnsDirective, KanbanComponent } from "@syncfusion/ej2-react-kanban";

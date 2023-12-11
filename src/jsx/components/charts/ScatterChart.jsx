@@ -1,5 +1,5 @@
 import { useThemeContext } from "@contexts/ContextProvider";
-import { scatterData } from "@data/scatterChart-data";
+import { scatterData } from "@data/charts/scatterChart-data";
 import Box from "@mui/joy/Box";
 import { Category, ChartComponent, Highlight, Inject, Legend, ScatterSeries, SeriesCollectionDirective, SeriesDirective, Tooltip } from "@syncfusion/ej2-react-charts";
 

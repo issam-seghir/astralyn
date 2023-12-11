@@ -1,5 +1,5 @@
 import { useThemeContext } from "@contexts/ContextProvider";
-import { chartData } from "@data/indicator-data";
+import { chartData } from "@data/charts/indicator-data";
 import {
 	AccumulationDistributionIndicator,
 	AtrIndicator,

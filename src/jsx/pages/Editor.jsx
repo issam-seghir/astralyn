@@ -5,7 +5,7 @@ import { Count, HtmlEditor, Image, Inject, Link, MarkdownEditor, QuickToolbar, R
 import { useMediaQuery } from "@uidotdev/usehooks";
 import * as Marked from "marked";
 import { useId } from "react";
-import { value } from "@data/editor-data";
+import { value } from "@jsx/data/editor/editor-data";
 import { Box, CardCover } from "@mui/joy";
 import Seo from "@components/Seo";
 

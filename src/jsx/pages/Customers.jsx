@@ -1,6 +1,6 @@
 import Seo from "@components/Seo";
 import { useThemeContext } from "@contexts/ContextProvider";
-import { customersData } from "@data/customersGrid-data.js";
+import { customersData } from "@jsx/data/data-grid/customersGrid-data.js";
 import { ColumnChooser, ColumnDirective, ColumnsDirective, Edit, Filter, GridComponent, Inject, Page, Selection, Sort, Toolbar } from "@syncfusion/ej2-react-grids";
 import { useMediaQuery } from "@uidotdev/usehooks";
 

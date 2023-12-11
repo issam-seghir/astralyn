@@ -15,10 +15,8 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import { HiColorSwatch } from "react-icons/hi";
 import { useState } from "react";
+import { splitCamelCase } from "@jsx/utils/splitCamelCase";
 
-function splitCamelCase(input) {
-	return input.replaceAll(/([a-z])([A-Z])/g, "$1 $2");
-}
 function SettingsSidebar({ showSettings, setShowSettings }) {
 	const { selectedTheme, setSelectedTheme, language, changeLanguage, setShowSnackBar, showSnackBar, handleCheckboxbgBlurOnlyMainPagee, handleCheckboxbgBlurAll, status } = useThemeContext();
 	const isArabic = language.language === "ar";

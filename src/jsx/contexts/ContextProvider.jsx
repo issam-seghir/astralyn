@@ -37,19 +37,6 @@ export const ContextProvider = ({ children }) => {
 		};
 	}, []); // Empty dependency array means it only runs once
 
-	// const languageConfigs = {
-	// 	en: {
-	// 		rtl: false,
-	// 		culture: "en-US",
-	// 		currency: "USD",
-	// 	},
-	// 	ar: {
-	// 		rtl: true,
-	// 		culture: "ar-DZ",
-	// 		currency: "DZD",
-	// 	},
-	// };
-
 	const allowedLanguages = ["ar", "en"];
 	// like en , en-US , ar-DZ ....
 	// store only : en , ar , ... ( with two letter)
@@ -99,23 +86,6 @@ export const ContextProvider = ({ children }) => {
 		}));
 	}, [setStatus]);
 
-	// function changeLanguage(selectedLanguage) {
-	// 	const newConfig = languageConfigs[selectedLanguage];
-	// 	console.log("new config :", newConfig);
-	// 	if (newConfig) {
-	// 		localStorage.setItem("language", selectedLanguage);
-	// 		localStorage.setItem("languageConfig", JSON.stringify(newConfig));
-
-	// 		setLanguage({
-	// 			language: selectedLanguage,
-	// 			languageConfig: newConfig,F
-	// 		});
-	// 	}
-	// }
-
-	// function printChart() {
-	// 	chartInstance.current.print();
-	// }
 
 	const printLineChart = useCallback(() => {
 		LineChartInstance.current.print();

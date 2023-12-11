@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import electricNetworkData from "@data/electric-network-algeria.geojson.json";
+import electricNetworkData from "@data/map/electric-network-algeria.geojson.json";
 import L from "leaflet";
 import "leaflet-geosearch/dist/geosearch.css";
 import "leaflet.fullscreen/Control.FullScreen.css";

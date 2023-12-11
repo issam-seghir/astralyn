@@ -1,4 +1,4 @@
-import SettingsBar from "@components/SettingsBar";
+import SettingsBar from "@jsx/components/ui/SettingsBar";
 import IconButton from "@mui/joy/IconButton";
 import Tooltip from "@mui/joy/Tooltip";
 import { useTheme } from "@mui/joy/styles";

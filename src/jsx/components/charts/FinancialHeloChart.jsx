@@ -1,6 +1,6 @@
 
 import { useThemeContext } from "@contexts/ContextProvider";
-import { chartValues } from "@data/financial-data";
+import { chartValues } from "@data/charts/financial-data";
 import { Category, ChartComponent, Crosshair, DateTime, HiloOpenCloseSeries, Inject, Logarithmic, SeriesCollectionDirective, SeriesDirective, Tooltip, Zoom } from "@syncfusion/ej2-react-charts";
 
 const SAMPLE_CSS = `
