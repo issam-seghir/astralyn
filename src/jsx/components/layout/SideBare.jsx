@@ -7,32 +7,59 @@ import ListItemButton from "@mui/joy/ListItemButton";
 import ListItemContent from "@mui/joy/ListItemContent";
 import ListItemDecorator from "@mui/joy/ListItemDecorator";
 import Typography from "@mui/joy/Typography";
-import { BsColumnsGap, BsKanbanFill } from "react-icons/bs";
+import { BsKanbanFill } from "react-icons/bs";
 import { FaChartPie, FaShoppingCart, FaUserTie } from "react-icons/fa";
 import { FaCalendarDays, FaMapLocationDot, FaUserGroup } from "react-icons/fa6";
 import { HiColorSwatch } from "react-icons/hi";
-import { MdBubbleChart, MdEditSquare, MdDashboard } from "react-icons/md";
+import { MdBubbleChart, MdDashboard, MdEditSquare } from "react-icons/md";
 
-import { Link as RouterLink ,useLocation} from "react-router-dom";
 import { useThemeContext } from "@contexts/ContextProvider";
-import { useState, useEffect} from "react";
-
+import { useEffect, useState } from "react";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 
 export default function SideBare() {
-	const { language } = useThemeContext();
-	const { toggleSideBar, show, status } = useThemeContext();
-	// const [selectedItem, setSelectedItem] = useState("dashboard"); // Initially selected item
-  const location = useLocation();
-  const [selectedItem, setSelectedItem] = useState("");
-
-  useEffect(() => {
+	const { toggleSideBar, show, status, language } = useThemeContext();
+	const isArabic = language.language === "ar";
+	const location = useLocation();
+	const [selectedItem, setSelectedItem] = useState("");
+	const menuItems = [
+		{
+			items: [
+				{ title: isArabic ? "طلبات" : "Orders", icon: <FaShoppingCart className="icon" /> },
+				{ title: isArabic ? "موظفين" : "Employees", icon: <FaUserGroup className="icon" /> },
+				{ title: isArabic ? "عملاء" : "Customers", icon: <FaUserTie className="icon" /> },
+			],
+			headerTitle: isArabic ? "السجلات" : "RECORDS",
+			paths: ["orders", "employees", "customers"],
+		},
+		{
+			items: [
+				{ title: isArabic ? "جدولة" : "Scheduler", icon: <FaCalendarDays className="icon" /> },
+				{ title: isArabic ? "لوحة كانبان" : "Kanban", icon: <BsKanbanFill className="icon" /> },
+				{ title: isArabic ? "محرر ماركداون" : "Markdown Editor", icon: <MdEditSquare className="icon" /> },
+				{ title: isArabic ? "رسم تخطيطي" : "Drawer", icon: <HiColorSwatch className="icon" /> },
+			],
+			headerTitle: isArabic ? "التطبيقات" : "APPS",
+			paths: ["scheduler", "kanban", "markdawn-editor", "drawer"],
+		},
+		{
+			items: [
+				{ title: isArabic ? "التحليلات" : "Analytics", icon: <MdBubbleChart className="icon" /> },
+				{ title: isArabic ? "المتعقب" : "Tracker", icon: <FaChartPie className="icon" /> },
+				{ title: isArabic ? "خريطة" : "Map", icon: <FaMapLocationDot className="icon" /> },
+			],
+			headerTitle: isArabic ? "البيانات" : "DATA",
+			paths: ["analytics", "tracker", "map"],
+		},
+	];
+	useEffect(() => {
 		// Extract the current pathname and set the selectedItem based on it
 		const path = location.pathname.split("/")[1];
 		setSelectedItem(path || "dashboard");
-  }, [location.pathname]);
+	}, [location.pathname]);
 	return (
 		<>
-			{/* Overlay background */}
+			{/* Overlay background for mobile*/}
 			<Box
 				sx={{
 					display: show ? "block" : "none",
@@ -72,7 +99,7 @@ export default function SideBare() {
 					zIndex: 999,
 					inset: 0,
 					transform: {
-						xs: show ? "translateX(0)" : `translateX(calc(${language.language === "ar" ? "-100%" : "100%"} * (var(--SideNavigation-slideIn, 0) - 1)))`,
+						xs: show ? "translateX(0)" : `translateX(calc(${isArabic ? "-100%" : "100%"} * (var(--SideNavigation-slideIn, 0) - 1)))`,
 						md: "none",
 					},
 					transition: "transform 0.4s, width 0.4s",
@@ -81,6 +108,7 @@ export default function SideBare() {
 					background: "var(--joy-palette-background-surface)",
 				}}
 			>
+				{/* Header Content : Logo section */}
 				<Box sx={{ display: "flex", gap: 2, p: 1.5, alignItems: "center" }}>
 					<Link component={RouterLink} to="/">
 						<svg viewBox="-102.4 -102.4 1228.80 1228.80" fill="currentColor" width={"1em"} height={"1em"} color={"var(--Icon-color)"} fontSize={40} strokeWidth="0.01024" transform="matrix(-1, 0, 0, 1, 0, 0)rotate(-45)">
@@ -98,9 +126,11 @@ export default function SideBare() {
 						</svg>
 					</Link>
 					<Typography className={"text-animate"} flex={1} level="h2" fontFamily={"Rubik"}>
-						{language.language === "ar" ? "أستراليــن" : "Astralyn"}
+						{isArabic ? "أستراليــن" : "Astralyn"}
 					</Typography>
 				</Box>
+				{/* sidebar tabs / items */}
+
 				<List
 					size="md"
 					sx={{
@@ -116,118 +146,39 @@ export default function SideBare() {
 						},
 					}}
 				>
-					<ListItemHeaderNested title={language.language === "ar" ? "لوحة القيادة" : "DASHBOARD"}>
+					<ListItemHeaderNested title={isArabic ? "لوحة القيادة" : "DASHBOARD"}>
 						<ListItem>
 							<ListItemButton color="primary" component={RouterLink} to="/" underline="none" selected={selectedItem === "dashboard"} onClick={() => setSelectedItem("dashboard")}>
 								<ListItemDecorator>
 									<MdDashboard className="icon" />
 								</ListItemDecorator>
 								<ListItemContent>
-									<Typography level="title-sm">{language.language === "ar" ? "لوحة القيادة" : "Ecommerce"}</Typography>
+									<Typography level="title-sm">{isArabic ? "لوحة القيادة" : "Ecommerce"}</Typography>
 								</ListItemContent>
 							</ListItemButton>
 						</ListItem>
 					</ListItemHeaderNested>
-					<ListItemHeaderNested title={language.language === "ar" ? "السجلات" : "RECORDS"}>
-						<ListItem>
-							<ListItemButton component={RouterLink} to="/orders" underline="none" selected={selectedItem === "orders"} onClick={() => setSelectedItem("orders")}>
-								<ListItemDecorator>
-									<FaShoppingCart className="icon" />
-								</ListItemDecorator>
-								<Typography level="title-sm">{language.language === "ar" ? "طلبات" : "Orders"}</Typography>
-							</ListItemButton>
-						</ListItem>
-						<ListItem>
-							<ListItemButton component={RouterLink} to="/employees" underline="none" selected={selectedItem === "employees"} onClick={() => setSelectedItem("employees")}>
-								<ListItemDecorator>
-									<FaUserGroup className="icon" />
-								</ListItemDecorator>
-								<ListItemContent>
-									<Typography level="title-sm">{language.language === "ar" ? "موظفين" : "Employees"}</Typography>
-								</ListItemContent>
-							</ListItemButton>
-						</ListItem>
-						<ListItem>
-							<ListItemButton component={RouterLink} to="/customers" underline="none" selected={selectedItem === "customers"} onClick={() => setSelectedItem("customers")}>
-								<ListItemDecorator>
-									<FaUserTie className="icon" />
-								</ListItemDecorator>
-								<ListItemContent>
-									<Typography level="title-sm">{language.language === "ar" ? "عملاء" : "Customers"}</Typography>
-								</ListItemContent>
-							</ListItemButton>
-						</ListItem>
-					</ListItemHeaderNested>
-					<ListItemHeaderNested title={language.language === "ar" ? "التطبيقات" : "APPS"}>
-						<ListItem>
-							<ListItemButton component={RouterLink} to="/scheduler" underline="none" selected={selectedItem === "scheduler"} onClick={() => setSelectedItem("scheduler")}>
-								<ListItemDecorator>
-									<FaCalendarDays className="icon" />
-								</ListItemDecorator>
-								<Typography level="title-sm">{language.language === "ar" ? "جدولة" : "Scheduler"}</Typography>
-							</ListItemButton>
-						</ListItem>
-						<ListItem>
-							<ListItemButton component={RouterLink} to="/kanban" underline="none" selected={selectedItem === "kanban"} onClick={() => setSelectedItem("kanban")}>
-								<ListItemDecorator>
-									<BsKanbanFill className="icon" />
-								</ListItemDecorator>
-								<ListItemContent>
-									<Typography level="title-sm">{language.language === "ar" ? "لوحة كانبان" : "Kanban"}</Typography>
-								</ListItemContent>
-							</ListItemButton>
-						</ListItem>
-						<ListItem>
-							<ListItemButton component={RouterLink} to="/markdawn-editor" underline="none" selected={selectedItem === "markdawn-editor"} onClick={() => setSelectedItem("markdawn-editor")}>
-								<ListItemDecorator>
-									<MdEditSquare className="icon" />
-								</ListItemDecorator>
-								<ListItemContent>
-									<Typography level="title-sm">{language.language === "ar" ? "محرر ماركداون" : "Markdown Editor"}</Typography>
-								</ListItemContent>
-							</ListItemButton>
-						</ListItem>
-						<ListItem>
-							<ListItemButton component={RouterLink} to="/drawer" underline="none" selected={selectedItem === "drawer"} onClick={() => setSelectedItem("drawer")}>
-								<ListItemDecorator>
-									<HiColorSwatch className="icon" />
-								</ListItemDecorator>
-								<ListItemContent>
-									<Typography level="title-sm">{language.language === "ar" ? "رسم تخطيطي" : "Drawer"}</Typography>
-								</ListItemContent>
-							</ListItemButton>
-						</ListItem>
-					</ListItemHeaderNested>
-					<ListItemHeaderNested title={language.language === "ar" ? "البيانات" : "DATA"}>
-						<ListItem>
-							<ListItemButton component={RouterLink} to="/analytics" underline="none" selected={selectedItem === "analytics"} onClick={() => setSelectedItem("analytics")}>
-								<ListItemDecorator>
-									<MdBubbleChart className="icon" />
-								</ListItemDecorator>
-								<Typography level="title-sm">{language.language === "ar" ? "التحليلات" : "Analytics"}</Typography>
-							</ListItemButton>
-						</ListItem>
-						<ListItem>
-							<ListItemButton component={RouterLink} to="/tracker" underline="none" selected={selectedItem === "tracker"} onClick={() => setSelectedItem("tracker")}>
-								<ListItemDecorator>
-									<FaChartPie className="icon" />
-								</ListItemDecorator>
-								<ListItemContent>
-									<Typography level="title-sm">{language.language === "ar" ? "المتعقب" : "Tracker"}</Typography>
-								</ListItemContent>
-							</ListItemButton>
-						</ListItem>
-						<ListItem>
-							<ListItemButton component={RouterLink} to="/map" underline="none" selected={selectedItem === "map"} onClick={() => setSelectedItem("map")}>
-								<ListItemDecorator>
-									<FaMapLocationDot className="icon" />
-								</ListItemDecorator>
-								<ListItemContent>
-									<Typography level="title-sm">{language.language === "ar" ? "خريطة" : "Map"}</Typography>
-								</ListItemContent>
-							</ListItemButton>
-						</ListItem>
-					</ListItemHeaderNested>
+					{menuItems.map((menuItem, headerIndex) => (
+						<ListItemHeaderNested key={headerIndex} title={menuItem.headerTitle}>
+							{menuItem.items.map((subItem, subIndex) => (
+								<ListItem key={subIndex}>
+									<ListItemButton
+										color="primary"
+										component={RouterLink}
+										to={`/${menuItem.paths[subIndex]}`} // Assuming the paths are defined correctly
+										underline="none"
+										selected={selectedItem === menuItem.paths[subIndex]} // Assuming selectedItem is defined
+										onClick={() => setSelectedItem(menuItem.paths[subIndex])}
+									>
+										<ListItemDecorator>{subItem.icon}</ListItemDecorator>
+										<ListItemContent>
+											<Typography level="title-sm">{subItem.title}</Typography>
+										</ListItemContent>
+									</ListItemButton>
+								</ListItem>
+							))}
+						</ListItemHeaderNested>
+					))}
 				</List>
 			</Box>
 		</>

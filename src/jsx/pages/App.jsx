@@ -1,5 +1,5 @@
 /* eslint-disable unicorn/prefer-number-properties */
-import Sidebar from "@components/SideBare";
+import Sidebar from "@jsx/components/layout/SideBare";
 import { useThemeContext } from "@contexts/ContextProvider";
 import { CardCover } from "@mui/joy";
 import Box from "@mui/joy/Box";

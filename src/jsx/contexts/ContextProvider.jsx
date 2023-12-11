@@ -2,6 +2,7 @@
 import { defaultTheme, greenEmeraldTheme, pinkFuchsiaTheme } from "@jsx/utils/theme";
 import { enableRtl, setCulture, setCurrencyCode } from "@syncfusion/ej2-base";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { usePreferredLanguage } from "@uidotdev/usehooks";
 
 const ThemeContext = createContext(null);
 
@@ -49,8 +50,15 @@ export const ContextProvider = ({ children }) => {
 	// 	},
 	// };
 
+	const allowedLanguages = ["ar", "en"];
+	// like en , en-US , ar-DZ ....
+	// store only : en , ar , ... ( with two letter)
+	const userDefaultLanguage = usePreferredLanguage()?.split("-")[0];
+	const isValidLanguage = (userDefaultLanguage && allowedLanguages.includes(userDefaultLanguage));
+	const defaultLanguage = isValidLanguage  ? userDefaultLanguage : "en";
+
 	const [language, setLanguage] = useState(() => {
-		const storedLanguage = localStorage.getItem("language") || "en";
+		const storedLanguage = localStorage.getItem("language") || defaultLanguage;
 		const storedConfig = JSON.parse(localStorage.getItem("languageConfig")) || languageConfigs[storedLanguage];
 
 		return {

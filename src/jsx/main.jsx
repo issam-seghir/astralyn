@@ -3,30 +3,32 @@ import "@fontsource/inter";
 import "@scss/main.scss";
 
 import { ContextProvider } from "@contexts/ContextProvider";
+
+import Loading from "@pages/Loading";
+
+import { registerLicense } from "@syncfusion/ej2-base";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+import Analytics from "@pages/Analytics";
 import App from "@pages/App";
-import Tracker from "@pages/Tracker";
-import Scheduler from "@pages/Scheduler";
-import Drawer from "@pages/Drawer";
 import Customers from "@pages/Customers";
+import Drawer from "@pages/Drawer";
 import Ecommerce from "@pages/Ecommerce";
 import Editor from "@pages/Editor";
 import Employees from "@pages/Employees";
 import Error from "@pages/Error";
 import Kanban from "@pages/Kanban";
-import Analytics from "@pages/Analytics";
-import Loading from "@pages/Loading";
-import Orders from "@pages/Orders";
 import Map from "@pages/Map";
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { registerLicense } from "@syncfusion/ej2-base";
+import Orders from "@pages/Orders";
+import Scheduler from "@pages/Scheduler";
+import Tracker from "@pages/Tracker";
 
 // Registering Syncfusion license key
 registerLicense("ORg4AjUWIQA/Gnt2VlhhQlVHfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hSn9Sd0djUX5cdXJcRWBY");
 
-
-const router = createBrowserRouter(
+export const router = createBrowserRouter(
 	[
 		{
 			path: "/",
