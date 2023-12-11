@@ -4,7 +4,7 @@ import { ViteAliases } from "vite-aliases";
 import svgr from "vite-plugin-svgr";
 // import path from "path";
 export default defineConfig(({ command, mode, ssrBuild }) => ({
-	base: "/React-Project/",
+	base: "/astralyn/",
 	// Getting rid of hashes in generated filenames
 	filenameHashing: false,
 	build: {
