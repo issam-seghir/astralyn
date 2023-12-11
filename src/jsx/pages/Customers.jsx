@@ -38,21 +38,21 @@ const Customers = () => {
 
 	const customersGrid = [
 		{ type: "checkbox", width: "50" },
-		{ headerText: language.language === "ar" ? "الإسم" : "Name", width: "150", template: customerGridImage, textAlign: "Center" },
-		{ field: "ProjectName", headerText: language.language === "ar" ? "إسم المشروع" : "Project Name", width: "150", textAlign: "Center" },
-		{ field: "Status", headerText: language.language === "ar" ? "الحالة" : "Status", width: "130", format: "yMd", textAlign: "Center", template: customerGridStatus },
+		{ headerText: isArabic ? "الإسم" : "Name", width: "150", template: customerGridImage, textAlign: "Center" },
+		{ field: "ProjectName", headerText: isArabic ? "إسم المشروع" : "Project Name", width: "150", textAlign: "Center" },
+		{ field: "Status", headerText: isArabic ? "الحالة" : "Status", width: "130", format: "yMd", textAlign: "Center", template: customerGridStatus },
 		{
 			field: "Weeks",
-			headerText: language.language === "ar" ? "الأسابيع" : "Weeks",
+			headerText: isArabic ? "الأسابيع" : "Weeks",
 			width: "100",
 			format: "C2",
 			textAlign: "Center",
 		},
-		{ field: "Budget", headerText: language.language === "ar" ? "ميزانية" : "Budget", width: "100", format: "C4", editType: "numericedit", type: "number", textAlign: "Center" },
+		{ field: "Budget", headerText: isArabic ? "ميزانية" : "Budget", width: "100", format: "C4", editType: "numericedit", type: "number", textAlign: "Center" },
 
-		{ field: "Location", headerText: language.language === "ar" ? "الموقع" : "Location", width: "150", textAlign: "Center" },
+		{ field: "Location", headerText: isArabic ? "الموقع" : "Location", width: "150", textAlign: "Center" },
 
-		{ field: "CustomerID", headerText: language.language === "ar" ? "معرف ID الزبون" : "Customer ID", width: "120", textAlign: "Center", isPrimaryKey: true },
+		{ field: "CustomerID", headerText: isArabic ? "معرف ID الزبون" : "Customer ID", width: "120", textAlign: "Center", isPrimaryKey: true },
 	];
 
 	return (
