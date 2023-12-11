@@ -142,7 +142,7 @@ const Ecommerce = () => {
 									sx={{ alignItems: "flex-end", justifyContent: "center" }}
 									level="h3"
 									endDecorator={
-										<Chip variant="soft" color="success" size="sm">
+										<Chip dir="ltr" variant="soft" color="success" size="sm">
 											14%
 										</Chip>
 									}
@@ -156,7 +156,7 @@ const Ecommerce = () => {
 									sx={{ alignItems: "flex-end", justifyContent: "center" }}
 									level="h3"
 									endDecorator={
-										<Chip variant="soft" color="danger" size="sm">
+										<Chip dir="ltr" variant="soft" color="danger" size="sm">
 											-7%
 										</Chip>
 									}
@@ -197,7 +197,7 @@ const Ecommerce = () => {
 									sx={{ alignItems: "flex-end", justifyContent: "center" }}
 									level="h3"
 									endDecorator={
-										<Chip variant="soft" color="success" size="sm">
+										<Chip dir="ltr" variant="soft" color="success" size="sm">
 											55%
 										</Chip>
 									}
@@ -211,7 +211,7 @@ const Ecommerce = () => {
 									sx={{ alignItems: "flex-end", justifyContent: "center" }}
 									level="h3"
 									endDecorator={
-										<Chip variant="soft" color="danger" size="sm">
+										<Chip dir="ltr" variant="soft" color="danger" size="sm">
 											-2%
 										</Chip>
 									}

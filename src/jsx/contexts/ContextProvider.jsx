@@ -2,7 +2,7 @@
 import { defaultTheme, greenEmeraldTheme, pinkFuchsiaTheme } from "@jsx/utils/theme";
 import { enableRtl, setCulture, setCurrencyCode } from "@syncfusion/ej2-base";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
-import { usePreferredLanguage } from "@uidotdev/usehooks";
+import { usePreferredLanguage ,useLocalStorage} from "@uidotdev/usehooks";
 
 const ThemeContext = createContext(null);
 
@@ -16,7 +16,7 @@ export const ContextProvider = ({ children }) => {
 	const [loading, setLoading] = useState(true);
 	const [showSnackBar, setShowSnackBar] = useState(false);
 	const [show, setSideBar] = useState(false);
-	const [status, setStatus] = useState({
+	const [status, setStatus] = useLocalStorage("bgBlur", {
 		bgBlurAll: false,
 		bgBlurOnlyMainPage: false,
 	});

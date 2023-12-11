@@ -621,7 +621,7 @@ function HtmlNode() {
 		}
 	}
 	return (
-		<div id="custom-diagram" className="control-section" style={{ height: "100%" }}>
+		<div id="custom-diagram" className="control-section" style={{ height: "100dvh" }}>
 			{isSmallDevice && <style>{SAMPLE_CSS}</style>}
 			<Seo title={title} description={description} name={name} type={type} />
 			<DiagramComponent

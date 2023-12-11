@@ -117,7 +117,7 @@ const GroupEditing = () => {
 			<ScheduleComponent
 				cssClass="group-editing"
 				width="100%"
-				height="100%"
+				height={isSmallDevice ? "100dvh":"100%"}
 				enableAdaptiveUI={isSmallDevice}
 				selectedDate={new Date(2021, 5, 5)}
 				enablePersistence

@@ -179,7 +179,7 @@ function SettingsSidebar({ showSettings, setShowSettings }) {
 							display: "flex",
 							flexDirection: "column",
 							gap: 2,
-							width: 300,
+							width: isSmallDevice? "fit-content": 300,
 							"& > div": { p: 2, borderRadius: "md", display: "flex" },
 						}}
 					>

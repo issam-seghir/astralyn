@@ -11,6 +11,7 @@ import { Circle, CircleMarker, LayersControl, MapContainer, Marker, Popup, TileL
 import Seo from "@components/Seo";
 import { useThemeContext } from "@contexts/ContextProvider";
 import { GeoSearchControl, OpenStreetMapProvider } from "leaflet-geosearch";
+import { useMediaQuery } from "@uidotdev/usehooks";
 
 const ComponentResize = () => {
 	const map = useMap();
@@ -126,6 +127,7 @@ const layers = [
 const Map = () => {
 	const { language } = useThemeContext();
 	const isArabic = language.language === "ar";
+	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
 	const title = isArabic ? "أسترالين | الخريطة" : "Astralyn | Map";
 	const description = isArabic ? "خريطة تعرض مواقع العملاء" : "map displaying the customer's locations";
 	const name = isArabic ? "أسترالين" : "Astralyn";
@@ -135,7 +137,7 @@ const Map = () => {
 			<Seo title={title} description={description} name={name} type={type} />
 			<MapContainer
 				style={{
-					height: "100%",
+					height: "100dvh",
 					width: "100%",
 					borderRadius: "1rem",
 				}}
