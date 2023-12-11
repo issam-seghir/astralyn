@@ -86,7 +86,7 @@ export const router = createBrowserRouter(
 			],
 		},
 	],
-	{ basename: "/astralyn/" }
+	{ basename: import.meta.env.BASE_URL }
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -96,3 +96,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 		</ContextProvider>
 	</React.StrictMode>
 );
+
