@@ -1,40 +1,38 @@
 
 <div align="center">
 
-<h1 align="center" >Astralyn Dashboard</h1>
+<h1 align="center" >Astralyn Dashboard 🚀</h1>
 
 ![cntr](https://img.shields.io/github/contributors/issam-seghir/astralyn?color=pink&style=for-the-badge)
 ![pullreQ](https://img.shields.io/github/issues-pr/issam-seghir/astralyn?color=orange&style=for-the-badge)
 ![comt](https://img.shields.io/github/last-commit/issam-seghir/astralyn?style=for-the-badge)
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://choosealicense.com/licenses/mit/)
+[![GPL3 License](https://img.shields.io/badge/License-GPL3-green.svg?style=for-the-badge)](https://choosealicense.com/licenses/gpl-3.0/)
 
 ![frk](https://img.shields.io/github/forks/issam-seghir/astralyn?style=flat-square)
 ![str](https://img.shields.io/github/stars/issam-seghir/astralyn?style=flat-square)
 ![deploy](https://img.shields.io/website?down_color=red&down_message=down&style=flat-square&up_color=succes&up_message=up&url=https%3A%2F%2Fissam-seghir.github.io%2Fastralyn%2F)
 
   <p align="center">
-  "Captions | Your AI-powered creative studio"
 
-  This is a **clone** of the [Captions ai](https://www.captions.ai) Landing page  website ,
-based on **Gsap** / **Lotties**  animations
+  "**Astralyn | Your Comprehensive Dashboard Experience**"
 
-its even more  **performance** and **Accessible** then the original website , see [original website score](https://i.imgur.com/fCqSHnk.png)
+- **Astralyn** isn't just a **dashboard**; it's a universe of possibilities within reach—an immersive, feature-rich platform designed to empower your navigation through intricate data landscapes.
 
-If you appreciate it, please consider giving it a star ⭐
- <br />
+- From managing your **e-commerce business** with detailed **data grid** tables and visualization-rich **charts** to accessing full-fledged **applications** like **kanban** **boards**, **schedulers** for appointments, and an **interactive** **map**, Astralyn offers a comprehensive toolkit.
+
     <br />
-    <a href="https://issam-seghir.github.io/Captions-AI/">View Demo</a>
+    <a href="https://issam-seghir.github.io/astralyn/">View Demo</a>
     .
-    <a href="https://github.com/issam-seghir/Captions-AI/issues">Report Bug</a>
+    <a href="https://github.com/issam-seghir/astralyn/issues">Report Bug</a>
     .
-    <a href="https://github.com/issam-seghir/Captions-AI/pulls">Request Feature</a>
+    <a href="https://github.com/issam-seghir/astralyn/pulls">Request Feature</a>
   </p>
 
 <br>
 <hr>
-<a title="Check Lighthouse out" target="_blank" href="https://github.com/GoogleChrome/lighthouse"><img alt="Lighthouse Average Results" width="275" src="https://img.shields.io/badge/Lighthouse-Average_Results-2A2E30.svg?logo=lighthouse&cacheSeconds=3600" /></a><br>
+<!-- <a title="Check Lighthouse out" target="_blank" href="https://github.com/GoogleChrome/lighthouse"><img alt="Lighthouse Average Results" width="275" src="https://img.shields.io/badge/Lighthouse-Average_Results-2A2E30.svg?logo=lighthouse&cacheSeconds=3600" /></a><br>
 
-<img width="700" src="lighthouse_results/desktop/pagespeed.svg" /><br>
+<img width="700" src="lighthouse_results/desktop/pagespeed.svg" /><br> -->
 
 </div>
 
@@ -45,11 +43,26 @@ If you appreciate it, please consider giving it a star ⭐
 
 ![Astralyn Dashboard Screenshot](link_to_dashboard_screenshot.png)
 
-## Overview
 
-Astralyn is a powerful dashboard designed for versatile use, offering multiple themes, language options, dark/light mode, and extensive functionality for various purposes.
+-
+### Built With
+
+  ![HTML5](https://img.shields.io/badge/html5-%231572B6.svg?style=for-the-badge&logo=html5&logoColor=white)
+  ![SASS](https://img.shields.io/badge/sass-%237e2a3d.svg?style=for-the-badge&logo=sass&logoColor=ff577b)
+  ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+  ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
+  ![Syncfusion](https://img.shields.io/badge/Syncfusion-113451?style=for-the-badge&logo=syncfusion&&logoColor=113451&)
+  ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+  ![Leaflet Map](https://img.shields.io/badge/Leaflet_Map-41B883?style=for-the-badge)
+
 
 ## Features
+
+- Every thing cashed on Local storage
+- Dark/lgiht mode
+- 3 different themes
+- multiple languge ( only english & arabic for this moment)
+- Additional Effects : like rainbow blur bg (new - experimental)
 
 ### E-Commerce Section
 
@@ -119,28 +132,13 @@ Astralyn is a powerful dashboard designed for versatile use, offering multiple t
 
 - Leaflet map showing customer locations, search functionalities, etc.
 
-## Technologies Used
 
-* ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-
-- React
-- MUI/Joy
-- Syncfusion
-- Leaflet
-- React Router DOM
-- Others...
-
-## Dependencies
-
-- List of dependencies with versions.
 
 ## Screenshots
 
 Include screenshots of different sections or features here to provide visual context.
 
----
 
-Remember, the README file should be detailed, yet concise, highlighting the key aspects and functionalities of your project. You may add additional sections or details specific to your project as needed. Additionally, always include clear and high-quality screenshots to illustrate the various functionalities of your dashboard.
 
 
 <!-- GETTING STARTED -->
@@ -179,28 +177,7 @@ This is an example of how to list things you need to use the software and how to
    const API_KEY = 'ENTER YOUR API';
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-  - [ ] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -216,11 +193,14 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the GPL3 License. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Support Me
+
+<a href="https://www.buymeacoffee.com/issam.seghir" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy ma A Coffee" style="width: 174px !important;height: 41px !important;box-shadow: 0 3px 2px 0 rgb(190 190 190 / 50%) !important;" ></a>
+</div>

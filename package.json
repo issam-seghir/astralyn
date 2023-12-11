@@ -3,7 +3,7 @@
 	"author": "issam-seghir",
 	"private": true,
 	"version": "1.0.0",
-	"license": "MIT",
+	"license": "GPL-3.0",
 	"type": "module",
 	"browserslist": [
 		"defaults and supports es6-module",
