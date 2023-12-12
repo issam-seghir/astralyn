@@ -75,7 +75,6 @@
 - 🌍 multiple languge ( only english & arabic for this moment , default preferred language)
 - ✨ Additional Effects : like rainbow blur bg (new - experimental)
 
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -112,14 +111,14 @@ This is an example of how to list things you need to use the software and how to
 
 4. Add your API in `main.js`
 
-> see .env.example  file
    ```js
    import { registerLicense } from "@syncfusion/ej2-base";
     //...
     // Registering Syncfusion license key
     registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY);
-
    ```
+
+> see [.env.example](.env.example) file .
 
 <!-- CONTRIBUTING -->
 ## Contributing
