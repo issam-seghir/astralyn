@@ -60,7 +60,7 @@ function App() {
 						sx={{
 							display: "flex",
 							flexDirection: { xs: "column", md: "row" },
-							minHeight: "100dvh",
+							height: "100dvh",
 							alignItems: "stretch",
 						}}
 					>
