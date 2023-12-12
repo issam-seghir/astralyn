@@ -26,8 +26,7 @@ import Scheduler from "@pages/Scheduler";
 import Tracker from "@pages/Tracker";
 
 // Registering Syncfusion license key
-registerLicense("ORg4AjUWIQA/Gnt2VlhhQlVHfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hSn9Sd0djUX5cdXJcRWBY");
-
+registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY);
 export const router = createBrowserRouter(
 	[
 		{
@@ -96,4 +95,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 		</ContextProvider>
 	</React.StrictMode>
 );
-

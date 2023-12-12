@@ -30,115 +30,50 @@
 
 <br>
 <hr>
-<!-- <a title="Check Lighthouse out" target="_blank" href="https://github.com/GoogleChrome/lighthouse"><img alt="Lighthouse Average Results" width="275" src="https://img.shields.io/badge/Lighthouse-Average_Results-2A2E30.svg?logo=lighthouse&cacheSeconds=3600" /></a><br>
 
-<img width="700" src="lighthouse_results/desktop/pagespeed.svg" /><br> -->
+<a title="Check Lighthouse out" target="_blank" href="https://github.com/GoogleChrome/lighthouse"><img alt="Lighthouse Average Results" width="275" src="https://img.shields.io/badge/Lighthouse-Average_Results-2A2E30.svg?logo=lighthouse&cacheSeconds=3600" /></a><br>
 
+<img width="700" src="lighthouse_results/desktop/pagespeed.svg" />
+<br>
 </div>
 
 ![link](https://i.imgur.com/ZvvOUzQ.png)
 
-
-#
-
-![Astralyn Dashboard Screenshot](link_to_dashboard_screenshot.png)
-
-
--
 ### Built With
 
-  ![HTML5](https://img.shields.io/badge/html5-%231572B6.svg?style=for-the-badge&logo=html5&logoColor=white)
-  ![SASS](https://img.shields.io/badge/sass-%237e2a3d.svg?style=for-the-badge&logo=sass&logoColor=ff577b)
-  ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-  ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
-  ![Syncfusion](https://img.shields.io/badge/Syncfusion-113451?style=for-the-badge&logo=syncfusion&&logoColor=113451&)
-  ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
-  ![Leaflet Map](https://img.shields.io/badge/Leaflet_Map-41B883?style=for-the-badge)
-
+- ![HTML5](https://img.shields.io/badge/html5-%231572B6.svg?style=for-the-badge&logo=html5&logoColor=white)
+- ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+- ![SASS](https://img.shields.io/badge/sass-%237e2a3d.svg?style=for-the-badge&logo=sass&logoColor=ff577b)
+- ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+- ![JOY](https://img.shields.io/badge/JOYUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
+- ![Syncfusion](https://img.shields.io/badge/Syncfusion-113451?style=for-the-badge&logo=syncfusion&&logoColor=113451&)
+- ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+- ![Leaflet Map](https://img.shields.io/badge/Leaflet_Map-41B883?style=for-the-badge)
+- ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 
 ## Features
 
-- Every thing cashed on Local storage
-- Dark/lgiht mode
-- 3 different themes
-- multiple languge ( only english & arabic for this moment)
-- Additional Effects : like rainbow blur bg (new - experimental)
+### Main features
 
-### E-Commerce Section
+- 🚀 Explore 6 Fully Equipped Apps:
+  - Kanban Board
+  - Scheduler for Appointments
+  - Markdown Editor
+  - Diagram Drawer
+  - Expense Tracker
+  - Map Visualization
+- 🔥 3 Dynamic Data Grids: Includes Pagination, Edit/Add/Delete Capabilities, Filtering, Searching and more.
+- 🧪 Interactive Data Visualization
+- ⚡ Exporting Capabilities: Seamlessly Export Charts, Notes, and Table Data to Formats such as PDF, Excel, and CSV.
+- 💻 responsive for all mobile devices
+- 💼 Every thing cashed on Local storage
 
-#### Home Page
+### User Customization Options
 
-- Content statistics about Customers, Products, Sales, Earnings, Budget, and Expenses.
-- Interactive charts (line, bars, financial stock chart).
-- Export theme functionality available in various formats (PDF, etc.).
-- State saved in local storage for seamless continuation.
-
-#### Order Page
-
-- Data grid table displaying orders and products.
-- Features: Edit, Add, Delete, Export (CSV, PDF, Excel), Context Menu, Filters, Sorting, Pagination, etc.
-- Local storage maintains data persistency.
-
-#### Employees Page
-
-- Data grid table presenting employees' list, hierarchy, reporting information, etc.
-
-#### Customers Page
-
-- Data grid table showcasing customer information, projects, status, budget, and more.
-- Feature-rich grid table with edit, add, delete, export functionalities.
-- Utilizes local storage for data persistence.
-
-### Apps Section
-
-#### Scheduler App
-
-- Calendar-based appointment scheduling.
-- Three sections for different employees.
-- Note-taking capability with reminders, repeats, tags, and more.
-- Local storage saves notes and appointments.
-
-#### Kanban App
-
-- Kanban board with columns (todo, in progress, in review, done).
-- Drag-and-drop functionality for cards.
-- Extensive card management features.
-- Data saved in local storage.
-
-#### Drawer App
-
-- Allows drawing shapes and interactive diagrams.
-- Shape selection, text addition, and storage in local storage.
-
-#### Markdown Editor
-
-- Markdown editor with preview and formatting options.
-- Save and export functionality available.
-
-### Analytics Section
-
-#### Analytics Page
-
-- Visual charts for stock prices, data range selection, export options, etc.
-- Various indicators and data display options.
-- Utilizes local storage for maintaining states.
-
-#### Tracker Page
-
-- Expense tracking with charts and statistics.
-- Local storage maintains data for better tracking.
-
-#### Map Page
-
-- Leaflet map showing customer locations, search functionalities, etc.
-
-
-
-## Screenshots
-
-Include screenshots of different sections or features here to provide visual context.
-
-
+- 🌓 Dark/lgiht mode (default system)
+- 🎨 3 different themes
+- 🌍 multiple languge ( only english & arabic for this moment , default preferred language)
+- ✨ Additional Effects : like rainbow blur bg (new - experimental)
 
 
 <!-- GETTING STARTED -->
@@ -150,6 +85,7 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
+
 - npm
 
   ```sh
@@ -158,7 +94,10 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Claim your free Community License [here](https://www.syncfusion.com/sales/communitylicense)
+
+> see [syncfusion-documentation-licensing](https://ej2.syncfusion.com/react/documentation/licensing/license-key-generation) for more information about how to register the api
+
 2. Clone the repo
 
    ```sh
@@ -171,13 +110,16 @@ This is an example of how to list things you need to use the software and how to
    npm install
    ```
 
-4. Enter your API in `config.js`
+4. Add your API in `main.js`
 
+> see .env.example  file
    ```js
-   const API_KEY = 'ENTER YOUR API';
+   import { registerLicense } from "@syncfusion/ej2-base";
+    //...
+    // Registering Syncfusion license key
+    registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY);
+
    ```
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -193,12 +135,10 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
 <!-- LICENSE -->
 ## License
 
 Distributed under the GPL3 License. See `LICENSE.txt` for more information.
-
 
 ## Support Me
 
