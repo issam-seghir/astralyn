@@ -68,7 +68,7 @@ export const ContextProvider = ({ children }) => {
 				});
 			}
 		},
-		[languageConfigs, setLanguage, showSnackBar]
+		[languageConfigs, showSnackBar]
 	);
 
 	const handleCheckboxbgBlurAll = useCallback(() => {
