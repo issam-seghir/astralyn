@@ -1,13 +1,13 @@
 /* eslint-disable unicorn/prefer-number-properties */
-import Sidebar from "@jsx/components/layout/SideBare";
 import { useThemeContext } from "@contexts/ContextProvider";
+import Sidebar from "@jsx/components/layout/SideBare";
 import { CardCover } from "@mui/joy";
 import Box from "@mui/joy/Box";
 import GlobalStyles from "@mui/joy/GlobalStyles";
 import Sheet from "@mui/joy/Sheet";
 import { CssVarsProvider } from "@mui/joy/styles";
 import Loading from "@pages/Loading";
-import { HelmetProvider } from "react-helmet-async";
+import { HelmetProvider, Helmet } from "react-helmet-async";
 import { Outlet } from "react-router-dom";
 
 import Header from "@jsx/components/layout/Header";
@@ -24,14 +24,27 @@ function App() {
 	const description = isArabic ? "صفحة الصفحة الرئيسية للتجارة الإلكترونية تقدم إحصائيات حول العملاء والمنتجات والمبيعات والأرباح والميزانية والنفقات." : "The e-commerce home page provides stats on customers, products, sales, earnings, budget, and expenses.";
 	const name = isArabic ? "أسترالين" : "Astralyn";
 	const type = "website";
+	useEffect(() => {
+		if (import.meta.env.PROD) {
+			const link = document.createElement("link");
+			link.rel = "preload";
+			link.href = "assets/inter-latin-400-normal.woff2";
+			link.as = "font";
+			link.type = "font/woff2";
+			link.crossOrigin = "anonymous";
+			document.head.append(link);
+		}
+	}, []);
 
-	  useEffect(() => {
-			initSyncfusionLocalization();
-		}, []);
+	useEffect(() => {
+		initSyncfusionLocalization();
+	}, []);
 
 	return (
 		<CssVarsProvider theme={theme} defaultMode="system">
 			<HelmetProvider>
+				<Helmet>
+				{import.meta.env.PROD && <link rel="preload" href="assets/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />}</Helmet>
 				<GlobalStyles
 					styles={{
 						"svg.icon": {

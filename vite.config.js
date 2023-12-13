@@ -1,5 +1,5 @@
-import million from 'million/compiler';
 import react from "@vitejs/plugin-react";
+import million from "million/compiler";
 import { defineConfig } from "vite";
 import { ViteAliases } from "vite-aliases";
 import svgr from "vite-plugin-svgr";
@@ -35,7 +35,8 @@ export default defineConfig(({ command, mode, ssrBuild }) => ({
 			// "~gerillass": path.resolve(__dirname, "node_modules/gerillass/scss/gerillass.scss"),
 		], */
 	},
-	plugins: [million.vite({ auto: true }), 
+	plugins: [
+		million.vite({ auto: true }),
 		[react()],
 		ViteAliases({
 			dir: "src",
