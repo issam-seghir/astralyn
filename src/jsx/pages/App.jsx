@@ -63,9 +63,9 @@ function App() {
 
 				<Seo title={title} description={description} name={name} type={type} />
 
-				{loading ? (
+				{/* {loading ? (
 					<Loading />
-				) : (
+				) : ( */}
 					<Sheet
 						variant="plain"
 						className={status.bgBlurAll ? "bg-rainbow-blur" : ""}
@@ -163,7 +163,7 @@ function App() {
 							<Outlet />
 						</Box>
 					</Sheet>
-				)}
+				{/* )} */}
 			</HelmetProvider>
 		</CssVarsProvider>
 	);
