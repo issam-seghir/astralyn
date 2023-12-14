@@ -1,7 +1,9 @@
 
 <div align="center">
 
-<h1 align="center" >Astralyn Dashboard 🚀</h1>
+![logo](public/logo/android-chrome-192x192.png)
+
+<h1 align="center" >Astralyn</h1>
 
 ![cntr](https://img.shields.io/github/contributors/issam-seghir/astralyn?color=pink&style=for-the-badge)
 ![pullreQ](https://img.shields.io/github/issues-pr/issam-seghir/astralyn?color=orange&style=for-the-badge)
@@ -16,10 +18,8 @@
 
   "**Astralyn | Your Comprehensive Dashboard Experience**"
 
-- **Astralyn** isn't just a **dashboard**; it's a universe of possibilities within reach—an immersive, feature-rich platform designed to empower your navigation through intricate data landscapes.
-
-- From managing your **e-commerce business** with detailed **data grid** tables and visualization-rich **charts** to accessing full-fledged **applications** like **kanban** **boards**, **schedulers** for appointments, and an **interactive** **map**, Astralyn offers a comprehensive toolkit.
-
+**Astralyn** isn't just a **dashboard**, it's a universe of possibilities within reach—an immersive, feature-rich platform, From managing your **e-commerce business** with **data grid** tables and visualization-rich **charts** to accessing full-fledged **applications** like **kanban** **boards**, **schedulers** for appointments, and an **interactive** **map**, **Astralyn** offers a comprehensive toolkit.
+    <br />
     <br />
     <a href="https://issam-seghir.github.io/astralyn/">View Demo</a>
     .
@@ -46,9 +46,10 @@
 - ![SASS](https://img.shields.io/badge/sass-%237e2a3d.svg?style=for-the-badge&logo=sass&logoColor=ff577b)
 - ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 - ![JOY](https://img.shields.io/badge/JOYUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
-- ![Syncfusion](https://img.shields.io/badge/Syncfusion-113451?style=for-the-badge&logo=syncfusion&&logoColor=113451&)
+- ![Syncfusion](https://custom-icon-badges.demolab.com/badge/syncfusion-113451?style=for-the-badge&logo=syncfusion&&logoColor=113451&)
+- ![million](https://custom-icon-badges.demolab.com/badge/million-%23AF73D8.svg?style=for-the-badge&logo=million&logoColor=white)
 - ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
-- ![Leaflet Map](https://img.shields.io/badge/Leaflet_Map-41B883?style=for-the-badge)
+- ![Leaflet](https://custom-icon-badges.demolab.com/badge/leaflet-41B883?style=for-the-badge&logo=leaflet&&logoColor=113451&)
 - ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 
 ## Features
