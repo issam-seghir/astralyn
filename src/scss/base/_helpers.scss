@@ -1,9 +1,10 @@
 @use "../abstracts" as *;
 
 .bg-rainbow-blur {
-	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' viewBox='0 0 800 800' opacity='0.8'%3E%3Cdefs%3E%3Cfilter id='bbblurry-filter' x='-100%25' y='-100%25' width='400%25' height='400%25' filterUnits='objectBoundingBox' primitiveUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='63' x='0%25' y='0%25' width='100%25' height='100%25' in='SourceGraphic' edgeMode='none' result='blur'%3E%3C/feGaussianBlur%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23bbblurry-filter)'%3E%3Cellipse rx='116' ry='135.5' cx='144.87881738159683' cy='-51.41211597085771' fill='hsl(37, 99%25, 67%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='61.7842351275018' cy='542.4782224247185' fill='hsl(316, 73%25, 52%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='388.1004943847656' cy='401.0468444824219' fill='hsl(185, 100%25, 57%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='685.3463251562432' cy='734.0314054840742' fill='hsl(182, 100%25, 67%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='708.6031671709497' cy='-37.69216600477023' fill='hsl(58, 100%25, 71%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='862.7741759114549' cy='321.918907008468' fill='hsl(325, 100%25, 63%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='18.17140486640284' cy='341.57078622368516' fill='hsl(208, 100%25, 86%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='268.30713089301696' cy='888.15172762071' fill='hsl(286, 100%25, 68%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='504.45758096815155' cy='878.8352250336314' fill='hsl(325, 100%25, 63%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='284.2690156431745' cy='439.9378643154572' fill='hsl(152, 100%25, 70%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='412.2942459048097' cy='-63.048904733063864' fill='hsl(25, 100%25, 64%25)'%3E%3C/ellipse%3E%3C/g%3E%3C/svg%3E") ,  var(--joy-palette-primary-softBg) !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' viewBox='0 0 800 800' opacity='0.8'%3E%3Cdefs%3E%3Cfilter id='bbblurry-filter' x='-100%25' y='-100%25' width='400%25' height='400%25' filterUnits='objectBoundingBox' primitiveUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='63' x='0%25' y='0%25' width='100%25' height='100%25' in='SourceGraphic' edgeMode='none' result='blur'%3E%3C/feGaussianBlur%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23bbblurry-filter)'%3E%3Cellipse rx='116' ry='135.5' cx='144.87881738159683' cy='-51.41211597085771' fill='hsl(37, 99%25, 67%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='61.7842351275018' cy='542.4782224247185' fill='hsl(316, 73%25, 52%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='388.1004943847656' cy='401.0468444824219' fill='hsl(185, 100%25, 57%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='685.3463251562432' cy='734.0314054840742' fill='hsl(182, 100%25, 67%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='708.6031671709497' cy='-37.69216600477023' fill='hsl(58, 100%25, 71%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='862.7741759114549' cy='321.918907008468' fill='hsl(325, 100%25, 63%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='18.17140486640284' cy='341.57078622368516' fill='hsl(208, 100%25, 86%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='268.30713089301696' cy='888.15172762071' fill='hsl(286, 100%25, 68%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='504.45758096815155' cy='878.8352250336314' fill='hsl(325, 100%25, 63%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='284.2690156431745' cy='439.9378643154572' fill='hsl(152, 100%25, 70%25)'%3E%3C/ellipse%3E%3Cellipse rx='116' ry='135.5' cx='412.2942459048097' cy='-63.048904733063864' fill='hsl(25, 100%25, 64%25)'%3E%3C/ellipse%3E%3C/g%3E%3C/svg%3E"),
+		var(--joy-palette-primary-softBg) !important;
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
 }
 
 #rocket {
@@ -15,71 +16,40 @@
 		animation: rock 1.5s infinite;
 	}
 
-	&_head {
+	p &_head {
+		color: rgb(0 238 255 / 54.8%);
 		animation: rock 1.5s infinite;
-		color: rgba(0, 238, 255, 0.548)
 	}
 }
 
-
 .icon.rotate {
-  animation: rotate 3s infinite linear;
+	animation: rotate 3s infinite linear;
 }
-
 
 .text-animate {
 	color: transparent;
-//   background-image: url(https://media.giphy.com/media/7XDEXpdrqmRzpYB5eR/giphy.gif);
-  background-image: url(https://media.giphy.com/media/9JxkPTP3alOykb8PmQ/source.gif);
-//   background-image: url(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDloZzMxa2xzbDU3bzc0MXk4Z2N3M2gzeXhwdnRpZm1mYW9nMGY5ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3q2RgN7WUjeUUXm0/giphy.gif);
-//   background-image: url(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjI1MzA3eXF6Z3B5eG9kY24yemk4dzJ3cGtudTltMHoyZDNiZzBsNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/U3qYN8S0j3bpK/giphy.gif);
-//   background-image: url(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXVneWhvY2VjZ2w1dzA4ZmF5b2Jjbnk2YWQxMmEyOGI4M2Jib2k2ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ohs7RWixV9PpQt5eg/giphy.gif);
-//   background-image: url(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWx3ZjZ2dGsyejlmZXh3NmZzZTM5NHQxejlzM2VmbThlZWw0NGdybiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ov9k1173PdfJWRsoE/giphy.gif);
-//   background-image: url(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWhmczhqNXJ0bGluY3luMmZ0aW1iODJqZ3V5eWh6NHZycnRzMTg3aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/sWFYgYFjHGugleQdO7/giphy.gif);
-	//   background-image: url(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdTNzNm02ZG9sNzFzNXBxNXp3d204bmhtNW8wOGd4OTFkM3R5bGZ5MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1zkaZ0D8FvyXWVyyel/giphy.gif);
-	//   background-image: url(https://media.giphy.com/media/jaOXKCxtBPLieRLI0c/giphy.gif);
-	// background-image: url("https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif");
-	//   background-image: url(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHdpY3R0Z3R0Nm1lZnRsZzVuaXkzZGd4OHBqN3AydjV4Nzl2cjF5diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/kcwgBN6LLJZ82X36lF/giphy.gif);
-//   background-image: url(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWFsOWVjZ2JjMW1xanR1NDQyOXl4a2l5bWtyYmtxMjc0eXA3MHp4NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/SvL3OShXgy790ThNjo/giphy.gif);
-//   background-image: url(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXZnaTBjMHo0eHFtdjA0dGIydXZvOGxxZXJ0NHhuaDJ0c3YycjFvMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/ANCHPxwrr8AsWqEQC5/giphy.gif);
-//   background-image: url(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGd2bmZjOGRvajBndmp3aW5oemFqYmhtYzJ1aW8yMTgzeXM2NjF1ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/NzSUEgbTWB7TW/giphy.gif);
+	background-image: url("@assets/gifs/giphy-downsized-3.gif");
 	background-clip: text;
-		// -webkit-text-stroke-width: 0.3px;
-	// -webkit-text-stroke-color: var(--joy-palette-primary-300);
-	// text-shadow: -3px -3px 13px var(--joy-palette-primary-softBg), 3px 3px 10px #0000004f;
 	background-size: cover;
-	-webkit-text-fill-color: rgba(var(--joy-palette-primary-mainChannel) / 0.7);
+	-webkit-text-fill-color: rgba(var(--joy-palette-primary-mainChannel) / 70%);
 }
 
 html[data-joy-color-scheme="light"] .text-animate {
+	text-shadow: -3px -3px 10px #ffffff0d;
+	// background-image: url("https://c.tenor.com/OPMJAHXKIU0AAAAd/looking-water.gif");
+	// background-image: url("https://c.tenor.com/4rSybJ_qYGsAAAAC/snow.gif");
+	background-image: url("@assets/gifs/snow.gif");
+	background-image: url("@assets/gifs/looking-water.gif");
 	background-repeat: repeat;
 	background-position: center center;
+	background-clip: text;
+	background-clip: text;
+
 	background-size: contain;
-	-webkit-background-clip: text;
-	// background-image: url(https://c.tenor.com/5RKB-LuSHb0AAAAC/fire.gif);
-	// background-image: url(https://i.pinimg.com/originals/5c/c0/d7/5cc0d7bd98a28bdcd8d0916e5db7bd7e.gif);
-	background-image: url(https://c.tenor.com/4rSybJ_qYGsAAAAC/snow.gif);
-	text-shadow: -3px -3px 10px #ffffff0d;
 	-webkit-text-fill-color: #00000042;
 	-webkit-text-stroke-color: var(--joy-palette-primary-500);
 	-webkit-text-stroke-width: 0.3px;
-	background-image: url("https://c.tenor.com/OPMJAHXKIU0AAAAd/looking-water.gif");
-	background-clip: text;
-	// text-shadow: -3px -3px 10px var(--joy-palette-primary-softBg), 3px 3px 10px #0000004f;
 }
-
-// .text-animate {
-//     -webkit-text-stroke: 0px #0000004f;
-//     -webkit-text-fill-color: #ffffff1c;
-//     text-shadow: -3px -3px 3px #00000040;
-//     background-repeat: repeat;
-//     background-position: center center;
-//     background-size: contain;
-//     -webkit-text-fill-color: #002e422e;
-//     -webkit-background-clip: text;
-//     background-image: url(https://i.makeagif.com/media/1-10-2018/4oMeP9.gif);
-//     -webkit-text-fill-color: #00e2ff5c;
-// }
 
 
 // html[data-joy-theme="greenEmerald"] {

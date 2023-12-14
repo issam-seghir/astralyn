@@ -1,7 +1,7 @@
 /* eslint-disable unicorn/prefer-query-selector */
 import "@fontsource/inter";
-import "@scss/main.scss";
 
+import "@scss/main.scss";
 import { ContextProvider } from "@contexts/ContextProvider";
 
 import Loading from "@pages/Loading";
