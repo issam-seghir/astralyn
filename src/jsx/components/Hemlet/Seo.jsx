@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-
 export default function Seo({ title, description, name, type }) {
 	return (
 		<Helmet>

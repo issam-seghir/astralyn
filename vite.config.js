@@ -9,6 +9,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => ({
 	// Getting rid of hashes in generated filenames
 	filenameHashing: true,
 	build: {
+		sourcemap: true,
 		// cssMinify: false, // disable CSS minify only
 		// minify: false, // disable CSS/JS minify only
 		// change output location
@@ -35,7 +36,8 @@ export default defineConfig(({ command, mode, ssrBuild }) => ({
 			// "~gerillass": path.resolve(__dirname, "node_modules/gerillass/scss/gerillass.scss"),
 		], */
 	},
-	plugins: [million.vite({ auto: true }),
+	plugins: [
+		million.vite({ auto: true }),
 		[react()],
 		ViteAliases({
 			dir: "src",

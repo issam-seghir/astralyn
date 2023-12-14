@@ -1,0 +1,58 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@assets/*": [
+                "src/assets/*"
+            ],
+            "@jsx/*": [
+                "src/jsx/*"
+            ],
+            "@scss/*": [
+                "src/scss/*"
+            ],
+            "@gifs/*": [
+                "src/assets/gifs/*"
+            ],
+            "@images/*": [
+                "src/assets/images/*"
+            ],
+            "@components/*": [
+                "src/jsx/components/*"
+            ],
+            "@contexts/*": [
+                "src/jsx/contexts/*"
+            ],
+            "@data/*": [
+                "src/jsx/data/*"
+            ],
+            "@pages/*": [
+                "src/jsx/pages/*"
+            ],
+            "@utils/*": [
+                "src/jsx/utils/*"
+            ],
+            "@abstracts/*": [
+                "src/scss/abstracts/*"
+            ],
+            "@base/*": [
+                "src/scss/base/*"
+            ],
+            "@scssComponents/*": [
+                "src/scss/components/*"
+            ],
+            "@utilities/*": [
+                "src/scss/utilities/*"
+            ],
+            "@/*": [
+                "src/*"
+            ],
+            "@Hemlet/*": [
+                "src/jsx/Hemlet/*"
+            ],
+            "@jsxComponentsHemlet/*": [
+                "src/jsx/components/Hemlet/*"
+            ]
+        }
+    }
+}

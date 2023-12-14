@@ -1,13 +1,12 @@
 import { useThemeContext } from "@contexts/ContextProvider";
+import Seo from "@jsx/components/Hemlet/Seo";
+import { value } from "@jsx/data/editor/editor-data";
 import { Browser } from "@syncfusion/ej2-base";
 import { PaneDirective, PanesDirective, SplitterComponent } from "@syncfusion/ej2-react-layouts";
 import { Count, HtmlEditor, Image, Inject, Link, MarkdownEditor, QuickToolbar, RichTextEditorComponent, Table, Toolbar, ToolbarType } from "@syncfusion/ej2-react-richtexteditor";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import * as Marked from "marked";
 import { useId } from "react";
-import { value } from "@jsx/data/editor/editor-data";
-import { Box, CardCover } from "@mui/joy";
-import Seo from "@components/Seo";
 
 function Preview() {
 	const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");

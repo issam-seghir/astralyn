@@ -31,9 +31,9 @@ import { useThemeContext } from "@contexts/ContextProvider";
 import { useMediaQuery } from "@uidotdev/usehooks";
 
 import { expenseData } from "@data/charts/diagram-data";
-import { Box ,CardCover} from "@mui/joy";
+import Seo from "@jsx/components/Hemlet/Seo";
+import { Box } from "@mui/joy";
 import { DateRangePickerComponent } from "@syncfusion/ej2-react-calendars";
-import Seo from "@components/Seo";
 
 
 let shape = { type: "HTML" };

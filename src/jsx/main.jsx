@@ -4,39 +4,27 @@ import "@scss/main.scss";
 
 import { ContextProvider } from "@contexts/ContextProvider";
 
-// import Loading from "@pages/Loading";
-
 import { registerLicense } from "@syncfusion/ej2-base";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import React from "react";
 
-// import Analytics from "@pages/Analytics";
-import App from "@pages/App";
-// import Customers from "@pages/Customers";
-// import Drawer from "@pages/Drawer";
-// import Ecommerce from "@pages/Ecommerce";
-// import Editor from "@pages/Editor";
-// import Employees from "@pages/Employees";
+import App from "@jsx/App";
 import Error from "@pages/Error";
-// import Kanban from "@pages/Kanban";
-// import Map from "@pages/Map";
-// import Orders from "@pages/Orders";
-// import Scheduler from "@pages/Scheduler";
-// import Tracker from "@pages/Tracker";
 
-const LazyLoading = React.lazy(() => import("@pages/Loading"));
-const LazyTracker = React.lazy(() => import("@pages/Tracker"));
-const LazyScheduler = React.lazy(() => import("@pages/Scheduler"));
-const LazyOrders = React.lazy(() => import("@pages/Orders"));
-const LazyMap = React.lazy(() => import("@pages/Map"));
-const LazyKanban = React.lazy(() => import("@pages/Kanban"));
-const LazyEmployees = React.lazy(() => import("@pages/Employees"));
-const LazyEditor = React.lazy(() => import("@pages/Editor"));
-const LazyEcommerce = React.lazy(() => import("@pages/Ecommerce"));
-const LazyDrawer = React.lazy(() => import("@pages/Drawer"));
-const LazyCustomers = React.lazy(() => import("@pages/Customers"));
-const LazyAnalytics = React.lazy(() => import("@pages/Analytics"));
+
+const Loading = React.lazy(() => import("@pages/Loading"));
+const Tracker = React.lazy(() => import("@pages/Tracker"));
+const Scheduler = React.lazy(() => import("@pages/Scheduler"));
+const Orders = React.lazy(() => import("@pages/Orders"));
+const Map = React.lazy(() => import("@pages/Map"));
+const Kanban = React.lazy(() => import("@pages/Kanban"));
+const Employees = React.lazy(() => import("@pages/Employees"));
+const Editor = React.lazy(() => import("@pages/Editor"));
+const Ecommerce = React.lazy(() => import("@pages/Ecommerce"));
+const Drawer = React.lazy(() => import("@pages/Drawer"));
+const Customers = React.lazy(() => import("@pages/Customers"));
+const Analytics = React.lazy(() => import("@pages/Analytics"));
 
 // Registering Syncfusion license key
 registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY);
@@ -49,51 +37,51 @@ export const router = createBrowserRouter(
 			children: [
 				{
 					index: true,
-					element: <LazyEcommerce />,
+					element: <Ecommerce />,
 				},
 				{
 					path: "ecommerce",
-					element: <LazyEcommerce />,
+					element: <Ecommerce />,
 				},
 				{
 					path: "orders",
-					element: <LazyOrders />,
+					element: <Orders />,
 				},
 				{
 					path: "employees",
-					element: <LazyEmployees />,
+					element: <Employees />,
 				},
 				{
 					path: "customers",
-					element: <LazyCustomers />,
+					element: <Customers />,
 				},
 				{
 					path: "scheduler",
-					element: <LazyScheduler />,
+					element: <Scheduler />,
 				},
 				{
 					path: "kanban",
-					element: <LazyKanban />,
+					element: <Kanban />,
 				},
 				{
 					path: "markdawn-editor",
-					element: <LazyEditor />,
+					element: <Editor />,
 				},
 				{
 					path: "drawer",
-					element: <LazyDrawer />,
+					element: <Drawer />,
 				},
 				{
 					path: "analytics",
-					element: <LazyAnalytics />,
+					element: <Analytics />,
 				},
 				{
 					path: "tracker",
-					element: <LazyTracker />,
+					element: <Tracker />,
 				},
 				{
 					path: "map",
-					element: <LazyMap />,
+					element: <Map />,
 				},
 			],
 		},
@@ -104,7 +92,7 @@ export const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
 		<ContextProvider>
-				<RouterProvider router={router} fallbackElement={<LazyLoading />} />
+				<RouterProvider router={router} fallbackElement={<Loading />} />
 		</ContextProvider>
 	</React.StrictMode>
 );

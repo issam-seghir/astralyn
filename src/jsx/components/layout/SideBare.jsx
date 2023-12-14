@@ -16,10 +16,14 @@ import { MdBubbleChart, MdDashboard, MdEditSquare } from "react-icons/md";
 import { useThemeContext } from "@contexts/ContextProvider";
 import { useEffect, useState } from "react";
 import { Link as RouterLink, useLocation } from "react-router-dom";
+import { useMediaQuery } from "@uidotdev/usehooks";
+
 
 export default function SideBare() {
 	const { toggleSideBar, show, status, language } = useThemeContext();
 	const isArabic = language.language === "ar";
+	const isMobileDevice = useMediaQuery("only screen and (max-width : 470px)");
+
 	const location = useLocation();
 	const [selectedItem, setSelectedItem] = useState("");
 	const menuItems = [
@@ -125,7 +129,7 @@ export default function SideBare() {
 							</g>
 						</svg>
 					</Link>
-					<Typography className={"text-animate"} flex={1} level="h2" fontFamily={"Rubik"}>
+					<Typography className={isMobileDevice? "" :  "text-animate"} flex={1} level="h2" fontFamily={"Rubik"}>
 						{isArabic ? "أستراليــن" : "Astralyn"}
 					</Typography>
 				</Box>

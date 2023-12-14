@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
-import Seo from "@components/Seo";
 import { useThemeContext } from "@contexts/ContextProvider";
+import Seo from "@jsx/components/Hemlet/Seo";
 import { cardData } from "@jsx/data/kanban/kanban-data";
 import Box from "@mui/joy/Box";
 import { addClass } from "@syncfusion/ej2-base";

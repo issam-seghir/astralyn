@@ -28,7 +28,7 @@
 
 .text-animate {
 	color: transparent;
-	background-image: url("@assets/gifs/giphy-downsized-3.gif");
+	background-image: url("@assets/gifs/giphy-downsized.gif");
 	background-clip: text;
 	background-size: cover;
 	-webkit-text-fill-color: rgba(var(--joy-palette-primary-mainChannel) / 70%);
@@ -38,7 +38,6 @@ html[data-joy-color-scheme="light"] .text-animate {
 	text-shadow: -3px -3px 10px #ffffff0d;
 	// background-image: url("https://c.tenor.com/OPMJAHXKIU0AAAAd/looking-water.gif");
 	// background-image: url("https://c.tenor.com/4rSybJ_qYGsAAAAC/snow.gif");
-	background-image: url("@assets/gifs/snow.gif");
 	background-image: url("@assets/gifs/looking-water.gif");
 	background-repeat: repeat;
 	background-position: center center;

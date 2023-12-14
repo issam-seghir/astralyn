@@ -1,5 +1,5 @@
-import Seo from "@components/Seo";
 import { useThemeContext } from "@contexts/ContextProvider";
+import Seo from "@jsx/components/Hemlet/Seo";
 import { customersData } from "@jsx/data/data-grid/customersGrid-data.js";
 import { ColumnChooser, ColumnDirective, ColumnsDirective, Edit, Filter, GridComponent, Inject, Page, Selection, Sort, Toolbar } from "@syncfusion/ej2-react-grids";
 import { useMediaQuery } from "@uidotdev/usehooks";

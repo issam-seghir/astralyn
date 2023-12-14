@@ -8,10 +8,10 @@ import "leaflet/dist/leaflet.css";
 import { useEffect } from "react";
 import { Circle, CircleMarker, LayersControl, MapContainer, Marker, Popup, TileLayer, useMap, useMapEvent } from "react-leaflet";
 
-import Seo from "@components/Seo";
 import { useThemeContext } from "@contexts/ContextProvider";
-import { GeoSearchControl, OpenStreetMapProvider } from "leaflet-geosearch";
+import Seo from "@jsx/components/Hemlet/Seo";
 import { useMediaQuery } from "@uidotdev/usehooks";
+import { GeoSearchControl, OpenStreetMapProvider } from "leaflet-geosearch";
 
 const ComponentResize = () => {
 	const map = useMap();

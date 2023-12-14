@@ -1,7 +1,7 @@
-import { ConnectorEditing, DiagramComponent, DiagramTools,DiagramContextMenu, Inject, PortConstraints, PortVisibility, PrintAndExport, SnapConstraints, Snapping, UndoRedo } from "@syncfusion/ej2-react-diagrams";
-import * as React from "react";
 import { useThemeContext } from "@contexts/ContextProvider";
-import Seo from "@components/Seo";
+import Seo from "@jsx/components/Hemlet/Seo";
+import { ConnectorEditing, DiagramComponent, DiagramContextMenu, DiagramTools, Inject, PortConstraints, PortVisibility, PrintAndExport, SnapConstraints, Snapping, UndoRedo } from "@syncfusion/ej2-react-diagrams";
+import * as React from "react";
 
 let shape = [
 	{ shapeName: "BasicShape", shapeId: "Basic" },

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import Seo from "@components/Seo";
 import { useThemeContext } from "@contexts/ContextProvider";
 import { ordersData } from "@data/data-grid/ordersGrid-data";
+import Seo from "@jsx/components/Hemlet/Seo";
 import { ColumnChooser, ColumnDirective, ColumnsDirective, ContextMenu, Edit, ExcelExport, Filter, GridComponent, Inject, Page, PdfExport, Resize, Sort, Toolbar } from "@syncfusion/ej2-react-grids";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import { useId } from "react";

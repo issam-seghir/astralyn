@@ -1,9 +1,9 @@
-import StockChart from "@jsx/components/charts/StockChart";
-import { Box, Button, Card, CardContent, CardCover, Divider, IconButton, List, ListItem, Chip, Sheet } from "@mui/joy";
-import ScatterChart from "@jsx/components/charts/ScatterChart";
-import PolarRadarChart from "@jsx/components/charts/PolarRadarChart";
 import { useThemeContext } from "@contexts/ContextProvider";
-import Seo from "@components/Seo";
+import Seo from "@jsx/components/Hemlet/Seo";
+import PolarRadarChart from "@jsx/components/charts/PolarRadarChart";
+import ScatterChart from "@jsx/components/charts/ScatterChart";
+import StockChart from "@jsx/components/charts/StockChart";
+import { Box, CardCover, Sheet } from "@mui/joy";
 
 function Analytics() {
 		const { language } = useThemeContext();

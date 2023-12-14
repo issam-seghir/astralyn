@@ -1,7 +1,7 @@
-import Seo from "@components/Seo";
 import { useThemeContext } from "@contexts/ContextProvider";
 import * as dataSource from "@data/calander/schedule-data";
 import * as dataSourceAr from "@data/calander/schedule-data-arabic";
+import Seo from "@jsx/components/Hemlet/Seo";
 import { extend } from "@syncfusion/ej2-base";
 import { Day, DragAndDrop, Inject, Month, Resize, ResourceDirective, ResourcesDirective, ScheduleComponent, TimelineViews, ViewDirective, ViewsDirective, WorkWeek } from "@syncfusion/ej2-react-schedule";
 import { useMediaQuery } from "@uidotdev/usehooks";

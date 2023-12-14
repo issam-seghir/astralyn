@@ -7,15 +7,18 @@ import GlobalStyles from "@mui/joy/GlobalStyles";
 import Sheet from "@mui/joy/Sheet";
 import { CssVarsProvider } from "@mui/joy/styles";
 import Loading from "@pages/Loading";
+import LoadingPage from "@pages/LoadingPage";
 import { HelmetProvider } from "react-helmet-async";
 import { Outlet } from "react-router-dom";
 
 import Header from "@jsx/components/layout/Header";
 import SettingsButton from "@jsx/components/ui/SettingsButton";
 
-import Seo from "@components/Seo";
 import { initSyncfusionLocalization } from "@data/localization/syncfusion-localization";
-import { useEffect, Suspense } from "react";
+import Seo from "@jsx/components/Hemlet/Seo";
+import Preload from "@jsx/components/Hemlet/Preload";
+import { Suspense, useEffect } from "react";
+
 
 function App() {
 	const { theme, loading, language, status } = useThemeContext();
@@ -24,17 +27,6 @@ function App() {
 	const description = isArabic ? "صفحة الصفحة الرئيسية للتجارة الإلكترونية تقدم إحصائيات حول العملاء والمنتجات والمبيعات والأرباح والميزانية والنفقات." : "The e-commerce home page provides stats on customers, products, sales, earnings, budget, and expenses.";
 	const name = isArabic ? "أسترالين" : "Astralyn";
 	const type = "website";
-	useEffect(() => {
-		if (import.meta.env.PROD) {
-			const link = document.createElement("link");
-			link.rel = "preload";
-			link.href = "assets/inter-latin-400-normal.woff2";
-			link.as = "font";
-			link.type = "font/woff2";
-			link.crossOrigin = "anonymous";
-			document.head.append(link);
-		}
-	}, []);
 
 	useEffect(() => {
 		initSyncfusionLocalization();
@@ -58,9 +50,10 @@ function App() {
 						},
 					}}
 				/>
-
+				{/* Hemlet : Dynamic HTML header  */}
 				<Seo title={title} description={description} name={name} type={type} />
-
+				<Preload/>
+				
 				{loading ? (
 					<Loading />
 				) : (
@@ -158,7 +151,7 @@ function App() {
 									</g>
 								</svg>
 							</CardCover>
-							<Suspense fallback={<Loading />}>
+							<Suspense fallback={<LoadingPage />}>
 								<Outlet />
 							</Suspense>
 						</Box>
