@@ -15,7 +15,7 @@ import SettingsButton from "@jsx/components/ui/SettingsButton";
 
 import Seo from "@components/Seo";
 import { initSyncfusionLocalization } from "@data/localization/syncfusion-localization";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 
 function App() {
 	const { theme, loading, language, status } = useThemeContext();
@@ -158,7 +158,9 @@ function App() {
 									</g>
 								</svg>
 							</CardCover>
-							<Outlet />
+							<Suspense fallback={<Loading />}>
+								<Outlet />
+							</Suspense>
 						</Box>
 					</Sheet>
 				)}

@@ -4,28 +4,39 @@ import "@scss/main.scss";
 
 import { ContextProvider } from "@contexts/ContextProvider";
 
-import Loading from "@pages/Loading";
+// import Loading from "@pages/Loading";
 
 import { registerLicense } from "@syncfusion/ej2-base";
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import React from "react";
 
-import Analytics from "@pages/Analytics";
+// import Analytics from "@pages/Analytics";
 import App from "@pages/App";
-import Customers from "@pages/Customers";
-import Drawer from "@pages/Drawer";
-import Ecommerce from "@pages/Ecommerce";
-import Editor from "@pages/Editor";
-import Employees from "@pages/Employees";
+// import Customers from "@pages/Customers";
+// import Drawer from "@pages/Drawer";
+// import Ecommerce from "@pages/Ecommerce";
+// import Editor from "@pages/Editor";
+// import Employees from "@pages/Employees";
 import Error from "@pages/Error";
-import Kanban from "@pages/Kanban";
-import Map from "@pages/Map";
-import Orders from "@pages/Orders";
-import Scheduler from "@pages/Scheduler";
-import Tracker from "@pages/Tracker";
+// import Kanban from "@pages/Kanban";
+// import Map from "@pages/Map";
+// import Orders from "@pages/Orders";
+// import Scheduler from "@pages/Scheduler";
+// import Tracker from "@pages/Tracker";
 
+const LazyLoading = React.lazy(() => import("@pages/Loading"));
+const LazyTracker = React.lazy(() => import("@pages/Tracker"));
+const LazyScheduler = React.lazy(() => import("@pages/Scheduler"));
+const LazyOrders = React.lazy(() => import("@pages/Orders"));
+const LazyMap = React.lazy(() => import("@pages/Map"));
+const LazyKanban = React.lazy(() => import("@pages/Kanban"));
+const LazyEmployees = React.lazy(() => import("@pages/Employees"));
+const LazyEditor = React.lazy(() => import("@pages/Editor"));
 const LazyEcommerce = React.lazy(() => import("@pages/Ecommerce"));
+const LazyDrawer = React.lazy(() => import("@pages/Drawer"));
+const LazyCustomers = React.lazy(() => import("@pages/Customers"));
+const LazyAnalytics = React.lazy(() => import("@pages/Analytics"));
 
 // Registering Syncfusion license key
 registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY);
@@ -38,7 +49,7 @@ export const router = createBrowserRouter(
 			children: [
 				{
 					index: true,
-					element: <Ecommerce />,
+					element: <LazyEcommerce />,
 				},
 				{
 					path: "ecommerce",
@@ -46,43 +57,43 @@ export const router = createBrowserRouter(
 				},
 				{
 					path: "orders",
-					element: <Orders />,
+					element: <LazyOrders />,
 				},
 				{
 					path: "employees",
-					element: <Employees />,
+					element: <LazyEmployees />,
 				},
 				{
 					path: "customers",
-					element: <Customers />,
+					element: <LazyCustomers />,
 				},
 				{
 					path: "scheduler",
-					element: <Scheduler />,
+					element: <LazyScheduler />,
 				},
 				{
 					path: "kanban",
-					element: <Kanban />,
+					element: <LazyKanban />,
 				},
 				{
 					path: "markdawn-editor",
-					element: <Editor />,
+					element: <LazyEditor />,
 				},
 				{
 					path: "drawer",
-					element: <Drawer />,
+					element: <LazyDrawer />,
 				},
 				{
 					path: "analytics",
-					element: <Analytics />,
+					element: <LazyAnalytics />,
 				},
 				{
 					path: "tracker",
-					element: <Tracker />,
+					element: <LazyTracker />,
 				},
 				{
 					path: "map",
-					element: <Map />,
+					element: <LazyMap />,
 				},
 			],
 		},
@@ -93,7 +104,7 @@ export const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
 		<ContextProvider>
-			<RouterProvider router={router} fallbackElement={<Loading />} />
+				<RouterProvider router={router} fallbackElement={<LazyLoading />} />
 		</ContextProvider>
 	</React.StrictMode>
 );

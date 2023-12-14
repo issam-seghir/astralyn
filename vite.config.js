@@ -7,19 +7,19 @@ import svgr from "vite-plugin-svgr";
 export default defineConfig(({ command, mode, ssrBuild }) => ({
 	base: "/astralyn/",
 	// Getting rid of hashes in generated filenames
-	filenameHashing: false,
+	filenameHashing: true,
 	build: {
 		// cssMinify: false, // disable CSS minify only
 		// minify: false, // disable CSS/JS minify only
 		// change output location
-		rollupOptions: {
-			output: {
-				manualChunks: undefined,
-				assetFileNames: "assets/[name].[ext]", // Output assets (e.g., images, SVGs) to the assets folder
-				entryFileNames: "assets/[name].js", // Output entry files (e.g., JavaScript) to the root directory
-				chunkFileNames: "assets/[name].[ext]", // Output dynamic imports (chunks) to the assets folder
-			},
-		},
+		// rollupOptions: {
+		// 	output: {
+		// 		manualChunks: undefined,
+		// 		assetFileNames: "assets/[name].[ext]", // Output assets (e.g., images, SVGs) to the assets folder
+		// 		entryFileNames: "assets/[name].js", // Output entry files (e.g., JavaScript) to the root directory
+		// 		chunkFileNames: "assets/[name].[ext]", // Output dynamic imports (chunks) to the assets folder
+		// 	},
+		// },
 	},
 
 	server: {
