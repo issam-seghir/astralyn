@@ -9,18 +9,24 @@ export default defineConfig(({ command, mode, ssrBuild }) => ({
 	// Getting rid of hashes in generated filenames
 	filenameHashing: true,
 	build: {
-		sourcemap: true,
 		// cssMinify: false, // disable CSS minify only
 		// minify: false, // disable CSS/JS minify only
 		// change output location
-		// rollupOptions: {
-		// 	output: {
-		// 		manualChunks: undefined,
-		// 		assetFileNames: "assets/[name].[ext]", // Output assets (e.g., images, SVGs) to the assets folder
-		// 		entryFileNames: "assets/[name].js", // Output entry files (e.g., JavaScript) to the root directory
-		// 		chunkFileNames: "assets/[name].[ext]", // Output dynamic imports (chunks) to the assets folder
-		// 	},
-		// },
+		rollupOptions: {
+			output: {
+				// manualChunks: undefined,
+				// assetFileNames: "assets/[name].[ext]", // Output assets (e.g., images, SVGs) to the assets folder
+				// entryFileNames: "assets/[name].js", // Output entry files (e.g., JavaScript) to the root directory
+				// chunkFileNames: "assets/[name].[ext]", // Output dynamic imports (chunks) to the assets folder
+				// Exclude all GIF files from being hashed
+				assetFileNames: (assetInfo) => {
+					if (assetInfo.name.endsWith(".gif")) {
+						return "[name].[ext]";
+					}
+					return `[name].[hash].[ext]`;
+				},
+			},
+		},
 	},
 
 	server: {

@@ -4,8 +4,11 @@ import { useTheme } from "@mui/joy/styles";
 export default function Preload() {
 	const theme = useTheme();
 	const isDark = theme.palette.mode === "dark";
-	const preloadGifDark = "src/assets/gifs/giphy-downsized.gif";
-	const preloadGifLight = "src/assets/gifs/looking-water.gif";
+	// Define paths based on environment
+	const preloadGifDark = import.meta.env.DEV ? "src/assets/gifs/giphy-downsized.gif" : "giphy-downsized.gif"; // Adjust the paths accordingly for production
+
+	const preloadGifLight = import.meta.env.DEV ? "src/assets/gifs/looking-water.gif" : "looking-water.gif"; // Adjust the paths accordingly for production
+
 	return (
 		<Helmet>
 			<link rel="preload" href={isDark ? preloadGifDark : preloadGifLight} as="image" />
