@@ -35,8 +35,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => ({
 			// "~gerillass": path.resolve(__dirname, "node_modules/gerillass/scss/gerillass.scss"),
 		], */
 	},
-	plugins: [
-		million.vite({ auto: true }),
+	plugins: [million.vite({ auto: true }),
 		[react()],
 		ViteAliases({
 			dir: "src",

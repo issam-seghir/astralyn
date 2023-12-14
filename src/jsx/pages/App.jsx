@@ -7,7 +7,7 @@ import GlobalStyles from "@mui/joy/GlobalStyles";
 import Sheet from "@mui/joy/Sheet";
 import { CssVarsProvider } from "@mui/joy/styles";
 import Loading from "@pages/Loading";
-import { HelmetProvider, Helmet } from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
 import { Outlet } from "react-router-dom";
 
 import Header from "@jsx/components/layout/Header";
@@ -43,8 +43,6 @@ function App() {
 	return (
 		<CssVarsProvider theme={theme} defaultMode="system">
 			<HelmetProvider>
-				<Helmet>
-				{import.meta.env.PROD && <link rel="preload" href="assets/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />}</Helmet>
 				<GlobalStyles
 					styles={{
 						"svg.icon": {
@@ -63,9 +61,9 @@ function App() {
 
 				<Seo title={title} description={description} name={name} type={type} />
 
-				{/* {loading ? (
+				{loading ? (
 					<Loading />
-				) : ( */}
+				) : (
 					<Sheet
 						variant="plain"
 						className={status.bgBlurAll ? "bg-rainbow-blur" : ""}
@@ -163,7 +161,7 @@ function App() {
 							<Outlet />
 						</Box>
 					</Sheet>
-				{/* )} */}
+				)}
 			</HelmetProvider>
 		</CssVarsProvider>
 	);
