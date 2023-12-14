@@ -37,7 +37,9 @@
 <br>
 </div>
 
-![link](https://i.imgur.com/ZvvOUzQ.png)
+<br>
+
+![Alt text](Mockup.png)
 
 ### Built With
 
