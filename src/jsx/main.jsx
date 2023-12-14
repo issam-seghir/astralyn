@@ -1,7 +1,7 @@
 /* eslint-disable unicorn/prefer-query-selector */
 import "@fontsource/inter";
-
 import "@scss/main.scss";
+
 import { ContextProvider } from "@contexts/ContextProvider";
 
 import Loading from "@pages/Loading";
@@ -25,6 +25,8 @@ import Orders from "@pages/Orders";
 import Scheduler from "@pages/Scheduler";
 import Tracker from "@pages/Tracker";
 
+const LazyEcommerce = React.lazy(() => import("@pages/Ecommerce"));
+
 // Registering Syncfusion license key
 registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY);
 export const router = createBrowserRouter(
@@ -40,7 +42,7 @@ export const router = createBrowserRouter(
 				},
 				{
 					path: "ecommerce",
-					element: <Ecommerce />,
+					element: <LazyEcommerce />,
 				},
 				{
 					path: "orders",
