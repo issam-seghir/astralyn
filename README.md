@@ -68,14 +68,14 @@
 - 🔥 3 Dynamic Data Grids: Includes Pagination, Edit/Add/Delete Capabilities, Filtering, Searching and more.
 - 🧪 Interactive Data Visualization
 - ⚡ Exporting Capabilities: Seamlessly Export Charts, Notes, and Table Data to Formats such as PDF, Excel, and CSV.
-- 💻 responsive for all mobile devices
-- 💼 Every thing cashed on Local storage
+- 💻 Responsive for all mobile devices
+- 💼 Everything cashed on Local storage
 
 ### User Customization Options
 
-- 🌓 Dark/lgiht mode (default system)
+- 🌓 Dark/light mode (default system)
 - 🎨 3 different themes
-- 🌍 multiple languge ( only english & arabic for this moment , default preferred language)
+- 🌍 Multiple languages ( only English & Arabic for this moment , default preferred language)
 - ✨ Additional Effects : like rainbow blur bg (new - experimental)
 
 <!-- GETTING STARTED -->
@@ -144,5 +144,5 @@ Distributed under the GPL3 License. See `LICENSE.txt` for more information.
 
 ## Support Me
 
-<a href="https://www.buymeacoffee.com/issam.seghir" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy ma A Coffee" style="width: 174px !important;height: 41px !important;box-shadow: 0 3px 2px 0 rgb(190 190 190 / 50%) !important;" ></a>
+<a href="https://www.buymeacoffee.com/issam.seghir" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy me A Coffee" style="width: 174px !important;height: 41px !important;box-shadow: 0 3px 2px 0 rgb(190 190 190 / 50%) !important;" ></a>
 </div>
