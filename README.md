@@ -142,6 +142,12 @@ Don't forget to give the project a star! Thanks again!
 
 Distributed under the GPL3 License. See `LICENSE.txt` for more information.
 
+## State
+
+[![Stargazers over time](https://starchart.cc/issam-seghir/astralyn.svg?variant=adaptive)](https://starchart.cc/issam-seghir/astralyn)
+
+
+
 ## Support Me
 
 <a href="https://www.buymeacoffee.com/issam.seghir" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy me A Coffee" style="width: 174px !important;height: 41px !important;box-shadow: 0 3px 2px 0 rgb(190 190 190 / 50%) !important;" ></a>
