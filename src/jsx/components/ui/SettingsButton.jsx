@@ -28,7 +28,6 @@ function SettingsButton() {
 							insetInlineEnd: "93%",
 							insetBlockStart: "93%",
 							zIndex: 1002,
-							top: "initial",
 						},
 					}}
 					onClick={() => setShowSettings(() => !showSettings)}
