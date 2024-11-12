@@ -39,7 +39,10 @@
 
 <br>
 
-![Alt text](Mockup.png)
+![Alt text](mockup-old.png)
+
+![alt text](mockup-desktop.png)
+![alt text](mockup-mobile.png)
 
 ### Built With
 
