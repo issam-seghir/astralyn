@@ -25,7 +25,9 @@ function SettingsButton() {
 							top: 4,
 						},
 						[theme.breakpoints.up("md")]: {
-							bottom: 4,
+							insetInlineEnd: "93%",
+							insetBlockStart: "95%",
+							zIndex: 1002,
 							top: "initial",
 						},
 					}}
