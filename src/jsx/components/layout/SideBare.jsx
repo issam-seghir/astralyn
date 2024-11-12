@@ -89,7 +89,6 @@ export default function SideBare() {
 				sx={{
 					display: "flex",
 					alignSelf: "stretch",
-					justifyContent: "space-between",
 					flexDirection: "column",
 					width: "15rem",
 					flexBasis: "auto",
@@ -138,6 +137,7 @@ export default function SideBare() {
 				<List
 					size="md"
 					sx={{
+						flexGrow: 0,
 						justifyContent: "space-between",
 						"--List-gap": "9px",
 						"--ListItem-radius": "7px",
