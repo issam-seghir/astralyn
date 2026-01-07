@@ -75,7 +75,7 @@
 		"@syncfusion/ej2-react-richtexteditor": "^23.1.43",
 		"@syncfusion/ej2-react-schedule": "^23.1.40",
 		"@uidotdev/usehooks": "^2.4.1",
-		"cldr-data": "^36.0.1",
+		"cldr-data": "^36.0.4",
 		"leaflet": "^1.9.4",
 		"leaflet-geosearch": "^3.11.0",
 		"leaflet.fullscreen": "^3.0.0",
