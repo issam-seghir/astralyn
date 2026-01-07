@@ -25,7 +25,7 @@
 	"devDependencies": {
 		"@types/react": "^18.2.15",
 		"@types/react-dom": "^18.2.7",
-		"@vitejs/plugin-react": "^4.0.3",
+		"@vitejs/plugin-react": "^4.7.0",
 		"eslint": "^8.53.0",
 		"eslint-config-airbnb": "^19.0.4",
 		"eslint-config-prettier": "^9.0.0",
@@ -74,7 +74,7 @@
 		"@syncfusion/ej2-react-richtexteditor": "^23.1.43",
 		"@syncfusion/ej2-react-schedule": "^23.1.40",
 		"@uidotdev/usehooks": "^2.4.1",
-		"cldr-data": "^36.0.1",
+		"cldr-data": "^36.0.4",
 		"leaflet": "^1.9.4",
 		"leaflet-geosearch": "^3.11.0",
 		"leaflet.fullscreen": "^3.0.0",
