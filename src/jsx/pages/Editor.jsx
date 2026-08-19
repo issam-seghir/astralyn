@@ -5,7 +5,7 @@ import { Browser } from "@syncfusion/ej2-base";
 import { PaneDirective, PanesDirective, SplitterComponent } from "@syncfusion/ej2-react-layouts";
 import { Count, HtmlEditor, Image, Inject, Link, MarkdownEditor, QuickToolbar, RichTextEditorComponent, Table, Toolbar, ToolbarType } from "@syncfusion/ej2-react-richtexteditor";
 import { useMediaQuery } from "@uidotdev/usehooks";
-import * as Marked from "marked";
+import { marked } from "marked";
 import { useId } from "react";
 
 function Preview() {
@@ -31,7 +31,7 @@ function Preview() {
 	};
 
 	// Set options
-	Marked.use({
+	marked.use({
 		gfm: true,
 		breaks: true,
 	});
@@ -48,7 +48,7 @@ function Preview() {
 		rteObj.refreshUI();
 	}
 	function updateValue() {
-		srcArea.innerHTML = Marked.marked(rteObj.contentModule.getEditPanel().value);
+		srcArea.innerHTML = marked.parse(rteObj.contentModule.getEditPanel().value);
 	}
 	function updateOrientation() {
 		if (Browser.isDevice) {

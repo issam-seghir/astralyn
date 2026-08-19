@@ -9,7 +9,7 @@ import { CssVarsProvider } from "@mui/joy/styles";
 import Loading from "@pages/Loading";
 import LoadingPage from "@pages/LoadingPage";
 import { HelmetProvider } from "react-helmet-async";
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router";
 
 import Header from "@jsx/components/layout/Header";
 import SettingsButton from "@jsx/components/ui/SettingsButton";

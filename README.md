@@ -52,7 +52,6 @@
 - ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 - ![JOY](https://img.shields.io/badge/JOYUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
 - ![Syncfusion](https://custom-icon-badges.demolab.com/badge/syncfusion-113451?style=for-the-badge&logo=syncfusion&&logoColor=113451&)
-- ![million](https://custom-icon-badges.demolab.com/badge/million-%23AF73D8.svg?style=for-the-badge&logo=million&logoColor=white)
 - ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 - ![Leaflet](https://custom-icon-badges.demolab.com/badge/leaflet-41B883?style=for-the-badge&logo=leaflet&&logoColor=256b4c&)
 - ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
@@ -89,12 +88,12 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
+- Node.js 24 or later (see `.nvmrc`)
+- [pnpm](https://pnpm.io/) 10
 
   ```sh
-  npm install npm@latest -g
+  corepack enable
+  corepack prepare pnpm@10.33.0 --activate
   ```
 
 ### Installation
@@ -109,10 +108,10 @@ This is an example of how to list things you need to use the software and how to
    git clone https://github.com/github_username/repo_name.git
    ```
 
-3. Install NPM packages
+3. Install packages
 
    ```sh
-   npm install
+   pnpm install
    ```
 
 4. Add your API in `main.js`

@@ -1,7 +1,7 @@
 import { useThemeContext } from "@contexts/ContextProvider";
-import DensityMediumIcon from "@mui/icons-material/DensityMedium";
 import Box from "@mui/joy/Box";
 import IconButton from "@mui/joy/IconButton";
+import { MdDensityMedium } from "react-icons/md";
 
 export default function Header() {
 	const { toggleSideBar } = useThemeContext();
@@ -34,7 +34,7 @@ export default function Header() {
 					transition: "transform 0.4s, width 0.4s",
 				}}
 			>
-				<DensityMediumIcon />
+				<MdDensityMedium />
 			</IconButton>
 		</Box>
 	);

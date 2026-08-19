@@ -1,38 +1,33 @@
-import million from "million/compiler";
 import react from "@vitejs/plugin-react";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
-import { fileURLToPath } from "node:url";
-import { dirname, resolve } from "node:path";
-// import path from "path";
-export default defineConfig(({ command, mode, ssrBuild }) => ({
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export default defineConfig({
 	base: "/astralyn/",
-	// Getting rid of hashes in generated filenames
-	filenameHashing: true,
 	build: {
-		// cssMinify: false, // disable CSS minify only
-		// minify: false, // disable CSS/JS minify only
-		// change output location
 		rollupOptions: {
 			output: {
-				// manualChunks: undefined,
-				// assetFileNames: "assets/[name].[ext]", // Output assets (e.g., images, SVGs) to the assets folder
-				// entryFileNames: "assets/[name].js", // Output entry files (e.g., JavaScript) to the root directory
-				// chunkFileNames: "assets/[name].[ext]", // Output dynamic imports (chunks) to the assets folder
-				// Exclude all GIF files from being hashed
 				assetFileNames: (assetInfo) => {
-					if (assetInfo.name.endsWith(".gif")) {
-						return "[name].[ext]";
+					if (assetInfo.names?.some((name) => name.endsWith(".gif")) || assetInfo.name?.endsWith(".gif")) {
+						return "[name][extname]";
 					}
-					return `[name].[hash].[ext]`;
+					return `[name].[hash][extname]`;
 				},
 			},
 		},
 	},
-
-	server: {
-		// open the server with google chrome browser
-		// open: (process.env.BROWSER = "E:\\Apps\\scoop\\apps\\googlechrome-dev\\current\\chrome.exe"),
+	css: {
+		preprocessorOptions: {
+			scss: {
+				loadPaths: [resolve(__dirname, "node_modules")],
+				silenceDeprecations: ["import", "if-function", "global-builtin"],
+			},
+		},
 	},
 	resolve: {
 		alias: {
@@ -45,28 +40,13 @@ export default defineConfig(({ command, mode, ssrBuild }) => ({
 			"@data": resolve(__dirname, "src/jsx/data"),
 			"@utils": resolve(__dirname, "src/jsx/utils"),
 			"@assets": resolve(__dirname, "src/assets"),
-			"~gerillass": resolve(__dirname, "node_modules/gerillass/scss/gerillass.scss"),
+			"~gerillass": resolve(__dirname, "node_modules/gerillass/scss/_gerillass.scss"),
 		},
 	},
-	// resolve: {
-	// 	extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
-	// 	// ! dont forget to import path
-	// 	/* 		alias: [
-	// 		// { find: "@scss", replacement: path.resolve(__dirname, "src/scss") },
-	// 		// { find: "@", replacement: path.resolve(__dirname, "./src") },
-	// 		// "~gerillass": path.resolve(__dirname, "node_modules/gerillass/scss/gerillass.scss"),
-	// 	], */
-	// },
 	plugins: [
-		million.vite({ auto: true }),
-		[react()],
+		react(),
 		svgr({
-			// svgr options: https://react-svgr.com/docs/options/
-			svgrOptions: {
-				// ...
-			},
-			// A minimatch pattern, or array of patterns, which specifies the files in the build the plugin should include.
 			include: "**/*.svg",
 		}),
 	],
-}));
+});

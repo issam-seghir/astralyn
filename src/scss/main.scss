@@ -5,7 +5,7 @@
 @layer abstracts,base ,components ,utilities;
 
 // * Third party mixins
-@import "gerillass";
+@import "gerillass/scss/gerillass";
 @import "@syncfusion/ej2/material3-dark.css";
 
 @layer abstracts {

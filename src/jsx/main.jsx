@@ -5,26 +5,26 @@ import "@scss/main.scss";
 import { ContextProvider } from "@contexts/ContextProvider";
 
 import { registerLicense } from "@syncfusion/ej2-base";
-import ReactDOM from "react-dom/client";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import React from "react";
+import { StrictMode, lazy } from "react";
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter } from "react-router";
+import { RouterProvider } from "react-router/dom";
 
 import App from "@jsx/App";
 import Error from "@pages/Error";
 
 
-const Loading = React.lazy(() => import("@pages/Loading"));
-const Tracker = React.lazy(() => import("@pages/Tracker"));
-const Scheduler = React.lazy(() => import("@pages/Scheduler"));
-const Orders = React.lazy(() => import("@pages/Orders"));
-const Map = React.lazy(() => import("@pages/Map"));
-const Kanban = React.lazy(() => import("@pages/Kanban"));
-const Employees = React.lazy(() => import("@pages/Employees"));
-const Editor = React.lazy(() => import("@pages/Editor"));
-const Ecommerce = React.lazy(() => import("@pages/Ecommerce"));
-const Drawer = React.lazy(() => import("@pages/Drawer"));
-const Customers = React.lazy(() => import("@pages/Customers"));
-const Analytics = React.lazy(() => import("@pages/Analytics"));
+const Tracker = lazy(() => import("@pages/Tracker"));
+const Scheduler = lazy(() => import("@pages/Scheduler"));
+const Orders = lazy(() => import("@pages/Orders"));
+const Map = lazy(() => import("@pages/Map"));
+const Kanban = lazy(() => import("@pages/Kanban"));
+const Employees = lazy(() => import("@pages/Employees"));
+const Editor = lazy(() => import("@pages/Editor"));
+const Ecommerce = lazy(() => import("@pages/Ecommerce"));
+const Drawer = lazy(() => import("@pages/Drawer"));
+const Customers = lazy(() => import("@pages/Customers"));
+const Analytics = lazy(() => import("@pages/Analytics"));
 
 // Registering Syncfusion license key
 registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY);
@@ -89,10 +89,10 @@ export const router = createBrowserRouter(
 	{ basename: import.meta.env.BASE_URL }
 );
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-	<React.StrictMode>
+createRoot(document.getElementById("root")).render(
+	<StrictMode>
 		<ContextProvider>
-				<RouterProvider router={router} fallbackElement={<Loading />} />
+			<RouterProvider router={router} />
 		</ContextProvider>
-	</React.StrictMode>
+	</StrictMode>
 );

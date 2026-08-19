@@ -107,10 +107,14 @@ export const ContextProvider = ({ children }) => {
 	}, [language]);
 
 	useEffect(() => {
-		window.addEventListener("load", () => {
-			setLoading(false); // Hide the loading screen when the page is fully loaded
-		});
-	});
+		if (document.readyState === "complete") {
+			setLoading(false);
+			return;
+		}
+		const onLoad = () => setLoading(false);
+		window.addEventListener("load", onLoad);
+		return () => window.removeEventListener("load", onLoad);
+	}, []);
 
 	useEffect(() => {
 		// Store the selected theme to local storage

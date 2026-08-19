@@ -1,6 +1,5 @@
 import ModeToggle from "@jsx/components/ui/ModeToggle";
 import { useThemeContext } from "@contexts/ContextProvider";
-import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import { Badge, Chip, Typography, Button, Checkbox } from "@mui/joy";
 import Avatar from "@mui/joy/Avatar";
 import Box from "@mui/joy/Box";
@@ -11,7 +10,7 @@ import RadioGroup from "@mui/joy/RadioGroup";
 import Select, { selectClasses } from "@mui/joy/Select";
 import Sheet from "@mui/joy/Sheet";
 import Snackbar from "@mui/joy/Snackbar";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdCheckCircle, MdKeyboardArrowDown } from "react-icons/md";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import { HiColorSwatch } from "react-icons/hi";
 import { useState } from "react";
@@ -165,7 +164,7 @@ function SettingsSidebar({ showSettings, setShowSettings }) {
 									minWidth: 120,
 								}}
 							>
-								<Radio id={value} value={value} checkedIcon={<CheckCircleRoundedIcon />} />
+								<Radio id={value} value={value} checkedIcon={<MdCheckCircle />} />
 								<HiColorSwatch />
 								<FormLabel sx={{ textTransform: "capitalize" }} htmlFor={value}>
 									{splitCamelCase(value)}

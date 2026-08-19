@@ -1,11 +1,11 @@
 import Toggler from "@jsx/components/ui/Toggler";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import List from "@mui/joy/List";
 import ListItem from "@mui/joy/ListItem";
 import ListItemButton from "@mui/joy/ListItemButton";
 import ListItemContent from "@mui/joy/ListItemContent";
 import ListItemDecorator from "@mui/joy/ListItemDecorator";
 import Typography from "@mui/joy/Typography";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 const NestedListItem = ({ children, title, level, decorator }) => {
 	return (
@@ -17,7 +17,7 @@ const NestedListItem = ({ children, title, level, decorator }) => {
 						<ListItemContent>
 							<Typography level={level}>{title}</Typography>
 						</ListItemContent>
-						<KeyboardArrowDownIcon sx={{ transform: open ? "rotate(180deg)" : "none" }} />
+						<MdKeyboardArrowDown style={{ transform: open ? "rotate(180deg)" : undefined }} />
 					</ListItemButton>
 				)}
 			>

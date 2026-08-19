@@ -2,8 +2,8 @@
 import electricNetworkData from "@data/map/electric-network-algeria.geojson.json";
 import L from "leaflet";
 import "leaflet-geosearch/dist/geosearch.css";
-import "leaflet.fullscreen/Control.FullScreen.css";
-import "leaflet.fullscreen/Control.FullScreen.js";
+import "leaflet.fullscreen";
+import "leaflet.fullscreen/dist/Control.FullScreen.css";
 import "leaflet/dist/leaflet.css";
 import { useEffect } from "react";
 import { Circle, CircleMarker, LayersControl, MapContainer, Marker, Popup, TileLayer, useMap, useMapEvent } from "react-leaflet";
@@ -75,12 +75,10 @@ const HomeButton = () => {
 
 	useMapEvent({
 		dragend() {
-			const { lat: latD, lng: lngD } = map.getCenter();
 			const { lat, lng } = map.getCenter();
+			const movedFromHome = Number(lat.toFixed(5)) !== Number(position[0].toFixed(5)) || Number(lng.toFixed(5)) !== Number(position[1].toFixed(5));
 
-			const checkEqualArrays = [lat, lng] !== [latD.toFixed(5) * 1, lngD.toFixed(5) * 1];
-
-			document.body.classList[checkEqualArrays ? "add" : "remove"]("show-button-home");
+			document.body.classList[movedFromHome ? "add" : "remove"]("show-button-home");
 		},
 	});
 

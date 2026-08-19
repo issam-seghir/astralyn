@@ -1,7 +1,7 @@
 import { useThemeContext } from "@contexts/ContextProvider";
 import { Box, Card, CardContent, CardCover } from "@mui/joy";
 import { CssVarsProvider } from "@mui/joy/styles";
-import { useRouteError } from "react-router-dom";
+import { useRouteError } from "react-router";
 
 export default function ErrorPage() {
 	const error = useRouteError();
