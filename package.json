@@ -82,7 +82,7 @@
 		"@uidotdev/usehooks": "^2.4.1",
 		"cldr-data": "^36.0.4",
 		"leaflet": "^1.9.4",
-		"leaflet-geosearch": "^4.4.0",
+		"leaflet-geosearch": "^5.1.0",
 		"leaflet.fullscreen": "^5.3.3",
 		"marked": "^18.0.10",
 		"react": "^19.2.8",
