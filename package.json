@@ -53,7 +53,7 @@
 		"postcss-markdown": "^2.0.0",
 		"postcss-preset-env": "^11.4.0",
 		"sass": "^1.69.4",
-		"stylelint": "^17.14.1",
+		"stylelint": "^17.16.0",
 		"stylelint-config-clean-order": "^10.0.0",
 		"stylelint-config-html": "^2.0.0",
 		"stylelint-config-standard": "^40.0.0",
