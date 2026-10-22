@@ -52,7 +52,7 @@
 		"postcss-inline-svg": "^6.0.0",
 		"postcss-markdown": "^2.0.0",
 		"postcss-preset-env": "^11.6.1",
-		"sass": "^1.106.1",
+		"sass": "~1.106.0",
 		"stylelint": "^17.14.1",
 		"stylelint-config-clean-order": "^10.0.0",
 		"stylelint-config-html": "^2.0.0",
