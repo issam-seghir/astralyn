@@ -141,6 +141,14 @@ export default defineConfig([
 			"unicorn/prefer-classlist-toggle": "off",
 			"unicorn/no-useless-else": "off",
 			"unicorn/no-unsafe-string-replacement": "off",
+			// unicorn 77 added to recommended as error; flags \uXXXX escapes in Syncfusion sample data.
+			"unicorn/prefer-literal-ascii": "warn",
+			// unicorn 77 added to recommended as error; whitespace-only, Prettier owns formatting.
+			"unicorn/no-leading-empty-lines": "off",
+			// unicorn 77 enabled in recommended (was off) as error.
+			"unicorn/no-asterisk-prefix-in-documentation-comments": "warn",
+			// unicorn 78 widened it to flag a declaration followed by an assignment (#3851).
+			"unicorn/no-immediate-mutation": "warn",
 			"sonarjs/no-unused-vars": "warn",
 			"sonarjs/no-dead-store": "warn",
 			"sonarjs/no-nested-functions": "warn",
