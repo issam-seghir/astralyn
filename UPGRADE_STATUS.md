@@ -119,3 +119,8 @@ Pre-existing issues found (same on 84cbba3, not caused by this campaign):
 - **Syncfusion license banner on every page.** `.env` holds a key from Dec 2023 (v23-era); 84cbba3 moved Syncfusion v23 → v34, so the live site already shows "key and package versions do not match". **Correction to the hold-back note above:** merging v35 would not introduce the banner — a new key is needed either way. Generate a v35 key and merge `upgrade/syncfusion` in the same step.
 - Visit Analytics → leave → switch language: 6 TypeErrors from the unmounted StockChart's RangeNavigator (`cartesianChartRefresh` / `setAttribute` of null).
 - Orders: `showDeleteConfirmDialog` / `showConfirmDialog` passed to a DOM element; Orders/Employees grids: editing enabled without a primary-key column; Tracker: `Highlight` chart module not injected.
+
+## Syncfusion downgraded to 23.2.x (owner decision, 2026-10-22)
+
+The existing license key (Dec 2023) only validates on Syncfusion v23, so main moved 34.2.x → 23.2.x (`~` ranges; 3b1d4ec, merged 9c5fe42). Tested with the real key against production builds: no license banner/popup on any page (v34 showed it on all ten Syncfusion pages), same component counts, no new errors; grid sort/paging, scheduler views, markdown preview and Arabic RTL all work on React 19. verify PASS, audit unchanged (1, braces).
+Caveat: v23 predates React 19 and isn't officially built for it. Any future Syncfusion upgrade needs a matching new key — get a v35 Community License key, update `.env` + the `SYNCFUSION_LICENSE_KEY` secret, then merge `upgrade/syncfusion` (still on its branch).
