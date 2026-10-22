@@ -10,7 +10,7 @@ const __dirname = dirname(__filename);
 export default defineConfig({
 	base: "/astralyn/",
 	build: {
-		rollupOptions: {
+		rolldownOptions: {
 			output: {
 				assetFileNames: (assetInfo) => {
 					if (assetInfo.names?.some((name) => name.endsWith(".gif")) || assetInfo.name?.endsWith(".gif")) {
