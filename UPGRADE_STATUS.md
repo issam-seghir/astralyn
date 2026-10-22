@@ -107,3 +107,15 @@ Transitive fixes via scoped `pnpm.overrides`: axios, follow-redirects, brace-exp
 
 ### Not verified (no tests, no dev server)
 Runtime click-through: route navigation, Editor markdown preview, HMR in `pnpm dev`.
+
+## End-to-end check (2026-10-22, Playwright against the owner's dev server on :5174)
+
+All passed on `main` (a1eaeb2):
+- All 11 routes render with no uncaught errors or failed requests; sidebar navigation is client-side (no reloads).
+- Orders grid sort (asc/desc) and paging; Editor live markdown preview (headings, lists, GFM table, autolink, fenced code); English ⇄ Arabic switch (RTL, localized grid/pager/titles); map search (OSM suggestions, zoom + marker); React Fast Refresh (edit applied in place, no reload; edit reverted).
+- Production builds of 84cbba3 (pre-campaign) and main, compared page by page: identical console output and DOM counts on all 11 routes.
+
+Pre-existing issues found (same on 84cbba3, not caused by this campaign):
+- **Syncfusion license banner on every page.** `.env` holds a key from Dec 2023 (v23-era); 84cbba3 moved Syncfusion v23 → v34, so the live site already shows "key and package versions do not match". **Correction to the hold-back note above:** merging v35 would not introduce the banner — a new key is needed either way. Generate a v35 key and merge `upgrade/syncfusion` in the same step.
+- Visit Analytics → leave → switch language: 6 TypeErrors from the unmounted StockChart's RangeNavigator (`cartesianChartRefresh` / `setAttribute` of null).
+- Orders: `showDeleteConfirmDialog` / `showConfirmDialog` passed to a DOM element; Orders/Employees grids: editing enabled without a primary-key column; Tracker: `Highlight` chart module not injected.
