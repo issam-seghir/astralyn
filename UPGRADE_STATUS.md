@@ -124,3 +124,13 @@ Pre-existing issues found (same on 84cbba3, not caused by this campaign):
 
 The existing license key (Dec 2023) only validates on Syncfusion v23, so main moved 34.2.x → 23.2.x (`~` ranges; 3b1d4ec, merged 9c5fe42). Tested with the real key against production builds: no license banner/popup on any page (v34 showed it on all ten Syncfusion pages), same component counts, no new errors; grid sort/paging, scheduler views, markdown preview and Arabic RTL all work on React 19. verify PASS, audit unchanged (1, braces).
 Caveat: v23 predates React 19 and isn't officially built for it. Any future Syncfusion upgrade needs a matching new key — get a v35 Community License key, update `.env` + the `SYNCFUSION_LICENSE_KEY` secret, then merge `upgrade/syncfusion` (still on its branch).
+
+## Full end-to-end re-test on main (4988d31, Syncfusion 23.2.6) — 2026-10-24
+
+Playwright against the owner's dev server (:5173). All passed, no uncaught errors:
+- 11 routes at 1440px and 390px: no license banner, no errors or failed requests, no horizontal scroll; phone menu opens and navigates.
+- Orders: sort asc/desc, paging (next/last/first), Excel filter (65 → 5 matching rows) and clear. Employees: toolbar search on field columns (63 → 9) and clear. Customers: add / edit / delete via dialog (40 → 41 → 40).
+- Scheduler: Day / Work Week / Month / Timeline Week / Today; quick popup; editor opens, validation enforced, save applies to all grouped attendees; resize. Kanban: card drag to another column. Drawer: draw a shape. Tracker diagram + charts; Ecommerce charts; Analytics stock-chart period buttons.
+- Markdown preview (GFM table, task list, autolink); English ⇄ Arabic RTL; 3 themes; dark mode; blur toggles; map search (zoom 7 → 13); React Fast Refresh (edit reverted).
+
+Pre-existing behaviour (same on the v34 build, not regressions): Employees search can't find names (the Employee column is a template without a `field`); dark-mode toggle needs two clicks the first time (it starts in "system" and the toggle only checks for "light"); the phone menu stays open after navigating; a GIF preload warning on phone widths.
