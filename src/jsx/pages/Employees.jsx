@@ -34,9 +34,9 @@ const Employees = () => {
 		);
 	};
 	const employeesColumns = [
-		{ headerText: isArabic ? "موظف" : "Employee", template: gridEmployeeProfile, textAlign: "Center", width: "150" },
+		{ field: "Name", headerText: isArabic ? "موظف" : "Employee", template: gridEmployeeProfile, textAlign: "Center", width: "150" },
 		{ field: "Title", headerText: isArabic ? "المنصب" : "Designation", editType: "dropdownedit", textAlign: "Center", width: "170" },
-		{ headerText: isArabic ? "دولة" : "Country", template: gridEmployeeCountry, textAlign: "Center", width: "120" },
+		{ field: "Country", headerText: isArabic ? "دولة" : "Country", template: gridEmployeeCountry, textAlign: "Center", width: "120" },
 		{ field: "HireDate", headerText: isArabic ? "موعد التوظيف" : "Hire Date", format: "dd/MM/yyyy", type: "date", editType: "datePickerEdit", textAlign: "Center", width: "135" },
 		{ field: "ReportsTo", headerText: isArabic ? "تقارير لـ" : "Reports To", textAlign: "Center", editType: "dropdownedit", width: "120" },
 		{ field: "EmployeeID", headerText: isArabic ? "معرف ID للموظف" : "Employee ID", textAlign: "Center", width: "125" },
