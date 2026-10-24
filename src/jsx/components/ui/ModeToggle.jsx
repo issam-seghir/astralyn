@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import { BiSolidMoon as DarkModeIcon, BiSun as LightModeIcon } from "react-icons/bi";
 
 export default function ModeToggle() {
-	const { mode, setMode } = useColorScheme();
+	const { mode, systemMode, setMode } = useColorScheme();
+	// "system" is the default mode; resolve it so the first click always flips what's on screen
+	const currentMode = mode === "system" ? systemMode : mode;
 	const [mounted, setMounted] = useState(false);
 
 	// necessary for server-side rendering
@@ -24,10 +26,10 @@ export default function ModeToggle() {
 			variant="outlined"
 			aria-label="Switch between Dark/White mode"
 			onClick={() => {
-				setMode(mode === "light" ? "dark" : "light");
+				setMode(currentMode === "light" ? "dark" : "light");
 			}}
 		>
-			{mode === "light" ? <LightModeIcon className="icon" /> : <DarkModeIcon className="icon" />}
+			{currentMode === "light" ? <LightModeIcon className="icon" /> : <DarkModeIcon className="icon" />}
 		</IconButton>
 	);
 }
