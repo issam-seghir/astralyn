@@ -107,3 +107,6 @@ localhost-key.pem
 *.msm
 *.msp
 *.txz
+
+# Playwright MCP browser-test logs
+.playwright-mcp/
