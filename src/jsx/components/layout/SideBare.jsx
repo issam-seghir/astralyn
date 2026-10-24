@@ -20,7 +20,7 @@ import { useMediaQuery } from "@uidotdev/usehooks";
 
 
 export default function SideBare() {
-	const { toggleSideBar, show, status, language } = useThemeContext();
+	const { toggleSideBar, closeSideBar, show, status, language } = useThemeContext();
 	const isArabic = language.language === "ar";
 	const isMobileDevice = useMediaQuery("only screen and (max-width : 470px)");
 
@@ -60,7 +60,9 @@ export default function SideBare() {
 		// Extract the current pathname and set the selectedItem based on it
 		const path = location.pathname.split("/")[1];
 		setSelectedItem(path || "dashboard");
-	}, [location.pathname]);
+		// On small screens the sidebar overlays the page, so close it after navigating
+		closeSideBar();
+	}, [location.pathname, closeSideBar]);
 	return (
 		<>
 			{/* Overlay background for mobile*/}

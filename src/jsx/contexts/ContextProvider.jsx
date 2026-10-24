@@ -93,6 +93,9 @@ export const ContextProvider = ({ children }) => {
 	const toggleSideBar = useCallback(() => {
 		setSideBar((show) => !show);
 	}, []);
+	const closeSideBar = useCallback(() => {
+		setSideBar(false);
+	}, []);
 
 	const prinBarChartChart = useCallback(() => {
 		BarChartInstance.current.print();
@@ -154,6 +157,7 @@ export const ContextProvider = ({ children }) => {
 			handleCheckboxbgBlurAll,
 			status,
 			toggleSideBar,
+			closeSideBar,
 			BarChartInstance,
 			LineChartInstance,
 			printLineChart,
@@ -176,6 +180,7 @@ export const ContextProvider = ({ children }) => {
 			handleCheckboxbgBlurAll,
 			status,
 			toggleSideBar,
+			closeSideBar,
 			BarChartInstance,
 			LineChartInstance,
 			printLineChart,
